@@ -9,11 +9,7 @@ import Foundation
 
 class HomeViewModel {
     // things that will live here...
-        // text
-            /// screen title
-            /// main image main text
-            /// main image name
-            /// main image subtitle text
+        // home screen model
 
         // item data
             /// price
@@ -22,4 +18,9 @@ class HomeViewModel {
             /// is favorite
             /// is in bag
 
+    // recommended items data 
+    // most popular items data
+    //
+    var headerVM = HeaderViewModel()
+    
 }

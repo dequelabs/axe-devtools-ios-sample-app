@@ -12,4 +12,5 @@ class HomeView: UIView {
     // most popular collection view
     // collections view
     // recommended items carousel view
+    var headerView = HeaderView()
 }
