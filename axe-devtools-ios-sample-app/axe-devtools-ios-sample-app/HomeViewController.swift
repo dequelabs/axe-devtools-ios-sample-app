@@ -9,7 +9,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    var homeView: HomeView = {
+
+    lazy var searchBarView: SearchBarView = {
+        let sbv = SearchBarView()
+        sbv.translatesAutoresizingMaskIntoConstraints = false
+        return sbv
+    }()
+
+    lazy var homeView: HomeView = {
         let hv = HomeView()
         hv.translatesAutoresizingMaskIntoConstraints = false
         return hv
@@ -17,8 +24,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(homeView)
-        homeView.backgroundColor = .orange
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -26,12 +32,27 @@ class HomeViewController: UIViewController {
     }
 
     private func buildView() {
+        self.view.addSubview(searchBarView)
+        self.view.addSubview(homeView)
+
+        updateViewConstraints()
+    }
+
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
 
         NSLayoutConstraint.activate([
-            self.homeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.homeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.homeView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.homeView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            self.searchBarView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            self.searchBarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.searchBarView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            self.searchBarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.homeView.topAnchor.constraint(equalTo: self.searchBarView.bottomAnchor, constant: 16),
+            self.homeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+            self.homeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+         //   self.homeView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
         ])
     }
 }

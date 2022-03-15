@@ -8,9 +8,10 @@
 import UIKit
 
 class HeaderView: UIView {
+
     let viewModel = HeaderViewModel()
 
-    var stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 4
@@ -18,8 +19,10 @@ class HeaderView: UIView {
         return sv
     }()
 
-    var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let iv = UIImageView()
+        let image = UIImage(named: viewModel.imageName)
+        iv.image = image
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
@@ -27,9 +30,10 @@ class HeaderView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = viewModel.title
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textAlignment = .center
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .blue
         return label
     }()
 
@@ -37,8 +41,9 @@ class HeaderView: UIView {
         let label = UILabel()
         label.text = viewModel.subtitle
         label.textColor = .white
+        label.font.withSize(12)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .cyan
         return label
     }()
 
@@ -47,7 +52,6 @@ class HeaderView: UIView {
         b.titleLabel?.text = viewModel.buttonText
         b.titleLabel?.textColor = .white
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = .red
         // don't forget to do the arrow icon next to 'check' text
         return b
     }()
@@ -55,7 +59,6 @@ class HeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildView()
-       // buildStackView()
     }
 
     required init?(coder: NSCoder) {
@@ -63,27 +66,29 @@ class HeaderView: UIView {
     }
 
     private func buildView() {
-        let headerImage = UIImage(named: viewModel.imageName)
-        imageView.image = headerImage
-        backgroundColor = .green
         self.addSubview(imageView)
-       // imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-       // imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24).isActive = true
-       // imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24).isActive = true
-        //imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-
-        buildStackView()
+        self.imageView.addSubview(stackView)
+        self.stackView.addArrangedSubview(titleLabel)
+        self.stackView.addArrangedSubview(subtitleLabel)
+        self.stackView.addArrangedSubview(checkButton)
+        updateConstraints()
     }
 
-    func buildStackView() {
-        self.imageView.addSubview(stackView)
-        stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 50).isActive = true
-            stackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 50).isActive = true
-            stackView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -24).isActive = true
+    override func updateConstraints() {
+        super.updateConstraints()
 
-        self.stackView.addSubview(titleLabel)
-        self.stackView.addSubview(subtitleLabel)
-        self.stackView.addSubview(checkButton)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
 
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 50),
+            stackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -50),
+            stackView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -24),
+            stackView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor)
+        ])
     }
 }
