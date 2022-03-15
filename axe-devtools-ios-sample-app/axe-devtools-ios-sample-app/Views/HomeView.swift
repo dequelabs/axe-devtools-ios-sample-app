@@ -9,18 +9,20 @@ import UIKit
 
 class HomeView: UIView {
     var homeVM = HomeViewModel()
-    var headerView: HeaderView {
+
+    var headerView: HeaderView = {
         let hv = HeaderView()
         hv.translatesAutoresizingMaskIntoConstraints = false
         return hv
-    }
+    }()
 
-   // var mostPopularItemsView = MostPopularItemsView()
+    // var mostPopularItemsView = MostPopularItemsView()
     // collections view
     // recommended items view
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .purple
         buildView()
     }
     
@@ -30,6 +32,12 @@ class HomeView: UIView {
     
     private func buildView() {
         self.addSubview(headerView)
+
+
+    }
+
+        override func updateConstraints() {
+        super.updateConstraints()
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: self.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),

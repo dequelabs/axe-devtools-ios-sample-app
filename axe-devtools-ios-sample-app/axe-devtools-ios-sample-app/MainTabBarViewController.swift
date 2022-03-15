@@ -24,6 +24,8 @@ class MainTabBarViewController: UITabBarController {
                                    title: homeVM.tabTitle,
                                    image: UIImage(named: homeVM.imageName)!)]
     }
+
+
 }
 
 

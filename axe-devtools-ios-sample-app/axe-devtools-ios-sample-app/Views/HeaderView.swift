@@ -10,40 +10,39 @@ import UIKit
 class HeaderView: UIView {
     let viewModel = HeaderViewModel()
 
-    var stackView: UIStackView {
+    var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 4
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
-    }
+    }()
 
-    var image: UIImageView {
-        let image = UIImage(named: viewModel.imageName)
-        let iv = UIImageView(image: image)
+    var imageView: UIImageView = {
+        let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
-    }
+    }()
 
-    var titleLabel: UILabel {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = viewModel.title
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .blue
         return label
-    }
+    }()
 
-    var subtitleLabel: UILabel {
+    lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = viewModel.subtitle
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .cyan
         return label
-    }
+    }()
 
-    var checkButton: UIButton {
+    lazy var checkButton: UIButton = {
         let b = UIButton()
         b.titleLabel?.text = viewModel.buttonText
         b.titleLabel?.textColor = .white
@@ -51,11 +50,12 @@ class HeaderView: UIView {
         b.backgroundColor = .red
         // don't forget to do the arrow icon next to 'check' text
         return b
-    }
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildView()
+       // buildStackView()
     }
 
     required init?(coder: NSCoder) {
@@ -63,27 +63,27 @@ class HeaderView: UIView {
     }
 
     private func buildView() {
-        self.addSubview(image)
-        NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: self.topAnchor, constant: 24),
-            image.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            image.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24),
-           //  image.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        ])
-        buildStackView()
+        let headerImage = UIImage(named: viewModel.imageName)
+        imageView.image = headerImage
+        backgroundColor = .green
+        self.addSubview(imageView)
+       // imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+       // imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24).isActive = true
+       // imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24).isActive = true
+        //imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 
+        buildStackView()
     }
 
-    private func buildStackView() {
-        image.addSubview(stackView)
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: image.leadingAnchor, constant: 50),
-            stackView.trailingAnchor.constraint(equalTo: image.trailingAnchor, constant: 50),
-            stackView.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: -24)
-        ])
+    func buildStackView() {
+        self.imageView.addSubview(stackView)
+        stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 50).isActive = true
+            stackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 50).isActive = true
+            stackView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -24).isActive = true
 
-        self.stackView.addArrangedSubview(titleLabel)
-        self.stackView.addArrangedSubview(subtitleLabel)
-        self.stackView.addArrangedSubview(checkButton)
+        self.stackView.addSubview(titleLabel)
+        self.stackView.addSubview(subtitleLabel)
+        self.stackView.addSubview(checkButton)
+
     }
 }
