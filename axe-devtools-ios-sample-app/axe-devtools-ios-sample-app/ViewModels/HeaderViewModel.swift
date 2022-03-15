@@ -9,7 +9,7 @@ import Foundation
 
 class HeaderViewModel {
 
-    var model = HeaderModel()
+    let model = HeaderModel()
 
     var title: String {
         return model.headerTitle

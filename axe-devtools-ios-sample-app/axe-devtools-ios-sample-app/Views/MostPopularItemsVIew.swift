@@ -8,5 +8,5 @@
 import UIKit
 
 class MostPopularItemsView: UIView {
-
+    let viewModel = MostPopularItemsViewModel()
 }

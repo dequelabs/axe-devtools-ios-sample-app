@@ -15,7 +15,11 @@ class ItemModel {
     var isFavorite: Bool = false
     var isInBag: Bool = false
 
-    init(name: String, imageName: String, price: String, isFavorite: Bool, isInBag: Bool) {
+    init(name: String,
+         imageName: String,
+         price: String,
+         isFavorite: Bool = false,
+         isInBag: Bool = false) {
         self.name = name
         self.imageName = imageName
         self.price = price
