@@ -7,11 +7,26 @@
 
 import UIKit
 
-class HomeViewController: UITabBarController, UITabBarControllerDelegate {
+class HomeViewController: UIViewController {
+
+    var homeView: HeaderView {
+        let hv = HeaderView()
+        hv.translatesAutoresizingMaskIntoConstraints = false
+        return hv
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        buildView()
+    }
 
-        // Do any additional setup after loading the view.
+    private func buildView() {
+        self.view.addSubview(homeView)
+
+        NSLayoutConstraint.activate([
+            self.homeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.homeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.homeView.topAnchor.constraint(equalTo: self.view.topAnchor)
+        ])
     }
 }

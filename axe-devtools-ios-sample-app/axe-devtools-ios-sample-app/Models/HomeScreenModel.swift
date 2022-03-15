@@ -18,4 +18,6 @@ class HomeScreenModel {
     // recommended items model
 
     var headerData = HeaderModel()
+    var tabTitle = "Home"
+    var tabImageName = "Home"
 }

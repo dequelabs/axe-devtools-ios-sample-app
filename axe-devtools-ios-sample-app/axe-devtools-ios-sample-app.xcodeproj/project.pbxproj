@@ -27,6 +27,7 @@
 		F3F31DD627DFDC3800D87988 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DD527DFDC3800D87988 /* ItemModel.swift */; };
 		F3F31DD827DFDE7600D87988 /* HeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DD727DFDE7600D87988 /* HeaderModel.swift */; };
 		F3F31DDA27DFDECF00D87988 /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DD927DFDECF00D87988 /* HeaderViewModel.swift */; };
+		F3F31DDC27E0E4A900D87988 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DDB27E0E4A900D87988 /* MainTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		F3F31DD527DFDC3800D87988 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		F3F31DD727DFDE7600D87988 /* HeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModel.swift; sourceTree = "<group>"; };
 		F3F31DD927DFDECF00D87988 /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
+		F3F31DDB27E0E4A900D87988 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				F3F31D8E27DFD32500D87988 /* AppDelegate.swift */,
 				F3F31D9027DFD32500D87988 /* SceneDelegate.swift */,
+				F3F31DDB27E0E4A900D87988 /* MainTabBarViewController.swift */,
 				F3F31DBE27DFD55300D87988 /* HomeViewController.swift */,
 				F3F31DD427DFDBAD00D87988 /* Models */,
 				F3F31DD327DFDB8900D87988 /* ViewModels */,
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F31DDC27E0E4A900D87988 /* MainTabBarViewController.swift in Sources */,
 				F3F31DCD27DFDA8300D87988 /* HomeScreenModel.swift in Sources */,
 				F3F31DC927DFD9FF00D87988 /* MostPopularModel.swift in Sources */,
 				F3F31DCB27DFDA0E00D87988 /* RecommendedItemsModel.swift in Sources */,

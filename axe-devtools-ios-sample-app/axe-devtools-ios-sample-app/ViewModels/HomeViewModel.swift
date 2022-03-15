@@ -9,7 +9,6 @@ import Foundation
 
 class HomeViewModel {
     // things that will live here...
-        // home screen model
 
         // item data
             /// price
@@ -20,7 +19,15 @@ class HomeViewModel {
 
     // recommended items data 
     // most popular items data
-    //
+
+    private var homeModel = HomeScreenModel()
     var headerVM = HeaderViewModel()
-    
+
+    var tabTitle: String {
+        return homeModel.tabTitle
+    }
+
+    var imageName: String {
+        return homeModel.tabImageName
+    }
 }
