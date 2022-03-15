@@ -1,19 +1,18 @@
 //
-//  CollectionsView.swift
+//  ItemTileView.swift
 //  axe-devtools-ios-sample-app
 //
 //  Created by Kate Owens on 3/15/22.
 //
 
-import Foundation
 import UIKit
 
-class CollectionsView: UIView {
+class ItemTileView: UIView {
+    var viewModel: ItemViewModel
 
-    let viewModel = CollectionsViewModel()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: ItemViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
     }
 
     required init?(coder: NSCoder) {

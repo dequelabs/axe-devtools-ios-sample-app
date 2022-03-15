@@ -16,9 +16,23 @@ class HomeView: UIView {
         return hv
     }()
 
-    // var mostPopularItemsView = MostPopularItemsView()
-    // var collectionsView = CollectionsView()
-    // var recommendedItemsView = RecommendedItemsView()
+    lazy var mostPopularItemsView: MostPopularItemsView = {
+        let mpv = MostPopularItemsView()
+        mpv.translatesAutoresizingMaskIntoConstraints = false
+        return mpv
+    }()
+
+    lazy var collectionsView: CollectionsView = {
+        let cv = CollectionsView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
+    }()
+
+    lazy var recommendedItemsView: RecommendedItemsView = {
+        let riv = RecommendedItemsView()
+        riv.translatesAutoresizingMaskIntoConstraints = false
+        return riv
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +45,9 @@ class HomeView: UIView {
     
     private func buildView() {
         self.addSubview(headerView)
+        self.addSubview(mostPopularItemsView)
+        self.addSubview(collectionsView)
+        self.addSubview(recommendedItemsView)
         updateConstraints()
     }
 
@@ -40,7 +57,13 @@ class HomeView: UIView {
             headerView.topAnchor.constraint(equalTo: self.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            headerView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+
+        NSLayoutConstraint.activate([
+            mostPopularItemsView.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 24),
+            mostPopularItemsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            mostPopularItemsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            mostPopularItemsView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            ])
     }
 }

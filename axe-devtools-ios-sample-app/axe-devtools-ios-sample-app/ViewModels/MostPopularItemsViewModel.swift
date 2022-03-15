@@ -9,9 +9,8 @@ import Foundation
 
 class MostPopularItemsViewModel {
     var title = "Most Popular"
-    private let dataSource = MostPopularItemsDataSource()
 
     lazy var items: [ItemModel] = {
-        return dataSource.items
+        return ItemDataSource().allItems
     }()
 }

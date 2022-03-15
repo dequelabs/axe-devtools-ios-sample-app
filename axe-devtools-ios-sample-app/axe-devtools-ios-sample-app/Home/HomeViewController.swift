@@ -9,7 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-
     lazy var searchBarView: SearchBarView = {
         let sbv = SearchBarView()
         sbv.translatesAutoresizingMaskIntoConstraints = false

@@ -8,20 +8,10 @@
 import Foundation
 
 class HomeViewModel {
-    // things that will live here...
-
-        // item data
-            /// price
-            /// item name
-            /// item photo name
-            /// is favorite
-            /// is in bag
-
-    // recommended items data 
-    // most popular items data
-
     private var homeModel = HomeScreenModel()
     var headerVM = HeaderViewModel()
+    var mostPopularItemsVM = MostPopularItemsViewModel()
+    var collectionsVM = CollectionsViewModel()
 
     var tabTitle: String {
         return homeModel.tabTitle
