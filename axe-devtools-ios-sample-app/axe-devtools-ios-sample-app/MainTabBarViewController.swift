@@ -8,6 +8,10 @@
 import UIKit
 
 class MainTabBarViewController: UITabBarController {
+    lazy var scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        return sv
+    }()
 
     var homeVM = HomeViewModel()
 
@@ -15,7 +19,20 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         tabBar.tintColor = .label
+        buildView()
         setupViewControllers()
+    }
+
+    func buildView() {
+        self.view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            self.scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.scrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        ])
     }
 
     func setupViewControllers() {

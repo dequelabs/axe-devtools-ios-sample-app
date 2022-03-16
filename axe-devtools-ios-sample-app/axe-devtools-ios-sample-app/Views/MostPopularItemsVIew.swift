@@ -37,8 +37,10 @@ class MostPopularItemsView: UIView {
     private func buildView() {
         self.addSubview(sectionTitleLabel)
         self.addSubview(stackView)
+        
         viewModel.items.forEach { item in
-            stackView.addArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
+            self.addSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
+            //stackView.addArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
         }
 
         updateConstraints()
@@ -50,7 +52,6 @@ class MostPopularItemsView: UIView {
         NSLayoutConstraint.activate([
             self.sectionTitleLabel.topAnchor.constraint(equalTo: self.topAnchor),
             self.sectionTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.sectionTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
 
         NSLayoutConstraint.activate([
@@ -59,5 +60,12 @@ class MostPopularItemsView: UIView {
             self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+
+//        NSLayoutConstraint.activate([
+//            self.stackView.topAnchor.constraint(equalTo: self.topAnchor),
+//            self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+//        ])
     }
 }
