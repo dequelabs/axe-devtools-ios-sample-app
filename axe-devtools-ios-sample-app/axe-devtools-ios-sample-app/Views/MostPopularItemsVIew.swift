@@ -37,13 +37,14 @@ class MostPopularItemsView: UIView {
     private func buildView() {
         self.addSubview(sectionTitleLabel)
         self.addSubview(stackView)
-        
-        viewModel.items.forEach { item in
-            self.addSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
-            //stackView.addArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
-        }
-
+        addItemViews()
         updateConstraints()
+    }
+
+    private func addItemViews() {
+        viewModel.items.forEach { item in
+            stackView.addArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
+        }
     }
 
     override func updateConstraints() {
@@ -55,17 +56,10 @@ class MostPopularItemsView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            self.stackView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.stackView.topAnchor.constraint(equalTo: self.sectionTitleLabel.bottomAnchor, constant: 24),
             self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
-
-//        NSLayoutConstraint.activate([
-//            self.stackView.topAnchor.constraint(equalTo: self.topAnchor),
-//            self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-//        ])
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderView: UIView {
+class HomeImageView: UIView {
 
     let viewModel = HeaderViewModel()
 

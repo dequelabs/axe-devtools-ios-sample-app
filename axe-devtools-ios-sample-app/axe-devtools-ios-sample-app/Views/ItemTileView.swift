@@ -23,6 +23,7 @@ class ItemTileView: UIView {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 8
+        sv.backgroundColor = .green
         return sv
     }()
 
@@ -30,6 +31,7 @@ class ItemTileView: UIView {
         let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.spacing = 4
+        sv.backgroundColor = .gray
         return sv
     }()
 
@@ -96,9 +98,10 @@ class ItemTileView: UIView {
 
         NSLayoutConstraint.activate([
             itemImageView.topAnchor.constraint(equalTo: verticalEncapsulatingStack.topAnchor),
-            itemImageView.leadingAnchor.constraint(equalTo: verticalEncapsulatingStack.leadingAnchor),
-            itemImageView.trailingAnchor.constraint(equalTo: verticalEncapsulatingStack.trailingAnchor),
-            itemImageView.centerXAnchor.constraint(equalTo: verticalEncapsulatingStack.centerXAnchor)
+            itemImageView.leadingAnchor.constraint(equalTo: verticalEncapsulatingStack.leadingAnchor, constant: 24),
+            itemImageView.trailingAnchor.constraint(equalTo: verticalEncapsulatingStack.trailingAnchor, constant: 24),
+            itemImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3)
+            //itemImageView.centerXAnchor.constraint(equalTo: verticalEncapsulatingStack.centerXAnchor)
         ])
 
         NSLayoutConstraint.activate([

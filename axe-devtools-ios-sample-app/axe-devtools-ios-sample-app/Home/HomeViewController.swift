@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
     private func buildView() {
         self.view.addSubview(searchBarView)
         self.view.addSubview(homeView)
-        self.view.addSubview(mostPopularItemsView)
+
         updateViewConstraints()
     }
 
@@ -63,9 +63,9 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             self.mostPopularItemsView.topAnchor.constraint(equalTo: self.homeView.bottomAnchor, constant: 32),
             self.mostPopularItemsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.mostPopularItemsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.mostPopularItemsView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            self.mostPopularItemsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
 
+        
         ])
     }
 }
