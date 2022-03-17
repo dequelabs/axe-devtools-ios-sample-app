@@ -14,6 +14,7 @@ class SearchBarView: UIView {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: "chic boutique")
+        iv.contentMode = .scaleAspectFit
         iv.image = image
         return iv
     }()
@@ -51,7 +52,8 @@ class SearchBarView: UIView {
         NSLayoutConstraint.activate([
             self.titleImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
             self.widthAnchor.constraint(equalToConstant: 161),
-            self.titleImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            self.titleImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.titleImageView.heightAnchor.constraint(equalToConstant: 24)
             ])
 
         NSLayoutConstraint.activate([

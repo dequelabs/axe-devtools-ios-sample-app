@@ -42,6 +42,9 @@ class MostPopularItemsView: UIView {
     }
 
     private func addItemViews() {
+        // make a horizontal stack to hold 2 tiles
+        // then put that horizontal stack inside the containing vertical stack
+
         viewModel.items.forEach { item in
             stackView.addArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
         }

@@ -10,8 +10,8 @@ import UIKit
 class HomeView: UIView {
     var homeVM = HomeViewModel()
 
-    lazy var headerView: HeaderView = {
-        let hv = HeaderView()
+    lazy var mainImageView: HomeImageView = {
+        let hv = HomeImageView()
         hv.translatesAutoresizingMaskIntoConstraints = false
         return hv
     }()
@@ -44,23 +44,23 @@ class HomeView: UIView {
     }
     
     private func buildView() {
-        self.addSubview(headerView)
+        self.addSubview(mainImageView)
         self.addSubview(mostPopularItemsView)
-        self.addSubview(collectionsView)
-        self.addSubview(recommendedItemsView)
+      //  self.addSubview(collectionsView)
+      //  self.addSubview(recommendedItemsView)
         updateConstraints()
     }
 
         override func updateConstraints() {
         super.updateConstraints()
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: self.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            mainImageView.topAnchor.constraint(equalTo: self.topAnchor),
+            mainImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            mainImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
 
         NSLayoutConstraint.activate([
-            mostPopularItemsView.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 24),
+            mostPopularItemsView.topAnchor.constraint(equalTo: self.mainImageView.bottomAnchor, constant: 24),
             mostPopularItemsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             mostPopularItemsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             mostPopularItemsView.bottomAnchor.constraint(equalTo: self.bottomAnchor)

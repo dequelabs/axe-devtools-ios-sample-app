@@ -10,6 +10,7 @@ import UIKit
 class MainTabBarViewController: UITabBarController {
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
 
@@ -32,6 +33,9 @@ class MainTabBarViewController: UITabBarController {
             self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             self.scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.scrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            self.scrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+            self.scrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+
         ])
     }
 
