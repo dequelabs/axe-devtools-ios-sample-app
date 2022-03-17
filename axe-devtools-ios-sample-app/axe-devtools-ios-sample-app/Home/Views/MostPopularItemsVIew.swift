@@ -47,7 +47,10 @@ class MostPopularItemsView: UIView {
         // then put that horizontal stack inside the containing vertical stack
         var index = 0
         viewModel.items.forEach { item in
-            // if the current index and next index are..
+            // if the current index and next index are not even %
+            // then create another horizontal stack
+            // put the next 2 items in it
+
             stackView.insertArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)), at: index)
             index+=1
 

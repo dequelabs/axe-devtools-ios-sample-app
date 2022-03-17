@@ -8,22 +8,22 @@
 import Foundation
 
 class CollectionsDataSource {
-    lazy var winterCollection: CollectionsModel = {
-        let winter = CollectionsModel(name: "Winter 2021", imageName: "winter")
+    lazy var winterCollection: CollectionModel = {
+        let winter = CollectionModel(name: "Winter 2021", imageName: "winter")
         return winter
     }()
 
-    lazy var springCollection: CollectionsModel = {
-        let winter = CollectionsModel(name: "Spring 2021", imageName: "spring")
+    lazy var springCollection: CollectionModel = {
+        let winter = CollectionModel(name: "Spring 2021", imageName: "spring")
         return winter
     }()
 
-    lazy var summerCollection: CollectionsModel = {
-        let winter = CollectionsModel(name: "Summer 2021", imageName: "summer")
+    lazy var summerCollection: CollectionModel = {
+        let winter = CollectionModel(name: "Summer 2021", imageName: "summer")
         return winter
     }()
 
-    lazy var allCollections: [CollectionsModel] = {
+    lazy var allCollections: [CollectionModel] = {
         return [winterCollection, springCollection, summerCollection]
     }()
 }

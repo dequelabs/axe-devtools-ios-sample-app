@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CollectionsModel {
+class CollectionModel {
     var name: String
     var imageName: String
 

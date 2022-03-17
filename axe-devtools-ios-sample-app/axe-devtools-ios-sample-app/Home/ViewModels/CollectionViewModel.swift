@@ -7,11 +7,12 @@
 
 import Foundation
 
-class CollectionsViewModel {
+class CollectionViewModel {
     let title = "Collection"
+    
     private let dataSource = CollectionsDataSource()
 
-    lazy var allCollections: [CollectionsModel] = {
+    lazy var allCollections: [CollectionModel] = {
         dataSource.allCollections
     }()
 }

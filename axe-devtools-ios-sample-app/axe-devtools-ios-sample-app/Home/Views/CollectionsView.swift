@@ -10,7 +10,13 @@ import UIKit
 
 class CollectionsView: UIView {
 
-    let viewModel = CollectionsViewModel()
+    let viewModel = CollectionViewModel()
+
+    lazy var imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

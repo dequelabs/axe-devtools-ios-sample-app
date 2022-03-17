@@ -11,7 +11,7 @@ class HomeViewModel {
     private var homeModel = HomeScreenModel()
     var headerVM = HeaderViewModel()
     var mostPopularItemsVM = MostPopularItemsViewModel()
-    var collectionsVM = CollectionsViewModel()
+    var collectionsVM = CollectionViewModel()
 
     var tabTitle: String {
         return homeModel.tabTitle
