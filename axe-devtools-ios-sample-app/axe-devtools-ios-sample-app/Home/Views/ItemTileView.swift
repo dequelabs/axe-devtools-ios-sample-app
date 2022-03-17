@@ -16,12 +16,14 @@ class ItemTileView: UIView {
         iv.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: viewModel.imageName)
         iv.image = image
+        iv.contentMode = .scaleAspectFit
         return iv
     }()
 
     lazy var verticalEncapsulatingStack: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
+        sv.translatesAutoresizingMaskIntoConstraints = false
         sv.spacing = 8
         sv.backgroundColor = .green
         return sv
@@ -100,8 +102,7 @@ class ItemTileView: UIView {
             itemImageView.topAnchor.constraint(equalTo: verticalEncapsulatingStack.topAnchor),
             itemImageView.leadingAnchor.constraint(equalTo: verticalEncapsulatingStack.leadingAnchor, constant: 24),
             itemImageView.trailingAnchor.constraint(equalTo: verticalEncapsulatingStack.trailingAnchor, constant: 24),
-            itemImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3)
-            //itemImageView.centerXAnchor.constraint(equalTo: verticalEncapsulatingStack.centerXAnchor)
+            itemImageView.heightAnchor.constraint(equalToConstant: 180)
         ])
 
         NSLayoutConstraint.activate([
