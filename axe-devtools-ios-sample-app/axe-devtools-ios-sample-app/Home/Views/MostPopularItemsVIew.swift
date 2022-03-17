@@ -20,7 +20,8 @@ class MostPopularItemsView: UIView {
 
     lazy var stackView: UIStackView = {
         let sv = UIStackView()
-        sv.axis = .vertical
+        sv.axis = .horizontal
+        sv.spacing = 24
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
@@ -44,8 +45,13 @@ class MostPopularItemsView: UIView {
     private func addItemViews() {
         // make a horizontal stack to hold 2 tiles
         // then put that horizontal stack inside the containing vertical stack
+        var index = 0
         viewModel.items.forEach { item in
-            stackView.addArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
+            // if the current index and next index are..
+            stackView.insertArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)), at: index)
+            index+=1
+
+           // stackView.addArrangedSubview(ItemTileView(viewModel: ItemViewModel(item: item)))
         }
     }
 
