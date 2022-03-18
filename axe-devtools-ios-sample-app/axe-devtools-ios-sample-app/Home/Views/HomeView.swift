@@ -17,7 +17,8 @@ class HomeView: UIView {
     }()
 
     lazy var mostPopularItemsView: ItemCollectionView = {
-        let mpv = ItemCollectionView()
+        var mpv = ItemCollectionView()
+        mpv.viewModel = MostPopularItemsViewModel()
         mpv.translatesAutoresizingMaskIntoConstraints = false
         return mpv
     }()

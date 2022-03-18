@@ -14,6 +14,7 @@ class MostPopularItemsViewModel {
         return popularItemsModel.allItems
     }()
 
+
     func getItem(atIndex index: Int) -> ItemViewModel {
         return ItemViewModel(item: items[index])
     }

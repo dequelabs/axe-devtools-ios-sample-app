@@ -8,10 +8,9 @@
 import UIKit
 
 class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    let viewModel = MostPopularItemsViewModel()
+    var viewModel = MostPopularItemsViewModel()
     private let reuseIdentifier = "ItemCell"
     private let itemsPerRow: CGFloat = 2
-
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
@@ -30,6 +29,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCollectionViewCell
+        cell.viewModel = ItemCellViewModel(item: viewModel.items[indexPath.item])
         return cell
     }
 

@@ -8,7 +8,11 @@
 import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell {
-    var viewModel: ItemCellViewModel?
+    var viewModel: ItemCellViewModel {
+        didSet {
+            buildCell()
+        }
+    }
 
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
@@ -17,7 +21,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
         return iv
     }()
 
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: ItemCellViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         buildCell()
     }
@@ -27,14 +32,14 @@ class ItemCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func buildCell() {
-        guard let viewModel = self.viewModel else {
-            return
-        }
 
-        imageView.image = UIImage(named: viewModel.imageName)
+
+    private func buildCell() {
         self.addSubview(imageView)
 
+        imageView.image = UIImage(named: viewModel.imageName)
+        print("👻👻👻👻👻 \(viewModel.imageName)")
+        print("👻👻 \(imageView.image)")
         updateConstraints()
     }
 
@@ -45,7 +50,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }
