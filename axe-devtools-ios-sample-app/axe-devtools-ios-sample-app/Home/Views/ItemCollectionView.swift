@@ -8,6 +8,7 @@
 import UIKit
 
 class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // don't forget to add a title for the colleciton view
     var viewModel = MostPopularItemsViewModel()
     private let reuseIdentifier = "ItemCell"
     private let itemsPerRow: CGFloat = 2
@@ -29,25 +30,26 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCollectionViewCell
-        cell.viewModel = ItemCellViewModel(item: viewModel.items[indexPath.item])
+        let item = self.viewModel.items[indexPath.row]
+        cell.viewModel = ItemCellViewModel(item: item)
         return cell
     }
 
-    private let sectionInsets = UIEdgeInsets(top: 50.0,
-                                             left: 20.0,
-                                             bottom: 50.0,
-                                             right: 20.0)
+    private let sectionInsets = UIEdgeInsets(top: 34.0,
+                                             left: 24.0,
+                                             bottom: 32.0,
+                                             right: 24.0)
 
 
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-      let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-      let availableWidth = self.frame.width - paddingSpace
-      let widthPerItem = availableWidth / itemsPerRow
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = self.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
 
-      return CGSize(width: widthPerItem, height: widthPerItem)
+        return CGSize(width: widthPerItem, height: widthPerItem)
     }
 
 }
