@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDelegate {
+class HomeViewController: UIViewController {
 
     lazy var searchBarView: SearchBarView = {
         let sbv = SearchBarView()
@@ -21,16 +21,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         return hv
     }()
 
-//    lazy var mostPopularItemsView: UICollectionView = {
-//        let cv = UICollectionView()
-//        cv.translatesAutoresizingMaskIntoConstraints = false
-//        return cv
-//    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        //self.mostPopularItemsView.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {

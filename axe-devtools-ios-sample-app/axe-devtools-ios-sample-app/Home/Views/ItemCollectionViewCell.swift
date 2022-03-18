@@ -34,7 +34,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
         imageView.image = UIImage(named: viewModel.imageName)
         self.addSubview(imageView)
-        
+
         updateConstraints()
     }
 
