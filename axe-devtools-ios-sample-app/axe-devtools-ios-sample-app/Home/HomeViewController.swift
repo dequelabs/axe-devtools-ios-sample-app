@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDelegate {
 
     lazy var searchBarView: SearchBarView = {
         let sbv = SearchBarView()
@@ -21,9 +21,16 @@ class HomeViewController: UIViewController {
         return hv
     }()
 
+//    lazy var mostPopularItemsView: UICollectionView = {
+//        let cv = UICollectionView()
+//        cv.translatesAutoresizingMaskIntoConstraints = false
+//        return cv
+//    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        //self.mostPopularItemsView.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +58,7 @@ class HomeViewController: UIViewController {
             self.homeView.topAnchor.constraint(equalTo: self.searchBarView.bottomAnchor, constant: 16),
             self.homeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
             self.homeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
-         //   self.homeView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
+            self.homeView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
         ])
     }
 }

@@ -20,4 +20,6 @@ class HomeViewModel {
     var imageName: String {
         return homeModel.tabImageName
     }
+
+    var popularItemCellVMs: [ItemCellViewModel] = []
 }

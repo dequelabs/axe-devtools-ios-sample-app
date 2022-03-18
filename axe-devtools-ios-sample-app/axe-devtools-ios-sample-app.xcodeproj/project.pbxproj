@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */; };
+		F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */; };
+		F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */; };
 		F3A1A66F27E37B4F00E4F0E7 /* HomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */; };
 		F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */; };
 		F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */; };
@@ -61,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
+		F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeImageView.swift; sourceTree = "<group>"; };
 		F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +252,8 @@
 				F3F31DD027DFDB5100D87988 /* MostPopularItemsVIew.swift */,
 				F3EFAC3827E13353004A87C9 /* CollectionsView.swift */,
 				F3EFAC3A27E1339C004A87C9 /* RecommendedItemsView.swift */,
+				F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */,
+				F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 				F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */,
 				F3F31DD927DFDECF00D87988 /* HeaderViewModel.swift */,
 				F3EFAC3227E13302004A87C9 /* CollectionViewModel.swift */,
+				F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */,
 				F3EFAC3427E1331B004A87C9 /* MostPopularItemsViewModel.swift */,
 				F3EFAC3627E13322004A87C9 /* RecommendedItemsViewModel.swift */,
 			);
@@ -408,6 +417,7 @@
 				F3F31DDC27E0E4A900D87988 /* MainTabBarViewController.swift in Sources */,
 				F3F31DCD27DFDA8300D87988 /* HomeScreenModel.swift in Sources */,
 				F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */,
+				F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */,
 				F3F31DC927DFD9FF00D87988 /* MostPopularModel.swift in Sources */,
 				F3F31DCB27DFDA0E00D87988 /* RecommendedItemsModel.swift in Sources */,
 				F3EFAC2D27E10A58004A87C9 /* SearchBarView.swift in Sources */,
@@ -423,6 +433,7 @@
 				F3EFAC4227E13C0B004A87C9 /* ItemTileView.swift in Sources */,
 				F3EFAC2F27E13185004A87C9 /* ItemDataSource.swift in Sources */,
 				F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */,
+				F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */,
 				F3F31DC327DFD5AC00D87988 /* HomeView.swift in Sources */,
 				F3EFAC3327E13302004A87C9 /* CollectionViewModel.swift in Sources */,
 				F3EFAC3527E1331B004A87C9 /* MostPopularItemsViewModel.swift in Sources */,
@@ -431,6 +442,7 @@
 				F3F31DDA27DFDECF00D87988 /* HeaderViewModel.swift in Sources */,
 				F3F31DC727DFD9F000D87988 /* CollectionModel.swift in Sources */,
 				F3A1A67F27E3A57400E4F0E7 /* CatalogModel.swift in Sources */,
+				F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */,
 				F3EFAC4427E13C6C004A87C9 /* ItemViewModel.swift in Sources */,
 				F3F31DBF27DFD55300D87988 /* HomeViewController.swift in Sources */,
 			);
