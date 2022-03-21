@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
             self.homeView.topAnchor.constraint(equalTo: self.searchBarView.bottomAnchor, constant: 16),
             self.homeView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor, constant: 24),
             self.homeView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor, constant: -24),
-            self.homeView.heightAnchor.constraint(equalTo: self.baseScrollView.heightAnchor)
+            self.homeView.bottomAnchor.constraint(equalTo: self.baseScrollView.bottomAnchor)
         ])
     }
 }

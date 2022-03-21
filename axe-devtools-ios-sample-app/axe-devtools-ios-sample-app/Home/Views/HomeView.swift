@@ -23,17 +23,17 @@ class HomeView: UIView {
         return mpv
     }()
 
-    lazy var collectionsView: AllCollectionsView = {
-        let cv = AllCollectionsView()
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        return cv
-    }()
+//    lazy var collectionsView: AllCollectionsView = {
+//        let cv = AllCollectionsView()
+//        cv.translatesAutoresizingMaskIntoConstraints = false
+//        return cv
+//    }()
 
-    lazy var recommendedItemsView: RecommendedItemsView = {
-        let riv = RecommendedItemsView()
-        riv.translatesAutoresizingMaskIntoConstraints = false
-        return riv
-    }()
+//    lazy var recommendedItemsView: RecommendedItemsView = {
+//        let riv = RecommendedItemsView()
+//        riv.translatesAutoresizingMaskIntoConstraints = false
+//        return riv
+//    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +47,7 @@ class HomeView: UIView {
     private func buildView() {
         self.addSubview(mainImageView)
         self.addSubview(mostPopularItemsView)
-        self.addSubview(collectionsView)
+      //  self.addSubview(collectionsView)
       //  self.addSubview(recommendedItemsView)
         updateConstraints()
     }
@@ -58,6 +58,8 @@ class HomeView: UIView {
             mainImageView.topAnchor.constraint(equalTo: self.topAnchor),
             mainImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             mainImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            mainImageView.heightAnchor.constraint(equalToConstant: 327),
+            mainImageView.widthAnchor.constraint(equalToConstant: 327)
         ])
 
         NSLayoutConstraint.activate([
@@ -67,11 +69,11 @@ class HomeView: UIView {
             mostPopularItemsView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ])
 
-        NSLayoutConstraint.activate([
-            collectionsView.topAnchor.constraint(equalTo: self.mostPopularItemsView.bottomAnchor, constant: 24),
-            collectionsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            collectionsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            collectionsView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-                ])
+//        NSLayoutConstraint.activate([
+//            collectionsView.topAnchor.constraint(equalTo: self.mostPopularItemsView.bottomAnchor, constant: 24),
+//            collectionsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            collectionsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            collectionsView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+//                ])
     }
 }

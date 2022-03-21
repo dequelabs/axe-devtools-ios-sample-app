@@ -25,7 +25,6 @@
 		F3EFAC3927E13353004A87C9 /* AllCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC3827E13353004A87C9 /* AllCollectionsView.swift */; };
 		F3EFAC3B27E1339C004A87C9 /* RecommendedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC3A27E1339C004A87C9 /* RecommendedItemsView.swift */; };
 		F3EFAC3D27E133C1004A87C9 /* CollectionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC3C27E133C1004A87C9 /* CollectionsDataSource.swift */; };
-		F3EFAC4227E13C0B004A87C9 /* ItemTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC4127E13C0B004A87C9 /* ItemTileView.swift */; };
 		F3EFAC4427E13C6C004A87C9 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC4327E13C6C004A87C9 /* ItemViewModel.swift */; };
 		F3F31D8F27DFD32500D87988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31D8E27DFD32500D87988 /* AppDelegate.swift */; };
 		F3F31D9127DFD32500D87988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31D9027DFD32500D87988 /* SceneDelegate.swift */; };
@@ -42,7 +41,6 @@
 		F3F31DC927DFD9FF00D87988 /* MostPopularModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DC827DFD9FF00D87988 /* MostPopularModel.swift */; };
 		F3F31DCB27DFDA0E00D87988 /* RecommendedItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DCA27DFDA0E00D87988 /* RecommendedItemsModel.swift */; };
 		F3F31DCD27DFDA8300D87988 /* HomeScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DCC27DFDA8300D87988 /* HomeScreenModel.swift */; };
-		F3F31DD127DFDB5100D87988 /* MostPopularItemsVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DD027DFDB5100D87988 /* MostPopularItemsVIew.swift */; };
 		F3F31DD627DFDC3800D87988 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DD527DFDC3800D87988 /* ItemModel.swift */; };
 		F3F31DD827DFDE7600D87988 /* HeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DD727DFDE7600D87988 /* HeaderModel.swift */; };
 		F3F31DDA27DFDECF00D87988 /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DD927DFDECF00D87988 /* HeaderViewModel.swift */; };
@@ -85,7 +83,6 @@
 		F3EFAC3827E13353004A87C9 /* AllCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCollectionsView.swift; sourceTree = "<group>"; };
 		F3EFAC3A27E1339C004A87C9 /* RecommendedItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemsView.swift; sourceTree = "<group>"; };
 		F3EFAC3C27E133C1004A87C9 /* CollectionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsDataSource.swift; sourceTree = "<group>"; };
-		F3EFAC4127E13C0B004A87C9 /* ItemTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTileView.swift; sourceTree = "<group>"; };
 		F3EFAC4327E13C6C004A87C9 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		F3F31D8B27DFD32500D87988 /* axe-devtools-ios-sample-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "axe-devtools-ios-sample-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F31D8E27DFD32500D87988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 		F3F31DC827DFD9FF00D87988 /* MostPopularModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularModel.swift; sourceTree = "<group>"; };
 		F3F31DCA27DFDA0E00D87988 /* RecommendedItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemsModel.swift; sourceTree = "<group>"; };
 		F3F31DCC27DFDA8300D87988 /* HomeScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenModel.swift; sourceTree = "<group>"; };
-		F3F31DD027DFDB5100D87988 /* MostPopularItemsVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularItemsVIew.swift; sourceTree = "<group>"; };
 		F3F31DD527DFDC3800D87988 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		F3F31DD727DFDE7600D87988 /* HeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModel.swift; sourceTree = "<group>"; };
 		F3F31DD927DFDECF00D87988 /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +137,7 @@
 		F3A1A67027E37D0600E4F0E7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F3799A7C27E8EBB1009CFC2E /* BaseScrollView.swift */,
 				F3F31DDB27E0E4A900D87988 /* MainTabBarViewController.swift */,
 				F3A1A67227E3812200E4F0E7 /* ViewModel */,
 				F3A1A67127E380FE00E4F0E7 /* Data */,
@@ -198,7 +195,6 @@
 		F3F31D8227DFD32500D87988 = {
 			isa = PBXGroup;
 			children = (
-				F3799A7C27E8EBB1009CFC2E /* BaseScrollView.swift */,
 				F3F31D8D27DFD32500D87988 /* axe-devtools-ios-sample-app */,
 				F3F31DA427DFD32500D87988 /* axe-devtools-ios-sample-appTests */,
 				F3F31DAE27DFD32500D87988 /* axe-devtools-ios-sample-appUITests */,
@@ -255,8 +251,6 @@
 				F3EFAC2C27E10A58004A87C9 /* SearchBarView.swift */,
 				F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */,
 				F3F31DC227DFD5AC00D87988 /* HomeView.swift */,
-				F3EFAC4127E13C0B004A87C9 /* ItemTileView.swift */,
-				F3F31DD027DFDB5100D87988 /* MostPopularItemsVIew.swift */,
 				F3EFAC3827E13353004A87C9 /* AllCollectionsView.swift */,
 				F3799A7827E8D976009CFC2E /* SeasonalCollectionView.swift */,
 				F3EFAC3A27E1339C004A87C9 /* RecommendedItemsView.swift */,
@@ -432,7 +426,6 @@
 				F3F31DCB27DFDA0E00D87988 /* RecommendedItemsModel.swift in Sources */,
 				F3EFAC2D27E10A58004A87C9 /* SearchBarView.swift in Sources */,
 				F3EFAC3B27E1339C004A87C9 /* RecommendedItemsView.swift in Sources */,
-				F3F31DD127DFDB5100D87988 /* MostPopularItemsVIew.swift in Sources */,
 				F3A1A66F27E37B4F00E4F0E7 /* HomeImageView.swift in Sources */,
 				F3F31D8F27DFD32500D87988 /* AppDelegate.swift in Sources */,
 				F3F31D9127DFD32500D87988 /* SceneDelegate.swift in Sources */,
@@ -440,7 +433,6 @@
 				F3F31DD627DFDC3800D87988 /* ItemModel.swift in Sources */,
 				F3EFAC3D27E133C1004A87C9 /* CollectionsDataSource.swift in Sources */,
 				F3F31DD827DFDE7600D87988 /* HeaderModel.swift in Sources */,
-				F3EFAC4227E13C0B004A87C9 /* ItemTileView.swift in Sources */,
 				F3EFAC2F27E13185004A87C9 /* ItemDataSource.swift in Sources */,
 				F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */,
 				F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */,

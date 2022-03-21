@@ -28,19 +28,13 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return viewModel.items.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
-    }
-    /*
-     // not sure if these two methods below are what i want, and they're definitely not set up correctly yet
-     // just wanted to leave them as a reminder in case they end up being what is needed
-
-
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 32
+//    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
+        return 80
     }
-     */
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCollectionViewCell
@@ -49,7 +43,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return cell
     }
 
-    private let sectionInsets = UIEdgeInsets(top: 0,
+    private let sectionInsets = UIEdgeInsets(top: 24.0,
                                              left: 24.0,
                                              bottom: 0,
                                              right: 24.0)
