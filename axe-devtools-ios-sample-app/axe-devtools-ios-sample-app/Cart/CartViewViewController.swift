@@ -38,11 +38,10 @@ class CartViewViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            cartView.topAnchor.constraint(equalTo: self.baseScrollView.topAnchor),
+            cartView.topAnchor.constraint(equalTo: self.baseScrollView.topAnchor, constant: 24),
             cartView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
             cartView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor),
-            cartView.bottomAnchor.constraint(equalTo: self.baseScrollView.bottomAnchor)
+            cartView.heightAnchor.constraint(equalTo: self.baseScrollView.heightAnchor, multiplier: 0.3)
         ])
-
     }
 }

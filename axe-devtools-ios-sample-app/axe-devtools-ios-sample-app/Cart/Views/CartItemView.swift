@@ -13,6 +13,7 @@ class CartItemView: UIView {
     lazy var textVerticalStackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
+        sv.spacing = 4
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
@@ -59,23 +60,20 @@ class CartItemView: UIView {
 
 
     private func buildView() {
-        self.addSubview(itemImageView)
-        self.addSubview(textVerticalStackView)
-        textVerticalStackView.addSubview(itemLabel)
-        textVerticalStackView.addSubview(itemColorLabel)
-        textVerticalStackView.addSubview(priceLabel)
-
-        configureViews()
-        updateConstraints()
-    }
-
-    private func configureViews() {
         self.layer.cornerRadius = 15
         self.backgroundColor = .gray
 
         itemLabel.text = viewModel.name
         itemColorLabel.text = "Gray"
         priceLabel.text = viewModel.price
+
+        self.addSubview(itemImageView)
+        self.addSubview(textVerticalStackView)
+        textVerticalStackView.addArrangedSubview(itemLabel)
+        textVerticalStackView.addArrangedSubview(itemColorLabel)
+        textVerticalStackView.addArrangedSubview(priceLabel)
+
+        updateConstraints()
     }
 
     override func updateConstraints() {

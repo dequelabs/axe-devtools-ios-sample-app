@@ -14,6 +14,7 @@ class CartView: UIView {
     lazy var verticalStackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
+        sv.spacing = 16
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
