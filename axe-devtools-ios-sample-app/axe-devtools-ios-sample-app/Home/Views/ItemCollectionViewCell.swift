@@ -16,7 +16,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
@@ -33,14 +33,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.backgroundColor = .orange
-        l.text = viewModel?.itemName
         return l
     }()
 
     lazy var priceLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = viewModel?.itemPrice
         l.backgroundColor = .purple
         return l
     }()
@@ -71,6 +69,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.layer.cornerRadius = 20
+    }
+
     private func buildCell() {
         self.addSubview(imageView)
         self.addSubview(horizontalStackView)
@@ -87,6 +90,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private func configureElements() {
         guard let viewModel = viewModel else { return }
         let imageName = viewModel.isInBag ? "bag_shop_bold" : "bag_shop"
+
+        itemLabel.text = viewModel.itemName
+        priceLabel.text = viewModel.itemPrice
 
         addToBagButton.imageView?.image = UIImage(named: imageName)
         imageView.image = UIImage(named: viewModel.imageName)
@@ -121,7 +127,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
             textVerticalStackView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor),
             textVerticalStackView.trailingAnchor.constraint(equalTo: horizontalStackView.trailingAnchor),
-            textVerticalStackView.bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor)
+            textVerticalStackView.centerYAnchor.constraint(equalTo: horizontalStackView.centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
@@ -131,7 +137,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
 
         NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: textVerticalStackView.topAnchor),
+            priceLabel.topAnchor.constraint(equalTo: itemLabel.bottomAnchor),
             priceLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor),
             priceLabel.bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor)
         ])

@@ -8,8 +8,8 @@
 import UIKit
 
 class MainTabBarViewController: UITabBarController {
-    lazy var scrollView: UIScrollView = {
-        let sv = UIScrollView()
+    lazy var baseScrollView: BaseScrollView = {
+        let sv = BaseScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
@@ -21,22 +21,17 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         tabBar.tintColor = .label
-        buildView()
+     //   buildView()
         setupViewControllers()
     }
 
     func buildView() {
-        self.view.addSubview(scrollView)
+        self.view.addSubview(baseScrollView)
         NSLayoutConstraint.activate([
-            self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            self.scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.scrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            self.scrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-            self.scrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-
+            self.baseScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.baseScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.baseScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
 
@@ -45,10 +40,10 @@ class MainTabBarViewController: UITabBarController {
             createNavController(for: HomeViewController(),
                                 title: homeVM.tabTitle,
                                 image: UIImage(named: homeVM.imageName)!)
-            //,
-//            createNavController(for: CatalogViewController(),
-//                                title: catalogVM.sectionTitle,
-//                                image: UIImage(named: catalogVM.iconName)!)
+            ,
+            createNavController(for: CatalogViewController(),
+                                title: catalogVM.sectionTitle,
+                                image: UIImage(named: catalogVM.iconName)!)
         ]
     }
 

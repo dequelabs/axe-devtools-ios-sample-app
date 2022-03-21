@@ -9,7 +9,7 @@ import Foundation
 
 class CatalogModel {
     var tabTitle = "Catalog"
-    var iconName = "category"
+    var iconName = "Category"
     var items: [ItemModel]
     
     init(items: [ItemModel]) {
