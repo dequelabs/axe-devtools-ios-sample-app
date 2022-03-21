@@ -80,7 +80,8 @@ class CartItemView: UIView {
         super.updateConstraints()
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: 109),
-            self.widthAnchor.constraint(equalToConstant: 327)
+            self.widthAnchor.constraint(equalToConstant: 327),
+            
         ])
         
         NSLayoutConstraint.activate([
@@ -94,7 +95,7 @@ class CartItemView: UIView {
         NSLayoutConstraint.activate([
             textVerticalStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 16),
             textVerticalStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16)
+            textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
     }
 }

@@ -42,8 +42,9 @@ class CartView: UIView {
 
         NSLayoutConstraint.activate([
             verticalStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            verticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            verticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            verticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            verticalStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             verticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
