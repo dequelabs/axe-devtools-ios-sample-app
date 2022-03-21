@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 
 class AllCollectionsView: UIView {
+// this is the view that holds each of the seasonal collection views
 
-    let viewModel = CollectionViewModel()
+    let viewModel = SeasonalCollectionsViewModel()
 
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
@@ -37,9 +38,10 @@ class AllCollectionsView: UIView {
 
     func buildView() {
         self.addSubview(allCollectionsVerticalStackView)
-
         viewModel.allCollections.forEach { collection in
-
+            let collection = CollectionModel(name: collection.name, imageName: collection.imageName)
+            let seasonalCollectionView = SeasonalCollectionView(viewModel: CollectionViewModel(model: collection))
+            allCollectionsVerticalStackView.addArrangedSubview(seasonalCollectionView)
         }
 
         updateConstraints()
@@ -55,5 +57,4 @@ class AllCollectionsView: UIView {
             self.allCollectionsVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-    
 }
