@@ -85,10 +85,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureElements() {
-        guard let viewModel = viewModel else {
-            return
-        }
-
+        guard let viewModel = viewModel else { return }
         let imageName = viewModel.isInBag ? "bag_shop_bold" : "bag_shop"
 
         addToBagButton.imageView?.image = UIImage(named: imageName)
@@ -122,9 +119,21 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
         NSLayoutConstraint.activate([
             textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
-            textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textVerticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            textVerticalStackView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor),
+            textVerticalStackView.trailingAnchor.constraint(equalTo: horizontalStackView.trailingAnchor),
+            textVerticalStackView.bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor)
         ])
 
+        NSLayoutConstraint.activate([
+            itemLabel.topAnchor.constraint(equalTo: textVerticalStackView.topAnchor),
+            itemLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor),
+            itemLabel.centerYAnchor.constraint(equalTo: addToBagButton.centerYAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            priceLabel.topAnchor.constraint(equalTo: textVerticalStackView.topAnchor),
+            priceLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor),
+            priceLabel.bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor)
+        ])
     }
 }

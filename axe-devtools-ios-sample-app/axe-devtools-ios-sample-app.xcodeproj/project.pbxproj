@@ -12,6 +12,7 @@
 		F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */; };
 		F3799A7927E8D976009CFC2E /* SeasonalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7827E8D976009CFC2E /* SeasonalCollectionView.swift */; };
 		F3799A7B27E8DAC6009CFC2E /* SeasonalCollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7A27E8DAC6009CFC2E /* SeasonalCollectionsViewModel.swift */; };
+		F3799A7D27E8EBB1009CFC2E /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7C27E8EBB1009CFC2E /* BaseScrollView.swift */; };
 		F3A1A66F27E37B4F00E4F0E7 /* HomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */; };
 		F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */; };
 		F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */; };
@@ -71,6 +72,7 @@
 		F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		F3799A7827E8D976009CFC2E /* SeasonalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7A27E8DAC6009CFC2E /* SeasonalCollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalCollectionsViewModel.swift; sourceTree = "<group>"; };
+		F3799A7C27E8EBB1009CFC2E /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
 		F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeImageView.swift; sourceTree = "<group>"; };
 		F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		F3F31D8227DFD32500D87988 = {
 			isa = PBXGroup;
 			children = (
+				F3799A7C27E8EBB1009CFC2E /* BaseScrollView.swift */,
 				F3F31D8D27DFD32500D87988 /* axe-devtools-ios-sample-app */,
 				F3F31DA427DFD32500D87988 /* axe-devtools-ios-sample-appTests */,
 				F3F31DAE27DFD32500D87988 /* axe-devtools-ios-sample-appUITests */,
@@ -420,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3799A7D27E8EBB1009CFC2E /* BaseScrollView.swift in Sources */,
 				F3F31DDC27E0E4A900D87988 /* MainTabBarViewController.swift in Sources */,
 				F3F31DCD27DFDA8300D87988 /* HomeScreenModel.swift in Sources */,
 				F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */,
