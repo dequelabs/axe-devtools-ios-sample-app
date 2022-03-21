@@ -32,6 +32,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     lazy var itemLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.backgroundColor = .orange
         l.text = viewModel?.itemName
         return l
     }()
@@ -40,22 +41,22 @@ class ItemCollectionViewCell: UICollectionViewCell {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = viewModel?.itemPrice
+        l.backgroundColor = .purple
         return l
     }()
 
     lazy var horizontalStackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .horizontal
-        sv.spacing = 8
+        sv.spacing = 12
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
 
     lazy var addToBagButton: UIButton = {
         let b = UIButton()
+        b.backgroundColor = .green
         b.translatesAutoresizingMaskIntoConstraints = false
-        let imageName = viewModel!.isInBag ? "bag_shop_bold" : "bag_shop"
-        b.imageView?.image = UIImage(named: imageName)
         b.layer.borderColor = UIColor.black.cgColor
         return b
     }()
@@ -70,19 +71,28 @@ class ItemCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-
-
     private func buildCell() {
         self.addSubview(imageView)
-        self.addSubview(textVerticalStackView)
         self.addSubview(horizontalStackView)
+        self.horizontalStackView.addArrangedSubview(textVerticalStackView)
 
         textVerticalStackView.addArrangedSubview(itemLabel)
         textVerticalStackView.addArrangedSubview(priceLabel)
+        horizontalStackView.addArrangedSubview(addToBagButton)
 
-        guard let viewModel = viewModel else { return }
-        imageView.image = UIImage(named: viewModel.imageName)
+        configureElements()
         updateConstraints()
+    }
+
+    private func configureElements() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        let imageName = viewModel.isInBag ? "bag_shop_bold" : "bag_shop"
+
+        addToBagButton.imageView?.image = UIImage(named: imageName)
+        imageView.image = UIImage(named: viewModel.imageName)
     }
 
     override func updateConstraints() {
@@ -94,14 +104,27 @@ class ItemCollectionViewCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 180),
             imageView.widthAnchor.constraint(equalToConstant: 150),
-            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+           // imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
 
-        // make text stackview
+
         NSLayoutConstraint.activate([
-            self.textVerticalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
-            self.textVerticalStackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
-            self.textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            horizontalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 12),
+            horizontalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            horizontalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+
+        NSLayoutConstraint.activate([
+            addToBagButton.widthAnchor.constraint(equalToConstant: 33),
+            addToBagButton.heightAnchor.constraint(equalToConstant: 33)
+        ])
+
+        NSLayoutConstraint.activate([
+            textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
+            textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            textVerticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+
     }
 }

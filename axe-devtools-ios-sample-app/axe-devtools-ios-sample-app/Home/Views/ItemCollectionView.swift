@@ -8,7 +8,7 @@
 import UIKit
 
 class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    // don't forget to add a title for the colleciton view
+    // don't forget to add a title for the collection view
     var viewModel = MostPopularItemsViewModel()
     private let reuseIdentifier = "ItemCell"
     private let itemsPerRow: CGFloat = 2
@@ -28,18 +28,20 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return viewModel.items.count
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
     /*
      // not sure if these two methods below are what i want, and they're definitely not set up correctly yet
      // just wanted to leave them as a reminder in case they end up being what is needed
-     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 4
-    }
+
+
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
      */
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCollectionViewCell
         let item = self.viewModel.items[indexPath.row]
@@ -47,9 +49,9 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return cell
     }
 
-    private let sectionInsets = UIEdgeInsets(top: 34.0,
+    private let sectionInsets = UIEdgeInsets(top: 0,
                                              left: 24.0,
-                                             bottom: 32.0,
+                                             bottom: 0,
                                              right: 24.0)
 
 
@@ -63,5 +65,4 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
 
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
-
 }
