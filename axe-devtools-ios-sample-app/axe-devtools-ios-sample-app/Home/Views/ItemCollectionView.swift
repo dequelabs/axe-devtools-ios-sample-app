@@ -49,7 +49,6 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
                                              right: 24.0)
 
 
-
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -16,6 +16,7 @@ class MainTabBarViewController: UITabBarController {
 
     var homeVM = HomeViewModel()
     var catalogVM = CatalogViewModel()
+    var cartVM = CartViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,10 @@ class MainTabBarViewController: UITabBarController {
             ,
             createNavController(for: CatalogViewController(),
                                 title: catalogVM.sectionTitle,
-                                image: UIImage(named: catalogVM.iconName)!)
+                                image: UIImage(named: catalogVM.iconName)!),
+            createNavController(for: CartViewViewController(),
+                                title: cartVM.sectionTitle,
+                                image: UIImage(named: cartVM.iconName)!)
         ]
     }
 

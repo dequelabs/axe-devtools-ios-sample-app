@@ -13,6 +13,12 @@
 		F3799A7927E8D976009CFC2E /* SeasonalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7827E8D976009CFC2E /* SeasonalCollectionView.swift */; };
 		F3799A7B27E8DAC6009CFC2E /* SeasonalCollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7A27E8DAC6009CFC2E /* SeasonalCollectionsViewModel.swift */; };
 		F3799A7D27E8EBB1009CFC2E /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7C27E8EBB1009CFC2E /* BaseScrollView.swift */; };
+		F3799A8027E90B58009CFC2E /* CartViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7F27E90B58009CFC2E /* CartViewViewController.swift */; };
+		F3799A8227E90C28009CFC2E /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A8127E90C28009CFC2E /* CartViewModel.swift */; };
+		F3799A8427E90C2D009CFC2E /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A8327E90C2D009CFC2E /* CartModel.swift */; };
+		F3799A8627E90CB8009CFC2E /* CartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A8527E90CB8009CFC2E /* CartDataSource.swift */; };
+		F3799A8827E90F2E009CFC2E /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A8727E90F2E009CFC2E /* CartItemView.swift */; };
+		F3799A8A27E9111E009CFC2E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A8927E9111E009CFC2E /* CartView.swift */; };
 		F3A1A66F27E37B4F00E4F0E7 /* HomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */; };
 		F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */; };
 		F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */; };
@@ -71,6 +77,12 @@
 		F3799A7827E8D976009CFC2E /* SeasonalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7A27E8DAC6009CFC2E /* SeasonalCollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonalCollectionsViewModel.swift; sourceTree = "<group>"; };
 		F3799A7C27E8EBB1009CFC2E /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
+		F3799A7F27E90B58009CFC2E /* CartViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewViewController.swift; sourceTree = "<group>"; };
+		F3799A8127E90C28009CFC2E /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		F3799A8327E90C2D009CFC2E /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		F3799A8527E90CB8009CFC2E /* CartDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDataSource.swift; sourceTree = "<group>"; };
+		F3799A8727E90F2E009CFC2E /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		F3799A8927E9111E009CFC2E /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeImageView.swift; sourceTree = "<group>"; };
 		F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +146,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3799A7E27E90B4A009CFC2E /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				F3799A7F27E90B58009CFC2E /* CartViewViewController.swift */,
+				F3799A8527E90CB8009CFC2E /* CartDataSource.swift */,
+				F3799A8B27E911C5009CFC2E /* Views */,
+				F3799A8127E90C28009CFC2E /* CartViewModel.swift */,
+				F3799A8327E90C2D009CFC2E /* CartModel.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		F3799A8B27E911C5009CFC2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F3799A8727E90F2E009CFC2E /* CartItemView.swift */,
+				F3799A8927E9111E009CFC2E /* CartView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F3A1A67027E37D0600E4F0E7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +253,7 @@
 				F3A1A67027E37D0600E4F0E7 /* Shared */,
 				F3EFAC4027E1394D004A87C9 /* Home */,
 				F3A1A67927E3A4D100E4F0E7 /* Catalog */,
+				F3799A7E27E90B4A009CFC2E /* Cart */,
 				F3F31D9727DFD32500D87988 /* Icons.xcassets */,
 				F3F31DC427DFD88000D87988 /* Images.xcassets */,
 				F3F31D9927DFD32500D87988 /* LaunchScreen.storyboard */,
@@ -423,18 +457,22 @@
 				F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */,
 				F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */,
 				F3F31DC927DFD9FF00D87988 /* MostPopularModel.swift in Sources */,
+				F3799A8227E90C28009CFC2E /* CartViewModel.swift in Sources */,
 				F3F31DCB27DFDA0E00D87988 /* RecommendedItemsModel.swift in Sources */,
 				F3EFAC2D27E10A58004A87C9 /* SearchBarView.swift in Sources */,
 				F3EFAC3B27E1339C004A87C9 /* RecommendedItemsView.swift in Sources */,
 				F3A1A66F27E37B4F00E4F0E7 /* HomeImageView.swift in Sources */,
 				F3F31D8F27DFD32500D87988 /* AppDelegate.swift in Sources */,
 				F3F31D9127DFD32500D87988 /* SceneDelegate.swift in Sources */,
+				F3799A8027E90B58009CFC2E /* CartViewViewController.swift in Sources */,
 				F3EFAC3927E13353004A87C9 /* AllCollectionsView.swift in Sources */,
+				F3799A8827E90F2E009CFC2E /* CartItemView.swift in Sources */,
 				F3F31DD627DFDC3800D87988 /* ItemModel.swift in Sources */,
 				F3EFAC3D27E133C1004A87C9 /* CollectionsDataSource.swift in Sources */,
 				F3F31DD827DFDE7600D87988 /* HeaderModel.swift in Sources */,
 				F3EFAC2F27E13185004A87C9 /* ItemDataSource.swift in Sources */,
 				F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */,
+				F3799A8627E90CB8009CFC2E /* CartDataSource.swift in Sources */,
 				F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */,
 				F3799A7927E8D976009CFC2E /* SeasonalCollectionView.swift in Sources */,
 				F3F31DC327DFD5AC00D87988 /* HomeView.swift in Sources */,
@@ -445,9 +483,11 @@
 				F3F31DC127DFD56C00D87988 /* HomeViewModel.swift in Sources */,
 				F3F31DDA27DFDECF00D87988 /* HeaderViewModel.swift in Sources */,
 				F3F31DC727DFD9F000D87988 /* CollectionModel.swift in Sources */,
+				F3799A8427E90C2D009CFC2E /* CartModel.swift in Sources */,
 				F3A1A67F27E3A57400E4F0E7 /* CatalogModel.swift in Sources */,
 				F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */,
 				F3EFAC4427E13C6C004A87C9 /* ItemViewModel.swift in Sources */,
+				F3799A8A27E9111E009CFC2E /* CartView.swift in Sources */,
 				F3F31DBF27DFD55300D87988 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
