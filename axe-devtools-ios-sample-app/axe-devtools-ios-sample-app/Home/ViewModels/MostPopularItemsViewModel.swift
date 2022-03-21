@@ -10,6 +10,7 @@ import Foundation
 class MostPopularItemsViewModel {
     var title = "Most Popular"
     private var popularItemsModel = ItemDataSource()
+    
     lazy var items: [ItemModel] = {
         return popularItemsModel.allItems
     }()

@@ -10,9 +10,17 @@ import Foundation
 class CollectionViewModel {
     let title = "Collection"
     
-    private let dataSource = CollectionsDataSource()
+    let model: CollectionModel
 
-    lazy var allCollections: [CollectionModel] = {
-        dataSource.allCollections
-    }()
+    init(model: CollectionModel) {
+        self.model = model
+    }
+
+    var name: String {
+        return model.name
+    }
+    
+    var imageName: String {
+        return model.imageName
+    }
 }

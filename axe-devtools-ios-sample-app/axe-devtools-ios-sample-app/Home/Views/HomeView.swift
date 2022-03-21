@@ -23,8 +23,8 @@ class HomeView: UIView {
         return mpv
     }()
 
-    lazy var collectionsView: CollectionsView = {
-        let cv = CollectionsView()
+    lazy var collectionsView: AllCollectionsView = {
+        let cv = AllCollectionsView()
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
