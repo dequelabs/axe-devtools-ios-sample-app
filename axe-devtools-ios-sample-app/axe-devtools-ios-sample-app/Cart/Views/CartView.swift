@@ -8,9 +8,17 @@
 import UIKit
 
 class CartView: UIView {
-    // has a vertical stackview of cart item views
+
     let viewModel = CartViewModel()
-    // has delete button under stackview
+
+    lazy var titleLabel: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.text = viewModel.title
+        l.font = .systemFont(ofSize: 32)
+        return l
+    }()
+
     lazy var verticalStackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
@@ -19,18 +27,41 @@ class CartView: UIView {
         return sv
     }()
 
+    lazy var deleteButton: UIButton = {
+        let b = UIButton()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitle("Delete all", for: .normal)
+        b.setTitleColor(.red, for: .normal)
+        b.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        return b
+    }()
+
+    lazy var checkoutFooterView: CartCheckoutFooterView = {
+        let cv = CartCheckoutFooterView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        buildItemsView()
+        buildView()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    private func buildView() {
+        self.addSubview(titleLabel)
+        self.addSubview(verticalStackView)
+        self.addSubview(deleteButton)
+        self.addSubview(checkoutFooterView)
+
+        buildItemsView()
+        updateConstraints()
+    }
 
     private func buildItemsView() {
-        self.addSubview(verticalStackView)
         viewModel.items.forEach { item in
             let vm = ItemViewModel(item: item)
             verticalStackView.addArrangedSubview(CartItemView(viewModel: vm))
@@ -41,11 +72,27 @@ class CartView: UIView {
         super.updateConstraints()
 
         NSLayoutConstraint.activate([
-            verticalStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            verticalStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             verticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             verticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
             verticalStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            deleteButton.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 24),
+            deleteButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            deleteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        ])
+
+        NSLayoutConstraint.activate([
+            checkoutFooterView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            checkoutFooterView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            checkoutFooterView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
     // don't forget bottom accessory 'checkout' view

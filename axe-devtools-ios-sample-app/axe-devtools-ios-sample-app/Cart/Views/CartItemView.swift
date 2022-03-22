@@ -8,7 +8,11 @@
 import UIKit
 
 class CartItemView: UIView {
-    var viewModel: ItemViewModel
+    var viewModel: ItemViewModel {
+        didSet {
+            buildView()
+        }
+    }
 
     lazy var textVerticalStackView: UIStackView = {
         let sv = UIStackView()
@@ -21,12 +25,14 @@ class CartItemView: UIView {
     lazy var itemImageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFill
         return iv
     }()
 
     lazy var itemLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = .boldSystemFont(ofSize: 18)
         return l
     }()
 
@@ -39,6 +45,7 @@ class CartItemView: UIView {
     lazy var priceLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = .boldSystemFont(ofSize: 18)
         return l
     }()
 
@@ -46,6 +53,12 @@ class CartItemView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
+    }()
+
+    lazy var quantityStepper: CartQuantityStepperView = {
+        let sv = CartQuantityStepperView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
     }()
 
     init(viewModel: ItemViewModel) {
@@ -61,17 +74,20 @@ class CartItemView: UIView {
 
     private func buildView() {
         self.layer.cornerRadius = 15
-        self.backgroundColor = .gray
+        self.backgroundColor = .lightGray
 
         itemLabel.text = viewModel.name
         itemColorLabel.text = "Gray"
         priceLabel.text = viewModel.price
+        itemImageView.image = UIImage(named: viewModel.imageName)
 
         self.addSubview(itemImageView)
         self.addSubview(textVerticalStackView)
         textVerticalStackView.addArrangedSubview(itemLabel)
         textVerticalStackView.addArrangedSubview(itemColorLabel)
         textVerticalStackView.addArrangedSubview(priceLabel)
+
+        self.addSubview(quantityStepper)
 
         updateConstraints()
     }
@@ -80,22 +96,26 @@ class CartItemView: UIView {
         super.updateConstraints()
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: 109),
-            self.widthAnchor.constraint(equalToConstant: 327),
-            
+            self.widthAnchor.constraint(equalToConstant: 327)
         ])
         
         NSLayoutConstraint.activate([
             itemImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
             itemImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
-            itemImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4),
+            itemImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
             itemImageView.heightAnchor.constraint(equalToConstant: 101),
             itemImageView.widthAnchor.constraint(equalToConstant: 85)
         ])
 
         NSLayoutConstraint.activate([
             textVerticalStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 16),
-            textVerticalStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+            textVerticalStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16)
+        ])
+
+        NSLayoutConstraint.activate([
+            quantityStepper.leadingAnchor.constraint(equalTo: textVerticalStackView.trailingAnchor, constant: 46),
+            quantityStepper.bottomAnchor.constraint(equalTo: self.textVerticalStackView.bottomAnchor),
+            quantityStepper.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
     }
 }
