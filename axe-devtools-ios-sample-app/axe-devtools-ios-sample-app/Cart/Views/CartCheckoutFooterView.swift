@@ -13,12 +13,16 @@ class CartCheckoutFooterView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .lightGray
+        l.font = .boldSystemFont(ofSize: 14)
+        l.text = "Total (2 items):"
         return l
     }()
 
     lazy var priceLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.text = "$59.99"
+        l.font = .boldSystemFont(ofSize: 18)
         l.textColor = .white
         return l
     }()
@@ -27,6 +31,8 @@ class CartCheckoutFooterView: UIView {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
         b.titleLabel?.textColor = .white
+        b.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        b.setTitle("Proceed to checout", for: .normal)
         return b
     }()
 
@@ -48,6 +54,15 @@ class CartCheckoutFooterView: UIView {
         updateConstraints()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        self.layer.cornerRadius = 20
+        self.checkoutButton.layer.cornerRadius = 15
+        self.checkoutButton.layer.borderWidth = 2
+        self.checkoutButton.layer.borderColor = UIColor.white.cgColor
+    }
+
     override func updateConstraints() {
         super.updateConstraints()
         NSLayoutConstraint.activate([
@@ -62,13 +77,14 @@ class CartCheckoutFooterView: UIView {
 
         NSLayoutConstraint.activate([
             priceLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 18),
-            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24)
+            priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24)
         ])
 
         NSLayoutConstraint.activate([
-            checkoutButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 62),
+            checkoutButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
             checkoutButton.widthAnchor.constraint(equalToConstant: 327),
-            checkoutButton.heightAnchor.constraint(equalToConstant: 40)
+            checkoutButton.heightAnchor.constraint(equalToConstant: 40),
+            checkoutButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }

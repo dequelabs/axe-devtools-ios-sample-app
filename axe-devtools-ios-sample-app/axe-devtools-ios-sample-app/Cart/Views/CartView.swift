@@ -86,14 +86,18 @@ class CartView: UIView {
         NSLayoutConstraint.activate([
             deleteButton.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 24),
             deleteButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            deleteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            deleteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
 
+    // don't forget to add the wallet image next to proceed to checkout text in button 
+
         NSLayoutConstraint.activate([
-            checkoutFooterView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+           // checkoutFooterView.widthAnchor.constraint(equalToConstant: 375),
+           // checkoutFooterView.heightAnchor.constraint(equalToConstant: 118),
+            //checkoutFooterView.centerYAnchor.constraint(equalTo: self.bottomAnchor, constant: 221),
+            checkoutFooterView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             checkoutFooterView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             checkoutFooterView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
-    // don't forget bottom accessory 'checkout' view
 }

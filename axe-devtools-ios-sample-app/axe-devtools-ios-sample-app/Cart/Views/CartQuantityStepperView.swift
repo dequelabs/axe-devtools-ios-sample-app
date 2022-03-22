@@ -69,18 +69,21 @@ class CartQuantityStepperView: UIView {
         ])
 
         NSLayoutConstraint.activate([
+            decrementButton.topAnchor.constraint(equalTo: self.topAnchor),
             decrementButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             decrementButton.heightAnchor.constraint(equalToConstant: 30),
             decrementButton.widthAnchor.constraint(equalToConstant: 30)
         ])
 
         NSLayoutConstraint.activate([
+            quantityLabel.topAnchor.constraint(equalTo: self.topAnchor),
             quantityLabel.leadingAnchor.constraint(equalTo: decrementButton.trailingAnchor, constant: 16),
             quantityLabel.trailingAnchor.constraint(equalTo: incrementButton.leadingAnchor, constant: 16),
             quantityLabel.centerYAnchor.constraint(equalTo: incrementButton.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
+            incrementButton.topAnchor.constraint(equalTo: self.topAnchor),
             incrementButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             incrementButton.heightAnchor.constraint(equalToConstant: 30),
             incrementButton.widthAnchor.constraint(equalToConstant: 30)
