@@ -9,30 +9,36 @@ import UIKit
 
 class CartCheckoutFooterView: UIView {
 
+    let viewModel = CartViewModel()
+    
     lazy var itemsLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .lightGray
         l.font = .boldSystemFont(ofSize: 14)
-        l.text = "Total (2 items):"
+        l.text = "Total \(viewModel.currentCart.items.count) items"
         return l
     }()
 
     lazy var priceLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "$59.99"
+        l.text = viewModel.price
         l.font = .boldSystemFont(ofSize: 18)
         l.textColor = .white
         return l
     }()
 
     lazy var checkoutButton: UIButton = {
-        let b = UIButton()
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = UIImage(named: viewModel.imageName)
+        configuration.imagePlacement = .trailing
+        let b = UIButton(configuration: configuration)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.titleLabel?.textColor = .white
         b.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        b.setTitle("Proceed to checout", for: .normal)
+        b.setTitle("Proceed to checkout ", for: .normal)
+        b.tintColor = .white
         return b
     }()
 

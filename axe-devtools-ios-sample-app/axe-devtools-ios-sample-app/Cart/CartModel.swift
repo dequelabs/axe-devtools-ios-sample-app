@@ -18,3 +18,13 @@ class CartModel {
         self.total = total
     }
 }
+
+extension CartModel {
+    var imageName: String {
+        return "Wallet"
+    }
+
+    var price: String {
+        return "$104.20"
+    }
+}

@@ -22,4 +22,18 @@ class CartViewModel {
     var items: [ItemModel] {
         return currentCart.items
     }
+
+    var imageName: String {
+        return currentCart.imageName
+    }
+
+    var price: String {
+        return currentCart.price
+    }
+}
+
+extension CartViewModel {
+    var deleteButtonText: String {
+        return "Delete all"
+    }
 }

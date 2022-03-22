@@ -30,7 +30,7 @@ class CartView: UIView {
     lazy var deleteButton: UIButton = {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitle("Delete all", for: .normal)
+        b.setTitle(viewModel.deleteButtonText, for: .normal)
         b.setTitleColor(.red, for: .normal)
         b.titleLabel?.font = .boldSystemFont(ofSize: 14)
         return b
@@ -75,7 +75,7 @@ class CartView: UIView {
             verticalStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             verticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             verticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            verticalStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            verticalStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
 
         NSLayoutConstraint.activate([
@@ -89,13 +89,13 @@ class CartView: UIView {
             deleteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
 
-    // don't forget to add the wallet image next to proceed to checkout text in button 
+    // don't forget to add the wallet image next to proceed to checkout text in button
 
         NSLayoutConstraint.activate([
            // checkoutFooterView.widthAnchor.constraint(equalToConstant: 375),
-           // checkoutFooterView.heightAnchor.constraint(equalToConstant: 118),
+            checkoutFooterView.heightAnchor.constraint(equalToConstant: 118),
             //checkoutFooterView.centerYAnchor.constraint(equalTo: self.bottomAnchor, constant: 221),
-            checkoutFooterView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            checkoutFooterView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             checkoutFooterView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             checkoutFooterView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
