@@ -10,15 +10,13 @@ import Foundation
 class CatalogModel {
     var tabTitle = "Catalog"
     var iconName = "Category"
-    var items: [ItemModel]
+    var itemTypes: [ItemTypeModel]
 
-    init(items: [ItemModel]) {
-        self.items = items
-    }
-}
-
-extension CatalogModel {
     var categories: [String] {
         return ["All", "Male", "Female", "Boy", "Girl", "Pets"]
+    }
+
+    init(itemTypes: [ItemTypeModel]) {
+        self.itemTypes = itemTypes
     }
 }

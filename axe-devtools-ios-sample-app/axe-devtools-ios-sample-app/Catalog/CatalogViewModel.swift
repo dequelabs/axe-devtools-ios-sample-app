@@ -9,7 +9,7 @@ import Foundation
 
 class CatalogViewModel {
     let sectionTitle = "Catalog"
-    private var catalogModel = CatalogModel(items: ItemDataSource().allItems)
+    private var catalogModel = CatalogDataSource().catalog
 
     var title: String {
         return catalogModel.tabTitle
@@ -19,11 +19,11 @@ class CatalogViewModel {
         return catalogModel.iconName
     }
 
-    lazy var items: [ItemModel] = {
-        return catalogModel.items
-    }()
-
     var categories: [String] {
-        return 
+        return catalogModel.categories
+    }
+
+    var itemTypes: [ItemTypeModel] {
+        return catalogModel.itemTypes
     }
 }
