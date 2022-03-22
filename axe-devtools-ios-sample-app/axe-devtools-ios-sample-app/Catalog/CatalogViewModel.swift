@@ -22,4 +22,8 @@ class CatalogViewModel {
     lazy var items: [ItemModel] = {
         return catalogModel.items
     }()
+
+    var categories: [String] {
+        return 
+    }
 }
