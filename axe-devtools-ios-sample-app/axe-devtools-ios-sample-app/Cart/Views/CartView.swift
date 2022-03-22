@@ -52,6 +52,8 @@ class CartView: UIView {
     }
 
     private func buildView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
         self.addSubview(titleLabel)
         self.addSubview(verticalStackView)
         self.addSubview(deleteButton)
@@ -92,8 +94,6 @@ class CartView: UIView {
     // don't forget to add the wallet image next to proceed to checkout text in button
 
         NSLayoutConstraint.activate([
-           // checkoutFooterView.widthAnchor.constraint(equalToConstant: 375),
-            checkoutFooterView.heightAnchor.constraint(equalToConstant: 118),
             //checkoutFooterView.centerYAnchor.constraint(equalTo: self.bottomAnchor, constant: 221),
             checkoutFooterView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             checkoutFooterView.leadingAnchor.constraint(equalTo: self.leadingAnchor),

@@ -16,7 +16,7 @@ class CartCheckoutFooterView: UIView {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .lightGray
         l.font = .boldSystemFont(ofSize: 14)
-        l.text = "Total \(viewModel.currentCart.items.count) items"
+        l.text = "Total (\(viewModel.currentCart.items.count) items):"
         return l
     }()
 
@@ -52,6 +52,7 @@ class CartCheckoutFooterView: UIView {
     }
 
     private func buildView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .black
         self.addSubview(itemsLabel)
         self.addSubview(priceLabel)
@@ -63,7 +64,7 @@ class CartCheckoutFooterView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 10
         self.checkoutButton.layer.cornerRadius = 15
         self.checkoutButton.layer.borderWidth = 2
         self.checkoutButton.layer.borderColor = UIColor.white.cgColor
@@ -73,7 +74,9 @@ class CartCheckoutFooterView: UIView {
         super.updateConstraints()
         NSLayoutConstraint.activate([
             self.widthAnchor.constraint(equalToConstant: 375),
-            self.heightAnchor.constraint(equalToConstant: 118)
+            self.heightAnchor.constraint(equalToConstant: 118),
+        //    self.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+          //  self.topAnchor.constraint(equalTo: self.topAnchor)
         ])
         
         NSLayoutConstraint.activate([
