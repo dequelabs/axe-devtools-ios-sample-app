@@ -9,7 +9,6 @@ import UIKit
 
 class CatalogViewController: UIViewController {
 
-
     lazy var baseScrollView: BaseScrollView = {
         let bsv = BaseScrollView()
         bsv.translatesAutoresizingMaskIntoConstraints = false
@@ -52,8 +51,8 @@ class CatalogViewController: UIViewController {
             catalogView.topAnchor.constraint(equalTo: self.baseScrollView.topAnchor, constant: 24),
             catalogView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
             catalogView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor),
-            catalogView.bottomAnchor.constraint(equalTo: self.baseScrollView.bottomAnchor)
+            catalogView.bottomAnchor.constraint(equalTo: self.baseScrollView.bottomAnchor),
+
         ])
     }
-
 }

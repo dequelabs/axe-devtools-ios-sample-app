@@ -9,8 +9,17 @@ import UIKit
 
 class CartViewViewController: UIViewController {
     
-    var baseScrollView = BaseScrollView()
-    var cartView = CartView()
+    lazy var baseScrollView: BaseScrollView = {
+        let bsv = BaseScrollView()
+        bsv.translatesAutoresizingMaskIntoConstraints = false
+        return bsv
+    }()
+
+    lazy var cartView: CartView = {
+        let cv = CartView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +28,8 @@ class CartViewViewController: UIViewController {
 
     private func buildView() {
         self.navigationController?.isNavigationBarHidden = true
+
         self.view.addSubview(baseScrollView)
-        baseScrollView.translatesAutoresizingMaskIntoConstraints = false
-        cartView.translatesAutoresizingMaskIntoConstraints = false
         baseScrollView.addSubview(cartView)
 
         updateViewConstraints()
