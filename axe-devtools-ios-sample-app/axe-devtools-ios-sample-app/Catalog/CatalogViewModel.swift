@@ -22,6 +22,14 @@ class CatalogViewModel {
     var mainImageName: String {
         return catalogModel.mainImageName
     }
+
+    var mainImageText: String {
+        return catalogModel.mainImageText
+    }
+
+    var dotsImageName: String {
+        return catalogModel.dotsImageName
+    }
     
     var categories: [String] {
         return catalogModel.categories

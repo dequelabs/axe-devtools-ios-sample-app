@@ -33,10 +33,10 @@ class CatalogView: UIView {
         return acv
     }()
 
-    lazy var newCollectionImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
+    lazy var newCollectionImageView: CatalogHeaderImageView = {
+        let v = CatalogHeaderImageView(image: UIImage(named: viewModel.mainImageName))
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
     }()
 
     override init(frame: CGRect) {
@@ -54,7 +54,7 @@ class CatalogView: UIView {
         self.addSubview(titleLabel)
         self.addSubview(searchImageView)
         self.addSubview(allCategories)
-
+        self.addSubview(newCollectionImageView)
         updateConstraints()
     }
 
@@ -78,6 +78,13 @@ class CatalogView: UIView {
             allCategories.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             allCategories.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             allCategories.heightAnchor.constraint(equalToConstant: 32)
+        ])
+
+        NSLayoutConstraint.activate([
+            newCollectionImageView.topAnchor.constraint(equalTo: allCategories.bottomAnchor, constant: 32),
+            newCollectionImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            newCollectionImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24)
+            
         ])
     }
 }

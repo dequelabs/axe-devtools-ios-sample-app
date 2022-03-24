@@ -20,6 +20,14 @@ class CatalogModel {
         return "catalog_hero"
     }
 
+    var mainImageText: String {
+        return "New Collection".uppercased()
+    }
+
+    var dotsImageName: String {
+        return "Dots"
+    }
+
     init(itemTypes: [ItemTypeModel]) {
         self.itemTypes = itemTypes
     }
