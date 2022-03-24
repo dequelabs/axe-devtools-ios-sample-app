@@ -23,7 +23,7 @@ class ItemTypeViewModel {
         return itemType.subtitle
     }
 
-    var images: [String] {
-        return itemType.images
+    var imageName: String {
+        return itemType.imageName
     }
 }

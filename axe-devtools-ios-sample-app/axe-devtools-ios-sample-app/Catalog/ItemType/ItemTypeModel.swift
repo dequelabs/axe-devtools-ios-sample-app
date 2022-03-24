@@ -10,12 +10,12 @@ import Foundation
 class ItemTypeModel {
     var name: String
     var subtitle: String
-    var images: [String]
+    var imageName: String
 
-    init(name: String, subtitle: String, images: [String]) {
+    init(name: String, subtitle: String, imageName: String) {
         self.name = name
         self.subtitle = subtitle
-        self.images = images
+        self.imageName = imageName
     }
 }
 

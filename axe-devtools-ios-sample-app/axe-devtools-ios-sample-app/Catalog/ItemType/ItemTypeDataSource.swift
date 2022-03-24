@@ -11,19 +11,19 @@ class ItemTypeDataSource {
     
     let tShirts = ItemTypeModel(name: "T-Shirts",
                                 subtitle: "T-shirts for every taste",
-                                images: ["tee"])
+                                imageName: "tee")
     let sweatShirts = ItemTypeModel(name: "Sweatshirts",
                                     subtitle: "Sweatshirts for every taste",
-                                    images: ["hoodie"])
+                                    imageName: "tee")
     let tankTops = ItemTypeModel(name: "Tank tops",
                                  subtitle: "Tank tops for every taste",
-                                 images: ["tank"])
+                                 imageName: "tank")
     let bottoms = ItemTypeModel(name: "Bottoms",
                                 subtitle: "Bottoms for every taste",
-                                images: ["bottoms"])
+                                imageName: "bottoms")
     let accessories = ItemTypeModel(name: "Accessories",
                                     subtitle: "Accessories for every taste",
-                                    images: ["handbag", "necktie"])
+                                    imageName: "handbag")
 
     lazy var allTypes: [ItemTypeModel] = {
         
