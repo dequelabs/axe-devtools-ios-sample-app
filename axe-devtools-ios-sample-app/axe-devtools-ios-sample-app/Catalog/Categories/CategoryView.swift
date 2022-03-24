@@ -13,8 +13,8 @@ class CategoryView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .black
-        l.numberOfLines = 0
         l.lineBreakMode = .byWordWrapping
+        l.font = .systemFont(ofSize: 14)
         l.backgroundColor = .clear
         return l
     }()

@@ -8,7 +8,6 @@
 import UIKit
 
 class CatalogView: UIView {
-    // search icon at top right corner
 
     let viewModel = CatalogViewModel()
 

@@ -19,6 +19,10 @@ class CatalogViewModel {
         return catalogModel.iconName
     }
 
+    var mainImageName: String {
+        return catalogModel.mainImageName
+    }
+    
     var categories: [String] {
         return catalogModel.categories
     }

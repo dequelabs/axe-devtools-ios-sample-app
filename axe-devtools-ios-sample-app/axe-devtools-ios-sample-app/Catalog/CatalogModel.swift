@@ -13,7 +13,11 @@ class CatalogModel {
     var itemTypes: [ItemTypeModel]
 
     var categories: [String] {
-        return ["All", "Male", "Female", "Boy", "Girl", "Pets"]
+        return ["All", "Male", "Female", "Boy", "Girl", "Baby"]
+    }
+
+    var mainImageName: String {
+        return "catalog_hero"
     }
 
     init(itemTypes: [ItemTypeModel]) {
