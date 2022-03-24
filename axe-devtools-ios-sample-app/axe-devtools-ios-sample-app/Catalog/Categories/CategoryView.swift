@@ -8,11 +8,14 @@
 import UIKit
 
 class CategoryView: UIView {
-    // rectangular view with text in middle
+
     lazy var nameLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .black
+        l.numberOfLines = 0
+        l.lineBreakMode = .byWordWrapping
+        l.backgroundColor = .clear
         return l
     }()
 
@@ -21,6 +24,7 @@ class CategoryView: UIView {
     init(name: String) {
         self.name = name
         super.init(frame: .zero)
+        buildView()
     }
 
     required init?(coder: NSCoder) {
@@ -28,9 +32,10 @@ class CategoryView: UIView {
     }
 
     private func buildView() {
+        nameLabel.text = name
         self.addSubview(nameLabel)
-
         updateConstraints()
+
     }
 
     override func updateConstraints() {
@@ -39,10 +44,13 @@ class CategoryView: UIView {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 16),
-            nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 8),
-            nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
             nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
+
+        self.layer.cornerRadius = 10
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderWidth = 1
     }
 }

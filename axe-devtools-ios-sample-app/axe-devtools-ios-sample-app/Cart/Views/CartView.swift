@@ -92,7 +92,6 @@ class CartView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            //checkoutFooterView.centerYAnchor.constraint(equalTo: self.bottomAnchor, constant: 221),
             checkoutFooterView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             checkoutFooterView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             checkoutFooterView.trailingAnchor.constraint(equalTo: self.trailingAnchor)

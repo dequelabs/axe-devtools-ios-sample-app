@@ -35,6 +35,10 @@ class AllCategoriesView: UIView {
             let categoryView = CategoryView(name: category)
             categoriesStackView.addArrangedSubview(categoryView)
         }
+
+        let all = categoriesStackView.subviews[0] as! CategoryView
+        all.backgroundColor = .black
+        all.nameLabel.textColor = .white
     }
 
     override func updateConstraints() {
@@ -43,6 +47,7 @@ class AllCategoriesView: UIView {
         NSLayoutConstraint.activate([
             categoriesStackView.topAnchor.constraint(equalTo: self.topAnchor),
             categoriesStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            categoriesStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24),
             categoriesStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
