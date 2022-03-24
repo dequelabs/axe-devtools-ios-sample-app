@@ -94,7 +94,7 @@ class CatalogView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            allItemTypesView.topAnchor.constraint(equalTo: newCollectionImageView.bottomAnchor, constant: 34),
+            allItemTypesView.topAnchor.constraint(equalTo: newCollectionImageView.bottomAnchor),
             allItemTypesView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             allItemTypesView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             allItemTypesView.bottomAnchor.constraint(equalTo: self.bottomAnchor)

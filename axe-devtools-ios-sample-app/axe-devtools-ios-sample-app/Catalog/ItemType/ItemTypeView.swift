@@ -13,19 +13,21 @@ class ItemTypeView: UIView {
     lazy var nameLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = .systemFont(ofSize: 24)
         return l
     }()
 
     lazy var subtitleLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = .systemFont(ofSize: 14)
         return l
     }()
 
     lazy var itemImage: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: viewModel.imageName)
+        iv.contentMode = .scaleAspectFill
         return iv
     }()
 
@@ -47,6 +49,8 @@ class ItemTypeView: UIView {
 
         self.layer.cornerRadius = 10
         self.backgroundColor = .lightGray
+        
+        itemImage.image = UIImage(named: viewModel.imageName)
         nameLabel.text = viewModel.typeName
         subtitleLabel.text = viewModel.subtitle
         updateConstraints()
@@ -75,7 +79,8 @@ class ItemTypeView: UIView {
             itemImage.topAnchor.constraint(equalTo: self.topAnchor, constant: -8),
             itemImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -34),
             itemImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            itemImage.heightAnchor.constraint(equalToConstant: 100)
+            itemImage.heightAnchor.constraint(equalToConstant: 100),
+            itemImage.widthAnchor.constraint(equalToConstant: 90)
         ])
     }
 }

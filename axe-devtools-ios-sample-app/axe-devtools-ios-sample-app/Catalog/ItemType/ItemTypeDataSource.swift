@@ -14,7 +14,7 @@ class ItemTypeDataSource {
                                 imageName: "tee")
     let sweatShirts = ItemTypeModel(name: "Sweatshirts",
                                     subtitle: "Sweatshirts for every taste",
-                                    imageName: "tee")
+                                    imageName: "hoodie")
     let tankTops = ItemTypeModel(name: "Tank tops",
                                  subtitle: "Tank tops for every taste",
                                  imageName: "tank")

@@ -8,7 +8,6 @@
 import UIKit
 
 class AllItemTypesView: UIView {
-    // with an item type view for each type in the viewmodel
 
     let viewModel = AllItemTypesViewModel()
 
