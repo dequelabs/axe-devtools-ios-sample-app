@@ -42,8 +42,7 @@ class AllCategoriesView: UIView {
 
         NSLayoutConstraint.activate([
             categoriesStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            categoriesStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            categoriesStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            categoriesStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             categoriesStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }

@@ -8,6 +8,11 @@
 import UIKit
 
 class CatalogViewController: UIViewController {
+    lazy var allCategoriesView: AllCategoriesView = {
+        let hv = AllCategoriesView()
+        hv.translatesAutoresizingMaskIntoConstraints = false
+        return hv
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

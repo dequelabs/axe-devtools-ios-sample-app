@@ -91,8 +91,6 @@ class CartView: UIView {
             deleteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
 
-    // don't forget to add the wallet image next to proceed to checkout text in button
-
         NSLayoutConstraint.activate([
             //checkoutFooterView.centerYAnchor.constraint(equalTo: self.bottomAnchor, constant: 221),
             checkoutFooterView.bottomAnchor.constraint(equalTo: self.bottomAnchor),

@@ -5,4 +5,8 @@
 //  Created by Kate Owens on 3/22/22.
 //
 
-import Foundation
+import UIKit
+
+class CatalogView: UIView {
+
+}

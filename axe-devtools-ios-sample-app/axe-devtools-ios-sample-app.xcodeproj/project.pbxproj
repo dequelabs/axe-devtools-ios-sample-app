@@ -175,9 +175,9 @@
 			children = (
 				F3799A7F27E90B58009CFC2E /* CartViewViewController.swift */,
 				F3799A8527E90CB8009CFC2E /* CartDataSource.swift */,
-				F3799A8B27E911C5009CFC2E /* Views */,
 				F3799A8127E90C28009CFC2E /* CartViewModel.swift */,
 				F3799A8327E90C2D009CFC2E /* CartModel.swift */,
+				F3799A8B27E911C5009CFC2E /* Views */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -208,6 +208,7 @@
 		F3799AA527EA5858009CFC2E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				F3799A9B27EA5582009CFC2E /* CategoryView.swift */,
 				F3799A9D27EA5588009CFC2E /* AllCategoriesView.swift */,
 			);
 			path = Categories;
@@ -244,13 +245,12 @@
 		F3A1A67927E3A4D100E4F0E7 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				F3799AA527EA5858009CFC2E /* Categories */,
 				F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */,
 				F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */,
 				F3799A9827EA5169009CFC2E /* CatalogDataSource.swift */,
 				F3A1A67E27E3A57400E4F0E7 /* CatalogModel.swift */,
-				F3799A9B27EA5582009CFC2E /* CategoryView.swift */,
 				F3799A9F27EA5590009CFC2E /* CatalogView.swift */,
+				F3799AA527EA5858009CFC2E /* Categories */,
 				F3799A9A27EA52ED009CFC2E /* ItemType */,
 			);
 			path = Catalog;
