@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            self.searchBarView.topAnchor.constraint(equalTo: self.baseScrollView.topAnchor),
+            self.searchBarView.topAnchor.constraint(equalTo: self.baseScrollView.containingView.topAnchor),
             self.searchBarView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
             self.searchBarView.widthAnchor.constraint(equalTo: self.baseScrollView.widthAnchor),
             self.searchBarView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor)

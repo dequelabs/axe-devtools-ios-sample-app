@@ -18,6 +18,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         self.dataSource = self
         self.delegate = self
         self.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.isScrollEnabled = false
     }
 
     required init?(coder: NSCoder) {

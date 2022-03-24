@@ -9,12 +9,17 @@ import UIKit
 
 class CatalogViewController: UIViewController {
 
-    var catalogView = CatalogView()
 
     lazy var baseScrollView: BaseScrollView = {
         let bsv = BaseScrollView()
         bsv.translatesAutoresizingMaskIntoConstraints = false
         return bsv
+    }()
+
+    lazy var catalogView: CatalogView = {
+        let cv = CatalogView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
     }()
 
     override func viewDidLoad() {
@@ -28,9 +33,6 @@ class CatalogViewController: UIViewController {
         self.view.addSubview(baseScrollView)
         baseScrollView.addSubview(catalogView)
 
-        baseScrollView.translatesAutoresizingMaskIntoConstraints = false
-        catalogView.translatesAutoresizingMaskIntoConstraints = false
-
         updateViewConstraints()
     }
 
@@ -39,11 +41,11 @@ class CatalogViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             baseScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            baseScrollView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            baseScrollView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            baseScrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-           // baseScrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-           // baseScrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+            baseScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            baseScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            baseScrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            baseScrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([

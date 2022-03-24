@@ -8,11 +8,6 @@
 import UIKit
 
 class MainTabBarViewController: UITabBarController {
-    lazy var baseScrollView: BaseScrollView = {
-        let sv = BaseScrollView()
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        return sv
-    }()
 
     var homeVM = HomeViewModel()
     var catalogVM = CatalogViewModel()
@@ -22,18 +17,7 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         tabBar.tintColor = .label
-     //   buildView()
         setupViewControllers()
-    }
-
-    func buildView() {
-        self.view.addSubview(baseScrollView)
-        NSLayoutConstraint.activate([
-            self.baseScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.baseScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.baseScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
     }
 
     func setupViewControllers() {
