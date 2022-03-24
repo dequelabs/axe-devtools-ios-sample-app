@@ -8,6 +8,7 @@
 import Foundation
 
 class CatalogViewModel {
+
     let sectionTitle = "Catalog"
     private var catalogModel = CatalogDataSource().catalog
 

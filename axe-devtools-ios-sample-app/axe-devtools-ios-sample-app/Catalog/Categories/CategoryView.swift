@@ -13,7 +13,7 @@ class CategoryView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .black
-        l.lineBreakMode = .byWordWrapping
+        l.lineBreakMode = .byCharWrapping
         l.font = .systemFont(ofSize: 14)
         l.backgroundColor = .clear
         return l
@@ -32,21 +32,24 @@ class CategoryView: UIView {
     }
 
     private func buildView() {
-        nameLabel.text = name
         self.addSubview(nameLabel)
+        nameLabel.text = name
         updateConstraints()
-
     }
 
     override func updateConstraints() {
         super.updateConstraints()
+        NSLayoutConstraint.activate([
+            self.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
 
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
 
         self.layer.cornerRadius = 10

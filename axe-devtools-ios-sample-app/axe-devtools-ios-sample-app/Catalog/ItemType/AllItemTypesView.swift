@@ -29,6 +29,7 @@ class AllItemTypesView: UIView {
     }
 
     private func buildView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(stackView)
 
         viewModel.itemTypes.forEach { type in
@@ -43,8 +44,7 @@ class AllItemTypesView: UIView {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 34),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24)
         ])
     }
 }

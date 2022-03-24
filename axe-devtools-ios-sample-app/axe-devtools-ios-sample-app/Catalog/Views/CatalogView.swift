@@ -62,6 +62,7 @@ class CatalogView: UIView {
         self.addSubview(allCategories)
         self.addSubview(newCollectionImageView)
         self.addSubview(allItemTypesView)
+
         updateConstraints()
     }
 
@@ -70,7 +71,8 @@ class CatalogView: UIView {
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 38)
         ])
 
         NSLayoutConstraint.activate([
@@ -84,17 +86,20 @@ class CatalogView: UIView {
             allCategories.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             allCategories.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             allCategories.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            allCategories.heightAnchor.constraint(equalToConstant: 32)
+            allCategories.heightAnchor.constraint(equalToConstant: 32),
+            allCategories.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            newCollectionImageView.topAnchor.constraint(equalTo: allCategories.bottomAnchor, constant: 32),
+            newCollectionImageView.topAnchor.constraint(equalTo: allCategories.bottomAnchor, constant: 40),
             newCollectionImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            newCollectionImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24)
+            newCollectionImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            newCollectionImageView.heightAnchor.constraint(equalToConstant: 327),
+            newCollectionImageView.widthAnchor.constraint(equalToConstant: 327)
         ])
 
         NSLayoutConstraint.activate([
-            allItemTypesView.topAnchor.constraint(equalTo: newCollectionImageView.bottomAnchor),
+            allItemTypesView.topAnchor.constraint(equalTo: newCollectionImageView.bottomAnchor, constant: 34),
             allItemTypesView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             allItemTypesView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             allItemTypesView.bottomAnchor.constraint(equalTo: self.bottomAnchor)

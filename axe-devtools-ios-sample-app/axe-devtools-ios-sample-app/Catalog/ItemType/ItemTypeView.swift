@@ -8,6 +8,7 @@
 import UIKit
 
 class ItemTypeView: UIView {
+    
     var viewModel: ItemTypeViewModel
 
     lazy var nameLabel: UILabel = {
@@ -43,6 +44,7 @@ class ItemTypeView: UIView {
     }
 
     private func buildView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(nameLabel)
         self.addSubview(subtitleLabel)
         self.addSubview(itemImage)
@@ -53,6 +55,7 @@ class ItemTypeView: UIView {
         itemImage.image = UIImage(named: viewModel.imageName)
         nameLabel.text = viewModel.typeName
         subtitleLabel.text = viewModel.subtitle
+
         updateConstraints()
     }
 
@@ -66,12 +69,14 @@ class ItemTypeView: UIView {
 
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 19),
-            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 32)
+            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 32),
+            nameLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
 
         NSLayoutConstraint.activate([
+            subtitleLabel.heightAnchor.constraint(equalToConstant: 16),
             subtitleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            subtitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 32),
+            subtitleLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             subtitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -19)
         ])
 

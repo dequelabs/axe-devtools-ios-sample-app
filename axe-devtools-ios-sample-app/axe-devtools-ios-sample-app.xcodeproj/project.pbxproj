@@ -200,12 +200,9 @@
 		F3799A9A27EA52ED009CFC2E /* ItemType */ = {
 			isa = PBXGroup;
 			children = (
-				F3799A9227EA454C009CFC2E /* ItemTypeModel.swift */,
-				F3799A9627EA5147009CFC2E /* ItemTypeViewModel.swift */,
-				F3799AA827ECCEB3009CFC2E /* AllItemTypesViewModel.swift */,
-				F3799A9427EA45BC009CFC2E /* ItemTypeDataSource.swift */,
-				F3799AA127EA559E009CFC2E /* AllItemTypesView.swift */,
 				F3799AA327EA55A2009CFC2E /* ItemTypeView.swift */,
+				F3799AA127EA559E009CFC2E /* AllItemTypesView.swift */,
+				F3799AAB27ECF9F7009CFC2E /* Data */,
 			);
 			path = ItemType;
 			sourceTree = "<group>";
@@ -217,6 +214,26 @@
 				F3799A9D27EA5588009CFC2E /* AllCategoriesView.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		F3799AAA27ECF3C0009CFC2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F3799A9F27EA5590009CFC2E /* CatalogView.swift */,
+				F3799AA627ECC840009CFC2E /* CatalogHeaderImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F3799AAB27ECF9F7009CFC2E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F3799A9227EA454C009CFC2E /* ItemTypeModel.swift */,
+				F3799A9627EA5147009CFC2E /* ItemTypeViewModel.swift */,
+				F3799AA827ECCEB3009CFC2E /* AllItemTypesViewModel.swift */,
+				F3799A9427EA45BC009CFC2E /* ItemTypeDataSource.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		F3A1A67027E37D0600E4F0E7 /* Shared */ = {
@@ -252,10 +269,9 @@
 			children = (
 				F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */,
 				F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */,
-				F3799AA627ECC840009CFC2E /* CatalogHeaderImageView.swift */,
 				F3799A9827EA5169009CFC2E /* CatalogDataSource.swift */,
 				F3A1A67E27E3A57400E4F0E7 /* CatalogModel.swift */,
-				F3799A9F27EA5590009CFC2E /* CatalogView.swift */,
+				F3799AAA27ECF3C0009CFC2E /* Views */,
 				F3799AA527EA5858009CFC2E /* Categories */,
 				F3799A9A27EA52ED009CFC2E /* ItemType */,
 			);

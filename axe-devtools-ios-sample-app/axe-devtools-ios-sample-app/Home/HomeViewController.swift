@@ -51,7 +51,9 @@ class HomeViewController: UIViewController {
             baseScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             baseScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             baseScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            baseScrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            baseScrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
