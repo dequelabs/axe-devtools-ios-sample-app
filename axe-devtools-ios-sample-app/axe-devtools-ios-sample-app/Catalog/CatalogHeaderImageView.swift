@@ -23,6 +23,7 @@ class CatalogHeaderImageView: UIImageView {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: viewModel.dotsImageName)
+        iv.image = image
         return iv
     }()
 
