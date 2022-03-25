@@ -12,7 +12,8 @@ class MainTabBarViewController: UITabBarController {
     var homeVM = HomeViewModel()
     var catalogVM = CatalogViewModel()
     var cartVM = CartViewModel()
-    
+    var profileVM = ProfileViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -23,15 +24,18 @@ class MainTabBarViewController: UITabBarController {
     func setupViewControllers() {
         viewControllers = [
             createNavController(for: HomeViewController(),
-                                title: homeVM.tabTitle,
+                                title: "",
                                 image: UIImage(named: homeVM.imageName)!)
             ,
             createNavController(for: CatalogViewController(),
-                                title: catalogVM.sectionTitle,
+                                title: "",
                                 image: UIImage(named: catalogVM.iconName)!),
             createNavController(for: CartViewViewController(),
-                                title: cartVM.sectionTitle,
-                                image: UIImage(named: cartVM.iconName)!)
+                                title: "",
+                                image: UIImage(named: cartVM.iconName)!),
+            createNavController(for: ProfileViewController(),
+                                title: "",
+                                image: UIImage(named: profileVM.iconName)!)
         ]
     }
 
