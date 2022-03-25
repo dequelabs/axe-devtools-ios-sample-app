@@ -23,11 +23,11 @@ class HomeView: UIView {
         return mpv
     }()
 
-//    lazy var collectionsView: AllCollectionsView = {
-//        let cv = AllCollectionsView()
-//        cv.translatesAutoresizingMaskIntoConstraints = false
-//        return cv
-//    }()
+    lazy var collectionsView: AllCollectionsView = {
+        let cv = AllCollectionsView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
+    }()
 
 //    lazy var recommendedItemsView: RecommendedItemsView = {
 //        let riv = RecommendedItemsView()
@@ -47,7 +47,7 @@ class HomeView: UIView {
     private func buildView() {
         self.addSubview(mainImageView)
         self.addSubview(mostPopularItemsView)
-      //  self.addSubview(collectionsView)
+        self.addSubview(collectionsView)
       //  self.addSubview(recommendedItemsView)
         updateConstraints()
     }
@@ -66,14 +66,14 @@ class HomeView: UIView {
             mostPopularItemsView.topAnchor.constraint(equalTo: self.mainImageView.bottomAnchor, constant: 24),
             mostPopularItemsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             mostPopularItemsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            mostPopularItemsView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+          //  mostPopularItemsView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ])
 
-//        NSLayoutConstraint.activate([
-//            collectionsView.topAnchor.constraint(equalTo: self.mostPopularItemsView.bottomAnchor, constant: 24),
-//            collectionsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            collectionsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            collectionsView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-//                ])
+        NSLayoutConstraint.activate([
+            collectionsView.topAnchor.constraint(equalTo: self.mostPopularItemsView.bottomAnchor, constant: 24),
+            collectionsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            collectionsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            collectionsView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
+                ])
     }
 }
