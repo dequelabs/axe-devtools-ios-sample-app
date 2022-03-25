@@ -33,4 +33,8 @@ class ItemCellViewModel {
     var isInBag: Bool {
         return item.isInBag
     }
+
+    var heartImageName: String {
+        return item.heartImageName
+    }
 }

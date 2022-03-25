@@ -15,6 +15,7 @@ class ItemModel {
     var isFavorite: Bool = false
     var isInBag: Bool = false
 
+
     init(name: String,
          imageName: String,
          price: String,
@@ -25,5 +26,9 @@ class ItemModel {
         self.price = price
         self.isFavorite = isFavorite
         self.isInBag = isInBag
+    }
+
+    var heartImageName: String {
+        return isFavorite ? "Heart_Bold" : "Heart"
     }
 }

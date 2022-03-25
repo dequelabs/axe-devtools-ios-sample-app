@@ -21,10 +21,29 @@ class HomeViewController: UIViewController {
         return sbv
     }()
 
-    lazy var homeView: HomeView = {
-        let hv = HomeView()
+    lazy var homeScreenImageView: HomeScreenImageView = {
+        let hv = HomeScreenImageView()
         hv.translatesAutoresizingMaskIntoConstraints = false
         return hv
+    }()
+
+    lazy var mostPopularItemsView: ItemCollectionView = {
+        var mpv = ItemCollectionView()
+        mpv.viewModel = MostPopularItemsViewModel()
+        mpv.translatesAutoresizingMaskIntoConstraints = false
+        return mpv
+    }()
+
+    lazy var collectionsView: AllCollectionsView = {
+        let cv = AllCollectionsView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
+    }()
+
+    lazy var recommendedItemsView: RecommendedItemsCollectionView = {
+        let riv = RecommendedItemsCollectionView()
+        riv.translatesAutoresizingMaskIntoConstraints = false
+        return riv
     }()
 
     override func viewDidLoad() {
@@ -38,8 +57,11 @@ class HomeViewController: UIViewController {
 
     private func buildView() {
         self.view.addSubview(baseScrollView)
-        baseScrollView.addSubview(searchBarView)
-        baseScrollView.addSubview(homeView)
+        self.baseScrollView.containingView.addSubview(searchBarView)
+        self.baseScrollView.containingView.addSubview(homeScreenImageView)
+        self.baseScrollView.containingView.addSubview(mostPopularItemsView)
+        self.baseScrollView.containingView.addSubview(collectionsView)
+        self.baseScrollView.containingView.addSubview(recommendedItemsView)
 
         updateViewConstraints()
     }
@@ -51,21 +73,42 @@ class HomeViewController: UIViewController {
             baseScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             baseScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             baseScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            baseScrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            baseScrollView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
         ])
 
         NSLayoutConstraint.activate([
             self.searchBarView.topAnchor.constraint(equalTo: self.baseScrollView.containingView.topAnchor),
-            self.searchBarView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
+            self.searchBarView.leadingAnchor.constraint(equalTo: self.baseScrollView.containingView.leadingAnchor),
             self.searchBarView.widthAnchor.constraint(equalTo: self.baseScrollView.widthAnchor),
-            self.searchBarView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor)
+            self.searchBarView.trailingAnchor.constraint(equalTo: self.baseScrollView.containingView.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            self.homeView.topAnchor.constraint(equalTo: self.searchBarView.bottomAnchor, constant: 16),
-            self.homeView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor, constant: 24),
-            self.homeView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor, constant: -24),
-            self.homeView.bottomAnchor.constraint(equalTo: self.baseScrollView.bottomAnchor)
+            self.homeScreenImageView.topAnchor.constraint(equalTo: self.searchBarView.bottomAnchor, constant: 16),
+            self.homeScreenImageView.leadingAnchor.constraint(equalTo: self.baseScrollView.containingView.leadingAnchor, constant: 24),
+            self.homeScreenImageView.trailingAnchor.constraint(equalTo: self.baseScrollView.containingView.trailingAnchor, constant: -24),
+            self.homeScreenImageView.bottomAnchor.constraint(equalTo: self.baseScrollView.containingView.bottomAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            mostPopularItemsView.topAnchor.constraint(equalTo: self.homeScreenImageView.bottomAnchor),
+            mostPopularItemsView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
+            mostPopularItemsView.trailingAnchor.constraint(equalTo: self.baseScrollView.containingView.trailingAnchor),
+        ])
+
+        NSLayoutConstraint.activate([
+            collectionsView.topAnchor.constraint(equalTo: self.mostPopularItemsView.bottomAnchor, constant: 24),
+            collectionsView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
+            collectionsView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+            recommendedItemsView.topAnchor.constraint(equalTo: self.collectionsView.bottomAnchor, constant: 24),
+            recommendedItemsView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
+            recommendedItemsView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor, constant: -24),
+            recommendedItemsView.bottomAnchor.constraint(equalTo: self.baseScrollView.containingView.bottomAnchor)
         ])
     }
 }

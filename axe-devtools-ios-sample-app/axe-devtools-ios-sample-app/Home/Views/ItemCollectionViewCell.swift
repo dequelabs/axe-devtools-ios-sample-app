@@ -50,6 +50,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
         return sv
     }()
 
+    lazy var heartImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
+
     lazy var addToBagButton: UIButton = {
         let b = UIButton()
         b.layer.borderColor = UIColor.black.cgColor
@@ -73,6 +79,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     private func buildCell() {
         self.addSubview(imageView)
+        imageView.addSubview(heartImageView)
         self.addSubview(horizontalStackView)
         self.horizontalStackView.addArrangedSubview(textVerticalStackView)
 
@@ -90,10 +97,13 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
         itemLabel.text = viewModel.itemName
         priceLabel.text = viewModel.itemPrice
+
         addToBagButton.backgroundColor = viewModel.isInBag ? .black : .white
         addToBagButton.layer.cornerRadius = 15
         addToBagButton.setImage(UIImage(named: imageName), for: .normal)
+
         imageView.image = UIImage(named: viewModel.imageName)
+        heartImageView.image = UIImage(named: viewModel.heartImageName)
     }
 
     override func updateConstraints() {
@@ -105,6 +115,13 @@ class ItemCollectionViewCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 180),
             imageView.widthAnchor.constraint(equalToConstant: 150)
+        ])
+
+        NSLayoutConstraint.activate([
+            heartImageView.widthAnchor.constraint(equalToConstant: 17),
+            heartImageView.heightAnchor.constraint(equalToConstant: 16),
+            heartImageView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),
+            heartImageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10)
         ])
 
         NSLayoutConstraint.activate([

@@ -22,6 +22,7 @@ class BaseScrollView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
         buildView()
     }
 
@@ -44,8 +45,8 @@ class BaseScrollView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            scrollView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            scrollView.heightAnchor.constraint(equalTo: self.heightAnchor)
+         //   scrollView.widthAnchor.constraint(equalTo: self.widthAnchor),
+         //   scrollView.heightAnchor.constraint(equalTo: self.heightAnchor)
         ])
 
         NSLayoutConstraint.activate([
@@ -53,7 +54,7 @@ class BaseScrollView: UIView {
             containingView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             containingView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             containingView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
-            containingView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+          //  containingView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             containingView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor),
             containingView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
