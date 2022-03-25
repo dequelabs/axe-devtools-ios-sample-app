@@ -14,10 +14,9 @@ class ProfileTableCell: UITableViewCell {
         }
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         buildCell()
-     //   imageView.layer.cornerRadius = 20
     }
 
     required init?(coder: NSCoder) {
@@ -25,6 +24,13 @@ class ProfileTableCell: UITableViewCell {
     }
 
     private func buildCell() {
-        
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        var content = self.defaultContentConfiguration()
+        content.text = viewModel.text
+        content.image = UIImage(named: viewModel.imageName)
+        self.contentConfiguration = content
     }
 }

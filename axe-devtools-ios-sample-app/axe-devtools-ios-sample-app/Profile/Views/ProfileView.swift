@@ -55,6 +55,8 @@ class ProfileView: UIView {
 
         NSLayoutConstraint.activate([
             promoImageView.topAnchor.constraint(equalTo: customerInfoView.customerImageView.bottomAnchor, constant: 30),
+            promoImageView.heightAnchor.constraint(equalToConstant: 157),
+            promoImageView.widthAnchor.constraint(equalToConstant: 327),
             promoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             promoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
@@ -63,7 +65,7 @@ class ProfileView: UIView {
             profileTableView.topAnchor.constraint(equalTo: promoImageView.bottomAnchor, constant: 28),
             profileTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             profileTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            profileTableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            profileTableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
 
     }

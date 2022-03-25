@@ -10,9 +10,9 @@ import Foundation
 class TableRowDataSource {
     let myDetails = TableRowModel(text: "My details", imageName: "Profile")
     let myOrders = TableRowModel(text: "My orders", imageName: "Paper")
-    let paymentMethods = TableRowModel(text: "Payment methods", imageName: "Wallet")
+    let paymentMethods = TableRowModel(text: "Payment methods", imageName: "WalletCellIcon")
     let addressBook = TableRowModel(text: "Address book", imageName: "Location")
-    let needHelp = TableRowModel(text: "Need help?", imageName: "Info square")
+    let needHelp = TableRowModel(text: "Need help?", imageName: "Info Square")
     let logOut = TableRowModel(text: "Log out", imageName: "Logout")
 
     lazy var allRows: [TableRowModel] = {

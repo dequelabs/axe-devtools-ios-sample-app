@@ -68,6 +68,7 @@ class PromoView: UIView {
     override func updateConstraints() {
         super.updateConstraints()
 
+        
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: 157),
             imageView.widthAnchor.constraint(equalToConstant: 327),

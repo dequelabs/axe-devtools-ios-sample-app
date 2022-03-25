@@ -43,7 +43,8 @@ class ProfileModel {
     var promoCode: String {
         return "XT4FH33D"
     }
-    
+
+    var tableVM = TableViewModel()
     var profileCellModels: [TableRowModel] = TableRowDataSource().allRows
 
 }

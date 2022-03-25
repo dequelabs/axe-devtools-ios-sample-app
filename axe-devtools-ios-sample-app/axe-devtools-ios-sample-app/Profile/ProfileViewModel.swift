@@ -50,6 +50,10 @@ class ProfileViewModel {
     var rowCount: Int {
         return profileModel.profileCellModels.count
     }
+
+    var cellModels: [TableRowModel] {
+        return profileModel.profileCellModels
+    }
 }
 
 
