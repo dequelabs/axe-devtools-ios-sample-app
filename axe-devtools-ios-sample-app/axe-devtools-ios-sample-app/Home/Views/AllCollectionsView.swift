@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class AllCollectionsView: UIView {
-// this is the view that holds each of the seasonal collection views
 
     let viewModel = SeasonalCollectionsViewModel()
 
@@ -53,7 +52,7 @@ class AllCollectionsView: UIView {
         NSLayoutConstraint.activate([
             self.allCollectionsVerticalStackView.topAnchor.constraint(equalTo: self.topAnchor),
             self.allCollectionsVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.allCollectionsVerticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24),
+            self.allCollectionsVerticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
             self.allCollectionsVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }

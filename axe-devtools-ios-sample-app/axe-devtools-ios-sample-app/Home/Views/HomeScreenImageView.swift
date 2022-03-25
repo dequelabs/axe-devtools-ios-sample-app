@@ -18,6 +18,7 @@ class HomeScreenImageView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
         buildView()
     }
     
@@ -32,12 +33,14 @@ class HomeScreenImageView: UIView {
 
         override func updateConstraints() {
         super.updateConstraints()
+            NSLayoutConstraint.activate([
+                self.heightAnchor.constraint(equalToConstant: 327),
+                self.widthAnchor.constraint(equalToConstant: 327)
+            ])
         NSLayoutConstraint.activate([
             mainImageView.topAnchor.constraint(equalTo: self.topAnchor),
             mainImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            mainImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            mainImageView.heightAnchor.constraint(equalToConstant: 327),
-            mainImageView.widthAnchor.constraint(equalToConstant: 327)
+            mainImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
 }

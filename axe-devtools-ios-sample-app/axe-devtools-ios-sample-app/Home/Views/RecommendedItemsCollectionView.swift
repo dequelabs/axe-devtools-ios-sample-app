@@ -13,8 +13,13 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     let viewModel = RecommendedItemsViewModel()
     private let reuseIdentifier = "ItemCell"
 
+    let flowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        return layout
+    }()
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
+        super.init(frame: frame, collectionViewLayout: flowLayout)
         self.dataSource = self
         self.delegate = self
         self.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)

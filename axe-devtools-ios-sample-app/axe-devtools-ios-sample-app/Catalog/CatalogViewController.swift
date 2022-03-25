@@ -30,7 +30,7 @@ class CatalogViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
 
         self.view.addSubview(baseScrollView)
-        baseScrollView.addSubview(catalogView)
+        baseScrollView.containingView.addSubview(catalogView)
 
         updateViewConstraints()
     }
@@ -42,9 +42,7 @@ class CatalogViewController: UIViewController {
             baseScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             baseScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             baseScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            baseScrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            baseScrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
 
         NSLayoutConstraint.activate([

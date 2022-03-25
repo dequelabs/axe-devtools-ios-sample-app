@@ -23,9 +23,6 @@ class ProfileViewController: UIViewController {
 
     private func buildView() {
         self.navigationController?.isNavigationBarHidden = true
-
-        //self.view.addSubview(baseScrollView)
-       // baseScrollView.addSubview(cartView)
         self.view.addSubview(profileView)
         updateViewConstraints()
     }

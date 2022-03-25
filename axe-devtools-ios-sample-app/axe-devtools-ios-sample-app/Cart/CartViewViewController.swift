@@ -30,7 +30,7 @@ class CartViewViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
 
         self.view.addSubview(baseScrollView)
-        baseScrollView.addSubview(cartView)
+        baseScrollView.containingView.addSubview(cartView)
 
         updateViewConstraints()
     }
