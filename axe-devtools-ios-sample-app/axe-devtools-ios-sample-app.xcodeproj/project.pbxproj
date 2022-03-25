@@ -40,6 +40,11 @@
 		F3799AB827ED2090009CFC2E /* PromoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AB727ED2090009CFC2E /* PromoView.swift */; };
 		F3799ABA27ED2098009CFC2E /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AB927ED2098009CFC2E /* ProfileTableView.swift */; };
 		F3799ABC27EE15AF009CFC2E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799ABB27EE15AF009CFC2E /* ProfileView.swift */; };
+		F3799ABF27EE1D61009CFC2E /* TableRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799ABE27EE1D61009CFC2E /* TableRowModel.swift */; };
+		F3799AC127EE1DA2009CFC2E /* ProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AC027EE1DA2009CFC2E /* ProfileTableCell.swift */; };
+		F3799AC327EE1DBD009CFC2E /* TableRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AC227EE1DBD009CFC2E /* TableRowViewModel.swift */; };
+		F3799AC527EE1DD5009CFC2E /* TableRowDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AC427EE1DD5009CFC2E /* TableRowDataSource.swift */; };
+		F3799AC727EE2083009CFC2E /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AC627EE2083009CFC2E /* TableViewModel.swift */; };
 		F3A1A66F27E37B4F00E4F0E7 /* HomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */; };
 		F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */; };
 		F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */; };
@@ -125,6 +130,11 @@
 		F3799AB727ED2090009CFC2E /* PromoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoView.swift; sourceTree = "<group>"; };
 		F3799AB927ED2098009CFC2E /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
 		F3799ABB27EE15AF009CFC2E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F3799ABE27EE1D61009CFC2E /* TableRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowModel.swift; sourceTree = "<group>"; };
+		F3799AC027EE1DA2009CFC2E /* ProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableCell.swift; sourceTree = "<group>"; };
+		F3799AC227EE1DBD009CFC2E /* TableRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowViewModel.swift; sourceTree = "<group>"; };
+		F3799AC427EE1DD5009CFC2E /* TableRowDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowDataSource.swift; sourceTree = "<group>"; };
+		F3799AC627EE2083009CFC2E /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeImageView.swift; sourceTree = "<group>"; };
 		F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
@@ -254,8 +264,9 @@
 			isa = PBXGroup;
 			children = (
 				F3799AAD27ED2055009CFC2E /* ProfileViewController.swift */,
-				F3799AB127ED2060009CFC2E /* ProfileModel.swift */,
 				F3799AB327ED2066009CFC2E /* ProfileViewModel.swift */,
+				F3799AB127ED2060009CFC2E /* ProfileModel.swift */,
+				F3799AC827EE242C009CFC2E /* Data */,
 				F3799ABD27EE1A20009CFC2E /* Views */,
 			);
 			path = Profile;
@@ -268,8 +279,20 @@
 				F3799AB527ED208A009CFC2E /* CustomerInfoView.swift */,
 				F3799AB727ED2090009CFC2E /* PromoView.swift */,
 				F3799AB927ED2098009CFC2E /* ProfileTableView.swift */,
+				F3799AC027EE1DA2009CFC2E /* ProfileTableCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F3799AC827EE242C009CFC2E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F3799ABE27EE1D61009CFC2E /* TableRowModel.swift */,
+				F3799AC227EE1DBD009CFC2E /* TableRowViewModel.swift */,
+				F3799AC627EE2083009CFC2E /* TableViewModel.swift */,
+				F3799AC427EE1DD5009CFC2E /* TableRowDataSource.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		F3A1A67027E37D0600E4F0E7 /* Shared */ = {
@@ -564,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3799A7D27E8EBB1009CFC2E /* BaseScrollView.swift in Sources */,
+				F3799ABF27EE1D61009CFC2E /* TableRowModel.swift in Sources */,
 				F3F31DDC27E0E4A900D87988 /* MainTabBarViewController.swift in Sources */,
 				F3799AA427EA55A2009CFC2E /* ItemTypeView.swift in Sources */,
 				F3799A9327EA454C009CFC2E /* ItemTypeModel.swift in Sources */,
@@ -577,6 +601,7 @@
 				F3799AAE27ED2055009CFC2E /* ProfileViewController.swift in Sources */,
 				F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */,
 				F3F31DC927DFD9FF00D87988 /* MostPopularModel.swift in Sources */,
+				F3799AC727EE2083009CFC2E /* TableViewModel.swift in Sources */,
 				F3799A8227E90C28009CFC2E /* CartViewModel.swift in Sources */,
 				F3799A9127EA1A14009CFC2E /* CartQuantityStepperView.swift in Sources */,
 				F3F31DCB27DFDA0E00D87988 /* RecommendedItemsModel.swift in Sources */,
@@ -596,11 +621,13 @@
 				F3F31DD827DFDE7600D87988 /* HeaderModel.swift in Sources */,
 				F3EFAC2F27E13185004A87C9 /* ItemDataSource.swift in Sources */,
 				F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */,
+				F3799AC127EE1DA2009CFC2E /* ProfileTableCell.swift in Sources */,
 				F3799A8627E90CB8009CFC2E /* CartDataSource.swift in Sources */,
 				F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */,
 				F3799A7927E8D976009CFC2E /* SeasonalCollectionView.swift in Sources */,
 				F3799ABA27ED2098009CFC2E /* ProfileTableView.swift in Sources */,
 				F3799AA927ECCEB3009CFC2E /* AllItemTypesViewModel.swift in Sources */,
+				F3799AC527EE1DD5009CFC2E /* TableRowDataSource.swift in Sources */,
 				F3799A9927EA5169009CFC2E /* CatalogDataSource.swift in Sources */,
 				F3F31DC327DFD5AC00D87988 /* HomeView.swift in Sources */,
 				F3799ABC27EE15AF009CFC2E /* ProfileView.swift in Sources */,
@@ -611,6 +638,7 @@
 				F3EFAC3727E13322004A87C9 /* RecommendedItemsViewModel.swift in Sources */,
 				F3F31DC127DFD56C00D87988 /* HomeViewModel.swift in Sources */,
 				F3F31DDA27DFDECF00D87988 /* HeaderViewModel.swift in Sources */,
+				F3799AC327EE1DBD009CFC2E /* TableRowViewModel.swift in Sources */,
 				F3F31DC727DFD9F000D87988 /* CollectionModel.swift in Sources */,
 				F3799A8427E90C2D009CFC2E /* CartModel.swift in Sources */,
 				F3A1A67F27E3A57400E4F0E7 /* CatalogModel.swift in Sources */,

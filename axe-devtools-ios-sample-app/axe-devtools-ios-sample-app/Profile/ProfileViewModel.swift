@@ -31,50 +31,6 @@ class ProfileViewModel {
         return profileModel.editIconName
     }
 
-    var myOrdersIconName: String {
-        return profileModel.myOrdersIconName
-    }
-
-    var myDetailsText: String {
-        return profileModel.myDetailsText
-    }
-
-    var myOrdersText: String {
-        return profileModel.myOrdersText
-    }
-
-    var paymentMethodsIconName: String {
-        return profileModel.paymentMethodsIconName
-    }
-
-    var paymentMethodsText: String {
-        return profileModel.paymentMethodsText
-    }
-
-    var addressBookIconName: String {
-        return profileModel.addressBookIconName
-    }
-
-    var addressBookText: String {
-        return profileModel.addressBookText
-    }
-
-    var needHelpIconName: String {
-        return profileModel.needHelpIconName
-    }
-
-    var needHelpText: String {
-        return profileModel.needHelpText
-    }
-
-    var logOutIconName: String {
-        return profileModel.logOutIconName
-    }
-
-    var logOutText: String {
-        return profileModel.logOutText
-    }
-
     var promoImageName: String {
         return profileModel.promoImageName
     }
@@ -90,4 +46,10 @@ class ProfileViewModel {
     var promoCode: String {
         return profileModel.promoCode
     }
+
+    var rowCount: Int {
+        return profileModel.profileCellModels.count
+    }
 }
+
+

@@ -7,8 +7,17 @@
 
 import UIKit
 
-class ProfileTableView: UITableView {
+class ProfileTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     let viewModel = ProfileViewModel()
+    let cellId = "cellId"
 
- // conform to datasource and delegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.rowCount
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ProfileTableCell
+        return cell
+    }
+    
 }

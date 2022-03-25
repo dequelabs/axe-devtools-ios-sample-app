@@ -8,7 +8,7 @@
 import Foundation
 
 class ProfileModel {
-    
+
     var iconName: String {
         return "Menu"
     }
@@ -28,50 +28,6 @@ class ProfileModel {
         return "Edit Square"
     }
 
-    var myOrdersIconName: String {
-        return "Paper"
-    }
-
-    var myDetailsText: String {
-        return "My details"
-    }
-
-    var myOrdersText: String {
-        return "My orders"
-    }
-
-    var paymentMethodsIconName: String {
-        return "Wallet"
-    }
-
-    var paymentMethodsText: String {
-        return "Payment methods"
-    }
-
-    var addressBookIconName: String {
-        return "Location"
-    }
-
-    var addressBookText: String {
-        return "Address book"
-    }
-
-    var needHelpIconName: String {
-        return "Info Square"
-    }
-
-    var needHelpText: String {
-        return "Need help?"
-    }
-
-    var logOutIconName: String {
-        return "Logout"
-    }
-
-    var logOutText: String {
-        return "Log out"
-    }
-
     var promoImageName: String {
         return "PromoCodeImage"
     }
@@ -87,4 +43,7 @@ class ProfileModel {
     var promoCode: String {
         return "XT4FH33D"
     }
+    
+    var profileCellModels: [TableRowModel] = TableRowDataSource().allRows
+
 }
