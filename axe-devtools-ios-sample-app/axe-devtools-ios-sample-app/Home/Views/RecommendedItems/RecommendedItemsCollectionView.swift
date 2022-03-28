@@ -48,6 +48,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RecommendedItemCollectionViewCell
         let item = self.viewModel.items[indexPath.row]
         cell.viewModel = ItemCellViewModel(item: item)
+
         cell.layer.cornerRadius = 10
         cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         return cell

@@ -8,12 +8,13 @@
 import UIKit
 
 class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    // don't forget to add a title for the collection view
+
     var viewModel = MostPopularItemsViewModel()
     private let reuseIdentifier = "ItemCell"
     private let headerId = "Header"
     private let itemsPerRow: CGFloat = 2
     let headerView = MostPopularItemsHeaderView()
+
     let flowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         return layout
@@ -26,11 +27,10 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         self.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.isScrollEnabled = false
         self.automaticallyAdjustsScrollIndicatorInsets = false
-        setupLayout()
-
         self.register(MostPopularItemsHeaderView.self, forSupplementaryViewOfKind:
                         UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
 
+        setupLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -39,9 +39,9 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
 
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
-            //flowLayout.estimatedItemSize = CGSize(width: 152.0, height: 180.0)
             flowLayout.scrollDirection = .vertical
-
+            flowLayout.collectionView?.delegate = self
+            flowLayout.collectionView?.dataSource = self
         }
     }
 
@@ -49,12 +49,14 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return viewModel.items.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 12
+//    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        let paddingSpace = sectionInsets.top * (itemsPerRow + 1)
+        let availableWidth = self.frame.height - paddingSpace
+        return availableWidth / itemsPerRow
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -66,6 +68,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return cell
     }
 
+  
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! MostPopularItemsHeaderView
         return headerView
@@ -75,9 +78,9 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return CGSize(width: self.frame.width, height: 60)
     }
 
-    private let sectionInsets = UIEdgeInsets(top: 34,
+    private let sectionInsets = UIEdgeInsets(top: 12,
                                              left: 8,
-                                             bottom: 12,
+                                             bottom: 0,
                                              right: 8)
 
 

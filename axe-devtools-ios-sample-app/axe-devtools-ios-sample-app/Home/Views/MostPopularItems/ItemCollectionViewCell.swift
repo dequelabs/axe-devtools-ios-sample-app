@@ -83,11 +83,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
         self.addSubview(imageView)
         imageView.addSubview(heartImageView)
         self.addSubview(horizontalStackView)
-        self.horizontalStackView.addArrangedSubview(textVerticalStackView)
-
-        horizontalStackView.addArrangedSubview(addToBagButton)
+        horizontalStackView.addArrangedSubview(textVerticalStackView)
         textVerticalStackView.addArrangedSubview(itemLabel)
         textVerticalStackView.addArrangedSubview(priceLabel)
+        horizontalStackView.addArrangedSubview(addToBagButton)
 
         configureElements()
         updateConstraints()
@@ -100,12 +99,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
         itemLabel.text = viewModel.itemName
         priceLabel.text = viewModel.itemPrice
 
+        imageView.image = UIImage(named: viewModel.imageName)
+        heartImageView.image = UIImage(named: viewModel.heartImageName)
+
         addToBagButton.backgroundColor = viewModel.isInBag ? .black : .white
         addToBagButton.layer.cornerRadius = 15
         addToBagButton.setImage(UIImage(named: imageName), for: .normal)
-
-        imageView.image = UIImage(named: viewModel.imageName)
-        heartImageView.image = UIImage(named: viewModel.heartImageName)
     }
 
     override func updateConstraints() {
@@ -141,15 +140,14 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
         NSLayoutConstraint.activate([
             textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
-            textVerticalStackView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor),
-            textVerticalStackView.trailingAnchor.constraint(equalTo: horizontalStackView.trailingAnchor),
-            textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+          //  textVerticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+          //  textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
 
         NSLayoutConstraint.activate([
             itemLabel.topAnchor.constraint(equalTo: textVerticalStackView.topAnchor),
             itemLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor),
-            itemLabel.centerYAnchor.constraint(equalTo: addToBagButton.centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
