@@ -66,6 +66,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         buildCell()
+        self.layer.cornerRadius = 20
         imageView.layer.cornerRadius = 20
     }
 
@@ -122,7 +123,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             heartImageView.widthAnchor.constraint(equalToConstant: 17),
             heartImageView.heightAnchor.constraint(equalToConstant: 16),
             heartImageView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),
-            heartImageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10)
+            heartImageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -10)
         ])
 
         NSLayoutConstraint.activate([

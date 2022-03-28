@@ -13,13 +13,18 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     private let reuseIdentifier = "ItemCell"
     private let itemsPerRow: CGFloat = 2
 
+    let flowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        return layout
+    }()
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
+        super.init(frame: frame, collectionViewLayout: flowLayout)
         self.dataSource = self
         self.delegate = self
         self.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.isScrollEnabled = false
-
+        self.automaticallyAdjustsScrollIndicatorInsets = false
         setupLayout()
     }
 
@@ -59,13 +64,13 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
                                              right: 24.0)
 
 
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-//        let availableWidth = self.frame.width - paddingSpace
-//        let widthPerItem = availableWidth / itemsPerRow
-//
-//        return CGSize(width: widthPerItem, height: widthPerItem)
-//    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = self.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
 }

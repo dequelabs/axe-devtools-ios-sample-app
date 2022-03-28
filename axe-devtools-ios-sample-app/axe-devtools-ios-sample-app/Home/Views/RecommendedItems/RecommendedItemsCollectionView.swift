@@ -25,6 +25,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         self.delegate = self
         self.register(RecommendedItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.isScrollEnabled = false
+        self.automaticallyAdjustsScrollIndicatorInsets = false
 
         setupLayout()
     }
