@@ -20,6 +20,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: flowLayout)
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
         self.delegate = self
         self.register(RecommendedItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -60,6 +61,6 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     private let sectionInsets = UIEdgeInsets(top: 16.0,
                                              left: 24.0,
                                              bottom: 0,
-                                             right: 0.0)
+                                             right: -24.0)
     
 }

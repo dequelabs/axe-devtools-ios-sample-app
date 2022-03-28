@@ -81,13 +81,14 @@ class HomeViewController: UIViewController {
             self.searchBarView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
             self.searchBarView.widthAnchor.constraint(equalToConstant: 375),
             self.searchBarView.heightAnchor.constraint(equalToConstant: 156),
-            self.searchBarView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor)
+            self.searchBarView.trailingAnchor.constraint(equalTo: self.baseScrollView.containingView.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
             self.homeScreenImageView.topAnchor.constraint(equalTo: self.searchBarView.bottomAnchor, constant: 16),
-            self.homeScreenImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
-            self.homeScreenImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+            self.homeScreenImageView.leadingAnchor.constraint(equalTo: self.baseScrollView
+                .leadingAnchor, constant: 24),
+            self.homeScreenImageView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor, constant: -24),
             self.homeScreenImageView.widthAnchor.constraint(equalToConstant: 327),
             self.homeScreenImageView.heightAnchor.constraint(equalToConstant: 327)
         ])
@@ -101,15 +102,15 @@ class HomeViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             collectionsView.topAnchor.constraint(equalTo: self.mostPopularItemsView.bottomAnchor, constant: 24),
-            collectionsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            collectionsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            collectionsView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
+            collectionsView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            recommendedItemsView.topAnchor.constraint(greaterThanOrEqualTo: self.collectionsView.bottomAnchor, constant: 24),
-            recommendedItemsView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
+            recommendedItemsView.topAnchor.constraint(lessThanOrEqualTo: self.collectionsView.bottomAnchor, constant: 24),
+            recommendedItemsView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor, constant: 24),
             recommendedItemsView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor, constant: -24),
-         //   recommendedItemsView.bottomAnchor.constraint(equalTo: self.baseScrollView.containingView.bottomAnchor)
+            recommendedItemsView.bottomAnchor.constraint(equalTo: self.baseScrollView.bottomAnchor, constant: 12)
         ])
     }
 }
