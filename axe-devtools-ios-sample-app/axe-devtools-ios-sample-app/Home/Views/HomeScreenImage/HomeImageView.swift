@@ -48,11 +48,15 @@ class HomeImageView: UIView {
     }()
 
     lazy var checkButton: UIButton = {
-        let b = UIButton()
-        b.titleLabel?.text = viewModel.buttonText
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = UIImage(named: viewModel.buttonImage)
+        configuration.imagePlacement = .trailing
+        let b = UIButton(configuration: configuration)
+        b.setTitle(viewModel.buttonText, for: .normal)
         b.titleLabel?.textColor = .white
+        b.tintColor = .white
+        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         b.translatesAutoresizingMaskIntoConstraints = false
-        // don't forget to do the arrow icon next to 'check' text
         return b
     }()
 

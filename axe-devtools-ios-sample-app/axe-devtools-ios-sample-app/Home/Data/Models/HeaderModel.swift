@@ -10,6 +10,7 @@ import Foundation
 class HeaderModel {
     var headerTitle = "Winter 2022 best collection"
     var headerSubtitle = "Limited number of products"
-    var buttonText = "Check"
+    var buttonText = "Check "
     var imageName = "hero"
+    var buttonImage = "Arrow - Right"
 }

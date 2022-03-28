@@ -26,4 +26,8 @@ class HeaderViewModel {
     var imageName: String {
         return model.imageName
     }
+
+    var buttonImage: String {
+        return model.buttonImage
+    }
 }

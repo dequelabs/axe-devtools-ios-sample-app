@@ -35,7 +35,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = CGSize(width: 152.0, height: 180.0)
-            flowLayout.scrollDirection = .vertical
+         //   flowLayout.scrollDirection = .vertical
         }
     }
 
