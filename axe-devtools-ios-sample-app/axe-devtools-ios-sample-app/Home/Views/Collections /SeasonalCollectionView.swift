@@ -59,7 +59,9 @@ class SeasonalCollectionView: UIView {
             self.imageView.topAnchor.constraint(equalTo: self.topAnchor),
             self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            self.imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.imageView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            self.imageView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
 
         NSLayoutConstraint.activate([

@@ -38,6 +38,7 @@ class AllCollectionsView: UIView {
 
     func buildView() {
         self.addSubview(allCollectionsVerticalStackView)
+
         viewModel.allCollections.forEach { collection in
             let collection = CollectionModel(name: collection.name, imageName: collection.imageName)
             let seasonalCollectionView = SeasonalCollectionView(viewModel: CollectionViewModel(model: collection))

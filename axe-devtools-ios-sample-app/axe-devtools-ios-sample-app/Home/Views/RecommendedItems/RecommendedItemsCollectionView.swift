@@ -24,7 +24,6 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         self.dataSource = self
         self.delegate = self
         self.register(RecommendedItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.isScrollEnabled = false
         self.automaticallyAdjustsScrollIndicatorInsets = false
 
         setupLayout()
@@ -36,7 +35,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: 210.0, height: 248.0)
+       //     flowLayout.estimatedItemSize = CGSize(width: 210.0, height: 248.0)
             flowLayout.scrollDirection = .horizontal
         }
     }
@@ -49,6 +48,8 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RecommendedItemCollectionViewCell
         let item = self.viewModel.items[indexPath.row]
         cell.viewModel = ItemCellViewModel(item: item)
+        cell.layer.cornerRadius = 10
+        cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         return cell
     }
 
@@ -57,11 +58,27 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         return 24
     }
 
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.frame.width, height: 60)
+    }
+
     // dont forget to add the header
 
-    private let sectionInsets = UIEdgeInsets(top: 16.0,
-                                             left: 24.0,
-                                             bottom: 0,
-                                             right: -24.0)
+    private let sectionInsets = UIEdgeInsets(top: 8,
+                                             left: 8,
+                                             bottom: 8,
+                                             right: 8)
     
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let allItems = CGFloat(viewModel.items.count)
+        let paddingSpace = sectionInsets.left * (allItems + 1)
+        let availableWidth = self.frame.width - paddingSpace
+        let widthPerItem = availableWidth / allItems
+
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+
 }

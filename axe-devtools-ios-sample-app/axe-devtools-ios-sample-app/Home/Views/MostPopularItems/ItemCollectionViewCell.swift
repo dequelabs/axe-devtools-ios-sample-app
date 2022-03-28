@@ -116,7 +116,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 180),
-            imageView.widthAnchor.constraint(equalToConstant: 150)
+            imageView.widthAnchor.constraint(greaterThanOrEqualToConstant: 150)
         ])
 
         NSLayoutConstraint.activate([
@@ -127,7 +127,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
 
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 32),
+            horizontalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 12),
             horizontalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             horizontalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
