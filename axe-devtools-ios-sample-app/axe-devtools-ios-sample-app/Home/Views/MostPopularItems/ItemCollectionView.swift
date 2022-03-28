@@ -65,11 +65,9 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         let item = self.viewModel.items[indexPath.row]
         cell.viewModel = ItemCellViewModel(item: item)
         cell.layer.cornerRadius = 10
-      //  cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         return cell
     }
 
-  
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! MostPopularItemsHeaderView
         return headerView

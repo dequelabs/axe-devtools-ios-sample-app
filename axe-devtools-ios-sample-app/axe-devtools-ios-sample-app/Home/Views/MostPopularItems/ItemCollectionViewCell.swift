@@ -83,7 +83,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         self.addSubview(imageView)
         imageView.addSubview(heartImageView)
         self.addSubview(horizontalStackView)
-        
+
         horizontalStackView.addArrangedSubview(textVerticalStackView)
         textVerticalStackView.addArrangedSubview(itemLabel)
         textVerticalStackView.addArrangedSubview(priceLabel)
