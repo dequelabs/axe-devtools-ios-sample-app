@@ -8,6 +8,7 @@
 import UIKit
 
 class MostPopularItemsHeaderView: UICollectionReusableView {
+
     lazy var headerLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -19,12 +20,12 @@ class MostPopularItemsHeaderView: UICollectionReusableView {
 
     lazy var itemsButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
-        configuration.image = UIImage(named: "Arrow - Right")
+        configuration.image = UIImage(named: "ArrowGray")
         configuration.imagePlacement = .trailing
         let l = UIButton(configuration: configuration)
         l.translatesAutoresizingMaskIntoConstraints = false
         l.titleLabel?.textColor = .lightGray
-        l.tintColor = .white
+        l.titleLabel?.tintColor = .lightGray
         l.setTitle("56 Items ", for: .normal)
         return l
     }()
@@ -50,8 +51,7 @@ class MostPopularItemsHeaderView: UICollectionReusableView {
 
         NSLayoutConstraint.activate([
             headerLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            headerLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         ])
 
         NSLayoutConstraint.activate([

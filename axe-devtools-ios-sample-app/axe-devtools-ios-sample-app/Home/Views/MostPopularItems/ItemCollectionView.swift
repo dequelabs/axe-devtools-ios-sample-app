@@ -49,12 +49,13 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return viewModel.items.count
     }
 
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 12
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 12
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        let paddingSpace = sectionInsets.top * (itemsPerRow + 1)
+        let items: CGFloat = CGFloat(viewModel.items.count)
+        let paddingSpace = sectionInsets.top * (items/itemsPerRow)
         let availableWidth = self.frame.height - paddingSpace
         return availableWidth / itemsPerRow
     }
@@ -64,7 +65,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         let item = self.viewModel.items[indexPath.row]
         cell.viewModel = ItemCellViewModel(item: item)
         cell.layer.cornerRadius = 10
-        cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+      //  cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         return cell
     }
 
@@ -75,14 +76,13 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.frame.width, height: 60)
+        return CGSize(width: self.frame.width, height: 80)
     }
 
-    private let sectionInsets = UIEdgeInsets(top: 12,
+    private let sectionInsets = UIEdgeInsets(top: -34,
                                              left: 8,
                                              bottom: 0,
                                              right: 8)
-
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -91,6 +91,9 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         let availableWidth = self.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
 
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        let verticalSpace = sectionInsets.top * (CGFloat(itemsPerRow))
+        let availableHeight = self.frame.height - verticalSpace
+        let heightPerItem = availableHeight / itemsPerRow
+        return CGSize(width: widthPerItem, height: availableHeight)
     }
 }

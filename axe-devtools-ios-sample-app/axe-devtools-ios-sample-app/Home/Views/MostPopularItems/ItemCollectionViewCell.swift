@@ -83,6 +83,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         self.addSubview(imageView)
         imageView.addSubview(heartImageView)
         self.addSubview(horizontalStackView)
+        
         horizontalStackView.addArrangedSubview(textVerticalStackView)
         textVerticalStackView.addArrangedSubview(itemLabel)
         textVerticalStackView.addArrangedSubview(priceLabel)
@@ -126,7 +127,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
 
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 32),
+            horizontalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
             horizontalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             horizontalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
