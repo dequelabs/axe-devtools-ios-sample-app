@@ -29,8 +29,8 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
 
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: 210.0, height: 248.0)
-            flowLayout.scrollDirection = .horizontal
+            flowLayout.estimatedItemSize = CGSize(width: 152.0, height: 180.0)
+            flowLayout.scrollDirection = .vertical
         }
     }
 
@@ -43,7 +43,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
 //    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 80
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,13 +59,13 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
                                              right: 24.0)
 
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = self.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
-
-        return CGSize(width: widthPerItem, height: widthPerItem)
-    }
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+//        let availableWidth = self.frame.width - paddingSpace
+//        let widthPerItem = availableWidth / itemsPerRow
+//
+//        return CGSize(width: widthPerItem, height: widthPerItem)
+//    }
 }

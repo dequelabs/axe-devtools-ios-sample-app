@@ -22,7 +22,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         super.init(frame: frame, collectionViewLayout: flowLayout)
         self.dataSource = self
         self.delegate = self
-        self.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.register(RecommendedItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.isScrollEnabled = false
 
         setupLayout()
@@ -44,7 +44,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCollectionViewCell
+        let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RecommendedItemCollectionViewCell
         let item = self.viewModel.items[indexPath.row]
         cell.viewModel = ItemCellViewModel(item: item)
         return cell

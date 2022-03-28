@@ -64,6 +64,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
         buildCell()
         imageView.layer.cornerRadius = 20
     }
