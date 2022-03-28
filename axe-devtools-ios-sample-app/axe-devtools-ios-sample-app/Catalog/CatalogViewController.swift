@@ -46,10 +46,10 @@ class CatalogViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            catalogView.topAnchor.constraint(equalTo: self.baseScrollView.topAnchor, constant: 24),
+            catalogView.topAnchor.constraint(equalTo: self.baseScrollView.containingView.topAnchor, constant: 24),
             catalogView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
             catalogView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor),
-            catalogView.bottomAnchor.constraint(equalTo: self.baseScrollView.bottomAnchor),
+            catalogView.bottomAnchor.constraint(equalTo: self.baseScrollView.containingView.bottomAnchor),
 
         ])
     }
