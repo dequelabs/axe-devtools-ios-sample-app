@@ -54,10 +54,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        let items: CGFloat = CGFloat(viewModel.items.count)
-        let paddingSpace = sectionInsets.left * (items/itemsPerRow)
-        let availableWidth = self.frame.height - paddingSpace
-        return availableWidth / itemsPerRow
+        return 32
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

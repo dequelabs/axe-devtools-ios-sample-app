@@ -32,13 +32,14 @@ class ItemCollectionViewCell: UICollectionViewCell {
     lazy var itemLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = .systemFont(ofSize: 14)
         return l
     }()
 
     lazy var priceLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.backgroundColor = .purple
+        l.font = .boldSystemFont(ofSize: 18)
         return l
     }()
 
@@ -116,7 +117,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 180),
-            imageView.widthAnchor.constraint(equalToConstant: 150)
+            imageView.widthAnchor.constraint(greaterThanOrEqualToConstant: 152)
         ])
 
         NSLayoutConstraint.activate([
@@ -138,16 +139,16 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
 
         NSLayoutConstraint.activate([
-            textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
-            textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+          //  textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
+           // textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            itemLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor)
+            //itemLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            priceLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor)
+           // priceLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor)
         ])
     }
 }

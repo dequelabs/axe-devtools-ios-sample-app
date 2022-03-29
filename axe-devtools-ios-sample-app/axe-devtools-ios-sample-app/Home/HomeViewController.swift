@@ -79,16 +79,14 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             self.searchBarView.topAnchor.constraint(equalTo: self.baseScrollView.containingView.topAnchor),
             self.searchBarView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
-            self.searchBarView.widthAnchor.constraint(equalToConstant: 375),
             self.searchBarView.heightAnchor.constraint(equalToConstant: 156),
-            self.searchBarView.trailingAnchor.constraint(equalTo: self.baseScrollView.containingView.trailingAnchor)
+            self.searchBarView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
             self.homeScreenImageView.topAnchor.constraint(equalTo: self.searchBarView.bottomAnchor, constant: 16),
-            self.homeScreenImageView.leadingAnchor.constraint(equalTo: self.baseScrollView
-                .leadingAnchor, constant: 24),
-            self.homeScreenImageView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor, constant: -24),
+            self.homeScreenImageView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
+            self.homeScreenImageView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor),
             self.homeScreenImageView.widthAnchor.constraint(equalToConstant: 327),
             self.homeScreenImageView.heightAnchor.constraint(equalToConstant: 327)
         ])
