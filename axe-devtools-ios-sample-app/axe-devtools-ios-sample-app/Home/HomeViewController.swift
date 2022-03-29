@@ -113,8 +113,8 @@ class HomeViewController: UIViewController {
             mostPopularItemsView.topAnchor.constraint(equalTo: homeScreenImageView.bottomAnchor, constant: 32),
             mostPopularItemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             mostPopularItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            mostPopularItemsView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-           // mostPopularItemsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.40)
+            mostPopularItemsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+          //  mostPopularItemsView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor, multiplier: 0.30)
         ])
 
 //        NSLayoutConstraint.activate([

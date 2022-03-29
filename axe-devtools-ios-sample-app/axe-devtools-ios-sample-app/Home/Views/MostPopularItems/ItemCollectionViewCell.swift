@@ -43,14 +43,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
         return l
     }()
     
-    lazy var horizontalStackView: UIStackView = {
-        let sv = UIStackView()
-        sv.axis = .horizontal
-        sv.spacing = 12
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        return sv
-    }()
-    
     lazy var heartImageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +59,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        //   self.translatesAutoresizingMaskIntoConstraints = false
+           self.translatesAutoresizingMaskIntoConstraints = false
         buildCell()
         self.layer.cornerRadius = 20
     }
@@ -85,12 +77,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
         self.addSubview(imageView)
         imageView.addSubview(heartImageView)
         
-        self.addSubview(horizontalStackView)
-        horizontalStackView.addArrangedSubview(textVerticalStackView)
+        self.addSubview(textVerticalStackView)
         textVerticalStackView.addArrangedSubview(itemLabel)
         textVerticalStackView.addArrangedSubview(priceLabel)
         
-        horizontalStackView.addArrangedSubview(addToBagButton)
+        self.addSubview(addToBagButton)
         
         configureElements()
         updateConstraints()
@@ -128,37 +119,21 @@ class ItemCollectionViewCell: UICollectionViewCell {
             heartImageView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),
             heartImageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -10)
         ])
-        
+
+        let buttonWidth = addToBagButton.widthAnchor.constraint(equalToConstant: 33)
+        let buttonHeight = addToBagButton.heightAnchor.constraint(equalToConstant: 33)
+
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
-            horizontalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            horizontalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            horizontalStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
+            addToBagButton.centerYAnchor.constraint(equalTo: textVerticalStackView.centerYAnchor),
+            buttonHeight,
+            buttonWidth,
+            addToBagButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            addToBagButton.centerYAnchor.constraint(equalTo: horizontalStackView.centerYAnchor),
-            addToBagButton.heightAnchor.constraint(equalToConstant: 33),
-            addToBagButton.widthAnchor.constraint(equalToConstant: 33)
-        ])
-        
-        NSLayoutConstraint.activate([
-            textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
-            // textVerticalStackView.bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor),
+            textVerticalStackView.topAnchor.constraint(equalTo: self.imageView.bottomAnchor),
+            textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            //   textVerticalStackView.centerYAnchor.constraint(equalTo: addToBagButton.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            //  itemLabel.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
-            // itemLabel.centerYAnchor.constraint(equalTo: textVerticalStackView.centerYAnchor),
-            //  itemLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            //  priceLabel.bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor),
-            // priceLabel.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor)
         ])
     }
 }
