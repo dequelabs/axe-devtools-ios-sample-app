@@ -63,7 +63,7 @@ class CatalogHeaderImageView: UIImageView {
             dotIcons.widthAnchor.constraint(equalToConstant: 78),
             dotIcons.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 125),
             dotIcons.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -125),
-            dotIcons.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16)
+            dotIcons.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }

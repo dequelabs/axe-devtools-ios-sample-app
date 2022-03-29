@@ -41,10 +41,12 @@ class SearchBarView: UIView {
         self.layer.cornerRadius = 15
         self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
+
     private func buildView() {
         self.addSubview(titleImageView)
         self.addSubview(searchBar)
         updateConstraints()
+        // try ignore safe area insets
     }
 
     override func updateConstraints() {

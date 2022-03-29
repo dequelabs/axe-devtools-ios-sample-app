@@ -33,7 +33,26 @@ class ItemDataSource {
                          price: "$125.00")
     }()
 
+    lazy var itemE: ItemModel = {
+        return ItemModel(name: "Exploronic Life",
+                         imageName: "b",
+                         price: "$26.00")
+
+    }()
+
+    lazy var itemF: ItemModel = {
+        return ItemModel(name: "Exploronic Life",
+                         imageName: "c",
+                         price: "$26.00")
+    }()
+
+    lazy var itemG: ItemModel = {
+        return ItemModel(name: "Survive",
+                         imageName: "d",
+                         price: "$125.00")
+    }()
+
     lazy var allItems: [ItemModel] = {
-        return [itemA, itemB, itemC, itemD]
+        return [itemA, itemB, itemC, itemD, itemE, itemF, itemG]
     }()
 }

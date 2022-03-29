@@ -46,6 +46,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("NUMBER OF ITEMS IN THE VIEW MODEL --------------------> \(viewModel.items.count)")
         return viewModel.items.count
     }
 
@@ -74,7 +75,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         return CGSize(width: self.frame.width, height: 80)
     }
 
-    private let sectionInsets = UIEdgeInsets(top: -34,
+    private let sectionInsets = UIEdgeInsets(top: 16,
                                              left: 8,
                                              bottom: 0,
                                              right: 8)
@@ -86,6 +87,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         let availableWidth = self.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
 
+      //  let verticalPaddingSpace = sectionInsets.top + 
         return CGSize(width: widthPerItem, height: self.frame.height)
     }
 }

@@ -39,10 +39,6 @@ class CategoryView: UIView {
 
     override func updateConstraints() {
         super.updateConstraints()
-        NSLayoutConstraint.activate([
-            self.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        ])
 
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),

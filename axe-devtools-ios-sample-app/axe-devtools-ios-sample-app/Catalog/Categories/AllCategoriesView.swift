@@ -48,9 +48,6 @@ class AllCategoriesView: UIView {
             categoriesStackView.topAnchor.constraint(equalTo: self.topAnchor),
             categoriesStackView.heightAnchor.constraint(equalToConstant: 32),
             categoriesStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-          //  categoriesStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            categoriesStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            categoriesStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             categoriesStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             categoriesStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])

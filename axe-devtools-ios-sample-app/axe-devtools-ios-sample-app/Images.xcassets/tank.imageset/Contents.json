@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "tank.png",
+      "filename" : "tank@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
