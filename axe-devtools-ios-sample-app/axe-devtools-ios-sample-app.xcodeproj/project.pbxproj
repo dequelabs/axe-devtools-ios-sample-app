@@ -47,6 +47,7 @@
 		F3799AC727EE2083009CFC2E /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AC627EE2083009CFC2E /* TableViewModel.swift */; };
 		F3799ACC27F20531009CFC2E /* RecommendedItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799ACB27F20531009CFC2E /* RecommendedItemCollectionViewCell.swift */; };
 		F3799AD327F2229A009CFC2E /* MostPopularItemsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AD227F2229A009CFC2E /* MostPopularItemsHeaderView.swift */; };
+		F3799AD727F3545F009CFC2E /* RecommendedItemsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799AD627F3545F009CFC2E /* RecommendedItemsHeaderView.swift */; };
 		F3A1A66F27E37B4F00E4F0E7 /* HomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */; };
 		F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */; };
 		F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */; };
@@ -69,7 +70,6 @@
 		F3F31DB227DFD32500D87988 /* axe_devtools_ios_sample_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DB127DFD32500D87988 /* axe_devtools_ios_sample_appUITestsLaunchTests.swift */; };
 		F3F31DBF27DFD55300D87988 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DBE27DFD55300D87988 /* HomeViewController.swift */; };
 		F3F31DC127DFD56C00D87988 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */; };
-		F3F31DC327DFD5AC00D87988 /* HomeScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DC227DFD5AC00D87988 /* HomeScreenImageView.swift */; };
 		F3F31DC527DFD88000D87988 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F31DC427DFD88000D87988 /* Images.xcassets */; };
 		F3F31DC727DFD9F000D87988 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DC627DFD9F000D87988 /* CollectionModel.swift */; };
 		F3F31DC927DFD9FF00D87988 /* MostPopularModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DC827DFD9FF00D87988 /* MostPopularModel.swift */; };
@@ -139,6 +139,7 @@
 		F3799AC627EE2083009CFC2E /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		F3799ACB27F20531009CFC2E /* RecommendedItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3799AD227F2229A009CFC2E /* MostPopularItemsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularItemsHeaderView.swift; sourceTree = "<group>"; };
+		F3799AD627F3545F009CFC2E /* RecommendedItemsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedItemsHeaderView.swift; sourceTree = "<group>"; };
 		F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeImageView.swift; sourceTree = "<group>"; };
 		F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
@@ -165,7 +166,6 @@
 		F3F31DB127DFD32500D87988 /* axe_devtools_ios_sample_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = axe_devtools_ios_sample_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3F31DBE27DFD55300D87988 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		F3F31DC227DFD5AC00D87988 /* HomeScreenImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenImageView.swift; sourceTree = "<group>"; };
 		F3F31DC427DFD88000D87988 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F3F31DC627DFD9F000D87988 /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 		F3F31DC827DFD9FF00D87988 /* MostPopularModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularModel.swift; sourceTree = "<group>"; };
@@ -313,6 +313,7 @@
 			children = (
 				F3EFAC3A27E1339C004A87C9 /* RecommendedItemsCollectionView.swift */,
 				F3799ACB27F20531009CFC2E /* RecommendedItemCollectionViewCell.swift */,
+				F3799AD627F3545F009CFC2E /* RecommendedItemsHeaderView.swift */,
 			);
 			path = RecommendedItems;
 			sourceTree = "<group>";
@@ -321,7 +322,6 @@
 			isa = PBXGroup;
 			children = (
 				F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */,
-				F3F31DC227DFD5AC00D87988 /* HomeScreenImageView.swift */,
 			);
 			path = HomeScreenImage;
 			sourceTree = "<group>";
@@ -634,6 +634,7 @@
 				F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */,
 				F3799A9727EA5147009CFC2E /* ItemTypeViewModel.swift in Sources */,
 				F3799A9527EA45BC009CFC2E /* ItemTypeDataSource.swift in Sources */,
+				F3799AD727F3545F009CFC2E /* RecommendedItemsHeaderView.swift in Sources */,
 				F3799AB227ED2060009CFC2E /* ProfileModel.swift in Sources */,
 				F3799AA727ECC840009CFC2E /* CatalogHeaderImageView.swift in Sources */,
 				F3799AAE27ED2055009CFC2E /* ProfileViewController.swift in Sources */,
@@ -669,7 +670,6 @@
 				F3799AA927ECCEB3009CFC2E /* AllItemTypesViewModel.swift in Sources */,
 				F3799AC527EE1DD5009CFC2E /* TableRowDataSource.swift in Sources */,
 				F3799A9927EA5169009CFC2E /* CatalogDataSource.swift in Sources */,
-				F3F31DC327DFD5AC00D87988 /* HomeScreenImageView.swift in Sources */,
 				F3799ABC27EE15AF009CFC2E /* ProfileView.swift in Sources */,
 				F3EFAC3327E13302004A87C9 /* CollectionViewModel.swift in Sources */,
 				F3799A7B27E8DAC6009CFC2E /* SeasonalCollectionsViewModel.swift in Sources */,

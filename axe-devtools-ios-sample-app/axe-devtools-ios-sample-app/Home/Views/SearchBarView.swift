@@ -50,8 +50,8 @@ class SearchBarView: UIView {
     override func updateConstraints() {
         super.updateConstraints()
         NSLayoutConstraint.activate([
-            self.titleImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
             self.widthAnchor.constraint(equalToConstant: 161),
+            self.titleImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
             self.titleImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.titleImageView.heightAnchor.constraint(equalToConstant: 24)
             ])

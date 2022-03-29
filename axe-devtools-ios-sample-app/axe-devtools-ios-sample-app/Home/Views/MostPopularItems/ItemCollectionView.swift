@@ -86,9 +86,6 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         let availableWidth = self.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
 
-        let verticalSpace = sectionInsets.top * (CGFloat(itemsPerRow))
-        let availableHeight = self.frame.height - verticalSpace
-        let heightPerItem = availableHeight / itemsPerRow
-        return CGSize(width: widthPerItem, height: availableHeight)
+        return CGSize(width: widthPerItem, height: self.frame.height)
     }
 }

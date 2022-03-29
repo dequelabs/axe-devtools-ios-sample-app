@@ -41,21 +41,21 @@ class BaseScrollView: UIView {
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+         //   scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+           // scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-         //   scrollView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            scrollView.widthAnchor.constraint(equalTo: self.widthAnchor),
          //   scrollView.heightAnchor.constraint(equalTo: self.heightAnchor)
         ])
 
         NSLayoutConstraint.activate([
             containingView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
-            containingView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
-            containingView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+        //    containingView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+         //   containingView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             containingView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
-          //  containingView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            containingView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor),
+            containingView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+          //  containingView.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor),
             containingView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
     }

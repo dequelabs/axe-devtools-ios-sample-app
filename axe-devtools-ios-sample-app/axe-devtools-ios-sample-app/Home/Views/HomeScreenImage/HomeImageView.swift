@@ -83,6 +83,9 @@ class HomeImageView: UIView {
 
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
+           // imageView.heightAnchor.constraint(equalToConstant: 327),
+           // imageView.widthAnchor.constraint(equalToConstant: 327),
+
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
             imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)

@@ -12,6 +12,8 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
 
     let viewModel = RecommendedItemsViewModel()
     private let reuseIdentifier = "ItemCell"
+    private let headerId = "Header"
+    let headerView = RecommendedItemsHeaderView()
 
     let flowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -61,10 +63,14 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
 
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.frame.width, height: 60)
+        return CGSize(width: self.frame.width, height: 80)
     }
 
-    // dont forget to add the header
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! RecommendedItemsHeaderView
+        return headerView
+    }
+
 
     private let sectionInsets = UIEdgeInsets(top: 8,
                                              left: 8,

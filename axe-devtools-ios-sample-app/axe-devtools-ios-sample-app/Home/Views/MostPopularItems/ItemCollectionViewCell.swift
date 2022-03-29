@@ -66,7 +66,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
+
+     //   self.translatesAutoresizingMaskIntoConstraints = false
         buildCell()
         self.layer.cornerRadius = 20
     }
@@ -83,11 +84,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private func buildCell() {
         self.addSubview(imageView)
         imageView.addSubview(heartImageView)
-        self.addSubview(horizontalStackView)
 
+        self.addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(textVerticalStackView)
         textVerticalStackView.addArrangedSubview(itemLabel)
         textVerticalStackView.addArrangedSubview(priceLabel)
+
         horizontalStackView.addArrangedSubview(addToBagButton)
 
         configureElements()
@@ -116,8 +118,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 180),
-            imageView.widthAnchor.constraint(greaterThanOrEqualToConstant: 152)
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 180),
+            imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 152)
         ])
 
         NSLayoutConstraint.activate([
@@ -131,24 +133,32 @@ class ItemCollectionViewCell: UICollectionViewCell {
             horizontalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
             horizontalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             horizontalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+           // horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+          //  horizontalStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            addToBagButton.centerYAnchor.constraint(equalTo: horizontalStackView.centerYAnchor)
+            addToBagButton.centerYAnchor.constraint(equalTo: horizontalStackView.centerYAnchor),
+            addToBagButton.heightAnchor.constraint(equalToConstant: 33),
+            addToBagButton.widthAnchor.constraint(equalToConstant: 33)
         ])
 
         NSLayoutConstraint.activate([
-          //  textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
-           // textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+          textVerticalStackView.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
+         // textVerticalStackView.bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor),
+            textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+       //   textVerticalStackView.centerYAnchor.constraint(equalTo: addToBagButton.centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            //itemLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor)
+          //  itemLabel.topAnchor.constraint(equalTo: horizontalStackView.topAnchor),
+           // itemLabel.centerYAnchor.constraint(equalTo: textVerticalStackView.centerYAnchor),
+          //  itemLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor)
         ])
 
         NSLayoutConstraint.activate([
-           // priceLabel.leadingAnchor.constraint(equalTo: textVerticalStackView.leadingAnchor)
+          //  priceLabel.bottomAnchor.constraint(equalTo: horizontalStackView.bottomAnchor),
+           // priceLabel.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor)
         ])
     }
 }
