@@ -9,17 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    lazy var scrollView: UIScrollView = {
-        let bsv = UIScrollView()
-        bsv.translatesAutoresizingMaskIntoConstraints = false
-        return bsv
-    }()
-
-    lazy var contentView: UIView = {
-        let cv = UIView()
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        return cv
-    }()
+    let scrollView = UIScrollView()
+    let contentView = UIView()
 
     lazy var searchBarView: SearchBarView = {
         let sbv = SearchBarView()
@@ -65,6 +56,9 @@ class HomeViewController: UIViewController {
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
 
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+
         contentView.addSubview(searchBarView)
         contentView.addSubview(homeScreenImageView)
         contentView.addSubview(mostPopularItemsView)
@@ -101,7 +95,7 @@ class HomeViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            searchBarView.topAnchor.constraint(equalTo: view.topAnchor),
+            searchBarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             searchBarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             searchBarView.heightAnchor.constraint(equalToConstant: 156),
             searchBarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
@@ -119,8 +113,8 @@ class HomeViewController: UIViewController {
             mostPopularItemsView.topAnchor.constraint(equalTo: homeScreenImageView.bottomAnchor, constant: 32),
             mostPopularItemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             mostPopularItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            mostPopularItemsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            mostPopularItemsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.40)
+            mostPopularItemsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+           // mostPopularItemsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.40)
         ])
 
 //        NSLayoutConstraint.activate([
