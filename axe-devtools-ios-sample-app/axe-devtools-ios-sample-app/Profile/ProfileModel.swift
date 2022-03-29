@@ -28,6 +28,10 @@ class ProfileModel {
         return "Edit Square"
     }
 
+    var arrowIconName: String {
+        return "Arrow - Left"
+    }
+
     var promoImageName: String {
         return "PromoCodeImage"
     }

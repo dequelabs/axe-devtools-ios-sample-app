@@ -29,6 +29,7 @@ class ProfileTableCell: UITableViewCell {
         }
 
         var content = self.defaultContentConfiguration()
+        
         content.text = viewModel.text
         content.image = UIImage(named: viewModel.imageName)
         self.contentConfiguration = content

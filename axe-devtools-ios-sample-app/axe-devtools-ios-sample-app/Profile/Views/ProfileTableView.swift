@@ -31,6 +31,8 @@ class ProfileTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ProfileTableCell
 
         let cellVM = TableRowViewModel(model: viewModel.cellModels[indexPath.item])
+        let arrowImage = UIImage(named: viewModel.arrowIconName)
+        cell.accessoryView = UIImageView(image: arrowImage)
         cell.viewModel = cellVM
         return cell
     }

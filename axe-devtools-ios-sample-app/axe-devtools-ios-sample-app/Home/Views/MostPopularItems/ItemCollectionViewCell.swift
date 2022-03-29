@@ -99,7 +99,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private func configureElements() {
         guard let viewModel = viewModel else { return }
         let imageName = viewModel.isInBag ? "bag_shop_bold" : "bag_shop"
-
+        
         itemLabel.text = viewModel.itemName
         priceLabel.text = viewModel.itemPrice
 
@@ -133,7 +133,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             horizontalStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
             horizontalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             horizontalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-           // horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            horizontalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
           //  horizontalStackView.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
 

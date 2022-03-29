@@ -54,6 +54,10 @@ class ProfileViewModel {
     var cellModels: [TableRowModel] {
         return profileModel.profileCellModels
     }
+
+    var arrowIconName: String {
+        return profileModel.arrowIconName
+    }
 }
 
 
