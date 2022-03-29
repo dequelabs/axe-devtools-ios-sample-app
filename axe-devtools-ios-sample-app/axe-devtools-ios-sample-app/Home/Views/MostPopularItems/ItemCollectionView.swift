@@ -40,7 +40,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .vertical
-            flowLayout.collectionView?.isScrollEnabled = false
+          //  flowLayout.collectionView?.isScrollEnabled = false
             flowLayout.collectionView?.delegate = self
             flowLayout.collectionView?.dataSource = self
         }
@@ -88,8 +88,13 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         let availableWidth = self.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
 
-        let verticalPadding = sectionInsets.top * (CGFloat(viewModel.items.count) / (itemsPerRow + 1))
+        let totalItems = CGFloat(viewModel.items.count)
+        let verticalPadding = sectionInsets.top * (totalItems / (totalItems + 1))
+        // let verticalPadding = sectionInsets.top * (totalItems / (itemsPerRow + 1))
         let availableHeight = self.frame.height - verticalPadding
+        let heightPerItem = availableHeight / itemsPerRow
+
+
         return CGSize(width: widthPerItem, height: availableHeight)
     }
 }
