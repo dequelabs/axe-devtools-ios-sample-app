@@ -25,9 +25,11 @@ class CatalogViewController: UIViewController {
 
     private func buildView() {
         self.navigationController?.isNavigationBarHidden = true
+        self.view.addSubview(scrollView)
+
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(scrollView)
+        
         scrollView.addSubview(contentView)
         contentView.addSubview(catalogView)
         
@@ -61,10 +63,11 @@ class CatalogViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            catalogView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 24),
+            catalogView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 12),
             catalogView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             catalogView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            catalogView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            catalogView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            catalogView.heightAnchor.constraint(equalTo: contentView.heightAnchor)
         ])
     }
 }

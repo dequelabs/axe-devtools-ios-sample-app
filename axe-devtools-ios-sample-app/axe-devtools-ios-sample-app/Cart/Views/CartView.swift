@@ -14,8 +14,10 @@ class CartView: UIView {
     lazy var titleLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.numberOfLines = 0
         l.text = viewModel.title
-        l.font = .systemFont(ofSize: 32)
+        let gilroy = UIFont(name: "Italiana-Regular", size: 32)
+        l.font = gilroy
         return l
     }()
 
@@ -32,7 +34,8 @@ class CartView: UIView {
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle(viewModel.deleteButtonText, for: .normal)
         b.setTitleColor(.red, for: .normal)
-        b.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        let gilroy = UIFont(name: "Gilroy-ExtraBold", size: 14)
+        b.titleLabel?.font = gilroy
         return b
     }()
 
@@ -92,9 +95,11 @@ class CartView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            checkoutFooterView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             checkoutFooterView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            checkoutFooterView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            checkoutFooterView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            checkoutFooterView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            checkoutFooterView.heightAnchor.constraint(equalToConstant: 118),
+            checkoutFooterView.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
         ])
     }
 }

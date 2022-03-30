@@ -9,11 +9,8 @@ import UIKit
 
 class CartViewViewController: UIViewController {
     
-    lazy var baseScrollView: BaseScrollView = {
-        let bsv = BaseScrollView()
-        bsv.translatesAutoresizingMaskIntoConstraints = false
-        return bsv
-    }()
+    let scrollView = UIScrollView()
+    let contentView = UIView()
 
     lazy var cartView: CartView = {
         let cv = CartView()
@@ -29,8 +26,12 @@ class CartViewViewController: UIViewController {
     private func buildView() {
         self.navigationController?.isNavigationBarHidden = true
 
-        self.view.addSubview(baseScrollView)
-        baseScrollView.containingView.addSubview(cartView)
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(cartView)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
 
         updateViewConstraints()
     }
@@ -39,17 +40,32 @@ class CartViewViewController: UIViewController {
         super.updateViewConstraints()
 
         NSLayoutConstraint.activate([
-            baseScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            baseScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            baseScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            baseScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
 
+        let contentViewCenterY = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
+        let contentViewHeight = contentView.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor)
+
+        contentViewCenterY.priority = .defaultLow
+        contentViewHeight.priority = .defaultLow
+
         NSLayoutConstraint.activate([
-            cartView.topAnchor.constraint(equalTo: self.baseScrollView.containingView.topAnchor, constant: 24),
-            cartView.leadingAnchor.constraint(equalTo: self.baseScrollView.leadingAnchor),
-            cartView.trailingAnchor.constraint(equalTo: self.baseScrollView.trailingAnchor),
-            cartView.bottomAnchor.constraint(equalTo: self.baseScrollView.safeAreaLayoutGuide.bottomAnchor)
+            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            contentViewCenterY,
+            contentViewHeight,
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            cartView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 12),
+            cartView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            cartView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            cartView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

@@ -13,9 +13,7 @@ class CategoryView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .black
-        l.lineBreakMode = .byCharWrapping
-        let gilroy = UIFont(name: "Gilroy-Light", size: 14)
-        l.font = gilroy
+        l.font = UIFont(name: "Gilroy-Light", size: 14)
         l.backgroundColor = .clear
         return l
     }()

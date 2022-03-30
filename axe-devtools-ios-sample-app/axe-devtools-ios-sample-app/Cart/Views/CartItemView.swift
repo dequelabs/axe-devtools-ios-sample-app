@@ -8,6 +8,7 @@
 import UIKit
 
 class CartItemView: UIView {
+
     var viewModel: ItemViewModel {
         didSet {
             buildView()
@@ -32,26 +33,32 @@ class CartItemView: UIView {
     lazy var itemLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .boldSystemFont(ofSize: 18)
+        l.numberOfLines = 0
+        l.font = UIFont(name: "Gilroy-ExtraBold", size: 18)
         return l
     }()
 
     lazy var itemColorLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.numberOfLines = 0
+        l.font = UIFont(name: "Gilroy-Light", size: 14)
         return l
     }()
 
     lazy var priceLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .boldSystemFont(ofSize: 18)
+        l.numberOfLines = 0
+        l.font = UIFont(name: "Gilroy-ExtraBold", size: 18)
         return l
     }()
 
     lazy var quantityLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.numberOfLines = 0
+        l.font = UIFont(name: "Gilroy-ExtraBold", size: 14)
         return l
     }()
 
@@ -87,6 +94,7 @@ class CartItemView: UIView {
         textVerticalStackView.addArrangedSubview(itemColorLabel)
         textVerticalStackView.addArrangedSubview(priceLabel)
 
+        textVerticalStackView.setCustomSpacing(16, after: itemColorLabel)
         self.addSubview(quantityStepper)
 
         updateConstraints()
@@ -109,12 +117,14 @@ class CartItemView: UIView {
 
         NSLayoutConstraint.activate([
             textVerticalStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 16),
-            textVerticalStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16)
+            textVerticalStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
         ])
 
         NSLayoutConstraint.activate([
-            quantityStepper.leadingAnchor.constraint(equalTo: textVerticalStackView.trailingAnchor, constant: 46),
-            quantityStepper.bottomAnchor.constraint(equalTo: self.textVerticalStackView.bottomAnchor),
+            quantityStepper.widthAnchor.constraint(equalToConstant: 99),
+            quantityStepper.heightAnchor.constraint(equalToConstant: 230),
+            quantityStepper.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
             quantityStepper.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
     }

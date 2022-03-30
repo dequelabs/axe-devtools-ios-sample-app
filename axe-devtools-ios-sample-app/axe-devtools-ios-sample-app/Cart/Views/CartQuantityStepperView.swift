@@ -9,12 +9,15 @@ import UIKit
 
 class CartQuantityStepperView: UIView {
 
+    let viewModel = CartViewModel()
+
     lazy var decrementButton: UIButton = {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
         b.backgroundColor = .black
         b.imageView?.tintColor = .white
-        b.setImage(UIImage(systemName: "minus"), for: .normal)
+        let decrementIcon = UIImage(named: viewModel.minusButtonImage)
+        b.setImage(decrementIcon, for: .normal)
         b.layer.cornerRadius = 10
         return b
     }()
@@ -24,7 +27,8 @@ class CartQuantityStepperView: UIView {
         b.translatesAutoresizingMaskIntoConstraints = false
         b.backgroundColor = .black
         b.imageView?.tintColor = .white
-        b.setImage(UIImage(systemName: "plus"), for: .normal)
+        let incrementIcon = UIImage(named: viewModel.addButtonImage)
+        b.setImage(incrementIcon, for: .normal)
         b.layer.cornerRadius = 10
         return b
     }()
@@ -33,6 +37,7 @@ class CartQuantityStepperView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = "1"
+        l.font = UIFont(name: "Gilroy-ExtraBold", size: 16)
         return l
     }()
 

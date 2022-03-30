@@ -34,6 +34,14 @@ class CartViewModel {
 
 extension CartViewModel {
     var deleteButtonText: String {
-        return "Delete all"
+        return currentCart.deleteButtonText
+    }
+
+    var addButtonImage: String {
+        return currentCart.addButtonImage
+    }
+
+    var minusButtonImage: String {
+        return currentCart.minusButtonImage
     }
 }

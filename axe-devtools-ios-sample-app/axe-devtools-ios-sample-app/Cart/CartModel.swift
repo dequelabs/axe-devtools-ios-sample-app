@@ -27,4 +27,16 @@ extension CartModel {
     var price: String {
         return "$104.20"
     }
+
+    var addButtonImage: String {
+        return "+"
+    }
+
+    var minusButtonImage: String {
+        return "-"
+    }
+
+    var deleteButtonText: String {
+        return "Delete all"
+    }
 }
