@@ -47,7 +47,6 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("NUMBER OF ITEMS IN THE VIEW MODEL --------------------> \(viewModel.items.count)")
         return viewModel.items.count
     }
 

@@ -12,6 +12,13 @@ class AllCollectionsView: UIView {
 
     let viewModel = SeasonalCollectionsViewModel()
 
+    lazy var titleLabel: UILabel = {
+        let l = UILabel()
+        l.font = .systemFont(ofSize: 32)
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
+    }()
+
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -37,6 +44,7 @@ class AllCollectionsView: UIView {
     }
 
     func buildView() {
+        self.addSubview(titleLabel)
         self.addSubview(allCollectionsVerticalStackView)
 
         viewModel.allCollections.forEach { collection in
@@ -45,6 +53,7 @@ class AllCollectionsView: UIView {
             allCollectionsVerticalStackView.addArrangedSubview(seasonalCollectionView)
         }
 
+        titleLabel.text = viewModel.title
         updateConstraints()
     }
 
@@ -52,7 +61,13 @@ class AllCollectionsView: UIView {
         super.updateConstraints()
 
         NSLayoutConstraint.activate([
-            self.allCollectionsVerticalStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24)
+        ])
+
+        NSLayoutConstraint.activate([
+            self.allCollectionsVerticalStackView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 16),
             self.allCollectionsVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             self.allCollectionsVerticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
             self.allCollectionsVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)

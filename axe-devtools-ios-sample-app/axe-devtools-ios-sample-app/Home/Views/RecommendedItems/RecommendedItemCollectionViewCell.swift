@@ -11,7 +11,6 @@ class RecommendedItemCollectionViewCell: ItemCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
         updateConstraints()
     }
 

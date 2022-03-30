@@ -26,6 +26,8 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         self.dataSource = self
         self.delegate = self
         self.register(RecommendedItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.register(RecommendedItemsHeaderView.self, forSupplementaryViewOfKind:
+                        UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         self.automaticallyAdjustsScrollIndicatorInsets = false
 
         setupLayout()
@@ -37,7 +39,6 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
-       //     flowLayout.estimatedItemSize = CGSize(width: 210.0, height: 248.0)
             flowLayout.scrollDirection = .horizontal
         }
     }
@@ -56,9 +57,8 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         return cell
     }
 
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 24
+        return 32
     }
 
 
@@ -72,9 +72,9 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     }
 
 
-    private let sectionInsets = UIEdgeInsets(top: 8,
+    private let sectionInsets = UIEdgeInsets(top: 16,
                                              left: 8,
-                                             bottom: 8,
+                                             bottom: 0,
                                              right: 8)
     
     func collectionView(_ collectionView: UICollectionView,

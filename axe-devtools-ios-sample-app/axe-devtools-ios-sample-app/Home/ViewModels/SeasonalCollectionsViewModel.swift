@@ -8,7 +8,7 @@
 import Foundation
 
 class SeasonalCollectionsViewModel {
-    var title = "Collections"
+    var title = "Collection"
     private var allCollectionsModel = CollectionsDataSource()
 
     lazy var allCollections: [CollectionModel] = {
