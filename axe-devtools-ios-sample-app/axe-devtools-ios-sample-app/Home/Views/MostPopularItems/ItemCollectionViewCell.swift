@@ -58,8 +58,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-           self.translatesAutoresizingMaskIntoConstraints = false
         buildCell()
         self.layer.cornerRadius = 20
     }
@@ -134,6 +132,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             textVerticalStackView.topAnchor.constraint(equalTo: self.imageView.bottomAnchor),
             textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            textVerticalStackView.trailingAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }

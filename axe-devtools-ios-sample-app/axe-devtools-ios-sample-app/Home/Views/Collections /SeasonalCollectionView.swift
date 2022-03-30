@@ -8,10 +8,7 @@
 import UIKit
 
 class SeasonalCollectionView: UIView {
-    // this it the long rectangular view
-    // with the image and the season name and year
-    // text at the bottom left corner
-    
+
     var viewModel: CollectionViewModel
 
     lazy var imageView: UIImageView = {
