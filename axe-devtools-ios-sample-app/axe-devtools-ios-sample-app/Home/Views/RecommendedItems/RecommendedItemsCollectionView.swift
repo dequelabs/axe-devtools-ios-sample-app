@@ -22,7 +22,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: flowLayout)
-        self.translatesAutoresizingMaskIntoConstraints = false
+      //  self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
         self.delegate = self
         self.register(RecommendedItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -31,6 +31,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         self.automaticallyAdjustsScrollIndicatorInsets = false
         self.backgroundColor = UIColor(named: "LightGray")
 
+        flowLayout.invalidateLayout()
         setupLayout()
     }
 
@@ -55,8 +56,8 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RecommendedItemCollectionViewCell
         let item = self.viewModel.items[indexPath.row]
-        cell.viewModel = ItemCellViewModel(item: item)
 
+        cell.viewModel = ItemCellViewModel(item: item)
         cell.layer.cornerRadius = 10
         return cell
     }
@@ -77,7 +78,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
 
     private let sectionInsets = UIEdgeInsets(top: 16,
                                              left: 8,
-                                             bottom: 0,
+                                             bottom: 8,
                                              right: 8)
     
     func collectionView(_ collectionView: UICollectionView,
@@ -87,10 +88,10 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         let paddingSpace = sectionInsets.top * (allItems + 1)
         let availableHeight = self.frame.height - paddingSpace
 
-        let padding = sectionInsets.left * (allItems + 1)
+        let leftAndRight = sectionInsets.left + sectionInsets.right
+        let padding = leftAndRight * (allItems + 1)
         let availableWidth = self.frame.width - padding
 
         return CGSize(width: availableWidth, height: availableHeight)
     }
-
 }

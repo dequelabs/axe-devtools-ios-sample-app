@@ -129,10 +129,10 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             recommendedItemsView.topAnchor.constraint(greaterThanOrEqualTo: collectionsView.bottomAnchor, constant: 24),
             recommendedItemsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
-            recommendedItemsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            recommendedItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             // not quite what we want, but getting closer..
             recommendedItemsView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.20),
-            recommendedItemsView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            recommendedItemsView.widthAnchor.constraint(equalTo: view.widthAnchor),
             recommendedItemsView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
