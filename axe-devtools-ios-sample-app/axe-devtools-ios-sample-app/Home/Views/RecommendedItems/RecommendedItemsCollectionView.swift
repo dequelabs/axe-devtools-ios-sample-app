@@ -41,6 +41,10 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
+            flowLayout.minimumLineSpacing = 0
+            flowLayout.minimumInteritemSpacing = 4
+            flowLayout.collectionView?.delegate = self
+            flowLayout.collectionView?.dataSource = self
         }
     }
     
@@ -52,13 +56,13 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RecommendedItemCollectionViewCell
         let item = self.viewModel.items[indexPath.row]
         cell.viewModel = ItemCellViewModel(item: item)
+
         cell.layer.cornerRadius = 10
-        cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 32
+        return 12
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -80,11 +84,13 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let allItems = CGFloat(viewModel.items.count)
-        let paddingSpace = sectionInsets.left * (allItems + 1)
-        let availableWidth = self.frame.width - paddingSpace
-        let widthPerItem = availableWidth / allItems
+        let paddingSpace = sectionInsets.top * (allItems + 1)
+        let availableHeight = self.frame.height - paddingSpace
 
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        let padding = sectionInsets.left * (allItems + 1)
+        let availableWidth = self.frame.width - padding
+
+        return CGSize(width: availableWidth, height: availableHeight)
     }
 
 }

@@ -94,7 +94,6 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         let availableHeight = self.frame.height - verticalPadding
         let heightPerItem = availableHeight / itemsPerRow
 
-
         return CGSize(width: widthPerItem, height: heightPerItem)
     }
 }

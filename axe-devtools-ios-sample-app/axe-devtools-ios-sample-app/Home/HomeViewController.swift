@@ -56,7 +56,7 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = UIColor(named: "LightGray")
         scrollView.backgroundColor = .clear
         contentView.backgroundColor = .clear
-        
+
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
 
@@ -100,15 +100,15 @@ class HomeViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             searchBarView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            searchBarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            searchBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             searchBarView.heightAnchor.constraint(equalToConstant: 156),
-            searchBarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            searchBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            homeScreenImageView.topAnchor.constraint(equalTo: self.searchBarView.bottomAnchor, constant: 16),
-            homeScreenImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            homeScreenImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            homeScreenImageView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 16),
+            homeScreenImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            homeScreenImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             homeScreenImageView.widthAnchor.constraint(equalToConstant: 327),
             homeScreenImageView.heightAnchor.constraint(equalToConstant: 327)
         ])
@@ -117,22 +117,23 @@ class HomeViewController: UIViewController {
             mostPopularItemsView.topAnchor.constraint(equalTo: homeScreenImageView.bottomAnchor, constant: 32),
             mostPopularItemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             mostPopularItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            mostPopularItemsView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.30),
+            mostPopularItemsView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.30),
         ])
 
         NSLayoutConstraint.activate([
             collectionsView.topAnchor.constraint(greaterThanOrEqualTo: mostPopularItemsView.bottomAnchor, constant: 24),
-            collectionsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            collectionsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            collectionsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionsView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
 
         NSLayoutConstraint.activate([
             recommendedItemsView.topAnchor.constraint(greaterThanOrEqualTo: collectionsView.bottomAnchor, constant: 24),
             recommendedItemsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
             recommendedItemsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            // not quite what we want, but getting closer..
             recommendedItemsView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.20),
-           // recommendedItemsView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            recommendedItemsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            recommendedItemsView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            recommendedItemsView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 class RecommendedItemsHeaderView: UICollectionReusableView {
+
     lazy var headerLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
