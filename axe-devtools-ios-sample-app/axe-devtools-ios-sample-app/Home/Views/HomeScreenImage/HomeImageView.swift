@@ -30,7 +30,8 @@ class HomeImageView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = viewModel.title
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 18)
+        label.font = gilroyBold
         label.textAlignment = .center
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +42,8 @@ class HomeImageView: UIView {
         let label = UILabel()
         label.text = viewModel.subtitle
         label.textColor = .white
-        label.font.withSize(12)
+        let gilroyLight = UIFont(name: "Gilroy-Light", size: 12)
+        label.font = gilroyLight
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -55,7 +57,8 @@ class HomeImageView: UIView {
         b.setTitle(viewModel.buttonText, for: .normal)
         b.titleLabel?.textColor = .white
         b.tintColor = .white
-        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 14)
+        b.titleLabel?.font = gilroyBold
         b.translatesAutoresizingMaskIntoConstraints = false
         return b
     }()

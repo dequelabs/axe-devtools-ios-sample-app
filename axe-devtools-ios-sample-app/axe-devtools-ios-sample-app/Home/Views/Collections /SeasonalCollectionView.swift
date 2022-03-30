@@ -24,6 +24,8 @@ class SeasonalCollectionView: UIView {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = viewModel.name
         l.textColor = .white
+        let italiana = UIFont(name: "Italiana-Regular", size: 24)
+        l.font = italiana
         return l
     }()
 

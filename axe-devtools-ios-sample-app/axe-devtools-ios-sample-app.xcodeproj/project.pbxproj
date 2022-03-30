@@ -52,6 +52,9 @@
 		F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */; };
 		F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */; };
 		F3A1A67F27E3A57400E4F0E7 /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67E27E3A57400E4F0E7 /* CatalogModel.swift */; };
+		F3C4F0AB27F4B5F5005F5DB6 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0A827F4B5E1005F5DB6 /* Gilroy-ExtraBold.otf */; };
+		F3C4F0AC27F4B5F9005F5DB6 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0A927F4B5E4005F5DB6 /* Gilroy-Light.otf */; };
+		F3C4F0AD27F4B5FE005F5DB6 /* Italiana-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0AA27F4B5EC005F5DB6 /* Italiana-Regular.ttf */; };
 		F3EFAC2D27E10A58004A87C9 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC2C27E10A58004A87C9 /* SearchBarView.swift */; };
 		F3EFAC2F27E13185004A87C9 /* ItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC2E27E13185004A87C9 /* ItemDataSource.swift */; };
 		F3EFAC3327E13302004A87C9 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC3227E13302004A87C9 /* CollectionViewModel.swift */; };
@@ -144,6 +147,9 @@
 		F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
 		F3A1A67E27E3A57400E4F0E7 /* CatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModel.swift; sourceTree = "<group>"; };
+		F3C4F0A827F4B5E1005F5DB6 /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
+		F3C4F0A927F4B5E4005F5DB6 /* Gilroy-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Light.otf"; sourceTree = "<group>"; };
+		F3C4F0AA27F4B5EC005F5DB6 /* Italiana-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Italiana-Regular.ttf"; sourceTree = "<group>"; };
 		F3EFAC2C27E10A58004A87C9 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		F3EFAC2E27E13185004A87C9 /* ItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataSource.swift; sourceTree = "<group>"; };
 		F3EFAC3227E13302004A87C9 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
@@ -339,6 +345,7 @@
 		F3A1A67027E37D0600E4F0E7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F3C4F0A727F4B25B005F5DB6 /* Fonts */,
 				F3799A7C27E8EBB1009CFC2E /* BaseScrollView.swift */,
 				F3F31DDB27E0E4A900D87988 /* MainTabBarViewController.swift */,
 				F3A1A67227E3812200E4F0E7 /* ViewModel */,
@@ -376,6 +383,16 @@
 				F3799A9A27EA52ED009CFC2E /* ItemType */,
 			);
 			path = Catalog;
+			sourceTree = "<group>";
+		};
+		F3C4F0A727F4B25B005F5DB6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F3C4F0A827F4B5E1005F5DB6 /* Gilroy-ExtraBold.otf */,
+				F3C4F0A927F4B5E4005F5DB6 /* Gilroy-Light.otf */,
+				F3C4F0AA27F4B5EC005F5DB6 /* Italiana-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		F3EFAC3127E132C2004A87C9 /* Data */ = {
@@ -598,7 +615,10 @@
 			files = (
 				F3F31DC527DFD88000D87988 /* Images.xcassets in Resources */,
 				F3799A8D27EA1407009CFC2E /* Colors.xcassets in Resources */,
+				F3C4F0AC27F4B5F9005F5DB6 /* Gilroy-Light.otf in Resources */,
+				F3C4F0AB27F4B5F5005F5DB6 /* Gilroy-ExtraBold.otf in Resources */,
 				F3F31D9B27DFD32500D87988 /* LaunchScreen.storyboard in Resources */,
+				F3C4F0AD27F4B5FE005F5DB6 /* Italiana-Regular.ttf in Resources */,
 				F3F31D9827DFD32500D87988 /* Icons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,8 @@ class MostPopularItemsHeaderView: UICollectionReusableView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = "Most popular"
-        l.font = .systemFont(ofSize: 32)
+        let italiana = UIFont(name: "Italiana-Regular", size: 32)
+        l.font = italiana
         l.textColor = .black
         return l
     }()
@@ -26,6 +27,8 @@ class MostPopularItemsHeaderView: UICollectionReusableView {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.titleLabel?.textColor = .lightGray
         l.titleLabel?.tintColor = .lightGray
+        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 14)
+        l.titleLabel?.font = gilroyBold
         l.setTitle("56 Items ", for: .normal)
         return l
     }()

@@ -14,7 +14,8 @@ class AllCollectionsView: UIView {
 
     lazy var titleLabel: UILabel = {
         let l = UILabel()
-        l.font = .systemFont(ofSize: 32)
+        let italiana = UIFont(name: "Italiana-Regular", size: 32)
+        l.font = italiana
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()

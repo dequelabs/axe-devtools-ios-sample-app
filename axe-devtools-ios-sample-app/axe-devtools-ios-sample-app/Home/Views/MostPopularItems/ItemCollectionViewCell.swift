@@ -32,14 +32,17 @@ class ItemCollectionViewCell: UICollectionViewCell {
     lazy var itemLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .systemFont(ofSize: 14)
+        l.numberOfLines = 0
+        let gilroyLight = UIFont(name: "Gilroy-Light", size: 14)
+        l.font = gilroyLight
         return l
     }()
     
     lazy var priceLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .boldSystemFont(ofSize: 18)
+        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 18)
+        l.font = gilroyBold
         return l
     }()
     
