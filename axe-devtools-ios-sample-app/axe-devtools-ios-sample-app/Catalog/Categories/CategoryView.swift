@@ -14,7 +14,8 @@ class CategoryView: UIView {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .black
         l.lineBreakMode = .byCharWrapping
-        l.font = .systemFont(ofSize: 14)
+        let gilroy = UIFont(name: "Gilroy-Light", size: 14)
+        l.font = gilroy
         l.backgroundColor = .clear
         return l
     }()

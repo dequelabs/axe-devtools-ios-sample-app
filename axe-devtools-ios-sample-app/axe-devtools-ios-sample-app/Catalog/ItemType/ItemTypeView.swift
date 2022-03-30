@@ -14,14 +14,16 @@ class ItemTypeView: UIView {
     lazy var nameLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .systemFont(ofSize: 24)
+        let italiana = UIFont(name: "Italiana-Regular", size: 24)
+        l.font = italiana
         return l
     }()
 
     lazy var subtitleLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .systemFont(ofSize: 14)
+        let gilroy = UIFont(name: "Gilroy-Light", size: 14)
+        l.font = gilroy
         return l
     }()
 

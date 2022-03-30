@@ -64,8 +64,7 @@ class CatalogViewController: UIViewController {
             catalogView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 24),
             catalogView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             catalogView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            catalogView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-
+            catalogView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }

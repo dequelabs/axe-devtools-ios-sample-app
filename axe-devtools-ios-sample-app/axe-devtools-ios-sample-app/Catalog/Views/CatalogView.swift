@@ -15,9 +15,8 @@ class CatalogView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = viewModel.title
-        let gilroyBold = UIFont(name: "Italiana-Regular", size: 32)
-        l.font = gilroyBold
-        l.font = .systemFont(ofSize: 32)
+        let italiana = UIFont(name: "Italiana-Regular", size: 32)
+        l.font = italiana
         return l
     }()
 

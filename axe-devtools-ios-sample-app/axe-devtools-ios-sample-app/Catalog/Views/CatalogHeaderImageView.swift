@@ -14,7 +14,8 @@ class CatalogHeaderImageView: UIImageView {
     lazy var textLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .systemFont(ofSize: 32)
+        let gilroy = UIFont(name: "Gilroy-ExtraBold", size: 32)
+        l.font = gilroy
         l.text = viewModel.mainImageText
         return l
     }()
