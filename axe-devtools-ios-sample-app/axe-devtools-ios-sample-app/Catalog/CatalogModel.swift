@@ -12,8 +12,8 @@ class CatalogModel {
     var iconName = "Category"
     var itemTypes: [ItemTypeModel]
 
-    var categories: [String] {
-        return ["All", "Male", "Female", "Boy", "Girl", "Baby"]
+    var categories: [CategoryModel] {
+        return CategoryDataSource().allCategories
     }
 
     var mainImageName: String {

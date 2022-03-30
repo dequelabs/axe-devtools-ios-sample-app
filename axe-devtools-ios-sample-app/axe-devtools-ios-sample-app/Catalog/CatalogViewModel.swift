@@ -32,9 +32,9 @@ class CatalogViewModel {
         return catalogModel.dotsImageName
     }
     
-    var categories: [String] {
+    var categories: [CategoryModel] {
         return catalogModel.categories
-    }
+}
 
     var itemTypes: [ItemTypeModel] {
         return catalogModel.itemTypes

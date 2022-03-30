@@ -54,6 +54,10 @@
 		F3C4F0AB27F4B5F5005F5DB6 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0A827F4B5E1005F5DB6 /* Gilroy-ExtraBold.otf */; };
 		F3C4F0AC27F4B5F9005F5DB6 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0A927F4B5E4005F5DB6 /* Gilroy-Light.otf */; };
 		F3C4F0AD27F4B5FE005F5DB6 /* Italiana-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0AA27F4B5EC005F5DB6 /* Italiana-Regular.ttf */; };
+		F3C4F0B027F4F825005F5DB6 /* AllCategoriesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C4F0AF27F4F825005F5DB6 /* AllCategoriesCollectionView.swift */; };
+		F3C4F0B227F4F838005F5DB6 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C4F0B127F4F838005F5DB6 /* CategoryCollectionCell.swift */; };
+		F3C4F0B427F4F93D005F5DB6 /* CategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C4F0B327F4F93D005F5DB6 /* CategoryCellViewModel.swift */; };
+		F3C4F0B627F4F99E005F5DB6 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C4F0B527F4F99E005F5DB6 /* CategoryModel.swift */; };
 		F3EFAC2D27E10A58004A87C9 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC2C27E10A58004A87C9 /* SearchBarView.swift */; };
 		F3EFAC2F27E13185004A87C9 /* ItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC2E27E13185004A87C9 /* ItemDataSource.swift */; };
 		F3EFAC3327E13302004A87C9 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFAC3227E13302004A87C9 /* CollectionViewModel.swift */; };
@@ -148,6 +152,10 @@
 		F3C4F0A827F4B5E1005F5DB6 /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		F3C4F0A927F4B5E4005F5DB6 /* Gilroy-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Light.otf"; sourceTree = "<group>"; };
 		F3C4F0AA27F4B5EC005F5DB6 /* Italiana-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Italiana-Regular.ttf"; sourceTree = "<group>"; };
+		F3C4F0AF27F4F825005F5DB6 /* AllCategoriesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoriesCollectionView.swift; sourceTree = "<group>"; };
+		F3C4F0B127F4F838005F5DB6 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
+		F3C4F0B327F4F93D005F5DB6 /* CategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellViewModel.swift; sourceTree = "<group>"; };
+		F3C4F0B527F4F99E005F5DB6 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		F3EFAC2C27E10A58004A87C9 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		F3EFAC2E27E13185004A87C9 /* ItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataSource.swift; sourceTree = "<group>"; };
 		F3EFAC3227E13302004A87C9 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
@@ -242,8 +250,10 @@
 		F3799AA527EA5858009CFC2E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				F3799A9B27EA5582009CFC2E /* CategoryView.swift */,
 				F3799A9D27EA5588009CFC2E /* AllCategoriesView.swift */,
+				F3C4F0AF27F4F825005F5DB6 /* AllCategoriesCollectionView.swift */,
+				F3799A9B27EA5582009CFC2E /* CategoryView.swift */,
+				F3C4F0B127F4F838005F5DB6 /* CategoryCollectionCell.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -375,6 +385,8 @@
 				F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */,
 				F3799A9827EA5169009CFC2E /* CatalogDataSource.swift */,
 				F3A1A67E27E3A57400E4F0E7 /* CatalogModel.swift */,
+				F3C4F0B527F4F99E005F5DB6 /* CategoryModel.swift */,
+				F3C4F0B327F4F93D005F5DB6 /* CategoryCellViewModel.swift */,
 				F3799AAA27ECF3C0009CFC2E /* Views */,
 				F3799AA527EA5858009CFC2E /* Categories */,
 				F3799A9A27EA52ED009CFC2E /* ItemType */,
@@ -650,16 +662,19 @@
 				F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */,
 				F3799A9727EA5147009CFC2E /* ItemTypeViewModel.swift in Sources */,
 				F3799A9527EA45BC009CFC2E /* ItemTypeDataSource.swift in Sources */,
+				F3C4F0B227F4F838005F5DB6 /* CategoryCollectionCell.swift in Sources */,
 				F3799AD727F3545F009CFC2E /* RecommendedItemsHeaderView.swift in Sources */,
 				F3799AB227ED2060009CFC2E /* ProfileModel.swift in Sources */,
 				F3799AA727ECC840009CFC2E /* CatalogHeaderImageView.swift in Sources */,
 				F3799AAE27ED2055009CFC2E /* ProfileViewController.swift in Sources */,
 				F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */,
 				F3F31DC927DFD9FF00D87988 /* MostPopularModel.swift in Sources */,
+				F3C4F0B027F4F825005F5DB6 /* AllCategoriesCollectionView.swift in Sources */,
 				F3799AC727EE2083009CFC2E /* TableViewModel.swift in Sources */,
 				F3799A8227E90C28009CFC2E /* CartViewModel.swift in Sources */,
 				F3799A9127EA1A14009CFC2E /* CartQuantityStepperView.swift in Sources */,
 				F3F31DCB27DFDA0E00D87988 /* RecommendedItemsModel.swift in Sources */,
+				F3C4F0B627F4F99E005F5DB6 /* CategoryModel.swift in Sources */,
 				F3EFAC2D27E10A58004A87C9 /* SearchBarView.swift in Sources */,
 				F3EFAC3B27E1339C004A87C9 /* RecommendedItemsCollectionView.swift in Sources */,
 				F3A1A66F27E37B4F00E4F0E7 /* HomeImageView.swift in Sources */,
@@ -683,6 +698,7 @@
 				F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */,
 				F3799A7927E8D976009CFC2E /* SeasonalCollectionView.swift in Sources */,
 				F3799ABA27ED2098009CFC2E /* ProfileTableView.swift in Sources */,
+				F3C4F0B427F4F93D005F5DB6 /* CategoryCellViewModel.swift in Sources */,
 				F3799AA927ECCEB3009CFC2E /* AllItemTypesViewModel.swift in Sources */,
 				F3799AC527EE1DD5009CFC2E /* TableRowDataSource.swift in Sources */,
 				F3799A9927EA5169009CFC2E /* CatalogDataSource.swift in Sources */,
