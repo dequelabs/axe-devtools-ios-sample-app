@@ -20,13 +20,14 @@ class CustomerInfoView: UIView {
     lazy var customerLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = UIFont(name: "Gilroy-Light", size: 14)
         return l
     }()
 
     lazy var customerNameLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .boldSystemFont(ofSize: 16)
+        l.font = UIFont(name: "Gilroy-ExtraBold", size: 14)
         return l
     }()
 

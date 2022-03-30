@@ -29,6 +29,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         self.automaticallyAdjustsScrollIndicatorInsets = false
         self.register(MostPopularItemsHeaderView.self, forSupplementaryViewOfKind:
                         UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        self.backgroundColor = UIColor(named: "LightGray")
 
         setupLayout()
     }

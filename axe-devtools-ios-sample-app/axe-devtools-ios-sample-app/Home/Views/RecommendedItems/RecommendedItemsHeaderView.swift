@@ -45,6 +45,8 @@ class RecommendedItemsHeaderView: UICollectionReusableView {
         addSubview(headerLabel)
         addSubview(itemsButton)
         updateConstraints()
+
+        self.backgroundColor = UIColor(named: "LightGray")
     }
 
     override func updateConstraints() {

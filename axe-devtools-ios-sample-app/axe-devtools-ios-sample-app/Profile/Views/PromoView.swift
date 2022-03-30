@@ -20,7 +20,7 @@ class PromoView: UIView {
     lazy var percentageSaleLabel: UILabel = {
         let l = UILabel()
         l.textColor = .white
-        l.font = .boldSystemFont(ofSize: 18)
+        l.font = UIFont(name: "Gilroy-ExtraBold", size: 18)
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
@@ -28,7 +28,7 @@ class PromoView: UIView {
     lazy var promoForYouLabel: UILabel = {
         let l = UILabel()
         l.textColor = .white
-        l.font = .systemFont(ofSize: 14)
+        l.font = UIFont(name: "Gilroy-Light", size: 14)
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
@@ -36,7 +36,7 @@ class PromoView: UIView {
     lazy var promoCodeLabel: UILabel = {
         let l = UILabel()
         l.textColor = .white
-        l.font = .boldSystemFont(ofSize: 24)
+        l.font = UIFont(name: "Gilroy-ExtraBold", size: 24)
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()

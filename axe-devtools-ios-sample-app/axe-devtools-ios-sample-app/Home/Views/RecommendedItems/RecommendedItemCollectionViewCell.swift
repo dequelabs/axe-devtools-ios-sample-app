@@ -12,6 +12,7 @@ class RecommendedItemCollectionViewCell: ItemCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         updateConstraints()
+        self.backgroundColor = UIColor(named: "LightGray")
     }
 
     required init?(coder: NSCoder) {

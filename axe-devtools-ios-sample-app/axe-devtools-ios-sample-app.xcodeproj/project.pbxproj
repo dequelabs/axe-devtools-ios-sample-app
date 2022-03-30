@@ -418,7 +418,6 @@
 		F3F31D8227DFD32500D87988 = {
 			isa = PBXGroup;
 			children = (
-				F3799A8C27EA1407009CFC2E /* Colors.xcassets */,
 				F3F31D8D27DFD32500D87988 /* axe-devtools-ios-sample-app */,
 				F3F31DA427DFD32500D87988 /* axe-devtools-ios-sample-appTests */,
 				F3F31DAE27DFD32500D87988 /* axe-devtools-ios-sample-appUITests */,
@@ -448,6 +447,7 @@
 				F3799AAC27ED2027009CFC2E /* Profile */,
 				F3F31D9727DFD32500D87988 /* Icons.xcassets */,
 				F3F31DC427DFD88000D87988 /* Images.xcassets */,
+				F3799A8C27EA1407009CFC2E /* Colors.xcassets */,
 				F3F31D9927DFD32500D87988 /* LaunchScreen.storyboard */,
 				F3F31D9C27DFD32500D87988 /* Info.plist */,
 			);

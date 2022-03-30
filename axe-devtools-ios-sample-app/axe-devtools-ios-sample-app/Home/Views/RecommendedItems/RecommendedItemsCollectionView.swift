@@ -29,6 +29,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         self.register(RecommendedItemsHeaderView.self, forSupplementaryViewOfKind:
                         UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         self.automaticallyAdjustsScrollIndicatorInsets = false
+        self.backgroundColor = UIColor(named: "LightGray")
 
         setupLayout()
     }
@@ -51,7 +52,6 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RecommendedItemCollectionViewCell
         let item = self.viewModel.items[indexPath.row]
         cell.viewModel = ItemCellViewModel(item: item)
-
         cell.layer.cornerRadius = 10
         cell.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
         return cell
@@ -60,7 +60,6 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 32
     }
-
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.frame.width, height: 80)

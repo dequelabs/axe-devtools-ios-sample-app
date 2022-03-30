@@ -17,6 +17,7 @@ class ProfileTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         self.delegate = self
         self.register(ProfileTableCell.self, forCellReuseIdentifier: cellId)
         self.isScrollEnabled = false
+        self.backgroundColor = UIColor(named: "LightGray")
     }
 
     required init?(coder: NSCoder) {

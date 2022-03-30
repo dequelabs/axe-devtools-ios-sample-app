@@ -53,6 +53,10 @@ class HomeViewController: UIViewController {
     }
 
     private func buildView() {
+        self.view.backgroundColor = UIColor(named: "LightGray")
+        scrollView.backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
 

@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = UIColor(named: "LightGray")
         buildView()
     }
 
@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            profileView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            profileView.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor),
             profileView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             profileView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             profileView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)

@@ -29,7 +29,6 @@ class ProfileView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         buildView()
     }
 
@@ -42,6 +41,8 @@ class ProfileView: UIView {
         self.addSubview(promoImageView)
         self.addSubview(profileTableView)
         updateConstraints()
+
+        self.backgroundColor = UIColor(named: "LightGray")
     }
 
     override func updateConstraints() {

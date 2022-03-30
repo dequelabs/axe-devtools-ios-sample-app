@@ -45,6 +45,8 @@ class AllCollectionsView: UIView {
     }
 
     func buildView() {
+        self.backgroundColor = UIColor(named: "LightGray")
+
         self.addSubview(titleLabel)
         self.addSubview(allCollectionsVerticalStackView)
 

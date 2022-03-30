@@ -77,7 +77,7 @@ class CartCheckoutFooterView: UIView {
 
         NSLayoutConstraint.activate([
             self.widthAnchor.constraint(equalToConstant: 375),
-            self.heightAnchor.constraint(equalToConstant: 118),
+            self.heightAnchor.constraint(equalToConstant: 118)
         ])
         
         NSLayoutConstraint.activate([

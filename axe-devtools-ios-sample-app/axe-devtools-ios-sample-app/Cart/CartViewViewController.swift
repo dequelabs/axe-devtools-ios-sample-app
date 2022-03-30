@@ -62,10 +62,10 @@ class CartViewViewController: UIViewController {
             contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ])
         NSLayoutConstraint.activate([
-            cartView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 12),
+            cartView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             cartView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             cartView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            cartView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor)
+            cartView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

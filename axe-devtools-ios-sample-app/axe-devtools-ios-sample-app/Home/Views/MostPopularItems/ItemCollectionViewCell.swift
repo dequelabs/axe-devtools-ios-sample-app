@@ -54,7 +54,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     lazy var addToBagButton: UIButton = {
         let b = UIButton()
-        b.layer.borderColor = UIColor.black.cgColor
+        b.layer.borderColor = UIColor(named: "BagButtonGrayBorder")?.cgColor
         b.translatesAutoresizingMaskIntoConstraints = false
         return b
     }()
@@ -98,7 +98,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         imageView.image = UIImage(named: viewModel.imageName)
         heartImageView.image = UIImage(named: viewModel.heartImageName)
         
-        addToBagButton.backgroundColor = viewModel.isInBag ? .black : .white
+        addToBagButton.backgroundColor = viewModel.isInBag ? .black : .clear
         addToBagButton.layer.cornerRadius = 15
         addToBagButton.setImage(UIImage(named: imageName), for: .normal)
     }
