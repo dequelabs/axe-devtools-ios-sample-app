@@ -19,6 +19,8 @@ class CategoryCollectionCell: UICollectionViewCell {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .black
+        l.numberOfLines = 0
+        l.lineBreakMode = .byWordWrapping
         l.font = UIFont(name: "Gilroy-Light", size: 14)
         l.backgroundColor = .clear
         return l
@@ -46,11 +48,25 @@ class CategoryCollectionCell: UICollectionViewCell {
     }
 
     private func configureElements() {
-        nameLabel.text = viewModel?.category
+        nameLabel.text = viewModel?.category.name
+
+        if viewModel?.category.name == "All"  {
+            backgroundColor = .black
+            nameLabel.textColor = .white
+        }
     }
 
     override func updateConstraints() {
         super.updateConstraints()
+
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+
+        self.layer.cornerRadius = 10
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderWidth = 1
     }
-    
 }

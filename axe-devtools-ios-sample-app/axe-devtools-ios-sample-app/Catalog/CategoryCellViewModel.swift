@@ -14,5 +14,4 @@ class CategoryCellViewModel {
     init(category: CategoryModel) {
         self.category = category
     }
-    
 }
