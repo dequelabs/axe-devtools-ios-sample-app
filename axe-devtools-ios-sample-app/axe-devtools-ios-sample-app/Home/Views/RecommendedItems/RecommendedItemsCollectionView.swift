@@ -59,7 +59,6 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         return headerView
     }
 
-
     private let sectionInsets = UIEdgeInsets(top: 16,
                                              left: 8,
                                              bottom: 0,

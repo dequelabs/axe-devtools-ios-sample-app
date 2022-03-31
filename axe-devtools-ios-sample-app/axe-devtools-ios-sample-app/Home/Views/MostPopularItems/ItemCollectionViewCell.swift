@@ -63,6 +63,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         buildCell()
         self.layer.cornerRadius = 20
+        isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
@@ -86,6 +87,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         
         configureElements()
         updateConstraints()
+        configureActions()
     }
     
     private func configureElements() {
@@ -137,5 +139,33 @@ class ItemCollectionViewCell: UICollectionViewCell {
             textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             textVerticalStackView.trailingAnchor.constraint(equalTo: self.centerXAnchor)
         ])
+    }
+
+    private func configureActions() {
+        heartImageView.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(toggleFavorite)))
+        addToBagButton.addTarget(self, action: #selector(toggleItemInBag), for: .touchUpInside)
+    }
+
+    @objc private func toggleFavorite() {
+        guard let viewModel = self.viewModel else { return }
+        viewModel.isFavorite = !viewModel.isFavorite
+        updateFavoriteButton(isFavorite: viewModel.isFavorite)
+    }
+
+    @objc private func toggleItemInBag() {
+        guard let viewModel = self.viewModel else { return }
+        viewModel.isInBag = !viewModel.isInBag
+        updateBagButton(inBag: viewModel.isInBag)
+    }
+
+    private func updateBagButton(inBag: Bool) {
+        let imageName = inBag ? "bag_shop_bold" : "bag_shop"
+        addToBagButton.setImage(UIImage(named: imageName), for: .normal)
+        addToBagButton.backgroundColor = inBag ? .black : .clear
+    }
+
+    private func updateFavoriteButton(isFavorite: Bool) {
+        heartImageView.image = isFavorite ? UIImage(named: "HeartFilled") : UIImage(named: "Heart")
+
     }
 }

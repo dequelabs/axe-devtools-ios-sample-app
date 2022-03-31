@@ -27,11 +27,22 @@ class ItemCellViewModel {
     }
 
     var isFavorite: Bool {
-        return item.isFavorite
+        get {
+            return item.isFavorite
+        }
+        set {
+            self.isFavorite = newValue
+        }
     }
 
     var isInBag: Bool {
-        return item.isInBag
+        get {
+            return item.isInBag
+        }
+
+        set {
+            self.isInBag = newValue
+        }
     }
 
     var heartImageName: String {
