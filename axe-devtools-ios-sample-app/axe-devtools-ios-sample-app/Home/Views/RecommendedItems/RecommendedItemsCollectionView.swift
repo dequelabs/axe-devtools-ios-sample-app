@@ -15,13 +15,8 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
     private let headerId = "Header"
     let headerView = RecommendedItemsHeaderView()
 
-    let flowLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        return layout
-    }()
-
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: flowLayout)
+        super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
         self.translatesAutoresizingMaskIntoConstraints = false
         self.dataSource = self
         self.delegate = self
@@ -31,24 +26,11 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         self.automaticallyAdjustsScrollIndicatorInsets = false
         self.backgroundColor = UIColor(named: "LightGray")
 
-
-        flowLayout.invalidateLayout()
-        setupLayout()
+        collectionViewLayout = createLayout()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupLayout() {
-        if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.scrollDirection = .horizontal
-            flowLayout.minimumLineSpacing = 0
-            flowLayout.minimumInteritemSpacing = 4
-            flowLayout.collectionView?.delegate = self
-            flowLayout.collectionView?.dataSource = self
-
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -90,5 +72,44 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         let paddingSpace = sectionInsets.top * allItems
         let availableHeight = self.frame.height - paddingSpace
         return CGSize(width: 210, height: availableHeight)
+    }
+}
+
+extension RecommendedItemsCollectionView {
+    func createLayout() -> UICollectionViewLayout {
+        let sectionProvider = { (sectionIndex: Int,
+            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                 heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+            // if we have the space, adapt and go 2-up + peeking 3rd item
+            let groupFractionalHeight = CGFloat(layoutEnvironment.container.effectiveContentSize.height > 500 ?
+                0.425 : 0.85)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(210),
+                                                   heightDimension: .fractionalHeight(groupFractionalHeight))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .continuous
+            section.interGroupSpacing = 24
+            section.contentInsets = NSDirectionalEdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 20)
+
+            let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                  heightDimension: .estimated(44))
+            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: titleSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .topLeading)
+            section.boundarySupplementaryItems = [titleSupplementary]
+            return section
+        }
+
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+
+        let layout = UICollectionViewCompositionalLayout(
+            sectionProvider: sectionProvider, configuration: config)
+        return layout
     }
 }

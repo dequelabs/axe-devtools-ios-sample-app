@@ -41,7 +41,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .vertical
-            flowLayout.collectionView?.isScrollEnabled = false
+            flowLayout.collectionView?.isScrollEnabled = true
             flowLayout.collectionView?.delegate = self
             flowLayout.collectionView?.dataSource = self
         }
