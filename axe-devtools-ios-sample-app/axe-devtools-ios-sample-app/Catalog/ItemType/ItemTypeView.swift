@@ -30,7 +30,7 @@ class ItemTypeView: UIView {
     lazy var itemImage: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleAspectFit
         return iv
     }()
 
@@ -89,5 +89,28 @@ class ItemTypeView: UIView {
             itemImage.heightAnchor.constraint(equalToConstant: 100),
             itemImage.widthAnchor.constraint(equalToConstant: 90)
         ])
+
+        if viewModel.typeName == "Accessories" {
+            let accessoriesSecondImage = UIImage(named: "necktie")
+            let imageView = UIImageView(image: accessoriesSecondImage)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+
+            itemImage.addSubview(imageView)
+
+            let accessoriesImagesConstraints = [
+                itemImage.topAnchor.constraint(equalTo: self.topAnchor, constant: -8),
+                itemImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                itemImage.heightAnchor.constraint(equalToConstant: 100),
+                itemImage.widthAnchor.constraint(equalToConstant: 90),
+                imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: -8),
+                imageView.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant: 4),
+                imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -6),
+                imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                imageView.heightAnchor.constraint(equalToConstant: 78),
+                imageView.widthAnchor.constraint(equalToConstant: 16)
+            ]
+
+            NSLayoutConstraint.activate(accessoriesImagesConstraints)
+        }
     }
 }
