@@ -10,6 +10,7 @@ import UIKit
 class CartQuantityStepperView: UIView {
 
     let viewModel = CartViewModel()
+    var count = 0
 
     lazy var decrementButton: UIButton = {
         let b = UIButton()
@@ -36,7 +37,7 @@ class CartQuantityStepperView: UIView {
     lazy var quantityLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "1"
+        l.text = "\(count)"
         l.font = UIFont(name: "Gilroy-ExtraBold", size: 16)
         return l
     }()
@@ -44,6 +45,8 @@ class CartQuantityStepperView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildView()
+        incrementButton.addTarget(self, action: #selector(increment), for: .touchUpInside)
+        decrementButton.addTarget(self, action: #selector(decrement), for: .touchUpInside)
     }
 
     required init?(coder: NSCoder) {
@@ -93,5 +96,15 @@ class CartQuantityStepperView: UIView {
             incrementButton.heightAnchor.constraint(equalToConstant: 30),
             incrementButton.widthAnchor.constraint(equalToConstant: 30)
         ])
+    }
+
+    @objc private func increment() {
+        count += 1
+        quantityLabel.text = "\(count)"
+    }
+
+    @objc private func decrement() {
+        count -= 1
+        quantityLabel.text = "\(count)"
     }
 }
