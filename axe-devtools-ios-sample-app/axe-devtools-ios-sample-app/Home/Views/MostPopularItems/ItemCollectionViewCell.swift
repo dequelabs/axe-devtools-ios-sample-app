@@ -49,6 +49,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     lazy var heartImageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.isUserInteractionEnabled = true
         return iv
     }()
     
@@ -63,7 +64,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         buildCell()
         self.layer.cornerRadius = 20
-        isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
@@ -160,7 +160,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     private func updateBagButton(inBag: Bool) {
         let imageName = inBag ? "bag_shop_bold" : "bag_shop"
-        addToBagButton.setImage(UIImage(named: imageName), for: .normal)
+      //  addToBagButton.setImage(UIImage(named: imageName), for: .normal)
+        print("GETTING CALLED")
         addToBagButton.backgroundColor = inBag ? .black : .clear
     }
 

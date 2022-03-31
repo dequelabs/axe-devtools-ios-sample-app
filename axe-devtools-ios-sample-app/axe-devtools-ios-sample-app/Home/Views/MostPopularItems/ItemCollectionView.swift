@@ -62,7 +62,7 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCollectionViewCell
         let item = self.viewModel.items[indexPath.row]
-        
+        cell.contentView.isUserInteractionEnabled = false
         cell.viewModel = ItemCellViewModel(item: item)
         cell.layer.cornerRadius = 10
         return cell
