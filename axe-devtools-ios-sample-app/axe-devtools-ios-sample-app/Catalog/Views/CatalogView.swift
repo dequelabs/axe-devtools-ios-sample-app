@@ -85,7 +85,7 @@ class CatalogView: UIView {
         NSLayoutConstraint.activate([
             allCategories.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
             allCategories.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            allCategories.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            allCategories.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24),
             allCategories.heightAnchor.constraint(equalToConstant: 32),
             allCategories.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])

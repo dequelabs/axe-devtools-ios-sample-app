@@ -17,8 +17,9 @@ class CategoryDataSource {
     let female = CategoryModel(name: "Female")
     let boy = CategoryModel(name: "Boy")
     let girl = CategoryModel(name: "Girl")
-
+    let home = CategoryModel(name: "Home")
+    
     var allCategories: [CategoryModel] {
-        return [all, male, female, boy, girl]
+        return [all, male, female, boy, girl, home]
     }
 }

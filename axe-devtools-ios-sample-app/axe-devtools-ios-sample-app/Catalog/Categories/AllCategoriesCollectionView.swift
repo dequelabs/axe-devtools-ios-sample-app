@@ -22,7 +22,6 @@ class AllCategoriesCollectionView: UICollectionView, UICollectionViewDataSource,
         self.dataSource = self
         self.delegate = self
         self.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.isScrollEnabled = false
         self.automaticallyAdjustsScrollIndicatorInsets = false
         self.backgroundColor = UIColor(named: "LightGray")
 
@@ -37,6 +36,7 @@ class AllCategoriesCollectionView: UICollectionView, UICollectionViewDataSource,
     func setupLayout() {
         if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
+            flowLayout.collectionView?.isPagingEnabled = true
             flowLayout.collectionView?.isScrollEnabled = true
             flowLayout.collectionView?.delegate = self
             flowLayout.collectionView?.dataSource = self
@@ -48,7 +48,7 @@ class AllCategoriesCollectionView: UICollectionView, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 12
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -63,18 +63,16 @@ class AllCategoriesCollectionView: UICollectionView, UICollectionViewDataSource,
         return cell
     }
 
-    
-
-    private let sectionInsets = UIEdgeInsets(top: 8,
+    private let sectionInsets = UIEdgeInsets(top: 0,
                                              left: 8,
                                              bottom: 0,
-                                             right: 0)
+                                             right: 8)
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let totalCategories = CGFloat(viewModel.categories.count)
-        let paddingSpace = sectionInsets.left * (totalCategories + 1)
+        let paddingSpace = sectionInsets.left * 3
         let availableWidth = self.frame.width - paddingSpace
         let widthPerItem = availableWidth / totalCategories
 
