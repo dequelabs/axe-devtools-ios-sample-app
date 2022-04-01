@@ -40,6 +40,7 @@ class AllCategoriesCollectionView: UICollectionView, UICollectionViewDataSource,
             flowLayout.collectionView?.isScrollEnabled = true
             flowLayout.collectionView?.delegate = self
             flowLayout.collectionView?.dataSource = self
+            flowLayout.collectionView?.showsHorizontalScrollIndicator = false
         }
     }
 
