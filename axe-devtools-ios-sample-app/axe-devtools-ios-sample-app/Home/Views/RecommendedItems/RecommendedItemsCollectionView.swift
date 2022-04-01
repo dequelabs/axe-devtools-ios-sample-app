@@ -62,21 +62,7 @@ class RecommendedItemsCollectionView: UICollectionView, UICollectionViewDataSour
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! RecommendedItemsHeaderView
         return headerView
     }
-
-    private let sectionInsets = UIEdgeInsets(top: 16,
-                                             left: 8,
-                                             bottom: 0,
-                                             right: 8)
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let allItems = CGFloat(viewModel.items.count)
-        let paddingSpace = sectionInsets.top * allItems
-        let availableHeight = self.frame.height - paddingSpace
-        return CGSize(width: 210, height: availableHeight)
-    }
-}
+ }
 
 extension RecommendedItemsCollectionView {
     func createLayout() -> UICollectionViewLayout {

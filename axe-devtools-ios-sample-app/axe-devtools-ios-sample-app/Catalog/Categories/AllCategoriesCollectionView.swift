@@ -64,7 +64,6 @@ extension AllCategoriesCollectionView {
 
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 4
-            // play around with this
             section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
             section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
             return section
