@@ -134,7 +134,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            textVerticalStackView.topAnchor.constraint(equalTo: self.imageView.bottomAnchor),
+            textVerticalStackView.topAnchor.constraint(greaterThanOrEqualTo: self.imageView.bottomAnchor, constant: 16),
             textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             textVerticalStackView.trailingAnchor.constraint(equalTo: self.centerXAnchor)
