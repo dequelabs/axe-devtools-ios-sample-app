@@ -18,6 +18,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.isUserInteractionEnabled = false
         return iv
     }()
     
@@ -45,13 +46,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
         l.font = gilroyBold
         return l
     }()
-    
-    lazy var heartImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleFavorite(sender:))))
-        iv.isUserInteractionEnabled = true
-        return iv
+
+    lazy var favoriteButton: UIButton = {
+        let b = UIButton()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        return b
     }()
     
     lazy var addToBagButton: UIButton = {
@@ -79,7 +78,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     private func buildCell() {
         self.addSubview(imageView)
-        imageView.addSubview(heartImageView)
+        imageView.addSubview(favoriteButton)
         
         self.addSubview(textVerticalStackView)
         textVerticalStackView.addArrangedSubview(itemLabel)
@@ -100,8 +99,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         priceLabel.text = viewModel.itemPrice
         
         imageView.image = UIImage(named: viewModel.imageName)
-        heartImageView.image = UIImage(named: viewModel.heartImageName)
-        heartImageView.isUserInteractionEnabled = true
+        favoriteButton.setImage(UIImage(named: viewModel.heartImageName), for: .normal)
 
         addToBagButton.layer.cornerRadius = 15
         addToBagButton.setImage(UIImage(named: imageName), for: .normal)
@@ -119,10 +117,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            heartImageView.widthAnchor.constraint(equalToConstant: 17),
-            heartImageView.heightAnchor.constraint(equalToConstant: 16),
-            heartImageView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),
-            heartImageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -10)
+            favoriteButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            favoriteButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            favoriteButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),
+            favoriteButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -10)
         ])
 
         let buttonWidth = addToBagButton.widthAnchor.constraint(equalToConstant: 33)
@@ -144,13 +142,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureActions() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleFavorite(sender:)))
-        heartImageView.addGestureRecognizer(tapGesture)
-        heartImageView.isUserInteractionEnabled = true
+        favoriteButton.addTarget(self, action: #selector(toggleFavorite), for: .touchUpInside)
         addToBagButton.addTarget(self, action: #selector(toggleItemInBag), for: .touchUpInside)
     }
 
-    @objc func toggleFavorite(sender: UITapGestureRecognizer) {
+    @objc func toggleFavorite(sender: UIButton) {
         guard let viewModel = self.viewModel else { return }
         print("GETTING CALLLLLEEEDDDDDD")
         viewModel.isFavorite = !viewModel.isFavorite
@@ -170,6 +166,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     private func updateFavoriteButton(isFavorite: Bool) {
         let imageName = isFavorite ? "HeartFilled" : "Heart"
-        heartImageView.image = UIImage(named: imageName)
+        favoriteButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }
