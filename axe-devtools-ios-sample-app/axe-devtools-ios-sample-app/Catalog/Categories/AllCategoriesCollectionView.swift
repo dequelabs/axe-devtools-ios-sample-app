@@ -49,22 +49,6 @@ class AllCategoriesCollectionView: UICollectionView, UICollectionViewDataSource,
         cell.layer.cornerRadius = 10
         return cell
     }
-
-    private let sectionInsets = UIEdgeInsets(top: 0,
-                                             left: 8,
-                                             bottom: 0,
-                                             right: 8)
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let totalCategories = CGFloat(viewModel.categories.count)
-        let paddingSpace = sectionInsets.left * 3
-        let availableWidth = self.frame.width - paddingSpace
-        let widthPerItem = availableWidth / totalCategories
-
-        return CGSize(width: widthPerItem, height: 32)
-    }
 }
 
 extension AllCategoriesCollectionView {
