@@ -102,27 +102,21 @@ extension ItemCollectionView {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int,
                                  layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-
-            let totalItems = CGFloat(self.viewModel.items.count)
-//            let verticalPadding = sectionInsets.top * (totalItems  + 1)
-            let verticalPadding = totalItems / (2.0)
-//            let availableHeight = self.frame.height - verticalPadding
-//            let heightPerItem = availableHeight / itemsPerRow
-
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),
-                                                  heightDimension: .absolute(verticalPadding))
+            
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                  heightDimension: .fractionalWidth(1))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.edgeSpacing
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .fractionalHeight(1.0))
+            item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 4, bottom: 8, trailing: 4)
 
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3),
+                                                   heightDimension: .fractionalHeight(1.0))
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
                                                          subitem: item,
                                                          count: 2)
 
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 0
-            section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 0, trailing: 24)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0)
 
             let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .estimated(44))

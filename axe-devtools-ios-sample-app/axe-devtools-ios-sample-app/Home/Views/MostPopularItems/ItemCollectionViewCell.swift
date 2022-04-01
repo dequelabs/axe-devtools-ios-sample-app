@@ -119,7 +119,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             favoriteButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
             favoriteButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
-            favoriteButton.topAnchor.constraint(lessThanOrEqualTo: imageView.topAnchor, constant: 8),
+            favoriteButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
             favoriteButton.trailingAnchor.constraint(lessThanOrEqualTo: imageView.trailingAnchor, constant: -10)
         ])
 
@@ -134,7 +134,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            textVerticalStackView.topAnchor.constraint(greaterThanOrEqualTo: self.imageView.bottomAnchor, constant: 8),
+            textVerticalStackView.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 4),
             textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             textVerticalStackView.trailingAnchor.constraint(equalTo: self.centerXAnchor)
