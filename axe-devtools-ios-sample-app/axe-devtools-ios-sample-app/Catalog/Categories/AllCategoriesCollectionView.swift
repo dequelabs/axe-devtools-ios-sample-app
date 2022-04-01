@@ -12,36 +12,22 @@ class AllCategoriesCollectionView: UICollectionView, UICollectionViewDataSource,
     var viewModel = CatalogViewModel()
     private let reuseIdentifier = "ItemCell"
 
-    let flowLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        return layout
-    }()
-
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: flowLayout)
+        super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
         self.dataSource = self
         self.delegate = self
-        self.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        self.automaticallyAdjustsScrollIndicatorInsets = false
-        self.backgroundColor = UIColor(named: "LightGray")
-
-        setupLayout()
+        configureView()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-
-    func setupLayout() {
-        if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.scrollDirection = .horizontal
-            flowLayout.collectionView?.isPagingEnabled = true
-            flowLayout.collectionView?.isScrollEnabled = true
-            flowLayout.collectionView?.delegate = self
-            flowLayout.collectionView?.dataSource = self
-            flowLayout.collectionView?.showsHorizontalScrollIndicator = false
-        }
+    private func configureView() {
+        self.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.automaticallyAdjustsScrollIndicatorInsets = false
+        self.backgroundColor = UIColor(named: "LightGray")
+        collectionViewLayout = createLayout()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -78,5 +64,27 @@ class AllCategoriesCollectionView: UICollectionView, UICollectionViewDataSource,
         let widthPerItem = availableWidth / totalCategories
 
         return CGSize(width: widthPerItem, height: 32)
+    }
+}
+
+extension AllCategoriesCollectionView {
+    func createLayout() -> UICollectionViewLayout {
+        let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.28), heightDimension: .fractionalHeight(1))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+            let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = 4
+            // play around with this
+            section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+            section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+            return section
+        }
+        return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
     }
 }
