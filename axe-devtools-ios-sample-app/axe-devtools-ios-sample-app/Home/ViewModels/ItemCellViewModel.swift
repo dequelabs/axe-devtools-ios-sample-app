@@ -31,7 +31,7 @@ class ItemCellViewModel {
             return item.isFavorite
         }
         set {
-            self.isFavorite = newValue
+            self.item.isFavorite = newValue
         }
     }
 
@@ -39,9 +39,8 @@ class ItemCellViewModel {
         get {
             return item.isInBag
         }
-
         set {
-            self.isInBag = newValue
+            self.item.isInBag = newValue
         }
     }
 

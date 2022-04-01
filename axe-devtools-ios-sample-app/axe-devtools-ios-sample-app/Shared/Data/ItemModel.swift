@@ -12,8 +12,8 @@ class ItemModel {
     var name: String
     var imageName: String
     var price: String
-    var isFavorite: Bool = false
-    var isInBag: Bool = false
+    var isFavorite: Bool
+    var isInBag: Bool
 
 
     init(name: String,

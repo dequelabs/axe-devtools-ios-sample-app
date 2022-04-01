@@ -49,6 +49,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     lazy var heartImageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleFavorite(sender:))))
         iv.isUserInteractionEnabled = true
         return iv
     }()
@@ -64,6 +65,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         buildCell()
         self.layer.cornerRadius = 20
+        self.contentView.isUserInteractionEnabled = false
     }
     
     required init?(coder: NSCoder) {
@@ -84,7 +86,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         textVerticalStackView.addArrangedSubview(priceLabel)
         
         self.addSubview(addToBagButton)
-        
+
         configureElements()
         updateConstraints()
         configureActions()
@@ -99,8 +101,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
         
         imageView.image = UIImage(named: viewModel.imageName)
         heartImageView.image = UIImage(named: viewModel.heartImageName)
-        
-        addToBagButton.backgroundColor = viewModel.isInBag ? .black : .clear
+        heartImageView.isUserInteractionEnabled = true
+
         addToBagButton.layer.cornerRadius = 15
         addToBagButton.setImage(UIImage(named: imageName), for: .normal)
     }
@@ -142,17 +144,20 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureActions() {
-        heartImageView.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(toggleFavorite)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleFavorite(sender:)))
+        heartImageView.addGestureRecognizer(tapGesture)
+        heartImageView.isUserInteractionEnabled = true
         addToBagButton.addTarget(self, action: #selector(toggleItemInBag), for: .touchUpInside)
     }
 
-    @objc private func toggleFavorite() {
+    @objc func toggleFavorite(sender: UITapGestureRecognizer) {
         guard let viewModel = self.viewModel else { return }
+        print("GETTING CALLLLLEEEDDDDDD")
         viewModel.isFavorite = !viewModel.isFavorite
         updateFavoriteButton(isFavorite: viewModel.isFavorite)
     }
 
-    @objc private func toggleItemInBag() {
+    @objc func toggleItemInBag() {
         guard let viewModel = self.viewModel else { return }
         viewModel.isInBag = !viewModel.isInBag
         updateBagButton(inBag: viewModel.isInBag)
@@ -160,13 +165,11 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     private func updateBagButton(inBag: Bool) {
         let imageName = inBag ? "bag_shop_bold" : "bag_shop"
-      //  addToBagButton.setImage(UIImage(named: imageName), for: .normal)
-        print("GETTING CALLED")
-        addToBagButton.backgroundColor = inBag ? .black : .clear
+        addToBagButton.setImage(UIImage(named: imageName), for: .normal)
     }
 
     private func updateFavoriteButton(isFavorite: Bool) {
-        heartImageView.image = isFavorite ? UIImage(named: "HeartFilled") : UIImage(named: "Heart")
-
+        let imageName = isFavorite ? "HeartFilled" : "Heart"
+        heartImageView.image = UIImage(named: imageName)
     }
 }
