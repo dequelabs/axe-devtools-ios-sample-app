@@ -28,6 +28,10 @@ class CatalogModel {
         return "Dots"
     }
 
+    var selectedImage: String {
+        return "CategorySelected"
+    }
+
     init(itemTypes: [ItemTypeModel]) {
         self.itemTypes = itemTypes
     }

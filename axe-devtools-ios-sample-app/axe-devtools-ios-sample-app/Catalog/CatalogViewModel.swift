@@ -10,7 +10,8 @@ import Foundation
 class CatalogViewModel {
 
     let sectionTitle = "Catalog"
-    private var catalogModel = CatalogDataSource().catalog
+    private var
+    catalogModel = CatalogDataSource().catalog
 
     var title: String {
         return catalogModel.tabTitle
@@ -38,5 +39,9 @@ class CatalogViewModel {
 
     var itemTypes: [ItemTypeModel] {
         return catalogModel.itemTypes
+    }
+
+    var selectedImage: String {
+        return catalogModel.selectedImage
     }
 }

@@ -21,6 +21,10 @@ class HomeViewModel {
         return homeModel.tabImageName
     }
 
+    var selectedImage: String {
+        return homeModel.selectedImage
+    }
+
     lazy var popularItemCellVMs: [ItemCellViewModel] = {
         // we want to return an array of item cell view model's
         // we have the most popular items VM already in this class

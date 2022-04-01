@@ -16,8 +16,8 @@ class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "LightGray")
-        tabBar.tintColor = .label
+        view.backgroundColor = .white//UIColor(named: "LightGray")
+        tabBar.tintColor = .black
         setupViewControllers()
     }
 
@@ -25,17 +25,20 @@ class MainTabBarViewController: UITabBarController {
         viewControllers = [
             createNavController(for: HomeViewController(),
                                 title: "",
-                                image: UIImage(named: homeVM.imageName)!)
-            ,
+                                image: UIImage(named: homeVM.imageName)!,
+                                selectedImage: UIImage(named: homeVM.selectedImage)!),
             createNavController(for: CatalogViewController(),
                                 title: "",
-                                image: UIImage(named: catalogVM.iconName)!),
+                                image: UIImage(named: catalogVM.iconName)!,
+                                selectedImage: UIImage(named: catalogVM.selectedImage)!),
             createNavController(for: CartViewViewController(),
                                 title: "",
-                                image: UIImage(named: cartVM.iconName)!),
+                                image: UIImage(named: cartVM.iconName)!,
+                                selectedImage: UIImage(named: cartVM.selectedImage)!),
             createNavController(for: ProfileViewController(),
                                 title: "",
-                                image: UIImage(named: profileVM.iconName)!)
+                                image: UIImage(named: profileVM.iconName)!,
+                                selectedImage: UIImage(named: profileVM.iconName)!)
         ]
     }
 
@@ -46,10 +49,12 @@ class MainTabBarViewController: UITabBarController {
 extension MainTabBarViewController {
     func createNavController(for rootViewController: UIViewController,
                              title: String,
-                             image: UIImage) -> UIViewController {
+                             image: UIImage,
+                             selectedImage: UIImage) -> UIViewController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
+        navController.tabBarItem.selectedImage = selectedImage
         navController.navigationBar.prefersLargeTitles = true
         rootViewController.navigationItem.title = title
         return navController

@@ -44,4 +44,8 @@ extension CartViewModel {
     var minusButtonImage: String {
         return currentCart.minusButtonImage
     }
+
+    var selectedImage: String {
+        return currentCart.selectedImage
+    }
 }

@@ -39,4 +39,8 @@ extension CartModel {
     var deleteButtonText: String {
         return "Delete all"
     }
+
+    var selectedImage: String {
+        return "BagSelected"
+    }
 }
