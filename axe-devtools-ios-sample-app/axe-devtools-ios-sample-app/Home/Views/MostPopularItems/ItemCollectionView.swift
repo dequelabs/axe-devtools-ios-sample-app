@@ -69,10 +69,10 @@ extension ItemCollectionView {
                                                   heightDimension: .fractionalHeight(1.0))
 
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 0,
-                                                         leading: 0,
-                                                         bottom: 0,
-                                                         trailing: 0)
+//            item.contentInsets = NSDirectionalEdgeInsets(top: 0,
+//                                                         leading: 0,
+//                                                         bottom: 0,
+//                                                         trailing: 0)
 
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .fractionalHeight(1.0))
@@ -80,15 +80,14 @@ extension ItemCollectionView {
                                                            subitem: item,
                                                            count: 2)
             let spacing = CGFloat(24)
-            group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: NSCollectionLayoutSpacing.fixed(spacing))
             group.interItemSpacing = .fixed(spacing)
 
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 0
-            section.contentInsets = NSDirectionalEdgeInsets(top: 32,
-                                                            leading: 0,
+            section.contentInsets = NSDirectionalEdgeInsets(top: 40,
+                                                            leading: 24,
                                                             bottom: 0,
-                                                            trailing: 0)
+                                                            trailing: 24)
 
             let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .estimated(44))

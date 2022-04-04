@@ -109,8 +109,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 180),
-            imageView.widthAnchor.constraint(equalToConstant: 152)
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 180),
         ])
         
         NSLayoutConstraint.activate([
@@ -131,15 +130,14 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
 
         NSLayoutConstraint.activate([
-            containingView.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor, constant: 16),
+            containingView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
             containingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             containingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-           // containingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-        //    containingView.heightAnchor.constraint(greaterThanOrEqualTo: self.heightAnchor, multiplier: 0.10)
+            containingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
 
         NSLayoutConstraint.activate([
-            itemLabel.topAnchor.constraint(equalTo: containingView.topAnchor),
+            itemLabel.topAnchor.constraint(equalTo: containingView.topAnchor, constant: 16),
             itemLabel.leadingAnchor.constraint(equalTo: containingView.leadingAnchor),
             itemLabel.trailingAnchor.constraint(equalTo: addToBagButton.leadingAnchor, constant: 4)
         ])
@@ -148,12 +146,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
             priceLabel.topAnchor.constraint(equalTo: itemLabel.bottomAnchor, constant: 4),
             priceLabel.leadingAnchor.constraint(equalTo: itemLabel.leadingAnchor),
             priceLabel.trailingAnchor.constraint(equalTo: itemLabel.trailingAnchor),
-            priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor, constant: 4)
+            priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor)
         ])
 
-        self.setContentHuggingPriority(.defaultHigh + 1, for: .vertical)
-        containingView.setContentHuggingPriority(.required, for: .vertical)
-       // containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+      //  self.setContentHuggingPriority(.required + 1, for: .vertical)
+        containingView.setContentHuggingPriority(.required + 2, for: .vertical)
+        containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
 
     private func configureActions() {

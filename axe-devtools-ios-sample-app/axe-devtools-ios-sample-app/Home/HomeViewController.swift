@@ -99,9 +99,9 @@ class HomeViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            searchBarView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            searchBarView.topAnchor.constraint(equalTo: contentView.topAnchor),
             searchBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            searchBarView.heightAnchor.constraint(equalToConstant: 156),
+        //    searchBarView.heightAnchor.constraint(equalToConstant: 156),
             searchBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
@@ -109,14 +109,14 @@ class HomeViewController: UIViewController {
             homeScreenImageView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 16),
             homeScreenImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             homeScreenImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            homeScreenImageView.widthAnchor.constraint(equalToConstant: 327),
+        //    homeScreenImageView.widthAnchor.constraint(equalToConstant: 327),
             homeScreenImageView.heightAnchor.constraint(equalToConstant: 327)
         ])
 
         NSLayoutConstraint.activate([
             mostPopularItemsView.topAnchor.constraint(equalTo: homeScreenImageView.bottomAnchor, constant: 32),
-            mostPopularItemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            mostPopularItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            mostPopularItemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mostPopularItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mostPopularItemsView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor, multiplier: 0.2),
         ])
 
@@ -128,12 +128,12 @@ class HomeViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             recommendedItemsView.topAnchor.constraint(greaterThanOrEqualTo: collectionsView.bottomAnchor, constant: 24),
-            recommendedItemsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
-            recommendedItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            recommendedItemsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            recommendedItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             // not quite what we want, but getting closer..
-            recommendedItemsView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.20),
+            recommendedItemsView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor, multiplier: 0.20),
             recommendedItemsView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            recommendedItemsView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor)
+            recommendedItemsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }

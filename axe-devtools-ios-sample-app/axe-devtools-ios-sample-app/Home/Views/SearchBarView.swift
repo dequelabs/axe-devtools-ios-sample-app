@@ -29,6 +29,7 @@ class SearchBarView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .black
         buildView()
     }
@@ -46,13 +47,11 @@ class SearchBarView: UIView {
         self.addSubview(titleImageView)
         self.addSubview(searchBar)
         updateConstraints()
-        // try ignore safe area insets
     }
 
     override func updateConstraints() {
         super.updateConstraints()
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: 161),
             self.titleImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
             self.titleImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             self.titleImageView.heightAnchor.constraint(equalToConstant: 24)

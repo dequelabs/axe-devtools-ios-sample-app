@@ -23,8 +23,8 @@ class RecommendedItemCollectionViewCell: ItemCollectionViewCell {
         super.updateConstraints()
 
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 248),
-            imageView.widthAnchor.constraint(equalToConstant: 210)
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 248),
+           // imageView.widthAnchor.constraint(greaterThanOrEqualToConstant: 210)
         ])
     }
 }

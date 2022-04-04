@@ -51,7 +51,7 @@ class SeasonalCollectionView: UIView {
 
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: 120),
-            self.widthAnchor.constraint(equalToConstant: 327)
+           // self.widthAnchor.constraint(equalToConstant: 327)
         ])
 
         NSLayoutConstraint.activate([
@@ -66,7 +66,7 @@ class SeasonalCollectionView: UIView {
         NSLayoutConstraint.activate([
             self.nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 76),
             self.nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 190),
+            //self.nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 190),
             self.nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16)
         ])
     }
