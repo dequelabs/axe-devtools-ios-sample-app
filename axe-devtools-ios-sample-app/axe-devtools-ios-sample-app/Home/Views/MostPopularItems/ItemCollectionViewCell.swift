@@ -73,18 +73,19 @@ class ItemCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.layer.cornerRadius = 20
+        updateConstraints()
     }
     
     private func buildCell() {
-        self.addSubview(imageView)
         imageView.addSubview(favoriteButton)
-        self.addSubview(containingView)
         containingView.addSubview(itemLabel)
+        self.addSubview(imageView)
         containingView.addSubview(priceLabel)
         self.addSubview(addToBagButton)
+        self.addSubview(containingView)
 
         configureElements()
-        updateConstraints()
+      //  updateConstraints()
         configureActions()
     }
     
@@ -126,33 +127,62 @@ class ItemCollectionViewCell: UICollectionViewCell {
             addToBagButton.centerYAnchor.constraint(equalTo: containingView.centerYAnchor),
             buttonHeight,
             buttonWidth,
-            addToBagButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8)
+            addToBagButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
 
         NSLayoutConstraint.activate([
             containingView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
             containingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            containingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            containingView.trailingAnchor.constraint(equalTo: addToBagButton.leadingAnchor),
             containingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
 
         NSLayoutConstraint.activate([
-            itemLabel.topAnchor.constraint(equalTo: containingView.topAnchor, constant: 16),
+            itemLabel.topAnchor.constraint(equalTo: containingView.topAnchor),
             itemLabel.leadingAnchor.constraint(equalTo: containingView.leadingAnchor),
-            itemLabel.trailingAnchor.constraint(equalTo: addToBagButton.leadingAnchor, constant: 4)
+            itemLabel.trailingAnchor.constraint(equalTo: addToBagButton.leadingAnchor),
+            itemLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 35.0)
         ])
 
         NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: itemLabel.bottomAnchor, constant: 4),
-            priceLabel.leadingAnchor.constraint(equalTo: itemLabel.leadingAnchor),
-            priceLabel.trailingAnchor.constraint(equalTo: itemLabel.trailingAnchor),
-            //priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor)
+            priceLabel.topAnchor.constraint(equalTo: itemLabel.bottomAnchor),
+            priceLabel.leadingAnchor.constraint(equalTo: containingView.leadingAnchor),
+            priceLabel.trailingAnchor.constraint(equalTo: containingView.trailingAnchor),
+            priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor),
+            priceLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 35.0)
         ])
 
       //  self.setContentHuggingPriority(.required + 1, for: .vertical)
       //  containingView.setContentHuggingPriority(.required + 2, for: .vertical)
        // containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
+
+
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    //        return CGSize(width: self.frame.width, height: 80)
+    //    }
+
+        private let sectionInsets = UIEdgeInsets(top: 16,
+                                                 left: 8,
+                                                 bottom: 0,
+                                                 right: 8)
+
+    //    func collectionView(_ collectionView: UICollectionView,
+    //                        layout collectionViewLayout: UICollectionViewLayout,
+    //                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    //        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+    //        let availableWidth = self.frame.width - paddingSpace
+    //        let widthPerItem = availableWidth / itemsPerRow
+    //
+    //        let totalItems = CGFloat(viewModel.items.count)
+    //        let verticalPadding = sectionInsets.top * (totalItems  + 1)
+    //        // let verticalPadding = sectionInsets.top * (totalItems / (itemsPerRow + 1))
+    //        let availableHeight = self.frame.height - verticalPadding
+    //        let heightPerItem = availableHeight / itemsPerRow
+    //
+    //        return CGSize(width: widthPerItem, height: heightPerItem)
+    //    }
+
 
     private func configureActions() {
         favoriteButton.addTarget(self, action: #selector(toggleFavorite), for: .touchUpInside)
