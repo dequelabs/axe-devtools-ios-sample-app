@@ -81,7 +81,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         self.addSubview(containingView)
         containingView.addSubview(itemLabel)
         containingView.addSubview(priceLabel)
-        containingView.addSubview(addToBagButton)
+        self.addSubview(addToBagButton)
 
         configureElements()
         updateConstraints()
@@ -126,7 +126,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
             addToBagButton.centerYAnchor.constraint(equalTo: containingView.centerYAnchor),
             buttonHeight,
             buttonWidth,
-            addToBagButton.trailingAnchor.constraint(equalTo: containingView.trailingAnchor)
+            addToBagButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8)
         ])
 
         NSLayoutConstraint.activate([
@@ -146,12 +146,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
             priceLabel.topAnchor.constraint(equalTo: itemLabel.bottomAnchor, constant: 4),
             priceLabel.leadingAnchor.constraint(equalTo: itemLabel.leadingAnchor),
             priceLabel.trailingAnchor.constraint(equalTo: itemLabel.trailingAnchor),
-            priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor)
+            //priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor)
         ])
 
       //  self.setContentHuggingPriority(.required + 1, for: .vertical)
-        containingView.setContentHuggingPriority(.required + 2, for: .vertical)
-        containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+      //  containingView.setContentHuggingPriority(.required + 2, for: .vertical)
+       // containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
 
     private func configureActions() {
