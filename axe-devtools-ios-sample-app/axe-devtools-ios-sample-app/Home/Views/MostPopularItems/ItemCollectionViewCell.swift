@@ -21,15 +21,13 @@ class ItemCollectionViewCell: UICollectionViewCell {
         iv.isUserInteractionEnabled = false
         return iv
     }()
-    
-    lazy var textVerticalStackView: UIStackView = {
-        let sv = UIStackView()
-        sv.axis = .vertical
-        sv.spacing = 4
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        return sv
+
+    lazy var containingView: UIView = {
+        let cv = UIView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
     }()
-    
+
     lazy var itemLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +42,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 18)
         l.font = gilroyBold
+        l.numberOfLines = 0
         return l
     }()
 
@@ -79,12 +78,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
     private func buildCell() {
         self.addSubview(imageView)
         imageView.addSubview(favoriteButton)
-        
-        self.addSubview(textVerticalStackView)
-        textVerticalStackView.addArrangedSubview(itemLabel)
-        textVerticalStackView.addArrangedSubview(priceLabel)
-        
-        self.addSubview(addToBagButton)
+        self.addSubview(containingView)
+        containingView.addSubview(itemLabel)
+        containingView.addSubview(priceLabel)
+        containingView.addSubview(addToBagButton)
 
         configureElements()
         updateConstraints()
@@ -112,33 +109,54 @@ class ItemCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 180),
-            imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 152)
+            imageView.heightAnchor.constraint(equalToConstant: 180),
+            imageView.widthAnchor.constraint(equalToConstant: 152)
         ])
         
         NSLayoutConstraint.activate([
-            favoriteButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
-            favoriteButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            favoriteButton.widthAnchor.constraint(equalToConstant: 20),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 20),
             favoriteButton.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
-            favoriteButton.trailingAnchor.constraint(lessThanOrEqualTo: imageView.trailingAnchor, constant: -10)
+            favoriteButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -10)
         ])
 
         let buttonWidth = addToBagButton.widthAnchor.constraint(equalToConstant: 33)
         let buttonHeight = addToBagButton.heightAnchor.constraint(equalToConstant: 33)
 
         NSLayoutConstraint.activate([
-            addToBagButton.centerYAnchor.constraint(equalTo: textVerticalStackView.centerYAnchor),
+            addToBagButton.centerYAnchor.constraint(equalTo: containingView.centerYAnchor),
             buttonHeight,
             buttonWidth,
-            addToBagButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            addToBagButton.trailingAnchor.constraint(equalTo: containingView.trailingAnchor)
         ])
-        
+
         NSLayoutConstraint.activate([
-            textVerticalStackView.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 4),
-            textVerticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            textVerticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            textVerticalStackView.trailingAnchor.constraint(equalTo: self.centerXAnchor)
+            containingView.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor, constant: 16),
+            containingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            containingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            containingView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+
+        NSLayoutConstraint.activate([
+            itemLabel.topAnchor.constraint(equalTo: containingView.topAnchor),
+            itemLabel.leadingAnchor.constraint(equalTo: containingView.leadingAnchor),
+            itemLabel.trailingAnchor.constraint(equalTo: addToBagButton.leadingAnchor, constant: 4)
+        ])
+
+
+        NSLayoutConstraint.activate([
+            priceLabel.topAnchor.constraint(equalTo: itemLabel.bottomAnchor, constant: 4),
+            priceLabel.leadingAnchor.constraint(equalTo: itemLabel.leadingAnchor),
+            priceLabel.trailingAnchor.constraint(equalTo: itemLabel.trailingAnchor),
+            priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor)
+        ])
+
+    //    self.setContentHuggingPriority(.required, for: .vertical)
+      //  itemLabel.setContentHuggingPriority(.required, for: .vertical)
+        containingView.setContentHuggingPriority(.required, for: .vertical)
+        containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        self.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+       // priceLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
     private func configureActions() {

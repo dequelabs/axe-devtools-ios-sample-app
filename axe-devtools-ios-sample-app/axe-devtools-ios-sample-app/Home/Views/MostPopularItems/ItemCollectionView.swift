@@ -12,24 +12,15 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     var viewModel = MostPopularItemsViewModel()
     private let reuseIdentifier = "ItemCell"
     private let headerId = "Header"
-    private let itemsPerRow: CGFloat = 2
     let headerView = MostPopularItemsHeaderView()
-
-    let flowLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        return layout
-    }()
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
         self.dataSource = self
         self.delegate = self
-        self.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.automaticallyAdjustsScrollIndicatorInsets = false
-        self.register(MostPopularItemsHeaderView.self, forSupplementaryViewOfKind:
-                        UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         self.backgroundColor = UIColor(named: "LightGray")
-
+        registerElements()
         collectionViewLayout = createLayout()
     }
 
@@ -37,13 +28,10 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupLayout() {
-        if let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.scrollDirection = .vertical
-            flowLayout.collectionView?.isScrollEnabled = true
-            flowLayout.collectionView?.delegate = self
-            flowLayout.collectionView?.dataSource = self
-        }
+    func registerElements() {
+        self.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.register(MostPopularItemsHeaderView.self, forSupplementaryViewOfKind:
+                        UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,11 +39,11 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     }
 
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 12
+//        return 0
 //    }
 
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 32
+//        return 0
 //    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -71,52 +59,36 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! MostPopularItemsHeaderView
         return headerView
     }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: self.frame.width, height: 80)
-//    }
-
-    private let sectionInsets = UIEdgeInsets(top: 16,
-                                             left: 8,
-                                             bottom: 0,
-                                             right: 8)
-
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-//        let availableWidth = self.frame.width - paddingSpace
-//        let widthPerItem = availableWidth / itemsPerRow
-//
-//        let totalItems = CGFloat(viewModel.items.count)
-//        let verticalPadding = sectionInsets.top * (totalItems  + 1)
-//        // let verticalPadding = sectionInsets.top * (totalItems / (itemsPerRow + 1))
-//        let availableHeight = self.frame.height - verticalPadding
-//        let heightPerItem = availableHeight / itemsPerRow
-//
-//        return CGSize(width: widthPerItem, height: heightPerItem)
-//    }
 }
 
 extension ItemCollectionView {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int,
                                  layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                  heightDimension: .fractionalWidth(1))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 4, bottom: 8, trailing: 4)
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                  heightDimension: .fractionalHeight(1.0))
 
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3),
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0,
+                                                         leading: 0,
+                                                         bottom: 0,
+                                                         trailing: 0)
+
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .fractionalHeight(1.0))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
-                                                         subitem: item,
-                                                         count: 2)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                           subitem: item,
+                                                           count: 2)
+            let spacing = CGFloat(24)
+            group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: NSCollectionLayoutSpacing.fixed(spacing))
+            group.interItemSpacing = .fixed(spacing)
 
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 0
-            section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 32,
+                                                            leading: 0,
+                                                            bottom: 0,
+                                                            trailing: 0)
 
             let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .estimated(44))
@@ -129,7 +101,7 @@ extension ItemCollectionView {
         }
 
         let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 2
+        config.interSectionSpacing = 0
 
         let layout = UICollectionViewCompositionalLayout(
             sectionProvider: sectionProvider, configuration: config)

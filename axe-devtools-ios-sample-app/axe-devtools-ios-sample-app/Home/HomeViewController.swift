@@ -117,7 +117,7 @@ class HomeViewController: UIViewController {
             mostPopularItemsView.topAnchor.constraint(equalTo: homeScreenImageView.bottomAnchor, constant: 32),
             mostPopularItemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             mostPopularItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            mostPopularItemsView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.30),
+            mostPopularItemsView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.2),
         ])
 
         NSLayoutConstraint.activate([
