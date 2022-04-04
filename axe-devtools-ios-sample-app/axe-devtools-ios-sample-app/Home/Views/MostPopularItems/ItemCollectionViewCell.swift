@@ -134,7 +134,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
             containingView.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor, constant: 16),
             containingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             containingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            containingView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+           // containingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+        //    containingView.heightAnchor.constraint(greaterThanOrEqualTo: self.heightAnchor, multiplier: 0.10)
         ])
 
         NSLayoutConstraint.activate([
@@ -143,20 +144,16 @@ class ItemCollectionViewCell: UICollectionViewCell {
             itemLabel.trailingAnchor.constraint(equalTo: addToBagButton.leadingAnchor, constant: 4)
         ])
 
-
         NSLayoutConstraint.activate([
             priceLabel.topAnchor.constraint(equalTo: itemLabel.bottomAnchor, constant: 4),
             priceLabel.leadingAnchor.constraint(equalTo: itemLabel.leadingAnchor),
             priceLabel.trailingAnchor.constraint(equalTo: itemLabel.trailingAnchor),
-            priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor)
+            priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor, constant: 4)
         ])
 
-      //  self.setContentHuggingPriority(.defaultHigh + 1, for: .vertical)
-        containingView.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-            //  self.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        itemLabel.setContentHuggingPriority(.required + 1, for: .vertical)
-        priceLabel.setContentHuggingPriority(.required, for: .vertical)
+        self.setContentHuggingPriority(.defaultHigh + 1, for: .vertical)
+        containingView.setContentHuggingPriority(.required, for: .vertical)
+       // containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
 
     private func configureActions() {
