@@ -23,9 +23,11 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         self.delegate = self
         self.automaticallyAdjustsScrollIndicatorInsets = false
         self.backgroundColor = UIColor(named: "LightGray")
+      //  layout.invalidateLayout()
         registerElements()
         collectionViewLayout = createLayout()
 
+      //  setCollectionViewLayout(createLayout(), animated: true)
     }
 
     required init?(coder: NSCoder) {
@@ -41,14 +43,6 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.items.count
     }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
 
     //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
     //        return CGSize(width: self.frame.width, height: 80)

@@ -162,10 +162,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
     //        return CGSize(width: self.frame.width, height: 80)
     //    }
 
-        private let sectionInsets = UIEdgeInsets(top: 16,
-                                                 left: 8,
-                                                 bottom: 0,
-                                                 right: 8)
+//        private let sectionInsets = UIEdgeInsets(top: 16,
+//                                                 left: 8,
+//                                                 bottom: 0,
+//                                                 right: 8)
 
     //    func collectionView(_ collectionView: UICollectionView,
     //                        layout collectionViewLayout: UICollectionViewLayout,
