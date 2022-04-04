@@ -151,12 +151,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
             priceLabel.bottomAnchor.constraint(equalTo: containingView.bottomAnchor)
         ])
 
-    //    self.setContentHuggingPriority(.required, for: .vertical)
-      //  itemLabel.setContentHuggingPriority(.required, for: .vertical)
-        containingView.setContentHuggingPriority(.required, for: .vertical)
+      //  self.setContentHuggingPriority(.defaultHigh + 1, for: .vertical)
+        containingView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         containingView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        self.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-       // priceLabel.setContentHuggingPriority(.required, for: .vertical)
+            //  self.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        itemLabel.setContentHuggingPriority(.required + 1, for: .vertical)
+        priceLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 
     private func configureActions() {
