@@ -131,17 +131,17 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
 
         NSLayoutConstraint.activate([
-            containingView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            containingView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
             containingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             containingView.trailingAnchor.constraint(equalTo: addToBagButton.leadingAnchor),
             containingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
 
         NSLayoutConstraint.activate([
-            itemLabel.topAnchor.constraint(equalTo: containingView.topAnchor),
+            itemLabel.topAnchor.constraint(equalTo: containingView.topAnchor, constant: 4),
             itemLabel.leadingAnchor.constraint(equalTo: containingView.leadingAnchor),
             itemLabel.trailingAnchor.constraint(equalTo: addToBagButton.leadingAnchor),
-            itemLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 35.0)
+         //   itemLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 35.0)
         ])
 
         NSLayoutConstraint.activate([
