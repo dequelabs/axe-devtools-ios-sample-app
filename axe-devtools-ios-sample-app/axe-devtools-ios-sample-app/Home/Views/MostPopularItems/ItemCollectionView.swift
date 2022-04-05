@@ -23,11 +23,10 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         self.delegate = self
         self.automaticallyAdjustsScrollIndicatorInsets = false
         self.backgroundColor = UIColor(named: "LightGray")
-      //  layout.invalidateLayout()
+
+        layout.invalidateLayout()
         registerElements()
         collectionViewLayout = createLayout()
-
-      //  setCollectionViewLayout(createLayout(), animated: true)
     }
 
     required init?(coder: NSCoder) {
@@ -43,32 +42,6 @@ class ItemCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.items.count
     }
-
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-    //        return CGSize(width: self.frame.width, height: 80)
-    //    }
-
-//        private let sectionInsets = UIEdgeInsets(top: 16,
-//                                                 left: 8,
-//                                                 bottom: 0,
-//                                                 right: 8)
-
-    //    func collectionView(_ collectionView: UICollectionView,
-    //                        layout collectionViewLayout: UICollectionViewLayout,
-    //                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-    //        let availableWidth = self.frame.width - paddingSpace
-    //        let widthPerItem = availableWidth / itemsPerRow
-    //
-    //        let totalItems = CGFloat(viewModel.items.count)
-    //        let verticalPadding = sectionInsets.top * (totalItems  + 1)
-    //        // let verticalPadding = sectionInsets.top * (totalItems / (itemsPerRow + 1))
-    //        let availableHeight = self.frame.height - verticalPadding
-    //        let heightPerItem = availableHeight / itemsPerRow
-    //
-    //        return CGSize(width: widthPerItem, height: heightPerItem)
-    //    }
-
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCollectionViewCell
@@ -94,13 +67,8 @@ extension ItemCollectionView {
 
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-//            item.contentInsets = NSDirectionalEdgeInsets(top: 0,
-//                                                         leading: 0,
-//                                                         bottom: -12,
-//                                                         trailing: 0)
-
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .fractionalHeight(0.8))
+                                                   heightDimension: .fractionalHeight(0.85))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                            subitem: item,
                                                            count: 2)
@@ -117,10 +85,9 @@ extension ItemCollectionView {
 
             let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .estimated(44))
-            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: titleSize,
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .topLeading)
+            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: titleSize,
+                                                                                 elementKind: UICollectionView.elementKindSectionHeader,
+                                                                                 alignment: .topLeading)
             section.boundarySupplementaryItems = [titleSupplementary]
             return section
         }

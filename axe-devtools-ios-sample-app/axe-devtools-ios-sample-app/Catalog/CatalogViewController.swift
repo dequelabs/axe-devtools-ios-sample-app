@@ -26,7 +26,9 @@ class CatalogViewController: UIViewController {
     private func buildView() {
         self.navigationController?.isNavigationBarHidden = true
         self.view.addSubview(scrollView)
-
+        view.backgroundColor = UIColor(named: "LightGray")
+        scrollView.backgroundColor = .clear
+        contentView.backgroundColor = .clear
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -67,7 +69,7 @@ class CatalogViewController: UIViewController {
             catalogView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             catalogView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             catalogView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            catalogView.heightAnchor.constraint(equalTo: contentView.heightAnchor)
+            catalogView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.90)
         ])
     }
 }

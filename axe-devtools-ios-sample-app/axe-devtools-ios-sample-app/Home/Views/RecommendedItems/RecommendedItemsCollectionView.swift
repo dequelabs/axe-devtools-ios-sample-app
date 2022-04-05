@@ -75,7 +75,7 @@ extension RecommendedItemsCollectionView {
             // if we have the space, adapt and go 2-up + peeking 3rd item
             let groupFractionalHeight = CGFloat(layoutEnvironment.container.effectiveContentSize.height > 500 ?
                                                 0.425 : 0.85)
-            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(210),
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4),
                                                    heightDimension: .fractionalHeight(groupFractionalHeight))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
@@ -84,8 +84,7 @@ extension RecommendedItemsCollectionView {
             section.interGroupSpacing = 24
             section.contentInsets = NSDirectionalEdgeInsets(top: 40,
                                                             leading: 24,
-                                                            bottom: 0,
-                                                            trailing: 24)
+                                                            bottom: 0, trailing: 24)
 
             let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .estimated(44))

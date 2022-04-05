@@ -130,7 +130,6 @@ class HomeViewController: UIViewController {
             recommendedItemsView.topAnchor.constraint(greaterThanOrEqualTo: collectionsView.bottomAnchor, constant: 24),
             recommendedItemsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             recommendedItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            // not quite what we want, but getting closer..
             recommendedItemsView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor, multiplier: 0.20),
             recommendedItemsView.widthAnchor.constraint(equalTo: view.widthAnchor),
             recommendedItemsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
