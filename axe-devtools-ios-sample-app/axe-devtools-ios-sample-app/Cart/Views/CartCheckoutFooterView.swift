@@ -76,11 +76,6 @@ class CartCheckoutFooterView: UIView {
         super.updateConstraints()
 
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: 375),
-            self.heightAnchor.constraint(equalToConstant: 118)
-        ])
-        
-        NSLayoutConstraint.activate([
             itemsLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 18),
             itemsLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24)
         ])
@@ -92,8 +87,8 @@ class CartCheckoutFooterView: UIView {
 
         NSLayoutConstraint.activate([
             checkoutButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
-            checkoutButton.widthAnchor.constraint(equalToConstant: 327),
-            checkoutButton.heightAnchor.constraint(equalToConstant: 40),
+            checkoutButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 327),
+            checkoutButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 40),
             checkoutButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }

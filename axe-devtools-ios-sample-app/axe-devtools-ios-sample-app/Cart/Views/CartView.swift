@@ -99,7 +99,7 @@ class CartView: UIView {
             checkoutFooterView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             checkoutFooterView.widthAnchor.constraint(equalTo: self.widthAnchor),
             checkoutFooterView.heightAnchor.constraint(equalToConstant: 118),
-            checkoutFooterView.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor)
+            checkoutFooterView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
