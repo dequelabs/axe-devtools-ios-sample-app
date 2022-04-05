@@ -53,7 +53,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }()
     
     lazy var addToBagButton: UIButton = {
-        let b = UIButton()
+        var configuration = UIButton.Configuration.bordered()
+        configuration.baseBackgroundColor = .clear
+        let b = UIButton(configuration: configuration)
         b.layer.borderColor = UIColor(named: "BagButtonGrayBorder")?.cgColor
         b.translatesAutoresizingMaskIntoConstraints = false
         return b
