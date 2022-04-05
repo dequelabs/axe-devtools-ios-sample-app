@@ -18,7 +18,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.isUserInteractionEnabled = false
+        iv.isUserInteractionEnabled = true
         return iv
     }()
 
@@ -65,7 +65,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         buildCell()
         self.layer.cornerRadius = 20
-     //   self.contentView.isUserInteractionEnabled = false
+        self.contentView.isUserInteractionEnabled = false
     }
     
     required init?(coder: NSCoder) {
@@ -168,7 +168,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     @objc func toggleFavorite(sender: UIButton) {
         guard let viewModel = self.viewModel else { return }
-        print("GETTING CALLLLLEEEDDDDDD")
         viewModel.isFavorite = !viewModel.isFavorite
         updateFavoriteButton(isFavorite: viewModel.isFavorite)
     }
