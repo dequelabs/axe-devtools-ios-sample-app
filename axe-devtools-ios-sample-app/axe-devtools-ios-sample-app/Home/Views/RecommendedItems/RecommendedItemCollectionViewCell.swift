@@ -19,6 +19,13 @@ class RecommendedItemCollectionViewCell: ItemCollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+        itemLabel.text = nil
+        priceLabel.text = nil
+    }
+
     override func updateConstraints() {
         super.updateConstraints()
 
@@ -27,4 +34,6 @@ class RecommendedItemCollectionViewCell: ItemCollectionViewCell {
            // imageView.widthAnchor.constraint(greaterThanOrEqualToConstant: 210)
         ])
     }
+
+    
 }

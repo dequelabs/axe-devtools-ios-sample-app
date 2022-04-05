@@ -73,7 +73,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         imageView.layer.cornerRadius = 20
-        updateConstraints()
     }
     
     private func buildCell() {
@@ -85,8 +84,15 @@ class ItemCollectionViewCell: UICollectionViewCell {
         self.addSubview(containingView)
 
         configureElements()
-      //  updateConstraints()
+        updateConstraints()
         configureActions()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+        itemLabel.text = nil
+        priceLabel.text = nil
     }
     
     private func configureElements() {
