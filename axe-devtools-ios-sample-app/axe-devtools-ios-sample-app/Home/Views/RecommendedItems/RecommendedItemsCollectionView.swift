@@ -84,7 +84,8 @@ extension RecommendedItemsCollectionView {
             section.interGroupSpacing = 24
             section.contentInsets = NSDirectionalEdgeInsets(top: 40,
                                                             leading: 24,
-                                                            bottom: 0, trailing: 24)
+                                                            bottom: 0,
+                                                            trailing: 24)
 
             let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .estimated(44))
