@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3133A4828086B0A00389A4C /* Attest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3133A4728086B0A00389A4C /* Attest.xcframework */; };
+		F3133A4C280875E500389A4C /* AxeLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3133A4B280875E500389A4C /* AxeLoginInfo.swift */; };
+		F3133A4D2808765500389A4C /* AxeLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3133A4B280875E500389A4C /* AxeLoginInfo.swift */; };
 		F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */; };
 		F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */; };
 		F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */; };
@@ -49,6 +52,7 @@
 		F3A1A67B27E3A4E000E4F0E7 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67A27E3A4E000E4F0E7 /* CatalogViewController.swift */; };
 		F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67C27E3A52E00E4F0E7 /* CatalogViewModel.swift */; };
 		F3A1A67F27E3A57400E4F0E7 /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1A67E27E3A57400E4F0E7 /* CatalogModel.swift */; };
+		F3BB6FE32808A8C300C14E8C /* Attest.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F3133A4728086B0A00389A4C /* Attest.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F3C4F0AB27F4B5F5005F5DB6 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0A827F4B5E1005F5DB6 /* Gilroy-ExtraBold.otf */; };
 		F3C4F0AC27F4B5F9005F5DB6 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0A927F4B5E4005F5DB6 /* Gilroy-Light.otf */; };
 		F3C4F0AD27F4B5FE005F5DB6 /* Italiana-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3C4F0AA27F4B5EC005F5DB6 /* Italiana-Regular.ttf */; };
@@ -71,7 +75,6 @@
 		F3F31D9B27DFD32500D87988 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3F31D9927DFD32500D87988 /* LaunchScreen.storyboard */; };
 		F3F31DA627DFD32500D87988 /* axe_devtools_ios_sample_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DA527DFD32500D87988 /* axe_devtools_ios_sample_appTests.swift */; };
 		F3F31DB027DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DAF27DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift */; };
-		F3F31DB227DFD32500D87988 /* axe_devtools_ios_sample_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DB127DFD32500D87988 /* axe_devtools_ios_sample_appUITestsLaunchTests.swift */; };
 		F3F31DBF27DFD55300D87988 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DBE27DFD55300D87988 /* HomeViewController.swift */; };
 		F3F31DC127DFD56C00D87988 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */; };
 		F3F31DC527DFD88000D87988 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F31DC427DFD88000D87988 /* Images.xcassets */; };
@@ -102,7 +105,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F3133A4A28086B0A00389A4C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F3BB6FE32808A8C300C14E8C /* Attest.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F3133A4728086B0A00389A4C /* Attest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Attest.xcframework; path = ../../Downloads/Attest.xcframework; sourceTree = "<group>"; };
+		F3133A4B280875E500389A4C /* AxeLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxeLoginInfo.swift; sourceTree = "<group>"; };
 		F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
@@ -171,7 +190,6 @@
 		F3F31DA527DFD32500D87988 /* axe_devtools_ios_sample_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = axe_devtools_ios_sample_appTests.swift; sourceTree = "<group>"; };
 		F3F31DAB27DFD32500D87988 /* axe-devtools-ios-sample-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "axe-devtools-ios-sample-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F31DAF27DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = axe_devtools_ios_sample_appUITests.swift; sourceTree = "<group>"; };
-		F3F31DB127DFD32500D87988 /* axe_devtools_ios_sample_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = axe_devtools_ios_sample_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F3F31DBE27DFD55300D87988 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F3F31DC427DFD88000D87988 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -190,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3133A4828086B0A00389A4C /* Attest.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +229,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3133A4628086B0A00389A4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3133A4728086B0A00389A4C /* Attest.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F3799A7E27E90B4A009CFC2E /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,10 +448,12 @@
 		F3F31D8227DFD32500D87988 = {
 			isa = PBXGroup;
 			children = (
+				F3133A4B280875E500389A4C /* AxeLoginInfo.swift */,
 				F3F31D8D27DFD32500D87988 /* axe-devtools-ios-sample-app */,
 				F3F31DA427DFD32500D87988 /* axe-devtools-ios-sample-appTests */,
 				F3F31DAE27DFD32500D87988 /* axe-devtools-ios-sample-appUITests */,
 				F3F31D8C27DFD32500D87988 /* Products */,
+				F3133A4628086B0A00389A4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -469,7 +498,6 @@
 			isa = PBXGroup;
 			children = (
 				F3F31DAF27DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift */,
-				F3F31DB127DFD32500D87988 /* axe_devtools_ios_sample_appUITestsLaunchTests.swift */,
 			);
 			path = "axe-devtools-ios-sample-appUITests";
 			sourceTree = "<group>";
@@ -522,6 +550,7 @@
 				F3F31D8727DFD32500D87988 /* Sources */,
 				F3F31D8827DFD32500D87988 /* Frameworks */,
 				F3F31D8927DFD32500D87988 /* Resources */,
+				F3133A4A28086B0A00389A4C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -682,6 +711,7 @@
 				F3799AB827ED2090009CFC2E /* PromoView.swift in Sources */,
 				F3F31DD627DFDC3800D87988 /* ItemModel.swift in Sources */,
 				F3EFAC3D27E133C1004A87C9 /* CollectionsDataSource.swift in Sources */,
+				F3133A4C280875E500389A4C /* AxeLoginInfo.swift in Sources */,
 				F3799AB427ED2066009CFC2E /* ProfileViewModel.swift in Sources */,
 				F3F31DD827DFDE7600D87988 /* HeaderModel.swift in Sources */,
 				F3EFAC2F27E13185004A87C9 /* ItemDataSource.swift in Sources */,
@@ -729,7 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3F31DB027DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift in Sources */,
-				F3F31DB227DFD32500D87988 /* axe_devtools_ios_sample_appUITestsLaunchTests.swift in Sources */,
+				F3133A4D2808765500389A4C /* AxeLoginInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,6 +827,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -818,6 +849,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -858,6 +890,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -869,10 +902,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
@@ -884,6 +919,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZZQGXN669;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "axe-devtools-ios-sample-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -911,6 +947,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZZQGXN669;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "axe-devtools-ios-sample-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -922,6 +959,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dequesystems.axe-devtools-ios-sample-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -938,6 +976,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZZQGXN669;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -958,9 +997,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZZQGXN669;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dequesystems.axe-devtools-ios-sample-appTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -977,6 +1018,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZZQGXN669;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dequesystems.axe-devtools-ios-sample-appUITests";
@@ -995,8 +1037,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZZQGXN669;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dequesystems.axe-devtools-ios-sample-appUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;

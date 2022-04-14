@@ -1,0 +1,31 @@
+apiVersion: v1alpha
+kind: xcuitest
+sauce:
+  region: us-west-1
+  concurrency: 1
+  metadata:
+    name: "SauceLabs XCUITest"
+    tags:
+      - test tag
+    build: "Release"
+  options:
+    deviceOrientation: "portrait"
+
+xcuitest:
+  app: "axe-devtools-ios-sample-app.ipa"
+  testApp: "axe-devtools-ios-sample-appUITests-Runner.ipa"
+
+suites:
+  - name: "axe-devtools-ios-sample-appUITests"
+    devices:
+      - name: "iPhone.*"
+        options:
+          carrierConnectivity: false
+          deviceType: ANY
+          private: false
+artifacts:
+  download:
+    when: always
+    match:
+      - "Axe Results/*.json"
+    directory: ./artifacts
