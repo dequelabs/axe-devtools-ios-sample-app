@@ -13,16 +13,10 @@ class axe_devtools_ios_sample_appUITests: XCTestCase {
 
     var app = XCUIApplication()
     var client: AttestClient?
+    let credentials = LoginInfo()
 
     override func setUp() {
-        let credentials = LoginInfo()
-        guard let accessToken = AccessToken(username: credentials.dequeUsername,
-                                            password: credentials.dequePassword,
-                                            realm: "axe-qa",
-                                            clientId: "mobile",
-                                            authServerURL: credentials.authURL),
-              let client = AttestClient(accessToken: accessToken,
-                                        serverURL: credentials.serverURL) else {
+        guard let client = AttestClient(username: credentials.dequeUsername, password: credentials.dequePassword) else {
             XCTFail("Could not log in.")
             return
         }
@@ -30,10 +24,6 @@ class axe_devtools_ios_sample_appUITests: XCTestCase {
         Attest.setServer(usingAttestClient: client)
         self.client = client
         app.launch()
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testExample() throws {

@@ -10,6 +10,4 @@ import Foundation
 struct LoginInfo {
     let dequeUsername = ""
     let dequePassword = ""
-    let authURL = "https://auth-qa.dequelabs.com/auth/"
-    let serverURL = "https://mobile-qa2.dequelabs.com"
 }
