@@ -2,6 +2,8 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+.sauce/
+
 ## User settings
 xcuserdata/
 
@@ -47,7 +49,7 @@ playground.xcworkspace
 # .swiftpm
 
 .build/
-#*.xcframework
+*.xcframework
 
 */.DS_Store
 .DS_Store
