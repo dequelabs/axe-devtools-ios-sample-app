@@ -7,26 +7,19 @@ xcodebuild build-for-testing -configuration Debug \
        -scheme "axe-devtools-ios-sample-app" \
        -target "axe-devtools-ios-sample-appUITests" \
        -sdk iphoneos \
-       -derivedDataPath "./DerivedData"
+       -derivedDataPath "./DerivedData" \
+       -quiet
 
 mkdir Payload
-mkdir apps
 
 mv $APP_LOCATION/$APP_NAME.app Payload
-zip -r "apps/$APP_NAME.ipa" Payload
+zip -r -qq "$APP_NAME.ipa" Payload
 rm -rf Payload/*
 
 mv $APP_LOCATION/axe-devtools-ios-sample-appUITests-Runner.app Payload
-zip -r "apps/axe-devtools-ios-sample-appUITests-Runner.ipa" Payload
-
-
-#  curl -u "$SAUCE_USERNAME:$SAUCE_ACCESS_KEY.ipa" --location \
-#     --request POST 'https://api.us-west-1.saucelabs.com/v1/storage/upload' \
-#    --form 'payload=@""' \
-#     --form 'name=$APP_NAME'
+zip -r -qq "axe-devtools-ios-sample-appUITests-Runner.ipa" Payload
 
 saucectl run
 
-#rm -rf apps
 rm -rf Payload
 rm -rf DerivedData

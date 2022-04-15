@@ -5,8 +5,8 @@ sauce:
   concurrency: 1
 
 xcuitest:
-  app: "apps/axe-devtools-ios-sample-app.ipa"
-  testApp: "apps/axe-devtools-ios-sample-appUITests-Runner.ipa"
+  app: "axe-devtools-ios-sample-app.ipa"
+  testApp: "axe-devtools-ios-sample-appUITests-Runner.ipa"
 
 suites:
   - name: "axe-devtools-ios-sample-appUITests"
