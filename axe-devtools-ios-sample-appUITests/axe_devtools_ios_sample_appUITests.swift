@@ -5,6 +5,7 @@
 //  Created by Kate Owens on 3/14/22.
 //
 
+import axe_devtools_ios_sample_app
 import Attest
 import XCTest
 
@@ -14,9 +15,9 @@ class axe_devtools_ios_sample_appUITests: XCTestCase {
     var client: AttestClient?
 
     override func setUp() {
-        let credentials = AxeLoginInfo().credentials
-        guard let accessToken = AccessToken(username: credentials.username,
-                                            password: credentials.password,
+        let credentials = LoginInfo()
+        guard let accessToken = AccessToken(username: credentials.dequeUsername,
+                                            password: credentials.dequePassword,
                                             realm: "axe-qa",
                                             clientId: "mobile",
                                             authServerURL: credentials.authURL),

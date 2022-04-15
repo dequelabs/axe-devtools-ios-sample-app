@@ -7,13 +7,9 @@
 
 import Foundation
 
-struct Credentials {
-    let username = "Kate.owens@deque.com"
-    let password = "Kate.owens!"
+struct LoginInfo {
+    let dequeUsername = ""
+    let dequePassword = ""
     let authURL = "https://auth-qa.dequelabs.com/auth/"
     let serverURL = "https://mobile-qa2.dequelabs.com"
-}
-
-struct AxeLoginInfo {
-    let credentials = Credentials()
 }

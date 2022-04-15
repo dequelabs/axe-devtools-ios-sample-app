@@ -4,6 +4,7 @@
 //
 //  Created by Kate Owens on 3/14/22.
 //
+
 import Attest
 import UIKit
 
@@ -28,18 +29,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
+        let credentials = LoginInfo()
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        guard let token = AccessToken(username: "kate.owens@deque.com",
-                                      password: "Kate.owens!",
-                                      realm: "axe-qa",
-                                      clientId: "mobile",
-                                      authServerURL: "https://auth-qa.dequelabs.com/auth/") else { return }
-        guard let client = AttestClient(accessToken: token,
-                                        serverURL: "https://mobile-qa2.dequelabs.com") else { return }
-        Attest.setServer(usingAttestClient: client)
-        Attest.startTesting(with: AutomatedFABDelegate(),
-                            attestDelegate: AutomatedTestDelegate())
+        Attest.setServer(withUsername: credentials.dequeUsername, andPassword: credentials.dequePassword)
+        Attest.startTesting(with: AutomatedFABDelegate(), attestDelegate: AutomatedTestDelegate(), and: FABWindowStrategy.attach(_:))
+//        guard let token = AccessToken(username: "kate.owens@deque.com",
+//                                      password: "Kate.owens!",
+//                                      realm: "axe-qa",
+//                                      clientId: "mobile",
+//                                      authServerURL: "https://auth-qa.dequelabs.com/auth/") else { return }
+//        guard let client = AttestClient(accessToken: token,
+//                                        serverURL: "https://mobile-qa2.dequelabs.com") else { return }
+//        Attest.setServer(usingAttestClient: client)
+//        Attest.startTesting(with: AutomatedFABDelegate(),
+//                            attestDelegate: AutomatedTestDelegate())
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import axe_devtools_ios_sample_app
+import axe_devtools_ios_sample_app
 
 class axe_devtools_ios_sample_appTests: XCTestCase {
 
