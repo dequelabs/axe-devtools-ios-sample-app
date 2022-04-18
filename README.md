@@ -20,6 +20,8 @@ https://www.deque.com/android-accessibility/
 1. Add your Deque credentials to `LoginInfo.swift`.
 _This app is ready for automated testing; running it in Xcode will not show the floating action button until you change to manual mode in `SceneDelegate.swift`._
 
+1. In the main Xcode menu, select Preferences, then Accounts. Sign into your Apple Developer account here and be sure to setup provisioning to sign the app. Sauce Labs will resign it, but we found less errors when this was setup.
+
 ### Optional: Run Locally
 
 If you're going to run this locally (not on Sauce), follow the below tips:
@@ -56,7 +58,8 @@ Once you have a device or simulator ready to go, open `axe_devtools_ios_sample_a
 Install `saucectl` command line interface. Follow the [instructions from Sauce Labs](https://docs.saucelabs.com/dev/cli/saucectl/).
 
 Add your Sauce Labs credentials to your `.bash_profile` or `.zshenv`. Be sure to load the changes by running `source .filename`.
-In Terminal, navigate to your project's location. Then run `saucectl configure` to load your credentials into a `credentials.yml` file within the `.sauce` folder. Follow [instructions from Sauce Labs](https://docs.saucelabs.com/dev/cli/saucectl/#associate-your-credentials).
+
+Follow [instructions from Sauce Labs](https://docs.saucelabs.com/dev/cli/saucectl/#associate-your-credentials).
 
 ## Running with Sauce Labs
 
