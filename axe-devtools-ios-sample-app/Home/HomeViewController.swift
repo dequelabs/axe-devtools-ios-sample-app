@@ -45,6 +45,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Chic Boutique Sample App"
         self.navigationController?.isNavigationBarHidden = true
     }
 

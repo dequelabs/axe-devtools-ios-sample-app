@@ -26,7 +26,7 @@ class axe_devtools_ios_sample_appUITests: XCTestCase {
         app.launch()
     }
 
-    func testExample() throws {
+    func testAccessibility() throws {
         let FAB_ID = "com.deque.attest.accessibilityFab"
         let fab = app.buttons[FAB_ID]
 
@@ -45,5 +45,11 @@ class axe_devtools_ios_sample_appUITests: XCTestCase {
 
         // Tag the result with the tags provided
         client!.tagResult(key, tags: ["sauce testing"])
+
+        guard let resultData = client?.getResult(key), let result = try? JSONDecoder().decode(AxeResult.self, from: resultData) else {
+            XCTFail("result data couldn't be parsed.")
+            return
+        }
+        XCTAssertEqual(result.failures.count, 0)
     }
 }

@@ -3,6 +3,8 @@ kind: xcuitest
 sauce:
   region: us-west-1
   concurrency: 1
+  options:
+    deviceOrientation: "portrait"
 
 xcuitest:
   app: "axe-devtools-ios-sample-app.ipa"
