@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Chic Boutique Sample App"
+        title = "Home"
         self.navigationController?.isNavigationBarHidden = true
     }
 
@@ -102,7 +102,6 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             searchBarView.topAnchor.constraint(equalTo: contentView.topAnchor),
             searchBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        //    searchBarView.heightAnchor.constraint(equalToConstant: 156),
             searchBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
@@ -110,7 +109,6 @@ class HomeViewController: UIViewController {
             homeScreenImageView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 16),
             homeScreenImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             homeScreenImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        //    homeScreenImageView.widthAnchor.constraint(equalToConstant: 327),
             homeScreenImageView.heightAnchor.constraint(equalToConstant: 327)
         ])
 
