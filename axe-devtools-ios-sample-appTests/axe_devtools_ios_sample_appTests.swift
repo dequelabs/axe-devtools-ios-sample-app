@@ -5,7 +5,10 @@
 //  Created by Kate Owens on 3/14/22.
 //
 
+import axeDevToolsUIKit
 import XCTest
+
+@testable import axe_devtools_ios_sample_app
 
 class axe_devtools_ios_sample_appTests: XCTestCase {
 /*

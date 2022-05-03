@@ -4,11 +4,11 @@
 //
 //  Created by Kate Owens on 3/14/22.
 //
-
-import Attest
+import axeDevToolsUIKit
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var axe: AxeDevTools?
 
     var window: UIWindow?
 
@@ -24,16 +24,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidDisconnect(_ scene: UIScene) { }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        let credentials = LoginInfo()
-        // Login to Deque Framework
-        Attest.setServer(withUsername: credentials.dequeUsername, andPassword: credentials.dequePassword)
 
-        // Start testing - use AutomatedFABDelegate and AutomatedTestDelegate for UITesting.
-        Attest.startTesting(with: AutomatedFABDelegate(), attestDelegate: AutomatedTestDelegate(), and: FABWindowStrategy.attach(_:))
+        // Login to Deque Framework
+        axe = try? AxeDevTools.login(withUsername: "<DEQUE_USERNAME>", andPassword: "<DEQUE_PASSWORD>")
+
+        //Manual Testing
+        axe?.showA11yFAB()
+
+        //Automated Testing
+        //axe?.showA11yFAB(customFAB: AutomatedTestFAB())
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        Attest.stopTesting()
+        axe?.hideA11yFAB()
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) { }
