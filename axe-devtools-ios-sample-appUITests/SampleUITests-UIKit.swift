@@ -9,7 +9,7 @@ import axe_devtools_ios_sample_app
 import axeDevToolsUIKit
 import XCTest
 
-class axe_devtools_ios_sample_appUITests: XCTestCase {
+class SampleUITestsUIKitFramework: XCTestCase {
     var axe: AxeDevTools?
     var app = XCUIApplication()
 
@@ -37,18 +37,11 @@ class axe_devtools_ios_sample_appUITests: XCTestCase {
         }
 
         // Tag the result with the tags provided
-        do {
-            try axe?.tagResult(key, withTags: ["sauce testing"])
-        } catch {
-            XCTFail("Failed to tag result")
-        }
+        try axe?.tagResult(key, withTags: ["sauce testing"])
 
-        guard let result = try? axe?.getResult(key) else {
-            XCTFail("result data couldn't be parsed.")
-            return
-        }
+        let result = try axe?.getResult(key)
 
-        //UNCOMMENT THIS LINE FOR TESTS TO FAIL BECAUSE WE HAVE ACCESSIBILITY FAILURES
-        //XCTAssertEqual(result.failures.count, 0)
+        // Fail the build if accessibility issues are found.
+        XCTAssertEqual(result?.failures.count, 0)
     }
 }
