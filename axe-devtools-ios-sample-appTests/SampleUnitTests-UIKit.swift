@@ -24,7 +24,7 @@ class SampleUnitTests: XCTestCase {
             return
         }
 
-        let _ = try? axe?.saveResult(result)
+        let _ = try axe?.saveResult(result)
         XCTAssertEqual(result.failures.count, 0)
     }
 }
