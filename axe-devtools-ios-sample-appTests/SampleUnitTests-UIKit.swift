@@ -19,7 +19,7 @@ class SampleUnitTests: XCTestCase {
 
     func testHomeViewControllerAccessibility() {
         let view = HomeViewController()
-        guard let result = try? axe?.run(onViewController: view) else {
+        guard let result = try axe?.run(onViewController: view) else {
             XCTFail()
             return
         }
