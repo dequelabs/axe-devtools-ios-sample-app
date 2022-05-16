@@ -17,7 +17,7 @@ class SampleUnitTests: XCTestCase {
         axe = try AxeDevTools.login(withUsername: "<YOUR_USERNAME>", andPassword: "<YOUR_PASSWORD>")
     }
 
-    func testHomeViewControllerAccessibility() {
+    func testHomeViewControllerAccessibility() throws {
         let view = HomeViewController()
         guard let result = try axe?.run(onViewController: view) else {
             XCTFail()
