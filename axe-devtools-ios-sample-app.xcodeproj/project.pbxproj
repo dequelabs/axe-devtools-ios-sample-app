@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		6A0388172819980C0045D44C /* axe-devtools-ios in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A038816281997EB0045D44C /* axe-devtools-ios */; };
 		6A03881928199A0E0045D44C /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A03881828199A0E0045D44C /* axeDevToolsUIKit */; };
-		6A71203F280CABE300344AEB /* axe_devtools_ios_sample_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DA527DFD32500D87988 /* axe_devtools_ios_sample_appTests.swift */; };
+		6A71203F280CABE300344AEB /* SampleUnitTests-UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DA527DFD32500D87988 /* SampleUnitTests-UIKit.swift */; };
+		6AF13273282E846700A64994 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6AF13272282E846700A64994 /* axeDevToolsXCUI */; };
+		6AF13275282E848C00A64994 /* SampleUITests-XCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF13274282E848C00A64994 /* SampleUITests-XCUI.swift */; };
 		F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */; };
 		F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */; };
 		F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */; };
@@ -72,7 +74,7 @@
 		F3F31D9127DFD32500D87988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31D9027DFD32500D87988 /* SceneDelegate.swift */; };
 		F3F31D9827DFD32500D87988 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F31D9727DFD32500D87988 /* Icons.xcassets */; };
 		F3F31D9B27DFD32500D87988 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3F31D9927DFD32500D87988 /* LaunchScreen.storyboard */; };
-		F3F31DB027DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DAF27DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift */; };
+		F3F31DB027DFD32500D87988 /* SampleUITests-UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DAF27DFD32500D87988 /* SampleUITests-UIKit.swift */; };
 		F3F31DBF27DFD55300D87988 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DBE27DFD55300D87988 /* HomeViewController.swift */; };
 		F3F31DC127DFD56C00D87988 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */; };
 		F3F31DC527DFD88000D87988 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F31DC427DFD88000D87988 /* Images.xcassets */; };
@@ -128,6 +130,7 @@
 
 /* Begin PBXFileReference section */
 		6A038816281997EB0045D44C /* axe-devtools-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "axe-devtools-ios"; path = "../axe-devtools-ios"; sourceTree = "<group>"; };
+		6AF13274282E848C00A64994 /* SampleUITests-XCUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SampleUITests-XCUI.swift"; sourceTree = "<group>"; };
 		F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
@@ -193,9 +196,9 @@
 		F3F31D9A27DFD32500D87988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3F31D9C27DFD32500D87988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3F31DA127DFD32500D87988 /* axe-devtools-ios-sample-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "axe-devtools-ios-sample-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3F31DA527DFD32500D87988 /* axe_devtools_ios_sample_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = axe_devtools_ios_sample_appTests.swift; sourceTree = "<group>"; };
+		F3F31DA527DFD32500D87988 /* SampleUnitTests-UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleUnitTests-UIKit.swift"; sourceTree = "<group>"; };
 		F3F31DAB27DFD32500D87988 /* axe-devtools-ios-sample-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "axe-devtools-ios-sample-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3F31DAF27DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = axe_devtools_ios_sample_appUITests.swift; sourceTree = "<group>"; };
+		F3F31DAF27DFD32500D87988 /* SampleUITests-UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleUITests-UIKit.swift"; sourceTree = "<group>"; };
 		F3F31DBE27DFD55300D87988 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F3F31DC427DFD88000D87988 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AF13273282E846700A64994 /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +506,7 @@
 		F3F31DA427DFD32500D87988 /* axe-devtools-ios-sample-appTests */ = {
 			isa = PBXGroup;
 			children = (
-				F3F31DA527DFD32500D87988 /* axe_devtools_ios_sample_appTests.swift */,
+				F3F31DA527DFD32500D87988 /* SampleUnitTests-UIKit.swift */,
 			);
 			path = "axe-devtools-ios-sample-appTests";
 			sourceTree = "<group>";
@@ -510,7 +514,8 @@
 		F3F31DAE27DFD32500D87988 /* axe-devtools-ios-sample-appUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F3F31DAF27DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift */,
+				6AF13274282E848C00A64994 /* SampleUITests-XCUI.swift */,
+				F3F31DAF27DFD32500D87988 /* SampleUITests-UIKit.swift */,
 			);
 			path = "axe-devtools-ios-sample-appUITests";
 			sourceTree = "<group>";
@@ -610,6 +615,9 @@
 				F3F31DAD27DFD32500D87988 /* PBXTargetDependency */,
 			);
 			name = "axe-devtools-ios-sample-appUITests";
+			packageProductDependencies = (
+				6AF13272282E846700A64994 /* axeDevToolsXCUI */,
+			);
 			productName = "axe-devtools-ios-sample-appUITests";
 			productReference = F3F31DAB27DFD32500D87988 /* axe-devtools-ios-sample-appUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -766,7 +774,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A71203F280CABE300344AEB /* axe_devtools_ios_sample_appTests.swift in Sources */,
+				6A71203F280CABE300344AEB /* SampleUnitTests-UIKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,7 +782,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3F31DB027DFD32500D87988 /* axe_devtools_ios_sample_appUITests.swift in Sources */,
+				6AF13275282E848C00A64994 /* SampleUITests-XCUI.swift in Sources */,
+				F3F31DB027DFD32500D87988 /* SampleUITests-UIKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,6 +1121,10 @@
 		6A03881828199A0E0045D44C /* axeDevToolsUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = axeDevToolsUIKit;
+		};
+		6AF13272282E846700A64994 /* axeDevToolsXCUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = axeDevToolsXCUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
