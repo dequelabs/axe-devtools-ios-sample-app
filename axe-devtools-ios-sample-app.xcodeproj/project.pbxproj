@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A0388172819980C0045D44C /* axe-devtools-ios in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A038816281997EB0045D44C /* axe-devtools-ios */; };
 		6A3BEABE28465800007013B5 /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3BEABD28465800007013B5 /* axeDevToolsUIKit */; };
-		6A3BEAC028465800007013B5 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3BEABF28465800007013B5 /* axeDevToolsXCUI */; };
+		6A66B28628526E03007BA467 /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A66B28528526E03007BA467 /* axeDevToolsUIKit */; };
+		6A66B28828526E11007BA467 /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A66B28728526E11007BA467 /* axeDevToolsUIKit */; };
 		6A71203F280CABE300344AEB /* SampleUnitTests-UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DA527DFD32500D87988 /* SampleUnitTests-UIKit.swift */; };
 		6AF13273282E846700A64994 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6AF13272282E846700A64994 /* axeDevToolsXCUI */; };
 		6AF13275282E848C00A64994 /* SampleUITests-XCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF13274282E848C00A64994 /* SampleUITests-XCUI.swift */; };
@@ -113,7 +113,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6A0388172819980C0045D44C /* axe-devtools-ios in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,7 +129,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6A038816281997EB0045D44C /* axe-devtools-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "axe-devtools-ios"; path = "../axe-devtools-ios"; sourceTree = "<group>"; };
 		6AF13274282E848C00A64994 /* SampleUITests-XCUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SampleUITests-XCUI.swift"; sourceTree = "<group>"; };
 		F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A3BEAC028465800007013B5 /* axeDevToolsXCUI in Frameworks */,
 				6A3BEABE28465800007013B5 /* axeDevToolsUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A66B28628526E03007BA467 /* axeDevToolsUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A66B28828526E11007BA467 /* axeDevToolsUIKit in Frameworks */,
 				6AF13273282E846700A64994 /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,14 +240,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A038813281997650045D44C /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				6A038816281997EB0045D44C /* axe-devtools-ios */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		F3133A4628086B0A00389A4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,7 +458,6 @@
 		F3F31D8227DFD32500D87988 = {
 			isa = PBXGroup;
 			children = (
-				6A038813281997650045D44C /* Packages */,
 				F3F31D8D27DFD32500D87988 /* axe-devtools-ios-sample-app */,
 				F3F31DA427DFD32500D87988 /* axe-devtools-ios-sample-appTests */,
 				F3F31DAE27DFD32500D87988 /* axe-devtools-ios-sample-appUITests */,
@@ -579,7 +569,6 @@
 			name = "axe-devtools-ios-sample-app";
 			packageProductDependencies = (
 				6A3BEABD28465800007013B5 /* axeDevToolsUIKit */,
-				6A3BEABF28465800007013B5 /* axeDevToolsXCUI */,
 			);
 			productName = "axe-devtools-ios-sample-app";
 			productReference = F3F31D8B27DFD32500D87988 /* axe-devtools-ios-sample-app.app */;
@@ -599,6 +588,9 @@
 				F3F31DA327DFD32500D87988 /* PBXTargetDependency */,
 			);
 			name = "axe-devtools-ios-sample-appTests";
+			packageProductDependencies = (
+				6A66B28528526E03007BA467 /* axeDevToolsUIKit */,
+			);
 			productName = "axe-devtools-ios-sample-appTests";
 			productReference = F3F31DA127DFD32500D87988 /* axe-devtools-ios-sample-appTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -620,6 +612,7 @@
 			name = "axe-devtools-ios-sample-appUITests";
 			packageProductDependencies = (
 				6AF13272282E846700A64994 /* axeDevToolsXCUI */,
+				6A66B28728526E11007BA467 /* axeDevToolsUIKit */,
 			);
 			productName = "axe-devtools-ios-sample-appUITests";
 			productReference = F3F31DAB27DFD32500D87988 /* axe-devtools-ios-sample-appUITests.xctest */;
@@ -1140,10 +1133,15 @@
 			package = 6A3BEABC28465800007013B5 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
 			productName = axeDevToolsUIKit;
 		};
-		6A3BEABF28465800007013B5 /* axeDevToolsXCUI */ = {
+		6A66B28528526E03007BA467 /* axeDevToolsUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6A3BEABC28465800007013B5 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
-			productName = axeDevToolsXCUI;
+			productName = axeDevToolsUIKit;
+		};
+		6A66B28728526E11007BA467 /* axeDevToolsUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A3BEABC28465800007013B5 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
+			productName = axeDevToolsUIKit;
 		};
 		6AF13272282E846700A64994 /* axeDevToolsXCUI */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "axe-devtools-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dequelabs/axe-devtools-ios",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2fab8d3487f53733e04b546485b64a528da83c35"
+      }
+    }
+  ],
+  "version" : 2
+}
