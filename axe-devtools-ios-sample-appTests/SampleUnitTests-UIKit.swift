@@ -14,7 +14,7 @@ class SampleUnitTests: XCTestCase {
     var axe: AxeDevTools?
 
     override func setUpWithError() throws {
-        axe = try AxeDevTools.login(withUsername: "<YOUR_USERNAME>", andPassword: "<YOUR_PASSWORD>")
+        axe = try AxeDevTools.login(withAPIKey: "Your_API_Key")
     }
 
     func testHomeViewControllerAccessibility() throws {
