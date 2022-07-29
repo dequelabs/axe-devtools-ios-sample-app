@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
 
         // Login to Deque Framework
-        axe = try? AxeDevTools.login(withUsername: "<DEQUE_USERNAME>", andPassword: "<DEQUE_PASSWORD>")
+        axe = try? AxeDevTools.login(withAPIKey: "Your_API_Key")
 
         //Manual Testing
         axe?.showA11yFAB()
