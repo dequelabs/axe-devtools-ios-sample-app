@@ -14,15 +14,16 @@ class SampleUITestsXCUIFramework: XCTestCase {
     var app = XCUIApplication()
 
     override func setUp() {
-        axe = try? AxeDevTools.login(withAPIKey: "Your_API_Key")
+        axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
 
         app.launch()
     }
 
     func testAccessibility() throws {
-        let result = try axe?.run(onElement: app)
+        guard let result = try axe?.run(onElement: app) else { XCTFail(); return }
+        try axe?.postResult(result)
 
         // Fail the build if accessibility issues are found.
-        XCTAssertEqual(result?.failures.count, 0)
+        XCTAssertEqual(result.failures.count, 0)
     }
 }

@@ -14,7 +14,8 @@ class SampleUITestsUIKitFramework: XCTestCase {
     var app = XCUIApplication()
 
     override func setUp() {
-        axe = try? AxeDevTools.login(withAPIKey: "Your_API_Key")
+        //Don't forget to uncomment `axe?.showA11yFAB(customFAB: AutomatedTestFAB())` in SceneDelegate
+        axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
 
         app.launch()
     }
