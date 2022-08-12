@@ -14,7 +14,7 @@ class SampleUnitTests: XCTestCase {
     var axe: AxeDevTools?
 
     override func setUpWithError() throws {
-        axe = try AxeDevTools.login(withAPIKey: "Your_API_Key")
+        axe = try AxeDevTools.login(withAPIKey: Login.APIKey)
     }
 
     func testHomeViewControllerAccessibility() throws {
@@ -25,6 +25,7 @@ class SampleUnitTests: XCTestCase {
         }
 
         let _ = try axe?.saveResult(result)
+        //Fail the build if accessibility issues are found
         XCTAssertEqual(result.failures.count, 0)
     }
 }

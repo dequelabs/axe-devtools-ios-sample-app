@@ -14,14 +14,14 @@ This project uses Swift Package Manager to pull in the frameworks from [axe-devt
 
 ## For Manual Testing
 
-1. Add your Deque credentials to `SceneDelegate.swift`.
+1. Add your Deque API Key to `Login.swift`.
 _This app is ready for manual testing out of the box; running it in Xcode will show the floating action button._
 
 ## For Automated Testing
 
-1. In `SceneDelegate.swift`, comment out `axe?.showA11yFAB()` to remove manual mode, and uncomment the line for automated testing `axe?.showA11yFAB(customFAB: AutomatedTestFAB())`.
+1. Add your Deque API Key to `Login.swift`.
 
-1. Within `SampleUITests-UIKit.swift`, add your Deque credentials to the `setUp` method.
+1. In `SceneDelegate.swift`, comment out `axe?.showA11yFAB()` to remove manual mode, and uncomment the line for automated testing `axe?.showA11yFAB(customFAB: AutomatedTestFAB())`.
 
 1. Once you have a device or simulator ready to go, open `SampleUITests-UIKit.swift`, and tap on the diamond to run this suite. The simulator will launch, and the tests will run.
 
