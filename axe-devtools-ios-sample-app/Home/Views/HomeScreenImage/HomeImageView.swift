@@ -49,34 +49,18 @@ class HomeImageView: UIView {
         return label
     }()
 
-    // for some reason, this code still creates a button with the default font (keeping it like this for the purpose of SupportsDynamicType testing)
     lazy var checkButton: UIButton = {
+        let b = UIButton(type: .custom)
+        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 14)
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(named: viewModel.buttonImage)
         configuration.imagePlacement = .trailing
-        let b = UIButton(configuration: configuration)
-        b.setTitle(viewModel.buttonText, for: .normal)
-        b.titleLabel?.textColor = .white
+        configuration.attributedTitle = AttributedString(viewModel.buttonText, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "Gilroy-ExtraBold", size: 14)!]))
+        b.configuration = configuration
         b.tintColor = .white
-        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 14)
-        b.titleLabel?.font = gilroyBold
         b.translatesAutoresizingMaskIntoConstraints = false
         return b
     }()
-
-//    // uncomment this one to use custom font
-//    lazy var checkButton: UIButton = {
-//        let b = UIButton(type: .custom)
-//        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 14)
-//        var configuration = UIButton.Configuration.plain()
-//        configuration.image = UIImage(named: viewModel.buttonImage)
-//        configuration.imagePlacement = .trailing
-//        configuration.attributedTitle = AttributedString(viewModel.buttonText, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "Gilroy-ExtraBold", size: 14)!]))
-//        b.configuration = configuration
-//        b.tintColor = .white
-//        b.translatesAutoresizingMaskIntoConstraints = false
-//        return b
-//    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
