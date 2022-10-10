@@ -20,17 +20,16 @@ class RecommendedItemsHeaderView: UICollectionReusableView {
     }()
 
     lazy var itemsButton: UIButton = {
+        let b = UIButton(type: .custom)
+        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 14)
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(named: "ArrowGray")
         configuration.imagePlacement = .trailing
-        let l = UIButton(configuration: configuration)
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.titleLabel?.textColor = .lightGray
-        l.titleLabel?.tintColor = .lightGray
-        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 14)
-        l.titleLabel?.font = gilroyBold
-        l.setTitle("13 Items ", for: .normal)
-        return l
+        configuration.attributedTitle = AttributedString("13 Items ", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "Gilroy-ExtraBold", size: 14)!]))
+        b.configuration = configuration
+        b.tintColor = .lightGray
+        b.translatesAutoresizingMaskIntoConstraints = false
+        return b
     }()
 
     override init(frame: CGRect) {

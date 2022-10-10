@@ -32,15 +32,15 @@ class CartCheckoutFooterView: UIView {
     }()
 
     lazy var checkoutButton: UIButton = {
+        let b = UIButton(type: .custom)
+        let gilroyBold = UIFont(name: "Gilroy-ExtraBold", size: 14)
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(named: viewModel.imageName)
         configuration.imagePlacement = .trailing
-        let b = UIButton(configuration: configuration)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.titleLabel?.textColor = .white
-        b.titleLabel?.font = UIFont(name: "Gilroy-ExtraBold", size: 14)
-        b.setTitle("Proceed to checkout ", for: .normal)
+        configuration.attributedTitle = AttributedString("Proceed to checkout ", attributes: AttributeContainer([NSAttributedString.Key.font : UIFont(name: "Gilroy-ExtraBold", size: 14)!]))
+        b.configuration = configuration
         b.tintColor = .white
+        b.translatesAutoresizingMaskIntoConstraints = false
         return b
     }()
 
