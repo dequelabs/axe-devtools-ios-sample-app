@@ -367,14 +367,6 @@
 			path = RecommendedItems;
 			sourceTree = "<group>";
 		};
-		F3799ACF27F2088E009CFC2E /* HomeScreenImage */ = {
-			isa = PBXGroup;
-			children = (
-				F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */,
-			);
-			path = HomeScreenImage;
-			sourceTree = "<group>";
-		};
 		F3799AD027F208B3009CFC2E /* MostPopularItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +479,7 @@
 				F3F31D8E27DFD32500D87988 /* AppDelegate.swift */,
 				F3F31D9027DFD32500D87988 /* SceneDelegate.swift */,
 				6AEDD8512886FD4D0017DCF1 /* Login.swift */,
+				F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */,
 				F3A1A67027E37D0600E4F0E7 /* Shared */,
 				F3EFAC4027E1394D004A87C9 /* Home */,
 				F3A1A67927E3A4D100E4F0E7 /* Catalog */,
@@ -521,7 +514,6 @@
 			isa = PBXGroup;
 			children = (
 				F3EFAC2C27E10A58004A87C9 /* SearchBarView.swift */,
-				F3799ACF27F2088E009CFC2E /* HomeScreenImage */,
 				F3799AD027F208B3009CFC2E /* MostPopularItems */,
 				F3799ACD27F20866009CFC2E /* Collections  */,
 				F3799ACE27F20876009CFC2E /* RecommendedItems */,

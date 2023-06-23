@@ -32,7 +32,7 @@ class MainTabBarViewController: UITabBarController {
                                 image: UIImage(named: catalogVM.iconName)!,
                                 selectedImage: UIImage(named: catalogVM.selectedImage)!),
             createNavController(for: CartViewViewController(),
-                                title: "",
+                                title: "Cart",
                                 image: UIImage(named: cartVM.iconName)!,
                                 selectedImage: UIImage(named: cartVM.selectedImage)!),
             createNavController(for: ProfileViewController(),
