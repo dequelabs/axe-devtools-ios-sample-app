@@ -83,11 +83,11 @@ class HomeImageView: UIView {
     override func updateConstraints() {
         super.updateConstraints()
 
+        // Button is not automatically 44px high, so we'll add this constraint to fix the TouchTarget Failure
+        // checkButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
+
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
-           // imageView.heightAnchor.constraint(equalToConstant: 327),
-           // imageView.widthAnchor.constraint(equalToConstant: 327),
-
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
             imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
