@@ -16,7 +16,8 @@ jobs:
         env:
           apiKey: ${{ secrets.AGORA_API_KEY_KA }}
         run: |
-          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com/artifactory/devtools-npm/%40axe-devtools/reporter-cli/-/%40axe-devtools/reporter-cli-4.4.0.tgz" --output "reporter.tgz" tar -xvf "reporter.tgz"
+          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com/artifactory/devtools-npm/%40axe-devtools/reporter-cli/-/%40axe-devtools/reporter-cli-4.4.0.tgz" --output "reporter.tgz"
+          tar -xvf "reporter.tgz"
       - name: Test
         env:
           platform: ${{ 'iOS Simulator' }}
