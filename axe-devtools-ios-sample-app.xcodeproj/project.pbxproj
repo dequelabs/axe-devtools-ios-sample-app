@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		6A3B4C992A5D8EC20078BB09 /* RegressionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B4C982A5D8EC20078BB09 /* RegressionUITests.swift */; };
 		6A3B4CA12A5D8F6B0078BB09 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
-		6A3B4CA62A5EE0730078BB09 /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3B4CA52A5EE0730078BB09 /* axeDevToolsUIKit */; };
-		6A3B4CA82A5EE0730078BB09 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3B4CA72A5EE0730078BB09 /* axeDevToolsXCUI */; };
+		6A3BEABE28465800007013B5 /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3BEABD28465800007013B5 /* axeDevToolsUIKit */; };
+		6A66B28628526E03007BA467 /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A66B28528526E03007BA467 /* axeDevToolsUIKit */; };
+		6A66B28828526E11007BA467 /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A66B28728526E11007BA467 /* axeDevToolsUIKit */; };
+		6A71203F280CABE300344AEB /* SampleUnitTests-UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DA527DFD32500D87988 /* SampleUnitTests-UIKit.swift */; };
 		6AEDD8522886FD4D0017DCF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
 		6AEDD8542886FD500017DCF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
 		6AF13273282E846700A64994 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6AF13272282E846700A64994 /* axeDevToolsXCUI */; };
@@ -93,6 +95,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		6A3B4C9C2A5D8EC20078BB09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3F31D8327DFD32500D87988 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3F31D8A27DFD32500D87988;
+			remoteInfo = "axe-devtools-ios-sample-app";
+		};
+		F3F31DA227DFD32500D87988 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F3F31D8327DFD32500D87988 /* Project object */;
 			proxyType = 1;
@@ -219,7 +228,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A3B4CA82A5EE0730078BB09 /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,9 +570,6 @@
 				6A3B4C9D2A5D8EC20078BB09 /* PBXTargetDependency */,
 			);
 			name = RegressionUITests;
-			packageProductDependencies = (
-				6A3B4CA72A5EE0730078BB09 /* axeDevToolsXCUI */,
-			);
 			productName = RegressionUITests;
 			productReference = 6A3B4C962A5D8EC20078BB09 /* RegressionUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -787,6 +792,11 @@
 
 /* Begin PBXTargetDependency section */
 		6A3B4C9D2A5D8EC20078BB09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3F31D8A27DFD32500D87988 /* axe-devtools-ios-sample-app */;
+			targetProxy = 6A3B4C9C2A5D8EC20078BB09 /* PBXContainerItemProxy */;
+		};
+		F3F31DA327DFD32500D87988 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F3F31D8A27DFD32500D87988 /* axe-devtools-ios-sample-app */;
 			targetProxy = 6A3B4C9C2A5D8EC20078BB09 /* PBXContainerItemProxy */;
