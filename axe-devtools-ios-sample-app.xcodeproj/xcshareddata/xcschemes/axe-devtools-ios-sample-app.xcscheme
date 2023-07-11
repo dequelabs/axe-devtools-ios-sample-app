@@ -53,6 +53,17 @@
                ReferencedContainer = "container:axe-devtools-ios-sample-app.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6A3B4C952A5D8EC20078BB09"
+               BuildableName = "RegressionUITests.xctest"
+               BlueprintName = "RegressionUITests"
+               ReferencedContainer = "container:axe-devtools-ios-sample-app.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
