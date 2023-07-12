@@ -19,10 +19,8 @@ jobs:
           curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com/artifactory/devtools-npm/%40axe-devtools/reporter-cli/-/%40axe-devtools/reporter-cli-4.4.0.tgz" --output "reporter.tgz"
           tar -xvf "reporter.tgz"
       - name: Test
-        env:
-          platform: ${{ 'iOS Simulator' }}
         run: |
-          xcodebuild test -scheme "RegressionUITests" -destination "platform=$platform,OS=16.4,name=iPhone 14" -configuration Debug
+          xcodebuild test -scheme "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -configuration Debug
       - name: Build Report
         env:
           scanFolderPath: ${{ 'RegressionScans' }}
