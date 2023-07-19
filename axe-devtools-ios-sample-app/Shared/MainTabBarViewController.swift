@@ -24,11 +24,11 @@ class MainTabBarViewController: UITabBarController {
     func setupViewControllers() {
         viewControllers = [
             createNavController(for: HomeViewController(),
-                                title: "",
+                                title: "Home",
                                 image: UIImage(named: homeVM.imageName)!,
                                 selectedImage: UIImage(named: homeVM.selectedImage)!),
             createNavController(for: CatalogViewController(),
-                                title: "",
+                                title: "Catalog",
                                 image: UIImage(named: catalogVM.iconName)!,
                                 selectedImage: UIImage(named: catalogVM.selectedImage)!),
             createNavController(for: CartViewViewController(),
@@ -36,7 +36,7 @@ class MainTabBarViewController: UITabBarController {
                                 image: UIImage(named: cartVM.iconName)!,
                                 selectedImage: UIImage(named: cartVM.selectedImage)!),
             createNavController(for: ProfileViewController(),
-                                title: "",
+                                title: "Profile",
                                 image: UIImage(named: profileVM.iconName)!,
                                 selectedImage: UIImage(named: profileVM.iconName)!)
         ]

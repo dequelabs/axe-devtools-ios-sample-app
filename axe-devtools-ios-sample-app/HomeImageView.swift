@@ -16,6 +16,7 @@ class HomeImageView: UIView {
         sv.axis = .vertical
         sv.spacing = 4
         sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.accessibilityIdentifier = "home_heroStackView"
         return sv
     }()
 
@@ -24,6 +25,7 @@ class HomeImageView: UIView {
         let image = UIImage(named: viewModel.imageName)
         iv.image = image
         iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.accessibilityIdentifier = "home_heroImage"
         return iv
     }()
 
