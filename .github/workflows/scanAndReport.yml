@@ -31,6 +31,4 @@ jobs:
         with:
           name: axeDevTools Report
           path: AxeReport # or path/to/artifact
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v2.1.1
 
