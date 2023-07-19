@@ -23,6 +23,7 @@ jobs:
           dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
         run: |
           pwd
+          ls
           echo "import Foundation\n\n\
                 struct Login {\n\
                 \tstatic let APIKey = \"${dequeApiKey}\"\n\
