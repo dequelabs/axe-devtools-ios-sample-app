@@ -23,10 +23,7 @@ jobs:
           dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
         run: |
           cd "$(pwd)/axe-devtools-ios-sample-app"
-          echo "import Foundation\n\n\
-                struct Login {\n\
-                \tstatic let APIKey = \"${dequeApiKey}\"\n\
-                }" > "Login.swift"
+          echo "import Foundation\n\nstruct Login {\n\tstatic let APIKey = \"${dequeApiKey}\"\n}" > "Login.swift"
       - name: Test
         run: |
           xcodebuild test -quiet -scheme "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -configuration Debug
