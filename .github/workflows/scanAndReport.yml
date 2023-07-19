@@ -26,3 +26,11 @@ jobs:
           scanFolderPath: ${{ '/Users/runner/RegressionScans' }}
         run: |
           package/pkgs/@axe-devtools/reporter-cli-macos ${scanFolderPath} "AxeReport" --format=html
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: axeDevTools Report
+          path: AxeReport # or path/to/artifact
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.1.1
+
