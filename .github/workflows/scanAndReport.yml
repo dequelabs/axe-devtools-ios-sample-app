@@ -20,9 +20,9 @@ jobs:
           tar -xvf "reporter.tgz"
       - name: Test
         run: |
-          xcodebuild test -scheme "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -configuration Debug
+          xcodebuild test -quiet -scheme "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -configuration Debug
       - name: Build Report
         env:
-          scanFolderPath: ${{ 'RegressionScans' }}
+          scanFolderPath: ${{ '/Users/runner/RegressionScans' }}
         run: |
           package/pkgs/@axe-devtools/reporter-cli-macos ${scanFolderPath} "AxeReport" --format=html
