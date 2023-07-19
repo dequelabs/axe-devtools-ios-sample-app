@@ -11,6 +11,8 @@ class RegressionUITests: XCTestCase {
     var axe: AxeDevTools?
     var app = XCUIApplication()
 
+    var lastResult: AxeResult?
+
     override func setUp() {
         axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
 
@@ -28,6 +30,9 @@ class RegressionUITests: XCTestCase {
         tabBar.children(matching: .button).element(boundBy: 1).tap()
         try scanForAccessibility()
 
+        // FOR DEMO: Fail the test if critical accessibility errors are found on the first page.
+        assertNoCriticalResults()
+
         //navigate to a tab by its title
         tabBar.buttons["Cart"].tap()
         try scanForAccessibility()
@@ -39,6 +44,13 @@ class RegressionUITests: XCTestCase {
     // A helper method for keeping things cleaner when pushing to the dashboard, or saving a result locally.
     func scanForAccessibility() throws {
         guard let result = try axe?.run(onElement: app) else { XCTFail(); return }
+        lastResult = result
+        try axe?.postResult(result)
         try axe?.saveResult(result, toPath: "RegressionScans")
+    }
+
+    func assertNoCriticalResults() {
+        let critical = lastResult?.failures.filter { $0.impact == .CRITICAL }.count
+        XCTAssertTrue( critical == 0, "Critical Accessibility Results were found." )
     }
 }
