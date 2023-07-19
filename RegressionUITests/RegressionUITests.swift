@@ -15,7 +15,7 @@ class RegressionUITests: XCTestCase {
         axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
 
         app.launch()
-        sleep(1)
+        sleep(2) // allow app to fully load, Github actions needed a moment.
     }
 
     // Iterates through each tab of the sample application and runs an accessibility scan on the screen, then posts it to the dashboard. Contains a few different options for implementing -- feel free to play around with it!
