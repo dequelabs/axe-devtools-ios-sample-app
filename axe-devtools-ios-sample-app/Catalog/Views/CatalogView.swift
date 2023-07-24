@@ -19,12 +19,11 @@ class CatalogView: UIView {
         return l
     }()
 
-    lazy var searchImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "Search")
-        iv.image = image
-        return iv
+    lazy var searchButton: UIButton = {
+        let searchButton = UIButton()
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+        searchButton.setImage(UIImage(named: "Search"), for: .normal)
+        return searchButton
     }()
 
     lazy var allCategories: AllCategoriesCollectionView = {
@@ -58,7 +57,7 @@ class CatalogView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
 
         self.addSubview(titleLabel)
-        self.addSubview(searchImageView)
+        self.addSubview(searchButton)
         self.addSubview(allCategories)
         self.addSubview(newCollectionImageView)
         self.addSubview(allItemTypesView)
@@ -76,15 +75,14 @@ class CatalogView: UIView {
         ])
 
         NSLayoutConstraint.activate([
-            searchImageView.heightAnchor.constraint(equalToConstant: 18),
-            searchImageView.widthAnchor.constraint(equalToConstant: 18),
-            searchImageView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            searchImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -28)
+            searchButton.heightAnchor.constraint(equalToConstant: 18),
+            searchButton.widthAnchor.constraint(equalToConstant: 18),
+            searchButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -28)
         ])
 
         NSLayoutConstraint.activate([
             allCategories.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
-            allCategories.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             allCategories.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 24),
             allCategories.heightAnchor.constraint(equalToConstant: 32),
             allCategories.widthAnchor.constraint(equalTo: self.widthAnchor)
@@ -94,8 +92,7 @@ class CatalogView: UIView {
             newCollectionImageView.topAnchor.constraint(equalTo: allCategories.bottomAnchor, constant: 40),
             newCollectionImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             newCollectionImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            newCollectionImageView.heightAnchor.constraint(equalToConstant: 327),
-            newCollectionImageView.widthAnchor.constraint(equalToConstant: 327)
+            newCollectionImageView.heightAnchor.constraint(greaterThanOrEqualToConstant: 327)
         ])
 
         NSLayoutConstraint.activate([
