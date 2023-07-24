@@ -46,7 +46,6 @@ class RegressionUITests: XCTestCase {
         guard let result = try axe?.run(onElement: app) else { XCTFail(); return }
         lastResult = result
         // Post the report to the dashboard
-        // try axe?.postResult(result, withScanName: withScanName)
         _ = try axe?.saveResult(result, toPath: "RegressionScans", withFileName: name, withScanName: name)
     }
 
