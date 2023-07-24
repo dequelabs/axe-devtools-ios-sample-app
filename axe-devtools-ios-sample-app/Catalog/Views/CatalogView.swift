@@ -23,6 +23,7 @@ class CatalogView: UIView {
         let searchButton = UIButton()
         searchButton.translatesAutoresizingMaskIntoConstraints = false
         searchButton.setImage(UIImage(named: "Search"), for: .normal)
+        searchButton.accessibilityTraits = [.button, .image, .link]
         return searchButton
     }()
 
