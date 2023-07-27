@@ -45,6 +45,7 @@ class RegressionUITests: XCTestCase {
     func scanForAccessibility() throws {
         guard let result = try axe?.run(onElement: app) else { XCTFail(); return }
         lastResult = result
+        //try axe?.postResult(result)
         try axe?.saveResult(result, toPath: "RegressionScans")
     }
 

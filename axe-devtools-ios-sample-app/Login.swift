@@ -7,5 +7,5 @@
 
 import Foundation
 struct Login {
-    static let APIKey=""
+    static let APIKey="42ff3fab-adc0-43ca-821b-8e8a858d49e0"
 }
