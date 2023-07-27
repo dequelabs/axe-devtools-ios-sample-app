@@ -29,14 +29,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
 
         //Manual Testing
-        axe?.showA11yFAB()
+       // axe?.showA11yFAB()
 
         //Automated Testing
         //axe?.showA11yFAB(customFAB: AutomatedTestFAB())
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        axe?.hideA11yFAB()
+        //axe?.hideA11yFAB()
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) { }
