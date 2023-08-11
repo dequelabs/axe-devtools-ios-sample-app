@@ -23,29 +23,31 @@ class RegressionUITests: XCTestCase {
     // Iterates through each tab of the sample application and runs an accessibility scan on the screen, then posts it to the dashboard. Contains a few different options for implementing -- feel free to play around with it!
     func testHappyPathAccessibility() throws {
         // Run a scan on the first page and post the result to the dashboard.
-        try scanForAccessibility()
+        try scanForAccessibility(withScanName: "Home")
 
         //navigate to a tab by it's index, and run a scan, post to the dashboard
         let tabBar = XCUIApplication().tabBars["Tab Bar"]
         tabBar.children(matching: .button).element(boundBy: 1).tap()
-        try scanForAccessibility()
+        try scanForAccessibility(withScanName: "Catalog")
 
         // FOR DEMO: Fail the test if critical accessibility errors are found on the first page.
         assertNoCriticalResults()
 
         //navigate to a tab by its title
         tabBar.buttons["Cart"].tap()
-        try scanForAccessibility()
+        try scanForAccessibility(withScanName: "Cart")
 
         tabBar.children(matching: .button).element(boundBy: 3).tap()
-        try scanForAccessibility()
+        try scanForAccessibility(withScanName: "Profile")
     }
 
     // A helper method for keeping things cleaner when pushing to the dashboard, or saving a result locally.
-    func scanForAccessibility() throws {
+    func scanForAccessibility(withScanName name: String = "unnamed scan") throws {
         guard let result = try axe?.run(onElement: app) else { XCTFail(); return }
         lastResult = result
-        try axe?.saveResult(result, toPath: "RegressionScans")
+        // Post the report to the dashboard
+        // try axe?.postResult(result, withScanName: withScanName)
+        _ = try axe?.saveResult(result, toPath: "RegressionScans", withFileName: name, withScanName: name)
     }
 
     func assertNoCriticalResults() {
