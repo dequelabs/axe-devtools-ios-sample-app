@@ -16,26 +16,28 @@ jobs:
         env:
           apiKey: ${{ secrets.AGORA_API_KEY_KA }}
         run: |
-          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com:443/artifactory/axe-devtools-reporter-cli/prod/4.7.0/reporter-cli-macos" --output "reporter-cli-macos"
-          chmod +x reporter-cli-macos
-      - name: Add Deque API Key
-        env:
-          dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
-        run: |
-          cd "$(pwd)/axe-devtools-ios-sample-app"
-          echo "import Foundation
-          struct Login {
-            static let APIKey = \"${dequeApiKey}\"
-          }" > "Login.swift"
-      - name: Test
-        run: |
-          xcodebuild test -quiet -scheme "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -configuration Debug
+          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com:443/artifactory/axe-devtools-reporter-cli/prod/4.7.0/reporter-cli-macos" --output "reporter"
+          chmod +x reporter
+          ls
+          ./reporter-cli-macos --help
+      #- name: Add Deque API Key
+      #  env:
+      #    dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
+      #  run: |
+      #    cd "$(pwd)/axe-devtools-ios-sample-app"
+      #    echo "import Foundation
+      #    struct Login {
+      #      static let APIKey = \"${dequeApiKey}\"
+      #    }" > "Login.swift"
+      #- name: Test
+      #  run: |
+      #    xcodebuild test -quiet -scheme "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -configuration Debug
       - name: Build Report
         if: always()
         env:
           scanFolderPath: ${{ '/Users/runner/RegressionScans' }}
         run: |
-          package/pkgs/@axe-devtools/reporter-cli-macos ${scanFolderPath} "AxeReport" --format=html
+          reporter ${scanFolderPath} "AxeReport" --format=html
       - name: Upload a Build Artifact
         if: always()
         uses: actions/upload-artifact@v3.1.2
