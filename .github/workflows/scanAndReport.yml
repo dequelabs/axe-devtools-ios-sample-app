@@ -16,10 +16,8 @@ jobs:
         env:
           apiKey: ${{ secrets.AGORA_API_KEY_KA }}
         run: |
-          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com:443/artifactory/axe-devtools-reporter-cli/prod/4.7.0/reporter-cli-macos" --output "reporter"
-          chmod +x reporter
-          ls
-          ./reporter-cli-macos --help
+          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com:443/artifactory/axe-devtools-reporter-cli/prod/4.7.0/reporter-cli-macos" --output "/Users/runner/reporter"
+          chmod +x /Users/runner/reporter
       #- name: Add Deque API Key
       #  env:
       #    dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
@@ -37,7 +35,7 @@ jobs:
         env:
           scanFolderPath: ${{ '/Users/runner/RegressionScans' }}
         run: |
-          reporter ${scanFolderPath} "AxeReport" --format=html
+          /Users/runner/reporter ${scanFolderPath} "AxeReport" --format=html
       - name: Upload a Build Artifact
         if: always()
         uses: actions/upload-artifact@v3.1.2
