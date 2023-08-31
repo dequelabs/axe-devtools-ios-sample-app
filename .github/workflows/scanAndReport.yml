@@ -19,18 +19,18 @@ jobs:
           curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com:443/artifactory/axe-devtools-reporter-cli/prod/4.7.0/reporter-cli-macos" --output "/Users/runner/reporter"
           chmod +x /Users/runner/reporter
           mkdir /Users/runner/RegressionScans
-      #- name: Add Deque API Key
-      #  env:
-      #    dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
-      #  run: |
-      #    cd "$(pwd)/axe-devtools-ios-sample-app"
-      #    echo "import Foundation
-      #    struct Login {
-      #      static let APIKey = \"${dequeApiKey}\"
-      #    }" > "Login.swift"
-      #- name: Test
-      #  run: |
-      #    xcodebuild test -quiet -scheme "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -configuration Debug
+      - name: Add Deque API Key
+        env:
+          dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
+        run: |
+          cd "$(pwd)/axe-devtools-ios-sample-app"
+          echo "import Foundation
+          struct Login {
+            static let APIKey = \"${dequeApiKey}\"
+          }" > "Login.swift"
+      - name: Test
+        run: |
+          xcodebuild test -quiet -scheme "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -configuration Debug
       - name: Build Report
         if: always()
         env:
