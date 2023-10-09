@@ -28,16 +28,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Login to Deque Framework
         axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
 
-        //Manual Testing
-        axe?.showA11yFAB()
-
         //Automated Testing
-        //axe?.showA11yFAB(customFAB: AutomatedTestFAB())
+        axe?.showA11yFAB(customFAB: AutomatedTestFAB())
     }
 
-    func sceneWillResignActive(_ scene: UIScene) {
-        axe?.hideA11yFAB()
-    }
+    func sceneWillResignActive(_ scene: UIScene) { }
 
     func sceneWillEnterForeground(_ scene: UIScene) { }
 
