@@ -30,7 +30,9 @@ class SampleUITestsXCUIFramework: XCTestCase {
         //navigate to a tab by it's index, and run a scan, post to the dashboard
         let tabBar = XCUIApplication().tabBars["Tab Bar"]
         tabBar.children(matching: .button).element(boundBy: 1).tap()
-        try scanForAccessibility()
+
+        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+        try axe?.postResult(result, withTags: ["Catalog"])
 
         //navigate to a tab by its title
         tabBar.buttons["Cart"].tap()
@@ -40,9 +42,35 @@ class SampleUITestsXCUIFramework: XCTestCase {
         try scanForAccessibility()
     }
 
+    // one push to dashboard
+    // one save locally
+    // one that adds a scan name and tags to dashboard
+    
+    func testAccessibilityAndPostResults() throws {
+        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+        try axe?.postResult(result) // Post scan results to the Mobile Dashboard to be shared with the team
+    }
+
+    func testAccessibilityAndSaveResults() throws {
+        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+        try axe?.saveResult(result) // Save the results of the accessibility scan
+    }
+
+    // one that files if critical issue found
+    func testAccessibilityNoCriticalFailures() throws {
+        // maybe navigate to a different page here or something for the scan idk    
+        var lastResult: AxeResult?
+
+        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+
+        lastResult = result
+        let critical = lastResult?.failures.filter { $0.impact == .CRITICAL }.count
+        XCTAssertTrue( critical == 0, "Critical Accessibility Results were found." )
+    }
+
     // A helper method for keeping things cleaner when pushing to the dashboard, or saving a result locally.
     func scanForAccessibility() throws {
-        guard let result = try axe?.run(onElement: app) else { XCTFail(); return }
+        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
         try axe?.postResult(result)
 
         /*
@@ -69,4 +97,6 @@ class SampleUITestsXCUIFramework: XCTestCase {
 
         // try axe?.postResult(result, withTags: ["MyTag"], withScanName: "MyScansName")
     }
+
+    
 }
