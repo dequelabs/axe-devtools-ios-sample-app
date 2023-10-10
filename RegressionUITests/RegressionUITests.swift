@@ -43,7 +43,7 @@ class RegressionUITests: XCTestCase {
 
     // A helper method for keeping things cleaner when pushing to the dashboard, or saving a result locally.
     func scanForAccessibility(withScanName name: String = "unnamed scan") throws {
-        guard let result = try axe?.run(onElement: app) else { XCTFail(); return }
+        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
         lastResult = result
         // Post the report to the dashboard
         // try axe?.postResult(result, withScanName: withScanName)
