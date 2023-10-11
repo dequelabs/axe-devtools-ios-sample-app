@@ -1092,7 +1092,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dequelabs/axe-devtools-ios";
 			requirement = {
-				branch = "update-for-newest-release";
+				branch = main;
 				kind = branch;
 			};
 		};
