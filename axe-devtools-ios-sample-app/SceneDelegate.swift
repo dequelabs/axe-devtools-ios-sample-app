@@ -4,12 +4,9 @@
 //
 //  Created by Kate Owens on 3/14/22.
 //
-import axeDevToolsUIKit
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var axe: AxeDevTools?
-
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -23,21 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidDisconnect(_ scene: UIScene) { }
 
-    func sceneDidBecomeActive(_ scene: UIScene) {
+    func sceneDidBecomeActive(_ scene: UIScene) { }
 
-        // Login to Deque Framework
-        axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
-
-        //Manual Testing
-        axe?.showA11yFAB()
-
-        //Automated Testing
-        //axe?.showA11yFAB(customFAB: AutomatedTestFAB())
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        axe?.hideA11yFAB()
-    }
+    func sceneWillResignActive(_ scene: UIScene) { }
 
     func sceneWillEnterForeground(_ scene: UIScene) { }
 
