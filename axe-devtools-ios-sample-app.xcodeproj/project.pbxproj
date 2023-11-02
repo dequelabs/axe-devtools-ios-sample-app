@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		6A3B4C992A5D8EC20078BB09 /* RegressionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B4C982A5D8EC20078BB09 /* RegressionUITests.swift */; };
 		6A3B4CA12A5D8F6B0078BB09 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
-		6A3B4CA62A5EE0730078BB09 /* axeDevToolsUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3B4CA52A5EE0730078BB09 /* axeDevToolsUIKit */; };
-		6A3B4CA82A5EE0730078BB09 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6A3B4CA72A5EE0730078BB09 /* axeDevToolsXCUI */; };
 		6AEDD8522886FD4D0017DCF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
 		6AEDD8542886FD500017DCF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
-		6AF13273282E846700A64994 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6AF13272282E846700A64994 /* axeDevToolsXCUI */; };
 		6AF13275282E848C00A64994 /* SampleUITests-XCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF13274282E848C00A64994 /* SampleUITests-XCUI.swift */; };
+		BABE4B172AD6E67800E76438 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = BABE4B162AD6E67800E76438 /* axeDevToolsXCUI */; };
+		F36C8FCB2AD48C5700FD6772 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = F36C8FCA2AD48C5700FD6772 /* axeDevToolsXCUI */; };
 		F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */; };
 		F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */; };
 		F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */; };
@@ -77,7 +76,6 @@
 		F3F31D9127DFD32500D87988 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31D9027DFD32500D87988 /* SceneDelegate.swift */; };
 		F3F31D9827DFD32500D87988 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F31D9727DFD32500D87988 /* Icons.xcassets */; };
 		F3F31D9B27DFD32500D87988 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3F31D9927DFD32500D87988 /* LaunchScreen.storyboard */; };
-		F3F31DB027DFD32500D87988 /* SampleUITests-UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DAF27DFD32500D87988 /* SampleUITests-UIKit.swift */; };
 		F3F31DBF27DFD55300D87988 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DBE27DFD55300D87988 /* HomeViewController.swift */; };
 		F3F31DC127DFD56C00D87988 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */; };
 		F3F31DC527DFD88000D87988 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F31DC427DFD88000D87988 /* Images.xcassets */; };
@@ -109,7 +107,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6A72FF302808B15C007156E7 /* Embed Frameworks */ = {
+		F3AFCBB82ABC970200E66B0A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -117,15 +115,6 @@
 			files = (
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6AC32E4D2809021800ED8BFA /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -200,7 +189,6 @@
 		F3F31D9A27DFD32500D87988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3F31D9C27DFD32500D87988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3F31DAB27DFD32500D87988 /* axe-devtools-ios-sample-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "axe-devtools-ios-sample-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3F31DAF27DFD32500D87988 /* SampleUITests-UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleUITests-UIKit.swift"; sourceTree = "<group>"; };
 		F3F31DBE27DFD55300D87988 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3F31DC027DFD56C00D87988 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F3F31DC427DFD88000D87988 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -219,7 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A3B4CA82A5EE0730078BB09 /* axeDevToolsXCUI in Frameworks */,
+				BABE4B172AD6E67800E76438 /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +215,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A3B4CA62A5EE0730078BB09 /* axeDevToolsUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF13273282E846700A64994 /* axeDevToolsXCUI in Frameworks */,
+				F36C8FCB2AD48C5700FD6772 /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +490,6 @@
 			isa = PBXGroup;
 			children = (
 				6AF13274282E848C00A64994 /* SampleUITests-XCUI.swift */,
-				F3F31DAF27DFD32500D87988 /* SampleUITests-UIKit.swift */,
 			);
 			path = "axe-devtools-ios-sample-appUITests";
 			sourceTree = "<group>";
@@ -555,6 +541,7 @@
 				6A3B4C922A5D8EC20078BB09 /* Sources */,
 				6A3B4C932A5D8EC20078BB09 /* Frameworks */,
 				6A3B4C942A5D8EC20078BB09 /* Resources */,
+				F3AFCBB82ABC970200E66B0A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -563,7 +550,7 @@
 			);
 			name = RegressionUITests;
 			packageProductDependencies = (
-				6A3B4CA72A5EE0730078BB09 /* axeDevToolsXCUI */,
+				BABE4B162AD6E67800E76438 /* axeDevToolsXCUI */,
 			);
 			productName = RegressionUITests;
 			productReference = 6A3B4C962A5D8EC20078BB09 /* RegressionUITests.xctest */;
@@ -576,7 +563,6 @@
 				F3F31D8727DFD32500D87988 /* Sources */,
 				F3F31D8827DFD32500D87988 /* Frameworks */,
 				F3F31D8927DFD32500D87988 /* Resources */,
-				6A72FF302808B15C007156E7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -584,7 +570,6 @@
 			);
 			name = "axe-devtools-ios-sample-app";
 			packageProductDependencies = (
-				6A3B4CA52A5EE0730078BB09 /* axeDevToolsUIKit */,
 			);
 			productName = "axe-devtools-ios-sample-app";
 			productReference = F3F31D8B27DFD32500D87988 /* axe-devtools-ios-sample-app.app */;
@@ -597,7 +582,6 @@
 				F3F31DA727DFD32500D87988 /* Sources */,
 				F3F31DA827DFD32500D87988 /* Frameworks */,
 				F3F31DA927DFD32500D87988 /* Resources */,
-				6AC32E4D2809021800ED8BFA /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -606,7 +590,7 @@
 			);
 			name = "axe-devtools-ios-sample-appUITests";
 			packageProductDependencies = (
-				6AF13272282E846700A64994 /* axeDevToolsXCUI */,
+				F36C8FCA2AD48C5700FD6772 /* axeDevToolsXCUI */,
 			);
 			productName = "axe-devtools-ios-sample-appUITests";
 			productReference = F3F31DAB27DFD32500D87988 /* axe-devtools-ios-sample-appUITests.xctest */;
@@ -645,7 +629,7 @@
 			);
 			mainGroup = F3F31D8227DFD32500D87988;
 			packageReferences = (
-				6A3B4CA42A5EE0730078BB09 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */,
+				F36C8FC92AD48C5700FD6772 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */,
 			);
 			productRefGroup = F3F31D8C27DFD32500D87988 /* Products */;
 			projectDirPath = "";
@@ -779,7 +763,6 @@
 			files = (
 				6AEDD8542886FD500017DCF1 /* Login.swift in Sources */,
 				6AF13275282E848C00A64994 /* SampleUITests-XCUI.swift in Sources */,
-				F3F31DB027DFD32500D87988 /* SampleUITests-UIKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,7 +1012,6 @@
 		F3F31DBC27DFD32500D87988 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZZQGXN669;
@@ -1048,7 +1030,6 @@
 		F3F31DBD27DFD32500D87988 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2ZZQGXN669;
@@ -1107,7 +1088,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6A3B4CA42A5EE0730078BB09 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */ = {
+		F36C8FC92AD48C5700FD6772 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dequelabs/axe-devtools-ios";
 			requirement = {
@@ -1118,18 +1099,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6A3B4CA52A5EE0730078BB09 /* axeDevToolsUIKit */ = {
+		BABE4B162AD6E67800E76438 /* axeDevToolsXCUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6A3B4CA42A5EE0730078BB09 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
-			productName = axeDevToolsUIKit;
-		};
-		6A3B4CA72A5EE0730078BB09 /* axeDevToolsXCUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6A3B4CA42A5EE0730078BB09 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
+			package = F36C8FC92AD48C5700FD6772 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
 			productName = axeDevToolsXCUI;
 		};
-		6AF13272282E846700A64994 /* axeDevToolsXCUI */ = {
+		F36C8FCA2AD48C5700FD6772 /* axeDevToolsXCUI */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = F36C8FC92AD48C5700FD6772 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
 			productName = axeDevToolsXCUI;
 		};
 /* End XCSwiftPackageProductDependency section */
