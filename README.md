@@ -26,7 +26,7 @@ This project uses Swift Package Manager to pull in the frameworks from [axe-devt
 
 1. Add your Deque API Key to `Login.swift`.
 
-2. Once you have a device or simulator ready to go, open `SampleUITests-XCUI.swift`, and tap on the diamond to run this suite. The simulator will launch, and the tests will run.
+2. Once you have a device or simulator ready to go, open `SampleUITests.swift`, and tap on the diamond to run this suite. The simulator will launch, and the tests will run.
 
 <img src="doc_img/UITests.png" alt="Shows the click area for running the UI test."/>
 
