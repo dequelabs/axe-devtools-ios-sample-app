@@ -1,5 +1,5 @@
 //
-//  axe_devtools_ios_sample_appUITests.swift
+//  SampleUITests.swift
 //  axe-devtools-ios-sample-appUITests
 //
 //  Created by Kate Owens on 3/14/22.
@@ -23,7 +23,7 @@ import XCTest
  Review your test results from the Mobile Dashboard: https://axe-mobile.deque.com/
  */
 
-class SampleUITestsXCUIFramework: XCTestCase {
+class SampleUITests: XCTestCase {
     var axe: AxeDevTools?
     var app = XCUIApplication()
 
