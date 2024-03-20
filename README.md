@@ -20,7 +20,7 @@ This project uses Swift Package Manager to pull in the frameworks from [axe-devt
 
 ### For Manual Testing
 
-1. To manually test this app, use the [Mobile Analyzer](https://github.com/dequelabs/axe-devtools-mobile-analyzer/wiki).
+1. To manually test this app, use [Deque's Mobile Analyzer](https://docs.deque.com/devtools-mobile-analyzer).
 
 ### For Automated Testing
 
