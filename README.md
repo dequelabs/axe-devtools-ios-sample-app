@@ -56,4 +56,4 @@ We've created a shell script `prepareForSauce.sh` that uploads this project to S
 
 ## Have a Question? Found a bug?
 
-[Reach out to us](https://docs.deque.com/devtools-mobile/2023.8.16/en/help), we'd love to help!
+[Reach out to us](https://docs.deque.com/devtools-mobile/help), we'd love to help!
