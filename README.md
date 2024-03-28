@@ -13,7 +13,7 @@ Get started with a [free trial today](https://axe.dequelabs.com/signup?product=a
 ## Get Started:
 
 > Prerequisites:
-> - Xcode 13 +
+> - Xcode 14 +
 > - Optional: If running locally on iPhone device, it'll need to have iOS 15+.
 
 This project uses Swift Package Manager to pull in the frameworks from [axe-devtools-ios](https://github.com/dequelabs/axe-devtools-ios/).
@@ -34,25 +34,16 @@ This project uses Swift Package Manager to pull in the frameworks from [axe-devt
 
 _Note: XCUITests are only supported with a real device from Sauce at this time. This project requires a device on iOS 15.0 or later._
 
-In the top center of the Xcode window, tap on the device drop-down and select your desired device.
+Follow our online guide for setting your project up with [XCUITesting on SauceLabs.](https://docs.deque.com/devtools-mobile/ios-example-sauce-labs-xcui) 
 
-<img src="doc_img/Device1.png" alt="Shows the click area for selecting a device."/>
+To run a test with this project, follow the prerequisites in the link above, then come back here.
 
-#### Set up Xcode
+Assuming you have already downloaded the sample project to your computer:
+1. Add your Deque API Key to `Login.swift`.
+2. Open a Terminal window, enter `cd `, then drag and drop the `axe-devtools-ios-sample-app` from Finder into the Terminal window. Hit return/enter.
+3. In the same window, type `sh prepareForSauce.sh`. Hit return/enter.
 
-In the main Xcode menu, select Preferences, then Accounts. Sign in to your Apple Developer account and set up provisioning to sign the app. Sauce Labs will re-sign it, but we found fewer hiccups when this was set up.
-
-#### Set up for Sauce Labs
-
-Install `saucectl` command-line interface. Follow the [instructions from Sauce Labs](https://docs.saucelabs.com/dev/cli/saucectl/).
-
-Add your Sauce Labs credentials to your `.bash_profile` or `.zshenv`. Be sure to load the changes by running `source .filename`.
-
-Follow [instructions from Sauce Labs](https://docs.saucelabs.com/dev/cli/saucectl/#associate-your-credentials).
-
-#### Running with Sauce Labs
-
-We've created a shell script `prepareForSauce.sh` that uploads this project to Sauce Labs for testing. Run this with `sh prepareForSauce.sh` in the terminal to build the app, then upload it to Sauce for testing on a real device.
+This script will build the app, and begin executing automated tests in your Sauce Labs environment.
 
 ## Have a Question? Found a bug?
 
