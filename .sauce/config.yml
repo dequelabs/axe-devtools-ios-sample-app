@@ -3,15 +3,13 @@ kind: xcuitest
 sauce:
   region: us-west-1
   concurrency: 1
-  options:
-    orientation: "portrait"
 
 xcuitest:
   app: "axe-devtools-ios-sample-app.ipa"
-  testApp: "axe-devtools-ios-sample-appUITests-Runner.ipa"
+  testApp: "RegressionUITests-Runner.ipa"
 
 suites:
-  - name: "axe-devtools-ios-sample-appUITests"
+  - name: "RegressionUITests"
     devices:
       - name: "iPhone.*"
-        platformVersion: "15.3.1"
+        platformVersion: "17.2"

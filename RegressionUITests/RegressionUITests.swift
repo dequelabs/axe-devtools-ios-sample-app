@@ -47,7 +47,7 @@ class RegressionUITests: XCTestCase {
         lastResult = result
         // Post the report to the dashboard
 
-        // try axe?.postResult(result, withScanName: withScanName)
+        // try axe?.postResult(result, withScanName: name)
         _ = try axe?.saveResult(result, toPath: "RegressionScans", withFileName: name, withScanName: name)
     }
 
