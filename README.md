@@ -34,9 +34,7 @@ This project uses Swift Package Manager to pull in the frameworks from [axe-devt
 
 _Note: XCUITests are only supported with a real device from Sauce at this time. This project requires a device on iOS 15.0 or later._
 
-Follow our online guide for setting your project up with [XCUITesting on SauceLabs.](https://docs.deque.com/devtools-mobile/ios-example-sauce-labs-xcui) 
-
-To run a test with this project, follow the prerequisites in the link above, then come back here.
+To run a test with this project, or to setup your own project, follow our online guide to get started with [XCUITesting on SauceLabs.](https://docs.deque.com/devtools-mobile/ios-example-sauce-labs-xcui)
 
 Assuming you have already downloaded the sample project to your computer:
 1. Add your Deque API Key to `Login.swift`.
