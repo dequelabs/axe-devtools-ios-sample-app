@@ -32,21 +32,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3F31DA027DFD32500D87988"
-               BuildableName = "axe-devtools-ios-sample-appTests.xctest"
-               BlueprintName = "axe-devtools-ios-sample-appTests"
-               ReferencedContainer = "container:axe-devtools-ios-sample-app.xcodeproj">
-            </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "axe_devtools_ios_sample_appTests">
-               </Test>
-            </SkippedTests>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "F3F31DAA27DFD32500D87988"
                BuildableName = "axe-devtools-ios-sample-appUITests.xctest"
                BlueprintName = "axe-devtools-ios-sample-appUITests"

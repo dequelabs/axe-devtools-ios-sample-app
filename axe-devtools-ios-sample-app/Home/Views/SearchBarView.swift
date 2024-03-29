@@ -24,6 +24,7 @@ class SearchBarView: UIView {
         sb.backgroundColor = .black
         sb.isUserInteractionEnabled = false
         sb.translatesAutoresizingMaskIntoConstraints = false
+        sb.searchTextField.accessibilityLabel = "Search for clothing items" //Needed for no critical example in SampleUITests
         return sb
     }()
 

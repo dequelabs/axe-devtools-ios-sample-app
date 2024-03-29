@@ -1,5 +1,5 @@
 //
-//  axe_devtools_ios_sample_appUITests.swift
+//  SampleUITests.swift
 //  axe-devtools-ios-sample-appUITests
 //
 //  Created by Kate Owens on 3/14/22.
@@ -23,7 +23,7 @@ import XCTest
  Review your test results from the Mobile Dashboard: https://axe-mobile.deque.com/
  */
 
-class SampleUITestsXCUIFramework: XCTestCase {
+class SampleUITests: XCTestCase {
     var axe: AxeDevTools?
     var app = XCUIApplication()
 
@@ -80,7 +80,7 @@ class SampleUITestsXCUIFramework: XCTestCase {
 
         tabBar.buttons["Profile"].tap()
         guard let result = try axe?.run(onElement: app) else { return XCTFail() }
-        XCTAssertEqual(result.failures.count, 0) // Fail the test if any accessibilitity issues are found in the scan
+        try axe?.postResult(result, withScanName: "Profile Tab")
     }
 
     // This test runs an accessibility scan on the first page of the sample application and saves the scan results locally. By default, the results will be saved to a folder called 'AxeDevToolsResults' within your local User folder
@@ -91,7 +91,7 @@ class SampleUITestsXCUIFramework: XCTestCase {
         guard let result = try axe?.run(onElement: app) else { return XCTFail() }
 
         // Save scan results locally
-        try axe?.saveResult(result)
+        _ = try axe?.saveResult(result)
 
         lastResult = result
         let critical = lastResult?.failures.filter { $0.impact == .CRITICAL }.count
