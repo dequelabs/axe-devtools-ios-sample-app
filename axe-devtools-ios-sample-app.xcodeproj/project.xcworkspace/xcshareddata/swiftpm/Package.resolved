@@ -1,5 +1,4 @@
 {
-  "originHash" : "aad20ede0ff8bee2e8e5bea9c5a81fc9e333fc6c5c8985ba1dced29c0ade7ecb",
   "pins" : [
     {
       "identity" : "axe-devtools-ios",
@@ -11,5 +10,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

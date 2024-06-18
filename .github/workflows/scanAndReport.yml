@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: Build and Test default scheme
-    runs-on: macos-latest
+    runs-on: macos-latest # Make sure xcodebuild simulator/OS is supported: https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
 
     steps:
       - name: Checkout
@@ -29,7 +29,7 @@ jobs:
           }" > "Login.swift"
       - name: Test
         run: |
-          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14" -quiet
+          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,OS=17.0,name=iPhone 15" -quiet
       - name: Build Report
         if: always()
         env:
