@@ -1,0 +1,36 @@
+{
+  "cloudURL": "<<perfecto-cloud-name>>",
+  "securityToken": "<<security-token>>",
+  "appPath": "axe-devtools-ios-sample-app.app",
+  "testAppPath": "axe-devtools-ios-sample-appUITests-Runner.app",
+  "devices": [
+    {
+      "deviceName": "<<device-name>>"
+    }
+  ],
+  "tags": [
+    "xcuitest",
+    "sample"
+  ],
+  "projectName": "Axe-XCUITest",
+  "projectVersion": "v1-test",
+  "jobName": "AXE-XCUITEST-LATEST",
+  "jobNumber": 1,
+  "branch": "master",
+  "failBuildOnFailure": false,
+  "installationDetails": {
+    "preCleanUp": true,
+    "resign": true
+  },
+  "postExecution": {
+    "uninstall": false
+  },
+  "acquireDeviceRetryNumber": 1,
+  "acquireDeviceRetryInterval": 200,
+  "debug": true,
+  "runUnitTests": true,
+  "runUiTests": true,
+  "shard": false,
+  "takeScreenshotOnTestEnd": true,
+  "testTimeout": "60000"
+}
