@@ -1,0 +1,46 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        def flatDirPath = project.hasProperty('flatDirPath') ? project.getProperty('flatDirPath') : ''
+        if(flatDirPath != '') {
+            flatDir {
+                dirs flatDirPath
+            }
+        } else {
+            maven {
+                url "https://repo1.perfectomobile.com/public/repositories/maven/"
+            }
+        }
+    }
+
+    dependencies {
+        classpath "com.perfectomobile.instrumentedtest.gradleplugin:plugin:+"
+    }
+}
+
+apply plugin: 'com.perfectomobile.instrumentedtest.gradleplugin'
+
+perfectoGradleSettings {
+    configFileLocation "configFile.json"
+}
+
+tasks.register('cleanPreviousBuild', Exec) {
+    workingDir projectDir
+    commandLine "bash", "-c", "rm -fr *.xctestproducts dd"
+}
+
+tasks.register('buildForRealDevice') {
+    dependsOn cleanPreviousBuild
+    doLast {
+        exec {
+            commandLine "bash", "-c", "xcodebuild build-for-testing " +
+                    " -destination generic/platform='iOS' " +
+                    " -configuration Debug" +
+                    " -scheme axe-devtools-ios-sample-app" +
+                    " -target axe-devtools-ios-sample-appUITests" + 
+                    " -sdk iphoneos" + 
+                    " -derivedDataPath DerivedData/ -quiet -allowProvisioningUpdates" 
+        }
+    }
+}
