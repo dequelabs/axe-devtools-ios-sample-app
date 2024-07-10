@@ -50,11 +50,6 @@ class CatalogHeaderImageView: UIImageView {
         super.updateConstraints()
 
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: 327),
-            self.heightAnchor.constraint(equalToConstant: 327)
-        ])
-        
-        NSLayoutConstraint.activate([
             textLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             textLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
@@ -62,8 +57,7 @@ class CatalogHeaderImageView: UIImageView {
         NSLayoutConstraint.activate([
             dotIcons.heightAnchor.constraint(equalToConstant: 12),
             dotIcons.widthAnchor.constraint(equalToConstant: 78),
-            dotIcons.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 125),
-            dotIcons.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -125),
+            dotIcons.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             dotIcons.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
