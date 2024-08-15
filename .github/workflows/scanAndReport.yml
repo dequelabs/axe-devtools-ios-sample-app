@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - updateCatalog # only run this action on the demo branch for the reporter
+      - reporter4.8.0
 
 jobs:
   build:
@@ -21,7 +22,7 @@ jobs:
         env:
           apiKey: ${{ secrets.AGORA_API_KEY_KA }}
         run: |
-          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com:443/artifactory/axe-devtools-reporter-cli/prod/4.7.0/reporter-cli-macos" --output "/Users/runner/reporter"
+          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com/artifactory/axe-devtools-reporter-cli/prod/4.8.0/pkgs/@axe-devtools/reporter-cli-macos" --output "/Users/runner/reporter"
           chmod +x /Users/runner/reporter
       - name: Add Deque API Key
         env:
