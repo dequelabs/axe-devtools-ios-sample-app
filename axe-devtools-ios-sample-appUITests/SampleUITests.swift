@@ -48,7 +48,10 @@ class SampleUITests: XCTestCase {
         // Run a scan on the first page of the sample app
         // For more information about running an accessibility scan visit:
         // https://docs.deque.com/devtools-mobile/2023.8.16/en/xcui#capture-a-scan
-        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+        guard let result = try axe?.run(onElement: app) else {
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
+            return
+        }
 
         // Post scan results to the mobile dashboard
         // For more information on this feature please visit:
@@ -59,7 +62,10 @@ class SampleUITests: XCTestCase {
 
         tabBar.buttons["Catalog"].tap()
 
-        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+        guard let result = try axe?.run(onElement: app) else {
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
+            return
+        }
 
         // Add a custom scan name when posting result. By default, the screen title is the scan name.
         // For more information on renaming a scan, check out:
@@ -69,7 +75,10 @@ class SampleUITests: XCTestCase {
         try axe?.postResult(result, withScanName: newScanName)
 
         tabBar.buttons["Cart"].tap()
-        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+        guard let result = try axe?.run(onElement: app) else {
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
+            return
+        }
 
         // Add tags to your scan to easily share with your coworkers when it's pushed to the dashboard.
         // For more infromation on tagging a scan please see:
@@ -79,7 +88,10 @@ class SampleUITests: XCTestCase {
         try axe?.postResult(result, withTags: tags)
 
         tabBar.buttons["Profile"].tap()
-        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+        guard let result = try axe?.run(onElement: app) else {
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
+            return
+        }
         try axe?.postResult(result, withScanName: "Profile Tab")
     }
 
@@ -88,7 +100,10 @@ class SampleUITests: XCTestCase {
     // https://docs.deque.com/devtools-mobile/2023.8.16/en/ios-save-result
     func testAccessibilityAndSaveResultsLocally() throws {
         var lastResult: AxeResult?
-        guard let result = try axe?.run(onElement: app) else { return XCTFail() }
+        guard let result = try axe?.run(onElement: app) else {
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
+            return
+        }
 
         // Save scan results locally
         _ = try axe?.saveResult(result)
