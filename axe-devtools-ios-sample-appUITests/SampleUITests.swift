@@ -49,7 +49,7 @@ class SampleUITests: XCTestCase {
         // For more information about running an accessibility scan visit:
         // https://docs.deque.com/devtools-mobile/2023.8.16/en/xcui#capture-a-scan
         guard let result = try axe?.run(onElement: app) else {
-            XCTFail("\n\n**axe DevTools didn't run - Did you add your API key in Login.swift?**\n\n")
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
             return
         }
 
@@ -63,7 +63,7 @@ class SampleUITests: XCTestCase {
         tabBar.buttons["Catalog"].tap()
 
         guard let result = try axe?.run(onElement: app) else {
-            XCTFail("\n\n**axe DevTools didn't run - Did you add your API key in Login.swift?**\n\n")
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
             return
         }
 
@@ -76,7 +76,7 @@ class SampleUITests: XCTestCase {
 
         tabBar.buttons["Cart"].tap()
         guard let result = try axe?.run(onElement: app) else {
-            XCTFail("\n\n**axe DevTools didn't run - Did you add your API key in Login.swift?**\n\n")
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
             return
         }
 
@@ -89,7 +89,7 @@ class SampleUITests: XCTestCase {
 
         tabBar.buttons["Profile"].tap()
         guard let result = try axe?.run(onElement: app) else {
-            XCTFail("\n\n**axe DevTools didn't run - Did you add your API key in Login.swift?**\n\n")
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
             return
         }
         try axe?.postResult(result, withScanName: "Profile Tab")
@@ -101,7 +101,7 @@ class SampleUITests: XCTestCase {
     func testAccessibilityAndSaveResultsLocally() throws {
         var lastResult: AxeResult?
         guard let result = try axe?.run(onElement: app) else {
-            XCTFail("\n\n**axe DevTools didn't run - Did you add your API key in Login.swift?**\n\n")
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
             return
         }
 

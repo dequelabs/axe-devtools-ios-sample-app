@@ -44,7 +44,7 @@ class RegressionUITests: XCTestCase {
     // A helper method for keeping things cleaner when pushing to the dashboard, or saving a result locally.
     func scanForAccessibility(withScanName name: String = "unnamed scan") throws {
         guard let result = try axe?.run(onElement: app) else {
-            XCTFail("\n\n**axe DevTools didn't run - Did you add your API key in Login.swift?**\n\n")
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
             return
         }
         lastResult = result
@@ -56,7 +56,7 @@ class RegressionUITests: XCTestCase {
 
     func assertNoCriticalResults() {
         guard let result = lastResult else {
-            XCTFail("\n\n**axe DevTools didn't run - Did you add your API key in Login.swift?**\n\n")
+            XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
             return
         }
         let critical = result.failures.filter { $0.impact == .CRITICAL }.count
