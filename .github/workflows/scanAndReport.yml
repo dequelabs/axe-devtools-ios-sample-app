@@ -21,7 +21,7 @@ jobs:
         env:
           apiKey: ${{ secrets.AGORA_API_KEY_KA }}
         run: |
-          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com:443/artifactory/axe-devtools-reporter-cli/prod/4.8.0/reporter-cli-macos" --output "/Users/runner/reporter"
+          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com:443/artifactory/axe-devtools-reporter-cli/prod/4.7.0/reporter-cli-macos" --output "/Users/runner/reporter"
           chmod +x /Users/runner/reporter
       - name: Add Deque API Key
         env:
