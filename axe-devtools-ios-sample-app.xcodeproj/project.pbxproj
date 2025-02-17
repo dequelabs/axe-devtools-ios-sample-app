@@ -12,8 +12,6 @@
 		6AEDD8522886FD4D0017DCF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
 		6AEDD8542886FD500017DCF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
 		6AF13275282E848C00A64994 /* SampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF13274282E848C00A64994 /* SampleUITests.swift */; };
-		BABE4B172AD6E67800E76438 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = BABE4B162AD6E67800E76438 /* axeDevToolsXCUI */; };
-		F36C8FCB2AD48C5700FD6772 /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = F36C8FCA2AD48C5700FD6772 /* axeDevToolsXCUI */; };
 		F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */; };
 		F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */; };
 		F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */; };
@@ -207,7 +205,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BABE4B172AD6E67800E76438 /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +219,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F36C8FCB2AD48C5700FD6772 /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +546,6 @@
 			);
 			name = RegressionUITests;
 			packageProductDependencies = (
-				BABE4B162AD6E67800E76438 /* axeDevToolsXCUI */,
 			);
 			productName = RegressionUITests;
 			productReference = 6A3B4C962A5D8EC20078BB09 /* RegressionUITests.xctest */;
@@ -590,7 +585,6 @@
 			);
 			name = "axe-devtools-ios-sample-appUITests";
 			packageProductDependencies = (
-				F36C8FCA2AD48C5700FD6772 /* axeDevToolsXCUI */,
 			);
 			productName = "axe-devtools-ios-sample-appUITests";
 			productReference = F3F31DAB27DFD32500D87988 /* axe-devtools-ios-sample-appUITests.xctest */;
@@ -629,7 +623,7 @@
 			);
 			mainGroup = F3F31D8227DFD32500D87988;
 			packageReferences = (
-				F36C8FC92AD48C5700FD6772 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */,
+				F35BD8EF2D63C6B5003655F0 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */,
 			);
 			productRefGroup = F3F31D8C27DFD32500D87988 /* Products */;
 			projectDirPath = "";
@@ -1098,7 +1092,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F36C8FC92AD48C5700FD6772 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */ = {
+		F35BD8EF2D63C6B5003655F0 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dequelabs/axe-devtools-ios";
 			requirement = {
@@ -1107,19 +1101,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BABE4B162AD6E67800E76438 /* axeDevToolsXCUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F36C8FC92AD48C5700FD6772 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
-			productName = axeDevToolsXCUI;
-		};
-		F36C8FCA2AD48C5700FD6772 /* axeDevToolsXCUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F36C8FC92AD48C5700FD6772 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
-			productName = axeDevToolsXCUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3F31D8327DFD32500D87988 /* Project object */;
 }
