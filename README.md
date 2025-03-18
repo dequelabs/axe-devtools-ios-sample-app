@@ -2,10 +2,10 @@
 
 A sample application built solely to showcase axe DevTools Mobile implementation. It is non-functional and made inaccessibly by design.
 
-Get started with a [free trial today](https://axe.dequelabs.com/signup?product=axe-devtools-mobile&redirect_uri=https://axe.dequelabs.com/axe-devtools-mobile/get-started).
+<!-- Get started with a [free trial today](https://axe.dequelabs.com/signup?product=axe-devtools-mobile&redirect_uri=https://axe.dequelabs.com/axe-devtools-mobile/get-started).-->
 
 ## Helpful Links
-- Library documentation can be found at [docs.deque.com](https://docs.deque.com/devtools-mobile/).
+- Library documentation and more information on automated or manual testing can be found at [docs.deque.com](https://docs.deque.com/devtools-mobile/).
 - Learn more about [Deque and axe DevTools Mobile here](https://www.deque.com/).
 
 ------
@@ -13,16 +13,10 @@ Get started with a [free trial today](https://axe.dequelabs.com/signup?product=a
 ## Get Started:
 
 > Prerequisites:
-> - Xcode 14 +
-> - Optional: If running locally on iPhone device, it'll need to have iOS 15+.
+> - Xcode 15 +
+> - Optional: If running locally on iPhone device, it'll need to have iOS 16+.
 
 This project uses Swift Package Manager to pull in the frameworks from [axe-devtools-ios](https://github.com/dequelabs/axe-devtools-ios/).
-
-### For Manual Testing
-
-1. To manually test this app, use [Deque's Mobile Analyzer](https://docs.deque.com/devtools-mobile-analyzer).
-
-### For Automated Testing
 
 1. Add your Deque API Key to `Login.swift`.
 
@@ -32,7 +26,7 @@ This project uses Swift Package Manager to pull in the frameworks from [axe-devt
 
 ### For Automated Testing with Sauce Labs (Real Device Only)
 
-_Note: XCUITests are only supported with a real device from Sauce at this time. This project requires a device on iOS 15.0 or later._
+_Note: XCUITests are only supported with a real device from Sauce at this time. This project requires a device on iOS 16.0 or later._
 
 To run a test with this project, or to setup your own project, follow our online guide to get started with [XCUITesting on SauceLabs.](https://docs.deque.com/devtools-mobile/ios-example-sauce-labs-xcui)
 
