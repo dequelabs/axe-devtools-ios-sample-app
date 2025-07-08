@@ -124,6 +124,9 @@
 		6A3B4C982A5D8EC20078BB09 /* RegressionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionUITests.swift; sourceTree = "<group>"; };
 		6AEDD8512886FD4D0017DCF1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		6AF13274282E848C00A64994 /* SampleUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleUITests.swift; sourceTree = "<group>"; };
+		E18680DB2E1D7A980069C8B4 /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
+		E18680DC2E1D7AB30069C8B4 /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
+		E18680DD2E1D7ACA0069C8B4 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
 		F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
@@ -235,6 +238,16 @@
 				6A3B4C982A5D8EC20078BB09 /* RegressionUITests.swift */,
 			);
 			path = RegressionUITests;
+			sourceTree = "<group>";
+		};
+		E18680D92E1D7A3D0069C8B4 /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				E18680DB2E1D7A980069C8B4 /* ci_post_clone.sh */,
+				E18680DC2E1D7AB30069C8B4 /* ci_pre_xcodebuild.sh */,
+				E18680DD2E1D7ACA0069C8B4 /* ci_post_xcodebuild.sh */,
+			);
+			path = ci_scripts;
 			sourceTree = "<group>";
 		};
 		F3133A4628086B0A00389A4C /* Frameworks */ = {
@@ -447,6 +460,7 @@
 		F3F31D8227DFD32500D87988 = {
 			isa = PBXGroup;
 			children = (
+				E18680D92E1D7A3D0069C8B4 /* ci_scripts */,
 				F3F31D8D27DFD32500D87988 /* axe-devtools-ios-sample-app */,
 				F3F31DAE27DFD32500D87988 /* axe-devtools-ios-sample-appUITests */,
 				F3799A8C27EA1407009CFC2E /* Colors.xcassets */,
@@ -469,8 +483,8 @@
 		F3F31D8D27DFD32500D87988 /* axe-devtools-ios-sample-app */ = {
 			isa = PBXGroup;
 			children = (
-				F3F31D8E27DFD32500D87988 /* AppDelegate.swift */,
 				F3F31D9027DFD32500D87988 /* SceneDelegate.swift */,
+				F3F31D8E27DFD32500D87988 /* AppDelegate.swift */,
 				6AEDD8512886FD4D0017DCF1 /* Login.swift */,
 				F3A1A66E27E37B4F00E4F0E7 /* HomeImageView.swift */,
 				F3A1A67027E37D0600E4F0E7 /* Shared */,
