@@ -5,3 +5,8 @@
 #
 #  Created by Kate Owens on 7/8/25.
 #  
+
+set -e
+
+gh auth login
+gh pr list --state open
