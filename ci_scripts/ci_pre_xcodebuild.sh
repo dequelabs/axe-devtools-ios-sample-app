@@ -8,5 +8,6 @@
 
 set -e
 
+brew install gh
 gh auth login
 gh pr list --state open
