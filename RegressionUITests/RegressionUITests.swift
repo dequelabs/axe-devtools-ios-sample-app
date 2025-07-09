@@ -14,8 +14,7 @@ class RegressionUITests: XCTestCase {
     var lastResult: AxeResult?
 
     override func setUp() {
-        axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
-
+        axe = try? AxeDevTools.login(withAPIKey: ProcessInfo.processInfo.environment["ADT_API_KEY"] ?? "")
         app.launch()
         sleep(2) // allow app to fully load, Github actions needed a moment.
     }

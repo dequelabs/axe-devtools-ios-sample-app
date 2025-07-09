@@ -32,7 +32,6 @@ class SampleUITests: XCTestCase {
         // Enter your axe DevTools Mobile API key in the "" marks in the APIKey constant defined in the Login file
         // Get your API key here: https://axe.deque.com/settings
         axe = try? AxeDevTools.login(withAPIKey: ProcessInfo.processInfo.environment["ADT_API_KEY"] ?? "")
-
         // 2.
         // Launch the sample app
         app.launch()
