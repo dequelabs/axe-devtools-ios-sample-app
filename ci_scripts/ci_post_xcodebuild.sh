@@ -8,7 +8,7 @@
 # Note: script will run after xcodebuild command even if the xcodebuild command fails
 cd "$CI_WORKSPACE" || exit 1
 echo "$pwd"
-PLIST_PATH="YourApp/Info.plist"
+PLIST_PATH="axe-devtools-ios-sample-app/Info.plist"
 
 # Configure Git
 git config user.name "kateowens12"
