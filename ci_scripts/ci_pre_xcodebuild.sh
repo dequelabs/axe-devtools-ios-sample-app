@@ -9,5 +9,5 @@
 set -e
 
 brew install gh
-gh auth login
+gh auth status
 gh pr list --state open
