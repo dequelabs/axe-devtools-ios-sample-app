@@ -8,6 +8,15 @@
 
 set -e
 
+echo "✅ Pre-Xcodebuild Script Starting"
+
+cd "$CI_WORKSPACE" || exit 1
+
 brew install gh
 gh auth status
+
+echo "🔍 Running git status"
+git status
+
+echo "📦 Listing open PRs"
 gh pr list --state open
