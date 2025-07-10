@@ -5,7 +5,7 @@
 #
 #  Created by Kate Owens on 7/8/25.
 #
-# Note: script will run after xcodebuild command even if the xcodebuild command fails
-set -e
 
-#cd "$CI_WORKSPACE" || exit 1
+# Things from our CI/CD process we could do here:
+# Create draft release and PR in GitHub
+# Upload artifacts to Agora

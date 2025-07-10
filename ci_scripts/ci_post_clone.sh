@@ -5,7 +5,7 @@
 #
 #  Created by Kate Owens on 7/8/25.
 #  
-set -e
 
-echo "TEST -- A post clone command script was successful!"
-exit 0
+# Things we could do in this file during our CI/CD process:
+# Install GH CLI tool via homebrew
+# Add dependencies
