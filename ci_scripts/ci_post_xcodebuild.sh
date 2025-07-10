@@ -8,11 +8,11 @@
 # Note: script will run after xcodebuild command even if the xcodebuild command fails
 set -e
 
-cd "$CI_WORKSPACE" || exit 1
+#cd "$CI_WORKSPACE" || exit 1
 echo "📂 Current working directory: $(pwd)"
 ls -la
 
-PLIST_PATH="axe-devtools-ios-sample-app/axe-devtools-ios-sample-app/Info.plist"
+PLIST_PATH=$(find . -name Info.plist) #"axe-devtools-ios-sample-app/axe-devtools-ios-sample-app/Info.plist"
 
 if [ ! -f "$PLIST_PATH" ]; then
   echo "❌ Info.plist not found at $PLIST_PATH"
