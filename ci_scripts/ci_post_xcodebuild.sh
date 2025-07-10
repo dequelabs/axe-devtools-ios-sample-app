@@ -6,9 +6,10 @@
 #  Created by Kate Owens on 7/8/25.
 #
 # Note: script will run after xcodebuild command even if the xcodebuild command fails
+set -e
+
 cd "$CI_WORKSPACE" || exit 1
 echo "📂 Current working directory: $(pwd)"
-
 ls -la
 
 PLIST_PATH="axe-devtools-ios-sample-app/axe-devtools-ios-sample-app/Info.plist"
