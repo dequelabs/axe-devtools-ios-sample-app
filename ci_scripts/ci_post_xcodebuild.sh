@@ -7,7 +7,7 @@
 #
 # Note: script will run after xcodebuild command even if the xcodebuild command fails
 cd "$CI_WORKSPACE" || exit 1
-
+echo "$pwd"
 PLIST_PATH="YourApp/Info.plist"
 
 # Configure Git
