@@ -7,8 +7,17 @@
 #
 # Note: script will run after xcodebuild command even if the xcodebuild command fails
 cd "$CI_WORKSPACE" || exit 1
-echo "$pwd"
-PLIST_PATH="axe-devtools-ios-sample-app/Info.plist"
+echo "📂 Current working directory: $(pwd)"
+
+ls -la
+
+PLIST_PATH="axe-devtools-ios-sample-app/axe-devtools-ios-sample-app/Info.plist"
+
+if [ ! -f "$PLIST_PATH" ]; then
+  echo "❌ Info.plist not found at $PLIST_PATH"
+  find . -name Info.plist
+  exit 1
+fi
 
 # Configure Git
 git config user.name "kateowens12"
@@ -16,9 +25,17 @@ git config user.email "kate.owens@deque.com"
 git remote set-url origin "https://x-access-token:$GH_TOKEN@github.com/dequelabs/axe-devtools-ios-sample-app.git"
 
 CURRENT_VERSION=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$PLIST_PATH")
-IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
+
+if [ -z "$CURRENT_VERSION" ]; then
+  echo "❌ CFBundleShortVersionString not found in $PLIST_PATH"
+  exit 1
+fi
+
+echo "📦 Current version: $CURRENT_VERSION"
+
 
 # Bump patch (you can make this configurable)
+IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
 PATCH=$((PATCH + 1))
 NEW_VERSION="$MAJOR.$MINOR.$PATCH"
 
@@ -31,6 +48,7 @@ git commit -m "ci: bump version to v$NEW_VERSION"
 git tag "v$NEW_VERSION"
 
 # Push to GitHub
+CURRENT_BRANCH=${CI_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}
 git push origin "$CI_BRANCH"
 git push origin "v$NEW_VERSION"
 
@@ -46,7 +64,3 @@ LIST_ENDPOINT="https://agora.dequecloud.com/artifactory/api/storage/Attest-iOS/a
 # List all files in framework directory
 LIST_RESPONSE=$(curl -s -X GET "$LIST_ENDPOINT" -H "X-JFrog-Art-Api: $DQ_AGORA_KEY")
 echo "$LIST_RESPONSE"
-
-# Check if the response contains any files
-FILE_COUNT=$(echo "$LIST_RESPONSE" | jq '.files | length')
-echo "$FILE_COUNT"
