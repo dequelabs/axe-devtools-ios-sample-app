@@ -11,7 +11,8 @@ set -e
 #cd "$CI_WORKSPACE" || exit 1
 echo "📂 Current working directory: $(pwd)"
 ls -la
-
+cd ..
+echo "now we are in $(pwd)"
 PLIST_PATH=$(find . -name Info.plist) #"axe-devtools-ios-sample-app/axe-devtools-ios-sample-app/Info.plist"
 
 if [ ! -f "$PLIST_PATH" ]; then
