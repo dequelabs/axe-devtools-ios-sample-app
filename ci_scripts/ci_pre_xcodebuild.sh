@@ -5,3 +5,7 @@
 #
 #  Created by Kate Owens on 7/8/25.
 #  
+
+set -e
+
+echo "Pre Xcodebuild script started"

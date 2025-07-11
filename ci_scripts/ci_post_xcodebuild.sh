@@ -9,3 +9,7 @@
 # Things from our CI/CD process we could do here:
 # Create draft release and PR in GitHub
 # Upload artifacts to Agora
+
+set -e
+
+echo "Post Xcodebuild script started"
