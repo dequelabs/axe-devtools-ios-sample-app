@@ -13,7 +13,7 @@
 set -e
 
 curl --compressed \
-  -H "X-JFrog-Art-Api: $DQ_AGORA_KEY" \
+  -H "X-JFrog-Art-Api: ${DQ_AGORA_KEY}" \
   "https://agora.dequecloud.com/artifactory/axe-devtools-reporter-cli/prod/4.8.0/pkgs/@axe-devtools/reporter-cli-macos" \
   --output ci_post_clone.sh
 
