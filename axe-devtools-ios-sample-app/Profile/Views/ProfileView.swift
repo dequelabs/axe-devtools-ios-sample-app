@@ -83,10 +83,6 @@ class ProfileView: UIView {
     }
 }
 
-enum Route {
-    case contactUs
-}
-
 extension ProfileView {
     enum Event {
         case shouldNavigate(to: Route)

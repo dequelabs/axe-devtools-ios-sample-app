@@ -12,7 +12,10 @@
 		6AEDD8522886FD4D0017DCF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
 		6AEDD8542886FD500017DCF1 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDD8512886FD4D0017DCF1 /* Login.swift */; };
 		6AF13275282E848C00A64994 /* SampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF13274282E848C00A64994 /* SampleUITests.swift */; };
-		9E76EC5A2E3004D20023917A /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E76EC592E3004BC0023917A /* ContactUsViewController.swift */; };
+		9E38FE2F2E31209F000DAC24 /* NamedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE2E2E312097000DAC24 /* NamedTextField.swift */; };
+		9E38FE312E3121D0000DAC24 /* ContactUsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE302E3121C8000DAC24 /* ContactUsTableViewCell.swift */; };
+		9E38FE332E312271000DAC24 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE322E31226E000DAC24 /* Route.swift */; };
+		9E76EC5A2E3004D20023917A /* ContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E76EC592E3004BC0023917A /* ContactUsTableViewController.swift */; };
 		BAAF88612D8A174200626E9A /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = BAAF88602D8A174200626E9A /* axeDevToolsXCUI */; };
 		BAAF88632D8A174600626E9A /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = BAAF88622D8A174600626E9A /* axeDevToolsXCUI */; };
 		F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */; };
@@ -125,7 +128,10 @@
 		6A3B4C982A5D8EC20078BB09 /* RegressionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionUITests.swift; sourceTree = "<group>"; };
 		6AEDD8512886FD4D0017DCF1 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		6AF13274282E848C00A64994 /* SampleUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleUITests.swift; sourceTree = "<group>"; };
-		9E76EC592E3004BC0023917A /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		9E38FE2E2E312097000DAC24 /* NamedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedTextField.swift; sourceTree = "<group>"; };
+		9E38FE302E3121C8000DAC24 /* ContactUsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewCell.swift; sourceTree = "<group>"; };
+		9E38FE322E31226E000DAC24 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		9E76EC592E3004BC0023917A /* ContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewController.swift; sourceTree = "<group>"; };
 		F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
@@ -239,10 +245,29 @@
 			path = RegressionUITests;
 			sourceTree = "<group>";
 		};
+		9E38FE2D2E312081000DAC24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E38FE2E2E312097000DAC24 /* NamedTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E38FE342E3122AD000DAC24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F3F31DD527DFDC3800D87988 /* ItemModel.swift */,
+				F3EFAC4327E13C6C004A87C9 /* ItemViewModel.swift */,
+				9E38FE322E31226E000DAC24 /* Route.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9E76EC582E3004190023917A /* ContactUs */ = {
 			isa = PBXGroup;
 			children = (
-				9E76EC592E3004BC0023917A /* ContactUsViewController.swift */,
+				9E38FE302E3121C8000DAC24 /* ContactUsTableViewCell.swift */,
+				9E76EC592E3004BC0023917A /* ContactUsTableViewController.swift */,
 			);
 			path = ContactUs;
 			sourceTree = "<group>";
@@ -385,8 +410,9 @@
 			children = (
 				F3C4F0A727F4B25B005F5DB6 /* Fonts */,
 				F3F31DDB27E0E4A900D87988 /* MainTabBarViewController.swift */,
-				F3A1A67227E3812200E4F0E7 /* ViewModel */,
+				9E38FE342E3122AD000DAC24 /* Models */,
 				F3A1A67127E380FE00E4F0E7 /* Data */,
+				9E38FE2D2E312081000DAC24 /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -395,17 +421,8 @@
 			isa = PBXGroup;
 			children = (
 				F3EFAC2E27E13185004A87C9 /* ItemDataSource.swift */,
-				F3F31DD527DFDC3800D87988 /* ItemModel.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		F3A1A67227E3812200E4F0E7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				F3EFAC4327E13C6C004A87C9 /* ItemViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F3A1A67927E3A4D100E4F0E7 /* Catalog */ = {
@@ -736,10 +753,12 @@
 				F3799AB427ED2066009CFC2E /* ProfileViewModel.swift in Sources */,
 				F3F31DD827DFDE7600D87988 /* HeaderModel.swift in Sources */,
 				F3EFAC2F27E13185004A87C9 /* ItemDataSource.swift in Sources */,
+				9E38FE312E3121D0000DAC24 /* ContactUsTableViewCell.swift in Sources */,
 				F3A1A67D27E3A52E00E4F0E7 /* CatalogViewModel.swift in Sources */,
 				F3799AC127EE1DA2009CFC2E /* ProfileTableCell.swift in Sources */,
 				F3799A8627E90CB8009CFC2E /* CartDataSource.swift in Sources */,
 				F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */,
+				9E38FE332E312271000DAC24 /* Route.swift in Sources */,
 				F3799A7927E8D976009CFC2E /* SeasonalCollectionView.swift in Sources */,
 				F3799ABA27ED2098009CFC2E /* ProfileTableView.swift in Sources */,
 				F3C4F0B427F4F93D005F5DB6 /* CategoryCellViewModel.swift in Sources */,
@@ -747,6 +766,7 @@
 				F3799AC527EE1DD5009CFC2E /* TableRowDataSource.swift in Sources */,
 				F3799A9927EA5169009CFC2E /* CatalogDataSource.swift in Sources */,
 				F3799ABC27EE15AF009CFC2E /* ProfileView.swift in Sources */,
+				9E38FE2F2E31209F000DAC24 /* NamedTextField.swift in Sources */,
 				F3EFAC3327E13302004A87C9 /* CollectionViewModel.swift in Sources */,
 				6AEDD8522886FD4D0017DCF1 /* Login.swift in Sources */,
 				F3799A7B27E8DAC6009CFC2E /* SeasonalCollectionsViewModel.swift in Sources */,
@@ -757,7 +777,7 @@
 				F3F31DDA27DFDECF00D87988 /* HeaderViewModel.swift in Sources */,
 				F3799AC327EE1DBD009CFC2E /* TableRowViewModel.swift in Sources */,
 				F3F31DC727DFD9F000D87988 /* CollectionModel.swift in Sources */,
-				9E76EC5A2E3004D20023917A /* ContactUsViewController.swift in Sources */,
+				9E76EC5A2E3004D20023917A /* ContactUsTableViewController.swift in Sources */,
 				F3799A8427E90C2D009CFC2E /* CartModel.swift in Sources */,
 				F3A1A67F27E3A57400E4F0E7 /* CatalogModel.swift in Sources */,
 				F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */,
