@@ -15,6 +15,7 @@
 		9E38FE2F2E31209F000DAC24 /* NamedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE2E2E312097000DAC24 /* NamedTextField.swift */; };
 		9E38FE312E3121D0000DAC24 /* ContactUsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE302E3121C8000DAC24 /* ContactUsTableViewCell.swift */; };
 		9E38FE332E312271000DAC24 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE322E31226E000DAC24 /* Route.swift */; };
+		9E38FE372E316A08000DAC24 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE362E3169FA000DAC24 /* UIFont+Extensions.swift */; };
 		9E76EC5A2E3004D20023917A /* ContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E76EC592E3004BC0023917A /* ContactUsTableViewController.swift */; };
 		BAAF88612D8A174200626E9A /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = BAAF88602D8A174200626E9A /* axeDevToolsXCUI */; };
 		BAAF88632D8A174600626E9A /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = BAAF88622D8A174600626E9A /* axeDevToolsXCUI */; };
@@ -131,6 +132,7 @@
 		9E38FE2E2E312097000DAC24 /* NamedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedTextField.swift; sourceTree = "<group>"; };
 		9E38FE302E3121C8000DAC24 /* ContactUsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewCell.swift; sourceTree = "<group>"; };
 		9E38FE322E31226E000DAC24 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		9E38FE362E3169FA000DAC24 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9E76EC592E3004BC0023917A /* ContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewController.swift; sourceTree = "<group>"; };
 		F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -261,6 +263,14 @@
 				9E38FE322E31226E000DAC24 /* Route.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9E38FE352E3169D4000DAC24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9E38FE362E3169FA000DAC24 /* UIFont+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9E76EC582E3004190023917A /* ContactUs */ = {
@@ -413,6 +423,7 @@
 				9E38FE342E3122AD000DAC24 /* Models */,
 				F3A1A67127E380FE00E4F0E7 /* Data */,
 				9E38FE2D2E312081000DAC24 /* Views */,
+				9E38FE352E3169D4000DAC24 /* Extensions */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -749,6 +760,7 @@
 				F3799A8827E90F2E009CFC2E /* CartItemView.swift in Sources */,
 				F3799AB827ED2090009CFC2E /* PromoView.swift in Sources */,
 				F3F31DD627DFDC3800D87988 /* ItemModel.swift in Sources */,
+				9E38FE372E316A08000DAC24 /* UIFont+Extensions.swift in Sources */,
 				F3EFAC3D27E133C1004A87C9 /* CollectionsDataSource.swift in Sources */,
 				F3799AB427ED2066009CFC2E /* ProfileViewModel.swift in Sources */,
 				F3F31DD827DFDE7600D87988 /* HeaderModel.swift in Sources */,
