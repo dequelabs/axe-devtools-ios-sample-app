@@ -25,6 +25,7 @@ This project uses Swift Package Manager to pull in the frameworks from [axe-devt
 <img src="doc_img/UITests.png" alt="Shows the click area for running the UI test."/>
 
 ### For Automated Testing with Sauce Labs
+
 _Note: This project requires a device on iOS 16.0 or later. Additionally, Virtual Devices running iOS 17.0 may experience hanging during testing. Use an iOS 16.2 Virtual Device to see a successful test run._
 
 To run a test with this project, or to setup your own project, follow our online guide to get started with [XCUITesting on SauceLabs.](https://docs.deque.com/devtools-mobile/ios-example-sauce-labs-xcui)
