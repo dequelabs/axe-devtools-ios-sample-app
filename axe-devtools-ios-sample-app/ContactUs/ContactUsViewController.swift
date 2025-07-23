@@ -13,6 +13,7 @@ class NamedTextField: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = title
         label.isAccessibilityElement = true
+        label.font = UIFont(name: "Gilroy-Light", size: 14)
         return label
     }()
 
@@ -28,7 +29,6 @@ class NamedTextField: UIView {
         super.init(frame: .zero)
         self.isAccessibilityElement = true
         self.accessibilityTraits.insert(textField.accessibilityTraits)
-        self.accessibilityLabel = "Email"
         self.accessibilityAttributedValue = textField.accessibilityAttributedValue
         buildView()
     }
@@ -59,12 +59,14 @@ final class ContactUsTableViewCell: UITableViewCell {
     private lazy var emailTextField: NamedTextField = {
         let textField = NamedTextField(title: "Enter your email address:")
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.accessibilityLabel = "Email"
         return textField
     }()
 
     private lazy var questionTextField: NamedTextField = {
         let textField = NamedTextField(title: "What is your question?")
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.accessibilityLabel = "Question"
         return textField
     }()
 
@@ -73,20 +75,22 @@ final class ContactUsTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Send", for: .normal)
         button.accessibilityLabel = "Submit"
-        button.backgroundColor = .blue
+        button.backgroundColor = .black
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont(name: "Gilroy-Light", size: 14)
         return button
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        contentView.backgroundColor = UIColor(named: "LightGray")
+
         contentView.addSubview(emailTextField)
         contentView.addSubview(questionTextField)
         contentView.addSubview(submitButton)
 
-        
         NSLayoutConstraint.activate([
             emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 0),
@@ -112,6 +116,7 @@ class ContactUsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = .none
+        self.view.backgroundColor = UIColor(named: "LightGray")
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.title = "Contact Us"
     }
