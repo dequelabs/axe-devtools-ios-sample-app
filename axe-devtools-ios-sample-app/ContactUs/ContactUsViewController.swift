@@ -12,7 +12,6 @@ class NamedTextField: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = title
-        label.isAccessibilityElement = true
         label.font = UIFont(name: "Gilroy-Light", size: 14)
         return label
     }()
@@ -57,16 +56,16 @@ class NamedTextField: UIView {
 final class ContactUsTableViewCell: UITableViewCell {
 
     private lazy var emailTextField: NamedTextField = {
-        let textField = NamedTextField(title: "Enter your email address:")
+        let textField = NamedTextField(title: "Enter your email:")
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.accessibilityLabel = "Email"
+        textField.accessibilityLabel = "Email Address"
         return textField
     }()
 
     private lazy var questionTextField: NamedTextField = {
         let textField = NamedTextField(title: "What is your question?")
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.accessibilityLabel = "Question"
+        textField.accessibilityLabel = "Enter a question"
         return textField
     }()
 
