@@ -1,3 +1,5 @@
+# Sauce Labs config file for Virtual Devices
+
 apiVersion: v1alpha
 kind: xcuitest
 sauce:

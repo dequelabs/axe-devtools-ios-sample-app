@@ -34,9 +34,9 @@ Assuming you have already downloaded the sample project to your computer:
 1. Add your Deque API Key to `Login.swift`.
 2. Open a Terminal window, enter `cd `, then drag and drop the `axe-devtools-ios-sample-app` from Finder into the Terminal window. Hit return/enter.
 
-To run on **Real Devices**, type `sh prepareForSauceReal.sh` in the same window. Hit return/enter.
+To run on **Real Devices**, type `sh prepareForSauceRealDevice.sh` in the same window. Hit return/enter.
 
-To run on **Virtual Devices**, type `sh prepareForSauceVirtual.sh` in the same window. Hit return/enter.
+To run on **Virtual Devices**, type `sh prepareForSauceVirtualDevice.sh` in the same window. Hit return/enter.
 
 These scripts will build the app for the appropriate device type and begin executing automated tests in your Sauce Labs environment.
 

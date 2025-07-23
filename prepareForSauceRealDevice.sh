@@ -20,7 +20,7 @@ rm -rf Payload/*
 mv $APP_LOCATION/RegressionUITests-Runner.app Payload
 zip -r -qq "RegressionUITests-Runner.ipa" Payload
 
-saucectl run -c ./.sauce/configReal.yml
+saucectl run -c ./.sauce/configRealDevice.yml
 
 rm -rf Payload
 rm -rf DerivedData

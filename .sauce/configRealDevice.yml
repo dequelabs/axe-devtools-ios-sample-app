@@ -1,3 +1,5 @@
+# Sauce Labs config file for Real Devices
+
 apiVersion: v1alpha
 kind: xcuitest
 sauce:

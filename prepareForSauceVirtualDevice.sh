@@ -15,6 +15,6 @@ xcodebuild build-for-testing -configuration Debug \
 zip -r -qq axe-devtools-ios-sample-app.zip $APP_LOCATION/$APP_NAME.app
 zip -r -qq RegressionUITests-Runner.zip $APP_LOCATION/RegressionUITests-Runner.app
 
-saucectl run -c ./.sauce/configVirtual.yml
+saucectl run -c ./.sauce/configVirtualDevice.yml
 
 rm -rf DerivedData
