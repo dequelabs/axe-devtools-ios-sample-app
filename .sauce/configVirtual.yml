@@ -1,0 +1,16 @@
+apiVersion: v1alpha
+kind: xcuitest
+sauce:
+  region: us-west-1
+  concurrency: 1
+
+xcuitest:
+  app: "axe-devtools-ios-sample-app.zip"
+  testApp: "RegressionUITests-Runner.zip"
+
+suites:
+  - name: "RegressionUITests"
+    simulators:
+      - name: "iPhone 12 Simulator"
+        platformVersions:
+          - "17.0"
