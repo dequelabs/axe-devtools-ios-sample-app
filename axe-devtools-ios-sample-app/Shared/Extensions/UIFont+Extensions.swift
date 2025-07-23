@@ -11,10 +11,10 @@ extension UIFont {
         case extraBold = "ExtraBold"
     }
 
-    /// The Gilroy font. Default weight is .light and fontSize is 16.
+    /// The Gilroy font. Default weight is .light and fontSize is 14.
     static func gilroy(
         _ weight: FontWeight = .light,
-        _ fontSize: CGFloat = 16
+        _ fontSize: CGFloat = 14
     ) -> UIFont {
         UIFont(
             name: "Gilroy-\(weight.rawValue)",

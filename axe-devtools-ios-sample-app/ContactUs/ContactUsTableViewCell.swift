@@ -29,7 +29,7 @@ final class ContactUsTableViewCell: UITableViewCell {
         button.backgroundColor = .black
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
-        button.titleLabel?.font = UIFont(name: "Gilroy-Light", size: 14)
+        button.titleLabel?.font = UIFont.gilroy()
         return button
     }()
 
@@ -46,20 +46,45 @@ final class ContactUsTableViewCell: UITableViewCell {
         contentView.addSubview(questionTextField)
         contentView.addSubview(submitButton)
 
+        let padding: CGFloat = 20
         NSLayoutConstraint.activate([
             // Email TextField
-            emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            emailTextField.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: padding
+            ),
+            emailTextField.topAnchor.constraint(
+                equalTo: topAnchor,
+                constant: padding
+            ),
+            emailTextField.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -padding
+            ),
 
             // Question TextField
-            questionTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            questionTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
-            questionTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            questionTextField.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: padding
+            ),
+            questionTextField.topAnchor.constraint(
+                equalTo: emailTextField.bottomAnchor,
+                constant: padding
+            ),
+            questionTextField.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -padding
+            ),
 
             // Submit Button
-            submitButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            submitButton.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: 20),
+            submitButton.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: padding
+            ),
+            submitButton.topAnchor.constraint(
+                equalTo: questionTextField.bottomAnchor,
+                constant: padding
+            ),
             submitButton.widthAnchor.constraint(equalToConstant: 100),
             submitButton.heightAnchor.constraint(equalToConstant: 50)
         ])

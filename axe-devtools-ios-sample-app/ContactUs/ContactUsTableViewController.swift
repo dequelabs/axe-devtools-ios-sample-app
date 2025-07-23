@@ -17,16 +17,23 @@ final class ContactUsTableViewController: UITableViewController {
             .font: UIFont.italiana()
         ]
 
+        let titleLabel = UILabel()
+        titleLabel.text = "Contact Us"
+        titleLabel.font = UIFont.italiana()
+
+        navigationItem.titleView = titleLabel
+
         navigationController?.navigationBar.largeTitleTextAttributes = headerAttributes
         navigationController?.setNavigationBarHidden(false, animated: true)
-
-        self.title = "Contact Us"
 
         // Table View
         tableView.separatorStyle = .none
 
         // Background
         view.backgroundColor = UIColor(named: "LightGray")
+
+        // Tab bar
+        tabBarController?.tabBar.backgroundColor = .white
     }
 
     override func tableView(

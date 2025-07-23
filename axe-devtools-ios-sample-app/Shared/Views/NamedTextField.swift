@@ -12,7 +12,7 @@ final class NamedTextField: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = title
-        label.font = UIFont(name: "Gilroy-Light", size: 14)
+        label.font = .gilroy()
         return label
     }()
 
@@ -46,6 +46,7 @@ final class NamedTextField: UIView {
         addSubview(label)
         addSubview(textField)
 
+        let verticalPadding: CGFloat = 4
         NSLayoutConstraint.activate([
             // Label
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
@@ -54,7 +55,7 @@ final class NamedTextField: UIView {
 
             // TextField
             textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            textField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 0),
+            textField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: verticalPadding),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
