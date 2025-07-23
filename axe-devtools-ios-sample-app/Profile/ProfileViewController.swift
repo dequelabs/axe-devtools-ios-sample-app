@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     lazy var profileView: ProfileView = {
         let pv = ProfileView()
         pv.translatesAutoresizingMaskIntoConstraints = false
+        pv.sendEvent = handleEvent
         return pv
     }()
 
@@ -68,5 +69,16 @@ class ProfileViewController: UIViewController {
             profileView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             profileView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         ])
+    }
+
+    private func handleEvent(_ event: ProfileView.Event) {
+        switch event {
+        case .shouldNavigate(let route):
+            switch route {
+            case .contactUs:
+                let contactUsView = ContactUsTableViewController()
+                self.navigationController?.pushViewController(contactUsView, animated: true)
+            }
+        }
     }
 }
