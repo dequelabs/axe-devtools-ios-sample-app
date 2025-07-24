@@ -8,7 +8,8 @@
 import UIKit
 
 class ProfileView: UIView {
-    
+    var sendEvent: ((_ event: Event) -> Void)?
+
     lazy var customerInfoView: CustomerInfoView = {
         let civ = CustomerInfoView()
         civ.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +25,7 @@ class ProfileView: UIView {
     lazy var profileTableView: ProfileTableView = {
         let ptv = ProfileTableView()
         ptv.translatesAutoresizingMaskIntoConstraints = false
+        ptv.didSelectCell = handleSelectedCell
         return ptv
     }()
 
@@ -69,5 +71,20 @@ class ProfileView: UIView {
             profileTableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
 
+    }
+
+    private func handleSelectedCell(_ viewModel: TableRowModel) {
+        switch viewModel.text {
+        case "Need help?":
+            self.sendEvent?(.shouldNavigate(to: .contactUs))
+        default:
+            break
+        }
+    }
+}
+
+extension ProfileView {
+    enum Event {
+        case shouldNavigate(to: Route)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class ProfileTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     let viewModel = ProfileViewModel()
     let cellId = "cellId"
+    var didSelectCell: ((TableRowModel) -> Void)?
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -36,5 +37,10 @@ class ProfileTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         cell.accessoryView = UIImageView(image: arrowImage)
         cell.viewModel = cellVM
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCellModel = viewModel.cellModels[indexPath.item]
+        self.didSelectCell?(selectedCellModel)
     }
 }
