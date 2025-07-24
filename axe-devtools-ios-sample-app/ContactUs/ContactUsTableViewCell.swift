@@ -6,6 +6,15 @@
 import UIKit
 
 final class ContactUsTableViewCell: UITableViewCell {
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Contact Us"
+        label.font = UIFont.italiana()
+        label.backgroundColor = .clear
+        label.textAlignment = .center
+        return label
+    }()
 
     private lazy var emailTextField: NamedTextField = {
         let textField = NamedTextField(title: "Enter your email:")
@@ -42,19 +51,34 @@ final class ContactUsTableViewCell: UITableViewCell {
 
         contentView.backgroundColor = UIColor(named: "LightGray")
 
+        contentView.addSubview(titleLabel)
         contentView.addSubview(emailTextField)
         contentView.addSubview(questionTextField)
         contentView.addSubview(submitButton)
 
         let padding: CGFloat = 20
         NSLayoutConstraint.activate([
+            // Title Label
+            titleLabel.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: padding
+            ),
+            titleLabel.topAnchor.constraint(
+                equalTo: topAnchor,
+                constant: padding
+            ),
+            titleLabel.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -padding
+            ),
+
             // Email TextField
             emailTextField.leadingAnchor.constraint(
                 equalTo: leadingAnchor,
                 constant: padding
             ),
             emailTextField.topAnchor.constraint(
-                equalTo: topAnchor,
+                equalTo: titleLabel.bottomAnchor,
                 constant: padding
             ),
             emailTextField.trailingAnchor.constraint(
