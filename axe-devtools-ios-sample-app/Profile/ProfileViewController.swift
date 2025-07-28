@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     lazy var profileView: ProfileView = {
         let pv = ProfileView()
         pv.translatesAutoresizingMaskIntoConstraints = false
+        pv.sendEvent = handleEvent
         return pv
     }()
 
@@ -68,5 +69,34 @@ class ProfileViewController: UIViewController {
             profileView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             profileView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         ])
+    }
+
+    private func prepareForNavigation() {
+        // One of UIKit's quirks is that you can't change
+        // the back button appearance in a rational way
+        // from the screen presenting it. It has to be done
+        // from the parent 🙃
+        let backButton = UIBarButtonItem()
+        backButton.title = "Profile"
+        backButton.tintColor = .black
+        backButton.setTitleTextAttributes(
+            [.font: UIFont.italiana(16)],
+            for: .normal
+        )
+        navigationItem.backBarButtonItem = backButton
+    }
+
+    private func handleEvent(_ event: ProfileView.Event) {
+        switch event {
+
+        case .shouldNavigate(let route):
+            switch route {
+
+            case .contactUs:
+                prepareForNavigation()
+                let contactUsView = ContactUsTableViewController()
+                self.navigationController?.pushViewController(contactUsView, animated: true)
+            }
+        }
     }
 }

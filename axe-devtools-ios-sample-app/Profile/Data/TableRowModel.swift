@@ -7,12 +7,7 @@
 
 import Foundation
 
-class TableRowModel {
-    var text: String
-    var imageName: String
-
-    init(text: String, imageName: String) {
-        self.text = text
-        self.imageName = imageName
-    }
+struct TableRowModel {
+    let text: String
+    let imageName: String
 }
