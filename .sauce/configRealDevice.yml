@@ -1,3 +1,5 @@
+# Sauce Labs config file for Real Devices
+
 apiVersion: v1alpha
 kind: xcuitest
 sauce:
@@ -12,4 +14,4 @@ suites:
   - name: "RegressionUITests"
     devices:
       - name: "iPhone.*"
-        platformVersion: "17.2"
+        platformVersion: "17.7"
