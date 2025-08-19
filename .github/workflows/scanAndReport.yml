@@ -35,13 +35,10 @@ jobs:
         env:
           dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
         run: |
-          pwd
-          ls -al
-          cd "$(pwd)/axe-devtools-ios-sample-app"
           echo "import Foundation
           struct Login {
             static let APIKey = \"${dequeApiKey}\"
-          }" > "Login.swift"
+          }" > "axe-devtools-ios-sample-app/Login.swift"
 
       - name: Test
         run: |
