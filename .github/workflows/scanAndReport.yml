@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - updateCatalog # only run this action on the demo branch for the reporter
+      - fix-reporter
 
 jobs:
   build:
@@ -27,6 +28,8 @@ jobs:
         env:
           dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
         run: |
+          pwd
+          ls -al
           cd "$(pwd)/axe-devtools-ios-sample-app"
           echo "import Foundation
           struct Login {
