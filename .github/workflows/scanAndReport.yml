@@ -45,13 +45,14 @@ jobs:
 
       - name: Test
         run: |
-          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,name=iPhone 16" -quiet
+          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,name=iPhone 16"
 
       - name: Build Report
         if: always()
         env:
           scanFolderPath: ${{ '/Users/runner/RegressionScans' }}
         run: |
+          mkdir $scanFoldPath
           /Users/runner/reporter ${scanFolderPath} "AxeReport" --format=html
 
       - name: Upload a Build Artifact
