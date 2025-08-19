@@ -35,6 +35,10 @@ jobs:
         env:
           dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
         run: |
+          if [ -z $dequeApiKey ]; then
+            echo "🛑 Missing Deque API key"
+            exit 1
+          fi
           echo "import Foundation
           struct Login {
             static let APIKey = \"${dequeApiKey}\"
