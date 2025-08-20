@@ -9,12 +9,12 @@ on:
 jobs:
   build:
     name: Build and Test default scheme
-    runs-on: macos-15 # Make sure xcodebuild simulator/OS is supported: https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md
+    runs-on: macos-14 # Make sure xcodebuild simulator/OS is supported: https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
     steps:    
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1
         with:
-          xcode-version: '16.4'
+          xcode-version: '16.2'
 
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -46,7 +46,7 @@ jobs:
 
       - name: Test
         run: |
-          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,OS=18.5,name=iPhone 16 Pro"
+          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,OS=18.2,name=iPhone 16 Pro"
 
       - name: Build Report
         if: always()
