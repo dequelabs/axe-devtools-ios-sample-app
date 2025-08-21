@@ -33,6 +33,10 @@ class SampleUITests: XCTestCase {
         // Get your API key here: https://axe.deque.com/settings
         axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
 
+        // 1a (Optional). Experimental rules are rulesets that are still in testing and development. Results for the
+        // experimental rules can be IGNORED with the ignoreExperimental method, and this way they will not run.
+        axe?.configuration.ignoreExperimental()
+
         // 2.
         // Launch the sample app
         app.launch()
@@ -99,10 +103,6 @@ class SampleUITests: XCTestCase {
     // For more information on saving results locally, please visit:
     // https://docs.deque.com/devtools-mobile/2023.8.16/en/ios-save-result
     func testAccessibilityAndSaveResultsLocally() throws {
-
-        // Experimental rules are rulesets that are still in testing and development. Results for the experimental
-        // rules can be IGNORED with the ignoreExperimental method, and this way they will not run
-        axe?.configuration.ignoreExperimental()
 
         var lastResult: AxeResult?
         guard let result = try axe?.run(onElement: app) else {
