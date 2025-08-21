@@ -53,7 +53,7 @@ jobs:
         env:
           scanFolderPath: ${{ '/Users/runner/RegressionScans' }}
         run: |
-          mkdir $scanFoldPath
+          echo "$scanFoldPath"
           /Users/runner/reporter ${scanFolderPath} "AxeReport" --format=html
 
       - name: Upload a Build Artifact
