@@ -51,9 +51,7 @@ class RegressionUITests: XCTestCase {
         // Post the report to the dashboard
 
         // try axe?.postResult(result, withScanName: name)
-        print("Attempting to save result")
         _ = try axe?.saveResult(result, toPath: "RegressionScans", withFileName: name, withScanName: name)
-        print("Finished saving result")
     }
 
     func assertNoCriticalResults() {
