@@ -44,7 +44,7 @@ jobs:
 
       - name: Test
         run: |
-          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,OS=18.2,name=iPhone 16 Pro"
+          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,OS=18.2,name=iPhone 16 Pro" -quiet
 
       - name: Build Report
         if: always()
