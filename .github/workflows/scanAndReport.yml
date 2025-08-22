@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - updateCatalog # only run this action on the demo branch for the reporter
-      - fix-reporter
 
 jobs:
   build:
