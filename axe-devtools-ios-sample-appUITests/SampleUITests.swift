@@ -103,7 +103,6 @@ class SampleUITests: XCTestCase {
     // For more information on saving results locally, please visit:
     // https://docs.deque.com/devtools-mobile/2023.8.16/en/ios-save-result
     func testAccessibilityAndSaveResultsLocally() throws {
-
         var lastResult: AxeResult?
         guard let result = try axe?.run(onElement: app) else {
             XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
