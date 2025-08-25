@@ -1,6 +1,7 @@
 name: Accessibility Test & Report
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - updateCatalog # only run this action on the demo branch for the reporter
@@ -8,39 +9,50 @@ on:
 jobs:
   build:
     name: Build and Test default scheme
-    runs-on: macos-15 # Make sure xcodebuild simulator/OS is supported: https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md
+    runs-on: macos-14 # Make sure xcodebuild simulator/OS is supported: https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
     steps:    
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1
         with:
-          xcode-version: '16.4'
+          xcode-version: '16.2'
 
       - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - name: Setup Node
         uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3
+
       - name: Install the Reporter CLI
         env:
           apiKey: ${{ secrets.AGORA_API_KEY_KA }}
         run: |
-          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com/artifactory/axe-devtools-reporter-cli/prod/4.8.0/pkgs/@axe-devtools/reporter-cli-macos" --output "/Users/runner/reporter"
+          curl --compressed -H "X-JFrog-Art-Api: ${apiKey}" "https://agora.dequecloud.com/artifactory/axe-devtools-reporter-cli/prod/4.11.0/pkgs/@axe-devtools/reporter-cli-macos" --output "/Users/runner/reporter"
           chmod +x /Users/runner/reporter
+
       - name: Add Deque API Key
         env:
           dequeApiKey: ${{ secrets.DEQUE_API_KEY_KA }}
         run: |
-          cd "$(pwd)/axe-devtools-ios-sample-app"
+          if [ -z $dequeApiKey ]; then
+            echo "🛑 Missing Deque API key"
+            exit 1
+          fi
           echo "import Foundation
           struct Login {
             static let APIKey = \"${dequeApiKey}\"
-          }" > "Login.swift"
+          }" > "axe-devtools-ios-sample-app/Login.swift"
+
       - name: Test
         run: |
-          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,name=iPhone 16" -quiet
+          xcodebuild test -configuration Debug -scheme "axe-devtools-ios-sample-app" -target "RegressionUITests" -destination "platform=iOS Simulator,OS=18.2,name=iPhone 16 Pro" -quiet
+
       - name: Build Report
         if: always()
         env:
           scanFolderPath: ${{ '/Users/runner/RegressionScans' }}
         run: |
           /Users/runner/reporter ${scanFolderPath} "AxeReport" --format=html
+
       - name: Upload a Build Artifact
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
