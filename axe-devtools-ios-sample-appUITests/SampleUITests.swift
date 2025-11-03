@@ -31,6 +31,7 @@ class SampleUITests: XCTestCase {
         // 1.
         // Enter your axe DevTools Mobile API key and axe Developer hub project ID in the "" marks in the APIKey and projectId constants defined in the Login file
         // Get your API key here: https://axe.deque.com/settings
+        // Get your Project Id here: https://axe.deque.com/axe-watcher/projects
         axe = try? AxeDevTools.startSession(apiKey: Login.APIKey, projectId: Login.projectId)
 
         // 1a (Optional). Experimental rules are rulesets that are still in testing and development. Results for the
