@@ -29,7 +29,7 @@ class SampleUITests: XCTestCase {
 
     override func setUp() {
         // 1.
-        // Enter your axe DevTools Mobile API key in the "" marks in the APIKey constant defined in the Login file
+        // Enter your axe DevTools Mobile API key and project ID in the "" marks in the APIKey and projectId constants defined in the Login file
         // Get your API key here: https://axe.deque.com/settings
         axe = try? AxeDevTools.startSession(apiKey: Login.APIKey, projectId: Login.projectId)
 
