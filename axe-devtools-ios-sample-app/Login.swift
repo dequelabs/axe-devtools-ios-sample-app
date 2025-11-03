@@ -8,4 +8,5 @@
 import Foundation
 struct Login {
     static let APIKey=""
+    static let projectId=""
 }

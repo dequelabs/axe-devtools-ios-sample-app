@@ -18,7 +18,7 @@ A sample application built solely to showcase axe DevTools Mobile implementation
 
 This project uses Swift Package Manager to pull in the frameworks from [axe-devtools-ios](https://github.com/dequelabs/axe-devtools-ios/).
 
-1. Add your Deque API Key to `Login.swift`.
+1. Add your Deque API Key and your axe Developer Hub Project Id to `Login.swift`.
 
 2. Once you have a device or simulator ready to go, open `SampleUITests.swift`, and tap on the diamond to run this suite. The simulator will launch, and the tests will run.
 
@@ -31,7 +31,7 @@ _Note: This project requires a device on iOS 16.0 or later. Additionally, Virtua
 To run a test with this project, or to setup your own project, follow our online guide to get started with [XCUITesting on SauceLabs.](https://docs.deque.com/devtools-mobile/ios-example-sauce-labs-xcui)
 
 Assuming you have already downloaded the sample project to your computer:
-1. Add your Deque API Key to `Login.swift`.
+1. Add your Deque API Key and your axe Developer Hub Project Id to `Login.swift`.
 2. Open a Terminal window, enter `cd `, then drag and drop the `axe-devtools-ios-sample-app` from Finder into the Terminal window. Hit return/enter.
 
 To run on **Real Devices**, type `sh prepareForSauceRealDevice.sh` in the same window. Hit return/enter.
