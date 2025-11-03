@@ -31,7 +31,7 @@ class SampleUITests: XCTestCase {
         // 1.
         // Enter your axe DevTools Mobile API key in the "" marks in the APIKey constant defined in the Login file
         // Get your API key here: https://axe.deque.com/settings
-        axe = try? AxeDevTools.login(withAPIKey: Login.APIKey)
+        axe = try? AxeDevTools.startSession(apiKey: Login.APIKey, projectId: Login.projectId)
 
         // 1a (Optional). Experimental rules are rulesets that are still in testing and development. Results for the
         // experimental rules can be IGNORED with the ignoreExperimental method, and this way they will not run.
