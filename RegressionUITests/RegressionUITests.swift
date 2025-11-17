@@ -25,9 +25,9 @@ class RegressionUITests: XCTestCase {
         // Run a scan on the first page and post the result to the dashboard.
         try scanForAccessibility(withScanName: "Home")
 
-        //navigate to a tab by it's index, and run a scan, post to the dashboard
+        //navigate to a tab, run a scan, then post to the dashboard
         let tabBar = XCUIApplication().tabBars["Tab Bar"]
-        tabBar.children(matching: .button).element(boundBy: 1).tap()
+        tabBar.buttons["Catalog"].tap()
         try scanForAccessibility(withScanName: "Catalog")
 
         // FOR DEMO: Fail the test if critical accessibility errors are found on the first page.
@@ -37,7 +37,7 @@ class RegressionUITests: XCTestCase {
         tabBar.buttons["Cart"].tap()
         try scanForAccessibility(withScanName: "Cart")
 
-        tabBar.children(matching: .button).element(boundBy: 3).tap()
+        tabBar.buttons["Profile"].tap()
         try scanForAccessibility(withScanName: "Profile")
     }
 
