@@ -25,7 +25,7 @@ class RegressionUITests: XCTestCase {
         // Run a scan on the first page and post the result to the dashboard.
         try scanForAccessibility(withScanName: "Home")
 
-        //navigate to a tab, and run a scan, post to the dashboard
+        //navigate to a tab, run a scan, then post to the dashboard
         let tabBar = XCUIApplication().tabBars["Tab Bar"]
         tabBar.buttons["Catalog"].tap()
         try scanForAccessibility(withScanName: "Catalog")
