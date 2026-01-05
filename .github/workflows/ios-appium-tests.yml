@@ -1,0 +1,450 @@
+name: iOS Appium Tests
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  workflow_dispatch:
+    inputs:
+      ios_version:
+        description: 'iOS Version'
+        required: false
+        default: '17.5'
+      device_name:
+        description: 'Device Name'
+        required: false
+        default: 'iPhone 15 Pro'
+      appium2_driver_version:
+        description: 'Appium 2 axe-devtools driver version (e.g. 3.1.0-beta.abc123)'
+        required: false
+        default: '3.1.0'
+      appium3_driver_version:
+        description: 'Appium 3 axe-devtools driver version (e.g. 3.1.0-beta.abc123)'
+        required: false
+        default: '3.1.0'
+
+env:
+  XCODE_VERSION: '15.2'
+  IOS_VERSION: ${{ github.event.inputs.ios_version || '17.5' }}
+  DEVICE_NAME: ${{ github.event.inputs.device_name || 'iPhone 15 Pro' }}
+  APPIUM_SKIP_CHROMEDRIVER_INSTALL: 1
+  APPIUM_TEST_SERVER_PORT: 4723
+  APPIUM_TEST_SERVER_HOST: 127.0.0.1
+  AGORA_NPM_EMAIL: ${{ secrets.DQ_AGORA_USER }}
+  AGORA_NPM_AUTH: ${{ secrets.APPIUM_AUTH }}
+  AGORA_REGISTRY_URL: //agora.dequecloud.com/artifactory/api/npm/axe-devtools-mobile-appium-qa/
+
+jobs:
+  build-app:
+    name: Build iOS App
+    runs-on: macos-14
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: List available Xcode versions
+        run: ls /Applications | grep Xcode
+
+      - name: Select Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ env.XCODE_VERSION }}
+        continue-on-error: true
+
+      - name: Fallback Xcode selection
+        if: failure()
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: List available simulators
+        run: xcrun simctl list devices available
+
+      - name: Create build directory
+        run: mkdir -p build
+
+      - name: Build app for simulator
+        run: |
+          xcodebuild \
+            -project axe-devtools-ios-sample-app.xcodeproj \
+            -scheme axe-devtools-ios-sample-app \
+            -sdk iphonesimulator \
+            -configuration Release \
+            -derivedDataPath ./DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            build
+
+      - name: Locate and copy built app
+        run: |
+          echo "Searching for built app..."
+          find ./DerivedData -name "*.app" -type d
+          echo "Copying app to build directory..."
+          cp -R ./DerivedData/Build/Products/Release-iphonesimulator/axe-devtools-ios-sample-app.app ./build/
+
+      - name: Verify app structure
+        run: |
+          ls -la ./build/axe-devtools-ios-sample-app.app
+          file ./build/axe-devtools-ios-sample-app.app/axe-devtools-ios-sample-app
+
+      - name: Upload app artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-app
+          path: build/axe-devtools-ios-sample-app.app
+          retention-days: 1
+
+  test-appium-2:
+    name: Test with Appium 2
+    runs-on: macos-14
+    needs: build-app
+    strategy:
+      matrix:
+        xcuitest-driver-version: ['3.0.0', '3.0.1', '3.1.0']
+      fail-fast: false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: 'npm'
+          cache-dependency-path: ./appium-tests/package.json
+
+      - name: Download app artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ios-app
+          path: build/Release-iphonesimulator/axe-devtools-ios-sample-app.app
+
+      - name: Verify downloaded app
+        run: |
+          echo "Checking downloaded app structure..."
+          ls -la build/Release-iphonesimulator/
+          ls -la build/Release-iphonesimulator/axe-devtools-ios-sample-app.app/
+
+      - name: Select Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ env.XCODE_VERSION }}
+        continue-on-error: true
+
+      - name: Fallback Xcode selection
+        if: failure()
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+      - name: Install Appium 2.x
+        run: |
+          npm install -g appium@2
+          appium --version
+
+      - name: Configure npm for @axe-devtools registry
+        run: |
+          echo "Configuring npm for @axe-devtools driver..."
+          git config user.name "deque-mobileteam"
+          git config user.email "mobileteam@deque.com"
+          npm config set "@deque:registry" "https:${{ env.AGORA_REGISTRY_URL }}"
+          npm config set "@axe-devtools:registry" "https:${{ env.AGORA_REGISTRY_URL }}"
+          npm config set "${{ env.AGORA_REGISTRY_URL }}:email" "${{ env.AGORA_NPM_EMAIL }}"
+          npm config set "${{ env.AGORA_REGISTRY_URL }}:_authToken" "${{ env.AGORA_NPM_AUTH }}"
+
+      - name: Install @axe-devtools XCUITest Driver
+        run: |
+          DRIVER_VERSION="${{ github.event.inputs.appium2_driver_version || matrix.xcuitest-driver-version }}"
+          echo "Installing @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION}"
+          appium driver install --source=npm @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION}
+          appium driver list
+
+      - name: Prepare and boot iOS simulator
+        id: prepareSimulator
+        uses: futureware-tech/simulator-action@v4
+        with:
+          model: "${{ env.DEVICE_NAME }}"
+          os_version: "${{ env.IOS_VERSION }}"
+          shutdown_after_job: true
+
+      - name: Wait for Simulator to finish booting
+        run: |
+          echo "Waiting for simulator ${{ steps.prepareSimulator.outputs.udid }} to boot..."
+          xcrun simctl bootstatus ${{ steps.prepareSimulator.outputs.udid }} -b
+          echo "✓ Simulator is fully booted"
+
+      - name: Verify simulator is ready
+        run: |
+          xcrun simctl list devices | grep "${{ steps.prepareSimulator.outputs.udid }}"
+
+      - name: Build WebDriverAgent
+        run: |
+          echo "Building WebDriverAgent..."
+          appium driver run axexcuitest build-wda --sdk=${{ env.IOS_VERSION }} --name="${{ env.DEVICE_NAME }}"
+
+      - name: Install and launch WebDriverAgent
+        run: |
+          echo "Installing WebDriverAgent on simulator..."
+          cd ~/Library/Developer/Xcode/DerivedData/WebDriverAgent*/Build/Products/Debug-iphonesimulator
+          xcrun simctl install booted WebDriverAgentRunner-Runner.app
+
+          echo "Launching WebDriverAgent..."
+          xcrun simctl launch booted com.deque.WebDriverAgentRunner.xctrunner
+
+      - name: Install dependencies
+        working-directory: appium-tests
+        run: npm ci
+
+      - name: Create screenshots directory
+        working-directory: appium-tests
+        run: mkdir -p screenshots
+
+      - name: Install wait-on utility
+        run: npm install -g wait-on
+
+      - name: Start Appium server
+        working-directory: appium-tests
+        run: |
+          echo "Starting Appium server..."
+          cwd=$(pwd)
+          nohup appium server \
+            --port=$APPIUM_TEST_SERVER_PORT \
+            --address=$APPIUM_TEST_SERVER_HOST \
+            --relaxed-security \
+            --log-no-colors \
+            --log-timestamp \
+            2>&1 > "$cwd/appium.log" &
+          APPIUM_PID=$!
+          echo "APPIUM_PID=$APPIUM_PID" >> $GITHUB_ENV
+          echo "APPIUM_LOG_PATH=$cwd" >> $GITHUB_ENV
+          echo "Appium server started with PID: $APPIUM_PID"
+
+      - name: Wait for Appium server to be ready
+        run: |
+          echo "Waiting for Appium server to be ready on port $APPIUM_TEST_SERVER_PORT..."
+          wait-on tcp:$APPIUM_TEST_SERVER_PORT && echo "✓ Appium server is running on port $APPIUM_TEST_SERVER_PORT!"
+          curl -s http://$APPIUM_TEST_SERVER_HOST:$APPIUM_TEST_SERVER_PORT/status
+
+      - name: Run Appium 2 tests
+        working-directory: appium-tests
+        env:
+          APP_PATH: ${{ github.workspace }}/build/Release-iphonesimulator/axe-devtools-ios-sample-app.app
+          IOS_VERSION: ${{ env.IOS_VERSION }}
+          DEVICE_NAME: ${{ env.DEVICE_NAME }}
+        run: npm run test:appium2
+        continue-on-error: true
+
+      - name: Display Appium logs
+        if: always()
+        run: |
+          echo "========== Appium Server Logs =========="
+          cat ${{ env.APPIUM_LOG_PATH }}/appium.log || echo "No Appium logs found"
+
+      - name: Stop Appium server
+        if: always()
+        run: |
+          if [ -n "${{ env.APPIUM_PID }}" ]; then
+            echo "Stopping Appium server (PID: ${{ env.APPIUM_PID }})"
+            kill ${{ env.APPIUM_PID }} || true
+          fi
+
+      - name: Upload test results and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-appium2-driver-${{ matrix.xcuitest-driver-version }}
+          path: |
+            appium-tests/screenshots/
+            appium-tests/appium.log
+          retention-days: 7
+
+  test-appium-3:
+    name: Test with Appium 3
+    runs-on: macos-14
+    needs: build-app
+    strategy:
+      matrix:
+        xcuitest-driver-version: ['3.0.0', '3.0.1', '3.1.0']
+      fail-fast: false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: 'npm'
+          cache-dependency-path: ./appium-tests/package.json
+
+      - name: Download app artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ios-app
+          path: build/Release-iphonesimulator/axe-devtools-ios-sample-app.app
+
+      - name: Verify downloaded app
+        run: |
+          echo "Checking downloaded app structure..."
+          ls -la build/Release-iphonesimulator/
+          ls -la build/Release-iphonesimulator/axe-devtools-ios-sample-app.app/
+
+      - name: Select Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ env.XCODE_VERSION }}
+        continue-on-error: true
+
+      - name: Fallback Xcode selection
+        if: failure()
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+      - name: Install Appium 3.x
+        run: |
+          npm install -g appium@next
+          appium --version
+
+      - name: Configure npm for @axe-devtools registry
+        run: |
+          echo "Configuring npm for @axe-devtools driver..."
+          git config user.name "deque-mobileteam"
+          git config user.email "mobileteam@deque.com"
+          npm config set "@deque:registry" "https:${{ env.AGORA_REGISTRY_URL }}"
+          npm config set "@axe-devtools:registry" "https:${{ env.AGORA_REGISTRY_URL }}"
+          npm config set "${{ env.AGORA_REGISTRY_URL }}:email" "${{ env.AGORA_NPM_EMAIL }}"
+          npm config set "${{ env.AGORA_REGISTRY_URL }}:_auth" "${{ env.AGORA_NPM_AUTH }}"
+
+      - name: Install @axe-devtools XCUITest Driver
+        run: |
+          DRIVER_VERSION="${{ github.event.inputs.appium3_driver_version || matrix.xcuitest-driver-version }}"
+          echo "Installing @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION}"
+          appium driver install --source=npm @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION}
+          appium driver list
+
+      - name: Prepare and boot iOS simulator
+        id: prepareSimulator
+        uses: futureware-tech/simulator-action@v4
+        with:
+          model: "${{ env.DEVICE_NAME }}"
+          os_version: "${{ env.IOS_VERSION }}"
+          shutdown_after_job: true
+
+      - name: Wait for Simulator to finish booting
+        run: |
+          echo "Waiting for simulator ${{ steps.prepareSimulator.outputs.udid }} to boot..."
+          xcrun simctl bootstatus ${{ steps.prepareSimulator.outputs.udid }} -b
+          echo "✓ Simulator is fully booted"
+
+      - name: Verify simulator is ready
+        run: |
+          xcrun simctl list devices | grep "${{ steps.prepareSimulator.outputs.udid }}"
+
+      - name: Build WebDriverAgent
+        run: |
+          echo "Building WebDriverAgent..."
+          appium driver run axexcuitest build-wda --sdk=${{ env.IOS_VERSION }} --name="${{ env.DEVICE_NAME }}"
+
+      - name: Install and launch WebDriverAgent
+        run: |
+          echo "Installing WebDriverAgent on simulator..."
+          cd ~/Library/Developer/Xcode/DerivedData/WebDriverAgent*/Build/Products/Debug-iphonesimulator
+          xcrun simctl install booted WebDriverAgentRunner-Runner.app
+
+          echo "Launching WebDriverAgent..."
+          xcrun simctl launch booted com.deque.WebDriverAgentRunner.xctrunner
+
+      - name: Install dependencies
+        working-directory: appium-tests
+        run: npm ci
+
+      - name: Create screenshots directory
+        working-directory: appium-tests
+        run: mkdir -p screenshots
+
+      - name: Install wait-on utility
+        run: npm install -g wait-on
+
+      - name: Start Appium server
+        working-directory: appium-tests
+        run: |
+          echo "Starting Appium server..."
+          cwd=$(pwd)
+          nohup appium server \
+            --port=$APPIUM_TEST_SERVER_PORT \
+            --address=$APPIUM_TEST_SERVER_HOST \
+            --relaxed-security \
+            --log-no-colors \
+            --log-timestamp \
+            2>&1 > "$cwd/appium.log" &
+          APPIUM_PID=$!
+          echo "APPIUM_PID=$APPIUM_PID" >> $GITHUB_ENV
+          echo "APPIUM_LOG_PATH=$cwd" >> $GITHUB_ENV
+          echo "Appium server started with PID: $APPIUM_PID"
+
+      - name: Wait for Appium server to be ready
+        run: |
+          echo "Waiting for Appium server to be ready on port $APPIUM_TEST_SERVER_PORT..."
+          wait-on tcp:$APPIUM_TEST_SERVER_PORT && echo "✓ Appium server is running on port $APPIUM_TEST_SERVER_PORT!"
+          curl -s http://$APPIUM_TEST_SERVER_HOST:$APPIUM_TEST_SERVER_PORT/status
+
+      - name: Run Appium 3 tests
+        working-directory: appium-tests
+        env:
+          APP_PATH: ${{ github.workspace }}/build/Release-iphonesimulator/axe-devtools-ios-sample-app.app
+          IOS_VERSION: ${{ env.IOS_VERSION }}
+          DEVICE_NAME: ${{ env.DEVICE_NAME }}
+        run: npm run test:appium3
+        continue-on-error: true
+
+      - name: Display Appium logs
+        if: always()
+        run: |
+          echo "========== Appium Server Logs =========="
+          cat ${{ env.APPIUM_LOG_PATH }}/appium.log || echo "No Appium logs found"
+
+      - name: Stop Appium server
+        if: always()
+        run: |
+          if [ -n "${{ env.APPIUM_PID }}" ]; then
+            echo "Stopping Appium server (PID: ${{ env.APPIUM_PID }})"
+            kill ${{ env.APPIUM_PID }} || true
+          fi
+
+      - name: Upload test results and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-appium3-driver-${{ matrix.xcuitest-driver-version }}
+          path: |
+            appium-tests/screenshots/
+            appium-tests/appium.log
+          retention-days: 7
+
+  test-summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [test-appium-2, test-appium-3]
+    if: always()
+    steps:
+      - name: Summary
+        run: |
+          echo "## Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Build completed" >> $GITHUB_STEP_SUMMARY
+          echo "📱 Device: ${{ env.DEVICE_NAME }}" >> $GITHUB_STEP_SUMMARY
+          echo "📱 iOS Version: ${{ env.IOS_VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔧 Using @axe-devtools custom drivers" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Appium Versions Tested:" >> $GITHUB_STEP_SUMMARY
+          echo "- Appium 2.x with @axe-devtools driver versions: 3.0.0, 3.0.1, 3.1.0" >> $GITHUB_STEP_SUMMARY
+          echo "- Appium 3.x with @axe-devtools driver versions: 3.0.0, 3.0.1, 3.1.0" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Check the artifacts for detailed test results and screenshots." >> $GITHUB_STEP_SUMMARY
