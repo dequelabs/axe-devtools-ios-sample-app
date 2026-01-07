@@ -27,7 +27,7 @@ exports.config = {
         'appium:noReset': false,
         'appium:fullReset': false,
         'appium:newCommandTimeout': 240,
-        'appium:wdaLaunchTimeout': 120000
+        'appium:wdaLaunchTimeout': 180000
     }],
 
     // ===================
@@ -43,7 +43,17 @@ exports.config = {
         autoCompile: false
     },
 
-    services: [],
+    services: [
+        ['appium', {
+            command: 'appium',
+            args: {
+                relaxedSecurity: true,
+                log: './appium.log',
+                address: '127.0.0.1',
+                port: 4723
+            }
+        }]
+    ],
 
     framework: 'mocha',
     reporters: ['spec'],

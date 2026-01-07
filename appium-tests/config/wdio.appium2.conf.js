@@ -27,10 +27,7 @@ exports.config = {
         'appium:noReset': false,
         'appium:fullReset': false,
         'appium:newCommandTimeout': 240,
-        'appium:wdaLaunchTimeout': 120000,
-        'appium:derivedDataPath': path.join(__dirname, '../../DerivedData'),
-        'appium:useNewWDA': false,
-        'appium:usePrebuiltWDA': true
+        'appium:wdaLaunchTimeout': 180000
     }],
 
     // ===================
