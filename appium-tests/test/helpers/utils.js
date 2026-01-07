@@ -101,6 +101,63 @@ class Utils {
     async wait(ms = 1000) {
         await driver.pause(ms);
     }
+
+    /**
+     * Run axe accessibility scan and send results to QA dashboard
+     * @param {string} scanName - Name for the scan
+     * @param {string[]} tags - Tags for the scan
+     * @returns {Object} Scan result
+     */
+    async runAxeScan(scanName, tags = ['appium_webdriverio']) {
+        const apiKey = process.env.ADT_APIKEY || process.env.ADT_DEV_APIKEY || '';
+
+        if (!apiKey) {
+            console.warn('⚠ ADT_APIKEY not set, skipping axe scan');
+            return null;
+        }
+
+        const axeSettings = {
+            apiKey: apiKey,
+            axeServiceUrl: 'https://mobile-qa.dequelabs.com',
+            scanName: scanName,
+            tags: tags
+        };
+
+        try {
+            console.log(`🔍 Running axe scan: ${scanName}`);
+            const scanResult = await driver.executeScript('mobile: axeScan', [axeSettings]);
+
+            if (scanResult && scanResult.axeError) {
+                console.error(`❌ Axe scan failed: ${scanResult.axeError}`);
+                throw new Error(`Axe scan failed: ${scanResult.axeError}`);
+            }
+
+            console.log(`✓ Axe scan completed: ${scanName}`);
+            if (scanResult && scanResult.violations) {
+                console.log(`  - Violations found: ${scanResult.violations.length}`);
+            }
+
+            return scanResult;
+        } catch (error) {
+            console.error(`❌ Error running axe scan: ${error.message}`);
+            throw error;
+        }
+    }
+
+    /**
+     * Run axe scan for a specific screen after navigation
+     * @param {string} screenName - Name of the screen
+     * @param {string[]} tags - Additional tags
+     */
+    async scanScreen(screenName, tags = []) {
+        // Wait for screen to stabilize
+        await this.wait(1500);
+
+        const scanTags = ['appium_webdriverio', 'ios', screenName.toLowerCase(), ...tags];
+        const scanName = `${screenName} Screen Accessibility Scan`;
+
+        return await this.runAxeScan(scanName, scanTags);
+    }
 }
 
 module.exports = new Utils();

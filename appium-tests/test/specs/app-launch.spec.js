@@ -12,6 +12,9 @@ describe('App Launch Tests', () => {
         expect(appState).to.equal(4); // 4 = running in foreground
 
         console.log('✓ App launched successfully');
+
+        // Run axe scan on app launch
+        await utils.scanScreen('App Launch', ['app-start', 'initial-load']);
     });
 
     it('should display the tab bar with all tabs', async () => {
@@ -29,11 +32,17 @@ describe('App Launch Tests', () => {
         await utils.verifyElementDisplayed(catalogTab, 'Catalog Tab');
         await utils.verifyElementDisplayed(cartTab, 'Cart Tab');
         await utils.verifyElementDisplayed(profileTab, 'Profile Tab');
+
+        // Run axe scan on tab bar
+        await utils.scanScreen('Tab Bar', ['navigation', 'tab-bar']);
     });
 
     it('should display Home screen by default', async () => {
         // Verify Home header is displayed
         const homeHeader = await $(`-ios predicate string:${selectors.homeHeader}`);
         await utils.verifyElementDisplayed(homeHeader, 'Home Header');
+
+        // Run axe scan on default home screen
+        await utils.scanScreen('Home Default', ['home', 'default-screen']);
     });
 });

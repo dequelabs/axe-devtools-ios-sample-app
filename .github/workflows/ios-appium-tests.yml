@@ -31,8 +31,9 @@ env:
   APPIUM_SKIP_CHROMEDRIVER_INSTALL: 1
   APPIUM_TEST_SERVER_PORT: 4723
   APPIUM_TEST_SERVER_HOST: 127.0.0.1
-  AGORA_NPM_EMAIL: ${{ secrets.DQ_AGORA_USER }}
-  AGORA_NPM_AUTH: ${{ secrets.APPIUM_AUTH }}
+  ADT_APIKEY: ${{ secrets.AXE_APIKEY }}
+  AGORA_NPM_EMAIL: ${{ secrets.AGORA_NPM_EMAIL }}
+  AGORA_NPM_AUTH: ${{ secrets.DQ_AGORA_IDENTITY_TOKEN }}
   AGORA_REGISTRY_URL: //agora.dequecloud.com/artifactory/api/npm/axe-devtools-mobile-appium-qa/
 
 jobs:

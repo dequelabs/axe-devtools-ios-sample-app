@@ -114,6 +114,50 @@ npm run test:appium3
 npm test
 ```
 
+## Axe Accessibility Scanning
+
+The tests include automated axe accessibility scanning that sends results to the QA dashboard.
+
+### Setup for Axe Scans
+
+1. **Set API Key** (required for scans to run):
+```bash
+export ADT_APIKEY="your-api-key-here"
+# OR for dev environment
+export ADT_DEV_APIKEY="your-dev-api-key"
+```
+
+2. **Run tests** - axe scans will run automatically during tests:
+```bash
+npm test
+```
+
+### Axe Scan Features
+
+- **Automatic scanning** on every screen navigation
+- **Results sent to QA Dashboard** at `https://mobile-qa.dequelabs.com`
+- **Tagged scans** for easy filtering:
+  - Screen names (home, catalog, cart, profile)
+  - Test types (navigation, accessibility, etc.)
+  - Platform (ios, appium_webdriverio)
+
+### Viewing Scan Results
+
+1. Go to https://mobile-qa.dequelabs.com
+2. Log in with your credentials
+3. View scans filtered by:
+   - Scan name (e.g., "Home Screen Accessibility Scan")
+   - Tags (e.g., "home", "catalog", "accessibility")
+   - Date/time
+
+### Scan Coverage
+
+The tests scan accessibility for:
+- **App Launch**: Initial app state
+- **Tab Navigation**: All tab screens (Home, Catalog, Cart, Profile)
+- **Home Screen**: Main view, search bar, scrolled content, navigation bar
+- **Comprehensive Suite**: Full WCAG compliance checks on all screens
+
 ## Configuration Options
 
 You can customize test execution using environment variables:

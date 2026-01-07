@@ -16,6 +16,9 @@ describe('Home Screen Tests', () => {
         await utils.verifyElementDisplayed(homeHeader, 'Home Header');
 
         console.log('✓ Home screen elements displayed');
+
+        // Run axe scan on Home screen
+        await utils.scanScreen('Home Screen', ['home', 'main-view']);
     });
 
     it('should display search bar on Home screen', async () => {
@@ -27,6 +30,9 @@ describe('Home Screen Tests', () => {
             const isDisplayed = await searchBar.isDisplayed();
             if (isDisplayed) {
                 console.log('✓ Search bar is displayed');
+
+                // Run axe scan on search bar
+                await utils.scanScreen('Home Screen Search', ['home', 'search-bar']);
             }
         } catch (error) {
             console.log('⚠ Search bar may not be visible or accessible');
@@ -37,6 +43,9 @@ describe('Home Screen Tests', () => {
         // Perform scroll action
         await utils.swipeUp();
         await utils.wait(1000);
+
+        // Run axe scan after scrolling down
+        await utils.scanScreen('Home Screen Scrolled', ['home', 'scrolled-view']);
 
         // Scroll back up
         await utils.swipeDown();
@@ -53,5 +62,8 @@ describe('Home Screen Tests', () => {
         expect(isDisplayed).to.be.true;
 
         console.log('✓ Navigation bar is displayed');
+
+        // Run axe scan on navigation bar
+        await utils.scanScreen('Home Screen Navigation', ['home', 'navigation-bar']);
     });
 });

@@ -21,6 +21,9 @@ describe('Accessibility Tests', () => {
 
             console.log(`✓ ${tab.label} tab is accessible`);
         }
+
+        // Run axe scan on tab bar accessibility
+        await utils.scanScreen('Tab Bar Accessibility', ['accessibility', 'tab-labels']);
     });
 
     it('should verify all tabs are clickable', async () => {
@@ -41,6 +44,9 @@ describe('Accessibility Tests', () => {
         }
 
         console.log('✓ All tabs are clickable');
+
+        // Run axe scan on tab clickability
+        await utils.scanScreen('Tabs Clickable', ['accessibility', 'interactive']);
     });
 
     it('should verify screen navigation is accessible', async () => {
@@ -61,6 +67,9 @@ describe('Accessibility Tests', () => {
             await utils.takeScreenshot(`accessibility-${test.name.toLowerCase()}`);
 
             console.log(`✓ ${test.name} screen accessible and screenshot captured`);
+
+            // Run axe scan on each navigated screen
+            await utils.scanScreen(`${test.name} Navigation`, ['accessibility', test.name.toLowerCase(), 'navigation']);
         }
     });
 
@@ -77,5 +86,45 @@ describe('Accessibility Tests', () => {
         expect(size.height).to.be.at.least(44);
 
         console.log(`✓ Tab touch targets meet minimum size requirements (${size.width}x${size.height})`);
+
+        // Run axe scan on touch targets
+        await utils.scanScreen('Touch Targets', ['accessibility', 'touch-targets', 'sizing']);
+    });
+
+    it('should run comprehensive accessibility scan on all screens', async () => {
+        const screens = [
+            { tab: selectors.homeTab, name: 'Home' },
+            { tab: selectors.catalogTab, name: 'Catalog' },
+            { tab: selectors.cartTab, name: 'Cart' },
+            { tab: selectors.profileTab, name: 'Profile' }
+        ];
+
+        console.log('🔍 Running comprehensive accessibility scan on all screens...');
+
+        for (const screen of screens) {
+            // Navigate to screen
+            const tab = await $(screen.tab);
+            await utils.tapWithRetry(tab);
+            await utils.wait(1500);
+
+            console.log(`Scanning ${screen.name} screen...`);
+
+            // Run comprehensive axe scan
+            const scanResult = await utils.runAxeScan(
+                `${screen.name} Comprehensive Scan`,
+                ['comprehensive', 'full-suite', screen.name.toLowerCase(), 'wcag']
+            );
+
+            if (scanResult) {
+                console.log(`✓ ${screen.name} scan completed`);
+                if (scanResult.violations && scanResult.violations.length > 0) {
+                    console.log(`  ⚠ Found ${scanResult.violations.length} violation(s) on ${screen.name} screen`);
+                } else {
+                    console.log(`  ✓ No violations found on ${screen.name} screen`);
+                }
+            }
+        }
+
+        console.log('✓ Comprehensive accessibility scan completed for all screens');
     });
 });

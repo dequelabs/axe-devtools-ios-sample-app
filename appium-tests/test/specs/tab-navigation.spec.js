@@ -21,6 +21,9 @@ describe('Tab Navigation Tests', () => {
         await utils.verifyElementDisplayed(catalogHeader, 'Catalog Header');
 
         console.log('✓ Successfully navigated to Catalog tab');
+
+        // Run axe scan on Catalog screen
+        await utils.scanScreen('Catalog Screen', ['catalog', 'tab-navigation']);
     });
 
     it('should navigate to Cart tab', async () => {
@@ -34,6 +37,9 @@ describe('Tab Navigation Tests', () => {
         await utils.verifyElementDisplayed(cartHeader, 'Cart Header');
 
         console.log('✓ Successfully navigated to Cart tab');
+
+        // Run axe scan on Cart screen
+        await utils.scanScreen('Cart Screen', ['cart', 'tab-navigation']);
     });
 
     it('should navigate to Profile tab', async () => {
@@ -47,6 +53,9 @@ describe('Tab Navigation Tests', () => {
         await utils.verifyElementDisplayed(profileHeader, 'Profile Header');
 
         console.log('✓ Successfully navigated to Profile tab');
+
+        // Run axe scan on Profile screen
+        await utils.scanScreen('Profile Screen', ['profile', 'tab-navigation']);
     });
 
     it('should navigate between all tabs', async () => {
@@ -68,6 +77,9 @@ describe('Tab Navigation Tests', () => {
             await utils.verifyElementDisplayed(header, `${tab.name} Header`);
 
             console.log(`✓ Successfully navigated to ${tab.name} tab`);
+
+            // Run axe scan on each screen during navigation
+            await utils.scanScreen(`${tab.name} Screen`, [tab.name.toLowerCase(), 'full-navigation']);
         }
     });
 
@@ -76,6 +88,9 @@ describe('Tab Navigation Tests', () => {
         const catalogTab = await $(selectors.catalogTab);
         await utils.tapWithRetry(catalogTab);
         await utils.wait(1000);
+
+        // Run axe scan on Catalog before switching
+        await utils.scanScreen('Catalog Before Switch', ['catalog', 'state-test']);
 
         // Navigate away and back
         const homeTab = await $(selectors.homeTab);
@@ -90,5 +105,8 @@ describe('Tab Navigation Tests', () => {
         await utils.verifyElementDisplayed(catalogHeader, 'Catalog Header');
 
         console.log('✓ Tab state maintained successfully');
+
+        // Run axe scan on Catalog after switching back
+        await utils.scanScreen('Catalog After Switch', ['catalog', 'state-maintained']);
     });
 });
