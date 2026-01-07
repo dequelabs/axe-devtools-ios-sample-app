@@ -184,20 +184,6 @@ jobs:
         run: |
           xcrun simctl list devices | grep "${{ steps.prepareSimulator.outputs.udid }}"
 
-      - name: Build WebDriverAgent
-        run: |
-          echo "Building WebDriverAgent..."
-          appium driver run axexcuitest build-wda --sdk=${{ env.IOS_VERSION }} --name="${{ env.DEVICE_NAME }}"
-
-      - name: Install and launch WebDriverAgent
-        run: |
-          echo "Installing WebDriverAgent on simulator..."
-          cd ~/Library/Developer/Xcode/DerivedData/WebDriverAgent*/Build/Products/Debug-iphonesimulator
-          xcrun simctl install booted WebDriverAgentRunner-Runner.app
-
-          echo "Launching WebDriverAgent..."
-          xcrun simctl launch booted com.deque.WebDriverAgentRunner.xctrunner
-
       - name: Install dependencies
         working-directory: appium-tests
         run: npm ci
@@ -346,20 +332,6 @@ jobs:
       - name: Verify simulator is ready
         run: |
           xcrun simctl list devices | grep "${{ steps.prepareSimulator.outputs.udid }}"
-
-      - name: Build WebDriverAgent
-        run: |
-          echo "Building WebDriverAgent..."
-          appium driver run axexcuitest build-wda --sdk=${{ env.IOS_VERSION }} --name="${{ env.DEVICE_NAME }}"
-
-      - name: Install and launch WebDriverAgent
-        run: |
-          echo "Installing WebDriverAgent on simulator..."
-          cd ~/Library/Developer/Xcode/DerivedData/WebDriverAgent*/Build/Products/Debug-iphonesimulator
-          xcrun simctl install booted WebDriverAgentRunner-Runner.app
-
-          echo "Launching WebDriverAgent..."
-          xcrun simctl launch booted com.deque.WebDriverAgentRunner.xctrunner
 
       - name: Install dependencies
         working-directory: appium-tests
