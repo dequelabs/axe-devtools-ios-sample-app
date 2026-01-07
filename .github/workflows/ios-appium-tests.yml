@@ -29,8 +29,6 @@ env:
   IOS_VERSION: ${{ github.event.inputs.ios_version || '17.5' }}
   DEVICE_NAME: ${{ github.event.inputs.device_name || 'iPhone 15 Pro' }}
   APPIUM_SKIP_CHROMEDRIVER_INSTALL: 1
-  APPIUM_TEST_SERVER_PORT: 4723
-  APPIUM_TEST_SERVER_HOST: 127.0.0.1
   ADT_APIKEY: ${{ secrets.AXE_APIKEY }}
   AGORA_NPM_EMAIL: ${{ secrets.AGORA_NPM_EMAIL }}
   AGORA_NPM_AUTH: ${{ secrets.DQ_AGORA_IDENTITY_TOKEN }}
@@ -192,32 +190,6 @@ jobs:
         working-directory: appium-tests
         run: mkdir -p screenshots
 
-      - name: Install wait-on utility
-        run: npm install -g wait-on
-
-      - name: Start Appium server
-        working-directory: appium-tests
-        run: |
-          echo "Starting Appium server..."
-          cwd=$(pwd)
-          nohup appium server \
-            --port=$APPIUM_TEST_SERVER_PORT \
-            --address=$APPIUM_TEST_SERVER_HOST \
-            --relaxed-security \
-            --log-no-colors \
-            --log-timestamp \
-            2>&1 > "$cwd/appium.log" &
-          APPIUM_PID=$!
-          echo "APPIUM_PID=$APPIUM_PID" >> $GITHUB_ENV
-          echo "APPIUM_LOG_PATH=$cwd" >> $GITHUB_ENV
-          echo "Appium server started with PID: $APPIUM_PID"
-
-      - name: Wait for Appium server to be ready
-        run: |
-          echo "Waiting for Appium server to be ready on port $APPIUM_TEST_SERVER_PORT..."
-          wait-on tcp:$APPIUM_TEST_SERVER_PORT && echo "✓ Appium server is running on port $APPIUM_TEST_SERVER_PORT!"
-          curl -s http://$APPIUM_TEST_SERVER_HOST:$APPIUM_TEST_SERVER_PORT/status
-
       - name: Run Appium 2 tests
         working-directory: appium-tests
         env:
@@ -229,17 +201,10 @@ jobs:
 
       - name: Display Appium logs
         if: always()
+        working-directory: appium-tests
         run: |
           echo "========== Appium Server Logs =========="
-          cat ${{ env.APPIUM_LOG_PATH }}/appium.log || echo "No Appium logs found"
-
-      - name: Stop Appium server
-        if: always()
-        run: |
-          if [ -n "${{ env.APPIUM_PID }}" ]; then
-            echo "Stopping Appium server (PID: ${{ env.APPIUM_PID }})"
-            kill ${{ env.APPIUM_PID }} || true
-          fi
+          cat appium.log 2>/dev/null || echo "No Appium logs found"
 
       - name: Upload test results and logs
         if: always()
@@ -341,32 +306,6 @@ jobs:
         working-directory: appium-tests
         run: mkdir -p screenshots
 
-      - name: Install wait-on utility
-        run: npm install -g wait-on
-
-      - name: Start Appium server
-        working-directory: appium-tests
-        run: |
-          echo "Starting Appium server..."
-          cwd=$(pwd)
-          nohup appium server \
-            --port=$APPIUM_TEST_SERVER_PORT \
-            --address=$APPIUM_TEST_SERVER_HOST \
-            --relaxed-security \
-            --log-no-colors \
-            --log-timestamp \
-            2>&1 > "$cwd/appium.log" &
-          APPIUM_PID=$!
-          echo "APPIUM_PID=$APPIUM_PID" >> $GITHUB_ENV
-          echo "APPIUM_LOG_PATH=$cwd" >> $GITHUB_ENV
-          echo "Appium server started with PID: $APPIUM_PID"
-
-      - name: Wait for Appium server to be ready
-        run: |
-          echo "Waiting for Appium server to be ready on port $APPIUM_TEST_SERVER_PORT..."
-          wait-on tcp:$APPIUM_TEST_SERVER_PORT && echo "✓ Appium server is running on port $APPIUM_TEST_SERVER_PORT!"
-          curl -s http://$APPIUM_TEST_SERVER_HOST:$APPIUM_TEST_SERVER_PORT/status
-
       - name: Run Appium 3 tests
         working-directory: appium-tests
         env:
@@ -378,17 +317,10 @@ jobs:
 
       - name: Display Appium logs
         if: always()
+        working-directory: appium-tests
         run: |
           echo "========== Appium Server Logs =========="
-          cat ${{ env.APPIUM_LOG_PATH }}/appium.log || echo "No Appium logs found"
-
-      - name: Stop Appium server
-        if: always()
-        run: |
-          if [ -n "${{ env.APPIUM_PID }}" ]; then
-            echo "Stopping Appium server (PID: ${{ env.APPIUM_PID }})"
-            kill ${{ env.APPIUM_PID }} || true
-          fi
+          cat appium.log 2>/dev/null || echo "No Appium logs found"
 
       - name: Upload test results and logs
         if: always()
