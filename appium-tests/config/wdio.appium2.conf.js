@@ -22,7 +22,7 @@ exports.config = {
         platformName: 'iOS',
         'appium:platformVersion': process.env.IOS_VERSION || '17.5',
         'appium:deviceName': process.env.DEVICE_NAME || 'iPhone 15 Pro',
-        'appium:automationName': 'XCUITest',
+        'appium:automationName': 'AxeXCUITest',
         'appium:app': process.env.APP_PATH || path.join(__dirname, '../../build/Release-iphonesimulator/axe-devtools-ios-sample-app.app'),
         'appium:noReset': false,
         'appium:fullReset': false,
@@ -67,6 +67,6 @@ exports.config = {
     // Hooks
     // =====
     before: function (capabilities, specs) {
-        console.log('Running tests with Appium 2.x and XCUITest driver');
+        console.log('Running tests with Appium 2.x and @axe-devtools AxeXCUITest driver');
     }
 };
