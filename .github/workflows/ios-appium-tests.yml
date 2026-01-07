@@ -320,7 +320,7 @@ jobs:
           npm config set "@deque:registry" "https:${{ env.AGORA_REGISTRY_URL }}"
           npm config set "@axe-devtools:registry" "https:${{ env.AGORA_REGISTRY_URL }}"
           npm config set "${{ env.AGORA_REGISTRY_URL }}:email" "${{ env.AGORA_NPM_EMAIL }}"
-          npm config set "${{ env.AGORA_REGISTRY_URL }}:_auth" "${{ env.AGORA_NPM_AUTH }}"
+          npm config set "${{ env.AGORA_REGISTRY_URL }}:_authToken" "${{ env.AGORA_NPM_AUTH }}"
 
       - name: Install @axe-devtools XCUITest Driver
         run: |
