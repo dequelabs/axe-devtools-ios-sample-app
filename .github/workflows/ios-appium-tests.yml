@@ -162,7 +162,10 @@ jobs:
           DRIVER_VERSION="${{ github.event.inputs.appium2_driver_version || matrix.xcuitest-driver-version }}"
           echo "Installing @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION}"
           appium driver install --source=npm @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION}
+          echo "Verifying driver installation..."
           appium driver list
+          echo "Checking for AxeXCUITest driver..."
+          appium driver list | grep -i "axexcuitest" || echo "Warning: AxeXCUITest driver not found in list"
 
       - name: Prepare and boot iOS simulator
         id: prepareSimulator
@@ -278,7 +281,10 @@ jobs:
           DRIVER_VERSION="${{ github.event.inputs.appium3_driver_version || matrix.xcuitest-driver-version }}"
           echo "Installing @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION}"
           appium driver install --source=npm @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION}
+          echo "Verifying driver installation..."
           appium driver list
+          echo "Checking for AxeXCUITest driver..."
+          appium driver list | grep -i "axexcuitest" || echo "Warning: AxeXCUITest driver not found in list"
 
       - name: Prepare and boot iOS simulator
         id: prepareSimulator
