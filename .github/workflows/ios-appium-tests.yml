@@ -158,9 +158,11 @@ jobs:
           npm config set "${{ env.AGORA_REGISTRY_URL }}:_authToken" "${{ env.AGORA_NPM_AUTH }}"
 
       - name: Install @axe-devtools XCUITest Driver
+        env:
+          APPIUM_HOME: ${{ github.workspace }}/.appium
         run: |
           DRIVER_VERSION="${{ github.event.inputs.appium2_driver_version || matrix.xcuitest-driver-version }}"
-          echo "Installing @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION}"
+          echo "Installing @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION} to APPIUM_HOME=$APPIUM_HOME"
           appium driver install --source=npm @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION}
           echo "Verifying driver installation..."
           appium driver list
@@ -278,9 +280,11 @@ jobs:
           npm config set "${{ env.AGORA_REGISTRY_URL }}:_authToken" "${{ env.AGORA_NPM_AUTH }}"
 
       - name: Install @axe-devtools XCUITest Driver
+        env:
+          APPIUM_HOME: ${{ github.workspace }}/.appium
         run: |
           DRIVER_VERSION="${{ github.event.inputs.appium3_driver_version || matrix.xcuitest-driver-version }}"
-          echo "Installing @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION}"
+          echo "Installing @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION} to APPIUM_HOME=$APPIUM_HOME"
           appium driver install --source=npm @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION}
           echo "Verifying driver installation..."
           appium driver list
