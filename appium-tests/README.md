@@ -204,14 +204,10 @@ npm run test:appium3
 The project includes a GitHub Actions workflow (`.github/workflows/ios-appium-tests.yml`) that:
 
 1. **Builds the iOS app** for simulator
-2. **Tests with Appium 2.x** using @axe-devtools driver versions:
-   - 3.0.0
-   - 3.0.1
-   - 3.1.0
-3. **Tests with Appium 3.x** using @axe-devtools driver versions:
-   - 3.0.0
-   - 3.0.1
-   - 3.1.0
+2. **Tests with Appium 2.x** using @axe-devtools driver version:
+   - 2.2.0-beta.f652cff
+3. **Tests with Appium 3.x** using @axe-devtools driver version:
+   - 1.1.0-beta.f652cff
 
 ### Triggering the Workflow
 

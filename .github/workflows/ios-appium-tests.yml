@@ -18,11 +18,11 @@ on:
       appium2_driver_version:
         description: 'Appium 2 axe-devtools driver version (e.g. 2.2.0-beta.abc123)'
         required: false
-        default: '2.2.0'
+        default: '2.2.0-beta.f652cff'
       appium3_driver_version:
         description: 'Appium 3 axe-devtools driver version (e.g. 1.1.0-beta.abc123)'
         required: false
-        default: '1.1.0'
+        default: '1.1.0-beta.f652cff'
 
 env:
   XCODE_VERSION: '15.4'
@@ -108,7 +108,7 @@ jobs:
     needs: build-app
     strategy:
       matrix:
-        xcuitest-driver-version: ['2.2.0']
+        xcuitest-driver-version: ['2.2.0-beta.f652cff']
       fail-fast: false
 
     steps:
@@ -271,7 +271,7 @@ jobs:
     needs: build-app
     strategy:
       matrix:
-        xcuitest-driver-version: ['1.1.0']
+        xcuitest-driver-version: ['1.1.0-beta.f652cff']
       fail-fast: false
 
     steps:
@@ -445,7 +445,7 @@ jobs:
           echo "🔧 Using @axe-devtools custom drivers" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Appium Versions Tested:" >> $GITHUB_STEP_SUMMARY
-          echo "- Appium 2.x with @axe-devtools driver version: 2.2.0" >> $GITHUB_STEP_SUMMARY
-          echo "- Appium 3.x with @axe-devtools driver version: 1.1.0" >> $GITHUB_STEP_SUMMARY
+          echo "- Appium 2.x with @axe-devtools driver version: 2.2.0-beta.f652cff" >> $GITHUB_STEP_SUMMARY
+          echo "- Appium 3.x with @axe-devtools driver version: 1.1.0-beta.f652cff" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Check the artifacts for detailed test results and screenshots." >> $GITHUB_STEP_SUMMARY
