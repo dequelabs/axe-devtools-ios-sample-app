@@ -51,7 +51,13 @@ exports.config = {
                 log: './appium.log',
                 address: '127.0.0.1',
                 port: 4723
-            }
+            },
+            ...(process.env.APPIUM_HOME && {
+                env: {
+                    ...process.env,
+                    APPIUM_HOME: process.env.APPIUM_HOME
+                }
+            })
         }]
     ],
 
