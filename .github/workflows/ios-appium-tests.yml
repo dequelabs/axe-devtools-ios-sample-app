@@ -199,6 +199,7 @@ jobs:
           APP_PATH: ${{ github.workspace }}/build/Release-iphonesimulator/axe-devtools-ios-sample-app.app
           IOS_VERSION: ${{ env.IOS_VERSION }}
           DEVICE_NAME: ${{ env.DEVICE_NAME }}
+          APPIUM_HOME: ${{ github.workspace }}/.appium
         run: npm run test:appium2
         continue-on-error: true
 
@@ -318,6 +319,7 @@ jobs:
           APP_PATH: ${{ github.workspace }}/build/Release-iphonesimulator/axe-devtools-ios-sample-app.app
           IOS_VERSION: ${{ env.IOS_VERSION }}
           DEVICE_NAME: ${{ env.DEVICE_NAME }}
+          APPIUM_HOME: ${{ github.workspace }}/.appium
         run: npm run test:appium3
         continue-on-error: true
 
