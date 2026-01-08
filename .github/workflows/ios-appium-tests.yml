@@ -191,9 +191,11 @@ jobs:
         working-directory: appium-tests
         run: npm ci
 
-      - name: Create screenshots directory
+      - name: Create test output directories
         working-directory: appium-tests
-        run: mkdir -p screenshots
+        run: |
+          mkdir -p screenshots
+          mkdir -p test-results
 
       - name: Run Appium 2 tests
         working-directory: appium-tests
@@ -218,6 +220,7 @@ jobs:
         with:
           name: test-results-appium2-driver-${{ matrix.xcuitest-driver-version }}
           path: |
+            appium-tests/test-results/
             appium-tests/screenshots/
             appium-tests/appium.log
           retention-days: 7
@@ -313,9 +316,11 @@ jobs:
         working-directory: appium-tests
         run: npm ci
 
-      - name: Create screenshots directory
+      - name: Create test output directories
         working-directory: appium-tests
-        run: mkdir -p screenshots
+        run: |
+          mkdir -p screenshots
+          mkdir -p test-results
 
       - name: Run Appium 3 tests
         working-directory: appium-tests
@@ -340,6 +345,7 @@ jobs:
         with:
           name: test-results-appium3-driver-${{ matrix.xcuitest-driver-version }}
           path: |
+            appium-tests/test-results/
             appium-tests/screenshots/
             appium-tests/appium.log
           retention-days: 7

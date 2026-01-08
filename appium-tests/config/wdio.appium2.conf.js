@@ -62,7 +62,15 @@ exports.config = {
     ],
 
     framework: 'mocha',
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+        ['junit', {
+            outputDir: './test-results',
+            outputFileFormat: function(options) {
+                return `junit-appium2-${options.cid}.xml`
+            }
+        }]
+    ],
 
     mochaOpts: {
         ui: 'bdd',

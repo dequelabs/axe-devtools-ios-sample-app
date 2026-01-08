@@ -20,3 +20,4 @@ Thumbs.db
 allure-results/
 allure-report/
 test-results/
+junit-*.xml
