@@ -103,6 +103,30 @@ class Utils {
     }
 
     /**
+     * Get current screen orientation
+     * @returns {string} Current orientation ('PORTRAIT' or 'LANDSCAPE')
+     */
+    async getOrientation() {
+        return await driver.getOrientation();
+    }
+
+    /**
+     * Set screen orientation
+     * @param {string} orientation - Orientation to set ('PORTRAIT' or 'LANDSCAPE')
+     */
+    async setOrientation(orientation) {
+        const validOrientations = ['PORTRAIT', 'LANDSCAPE'];
+        if (!validOrientations.includes(orientation)) {
+            throw new Error(`Invalid orientation: ${orientation}. Must be PORTRAIT or LANDSCAPE`);
+        }
+
+        console.log(`📱 Rotating device to ${orientation}`);
+        await driver.setOrientation(orientation);
+        await this.wait(2000); // Wait for UI to adjust to new orientation
+        console.log(`✓ Device rotated to ${orientation}`);
+    }
+
+    /**
      * Run axe accessibility scan and send results to QA dashboard
      * @param {string} scanName - Name for the scan
      * @param {string[]} tags - Tags for the scan
@@ -157,6 +181,53 @@ class Utils {
         const scanName = `${screenName} Screen Accessibility Scan`;
 
         return await this.runAxeScan(scanName, scanTags);
+    }
+
+    /**
+     * Run axe scan across multiple screen orientations
+     * @param {string} screenName - Name of the screen
+     * @param {string[]} tags - Additional tags
+     * @param {string[]} orientations - Orientations to test (defaults to both PORTRAIT and LANDSCAPE)
+     * @returns {Object} Results for each orientation
+     */
+    async scanScreenAllOrientations(screenName, tags = [], orientations = ['PORTRAIT', 'LANDSCAPE']) {
+        console.log(`\n🔄 Starting multi-orientation scan for ${screenName}`);
+        const results = {};
+        const originalOrientation = await this.getOrientation();
+
+        for (const orientation of orientations) {
+            try {
+                console.log(`\n📱 Testing ${screenName} in ${orientation} mode`);
+
+                // Set orientation
+                await this.setOrientation(orientation);
+
+                // Wait for UI to adjust
+                await this.wait(2000);
+
+                // Run scan for this orientation
+                const orientationTags = [...tags, orientation.toLowerCase()];
+                const scanName = `${screenName} - ${orientation}`;
+                results[orientation] = await this.scanScreen(scanName, orientationTags);
+
+                console.log(`✓ ${orientation} scan completed`);
+
+            } catch (error) {
+                console.error(`❌ Error scanning ${screenName} in ${orientation}: ${error.message}`);
+                results[orientation] = { error: error.message };
+            }
+        }
+
+        // Restore original orientation
+        try {
+            await this.setOrientation(originalOrientation);
+            console.log(`\n✓ Restored original orientation: ${originalOrientation}`);
+        } catch (error) {
+            console.warn(`⚠ Could not restore original orientation: ${error.message}`);
+        }
+
+        console.log(`\n✅ Multi-orientation scan completed for ${screenName}\n`);
+        return results;
     }
 }
 

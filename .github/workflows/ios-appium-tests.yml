@@ -207,6 +207,13 @@ jobs:
         run: npm run test:appium2
         continue-on-error: true
 
+      - name: Generate Allure HTML report
+        if: always()
+        working-directory: appium-tests
+        run: |
+          echo "Generating Allure HTML report..."
+          npx allure generate ./allure-results --clean -o ./allure-report || echo "Failed to generate Allure report"
+
       - name: Display Appium logs
         if: always()
         working-directory: appium-tests
@@ -221,6 +228,7 @@ jobs:
           name: test-results-appium2-driver-${{ matrix.xcuitest-driver-version }}
           path: |
             appium-tests/test-results/
+            appium-tests/allure-report/
             appium-tests/screenshots/
             appium-tests/appium.log
           retention-days: 7
@@ -332,6 +340,13 @@ jobs:
         run: npm run test:appium3
         continue-on-error: true
 
+      - name: Generate Allure HTML report
+        if: always()
+        working-directory: appium-tests
+        run: |
+          echo "Generating Allure HTML report..."
+          npx allure generate ./allure-results --clean -o ./allure-report || echo "Failed to generate Allure report"
+
       - name: Display Appium logs
         if: always()
         working-directory: appium-tests
@@ -346,6 +361,7 @@ jobs:
           name: test-results-appium3-driver-${{ matrix.xcuitest-driver-version }}
           path: |
             appium-tests/test-results/
+            appium-tests/allure-report/
             appium-tests/screenshots/
             appium-tests/appium.log
           retention-days: 7

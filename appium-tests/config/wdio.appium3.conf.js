@@ -69,12 +69,18 @@ exports.config = {
             outputFileFormat: function(options) {
                 return `junit-appium3-${options.cid}.xml`
             }
+        }],
+        ['allure', {
+            outputDir: './allure-results',
+            disableWebdriverStepsReporting: false,
+            disableWebdriverScreenshotsReporting: false,
+            useCucumberStepReporter: false
         }]
     ],
 
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 180000  // 3 minutes for orientation testing
     },
 
     // =====
