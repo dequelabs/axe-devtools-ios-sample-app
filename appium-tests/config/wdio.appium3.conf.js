@@ -70,11 +70,14 @@ exports.config = {
                 return `junit-appium3-${options.cid}.xml`
             }
         }],
-        ['allure', {
-            outputDir: './allure-results',
-            disableWebdriverStepsReporting: false,
-            disableWebdriverScreenshotsReporting: false,
-            useCucumberStepReporter: false
+        ['mochawesome', {
+            outputDir: './html-report/',
+            outputFileFormat(options) {
+                return `appium3-test-report-${options.cid}.json`
+            },
+            reportTitle: 'iOS Appium 3 Test Report',
+            reportPageTitle: 'iOS Appium 3 Test Report',
+            useOnAfterCommandForScreenshot: true
         }]
     ],
 

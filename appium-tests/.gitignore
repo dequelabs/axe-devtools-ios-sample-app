@@ -17,7 +17,8 @@ appium.log
 Thumbs.db
 
 # Test results
-allure-results/
-allure-report/
+html-report/
+mochawesome-report/
 test-results/
 junit-*.xml
+*.json
