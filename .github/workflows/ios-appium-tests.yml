@@ -24,7 +24,7 @@ env:
   ADT_APIKEY: ${{ secrets.AXE_APIKEY }}
   AGORA_NPM_EMAIL: ${{ secrets.AGORA_NPM_EMAIL }}
   AGORA_NPM_AUTH: ${{ secrets.DQ_AGORA_IDENTITY_TOKEN }}
-  AGORA_REGISTRY_URL: //agora.dequecloud.com/artifactory/api/npm/axe-devtools-mobile-appium-qa/
+  AGORA_REGISTRY_URL: //agora.dequecloud.com/artifactory/api/npm/dequelabs/
 
 jobs:
   build-app:
