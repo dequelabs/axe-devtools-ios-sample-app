@@ -52,22 +52,22 @@ npm install -g appium@next
 3. Configure npm for @axe-devtools registry:
 
 ```bash
-npm config set "@deque:registry" "https://agora.dequecloud.com/artifactory/api/npm/axe-devtools-mobile-appium-qa/"
-npm config set "@axe-devtools:registry" "https://agora.dequecloud.com/artifactory/api/npm/axe-devtools-mobile-appium-qa/"
-npm config set "//agora.dequecloud.com/artifactory/api/npm/axe-devtools-mobile-appium-qa/:email" "your-email@example.com"
-npm config set "//agora.dequecloud.com/artifactory/api/npm/axe-devtools-mobile-appium-qa/:_authToken" "your-auth-token"
+npm config set "@deque:registry" "https://agora.dequecloud.com/artifactory/api/npm/dequelabs/"
+npm config set "@axe-devtools:registry" "https://agora.dequecloud.com/artifactory/api/npm/dequelabs/"
+npm config set "//agora.dequecloud.com/artifactory/api/npm/dequelabs/:email" "your-email@example.com"
+npm config set "//agora.dequecloud.com/artifactory/api/npm/dequelabs/:_authToken" "your-auth-token"
 ```
 
 4. Install @axe-devtools XCUITest driver:
 
 **For Appium 2.x:**
 ```bash
-appium driver install --source=npm @axe-devtools/axe-appium-xcuitest-driver@2.2.0-beta.f652cff
+appium driver install --source=npm @axe-devtools/axe-appium-xcuitest-driver@2.2.0
 ```
 
 **For Appium 3.x:**
 ```bash
-appium driver install --source=npm @axe-devtools/axe-appium3-xcuitest-driver@1.1.0-beta.f652cff
+appium driver install --source=npm @axe-devtools/axe-appium3-xcuitest-driver@1.1.0
 ```
 
 5. Verify installation:
@@ -205,9 +205,9 @@ The project includes a GitHub Actions workflow (`.github/workflows/ios-appium-te
 
 1. **Builds the iOS app** for simulator
 2. **Tests with Appium 2.x** using @axe-devtools driver version:
-   - 2.2.0-beta.f652cff
+   - 2.2.0
 3. **Tests with Appium 3.x** using @axe-devtools driver version:
-   - 1.1.0-beta.f652cff
+   - 1.1.0
 
 ### Triggering the Workflow
 
@@ -285,12 +285,12 @@ Screenshots are automatically captured for accessibility tests and saved to `./s
 ### Appium 2.x
 - Uses @axe-devtools/axe-appium-xcuitest-driver
 - Supported versions: 2.x, 3.x
-- Recommended: 2.2.0-beta.f652cff or 3.1.0 for latest features
+- Recommended: 2.2.0 
 
 ### Appium 3.x
 - Uses @axe-devtools/axe-appium3-xcuitest-driver
 - Supported versions: 1.x, 3.x
-- Recommended: 1.1.0-beta.f652cff or 3.1.0 for latest features
+- Recommended: 1.1.0
 
 ## Additional Resources
 
