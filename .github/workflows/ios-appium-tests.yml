@@ -15,14 +15,6 @@ on:
         description: 'Device Name'
         required: false
         default: 'iPhone 15 Pro'
-      appium2_driver_version:
-        description: 'Appium 2 axe-devtools driver version (e.g. 2.2.0-beta.abc123)'
-        required: false
-        default: '2.2.0-beta.f652cff'
-      appium3_driver_version:
-        description: 'Appium 3 axe-devtools driver version (e.g. 1.1.0-beta.abc123)'
-        required: false
-        default: '1.1.0-beta.f652cff'
 
 env:
   XCODE_VERSION: '15.4'
@@ -104,10 +96,6 @@ jobs:
     name: Test with Appium 2
     runs-on: macos-14
     needs: build-app
-    strategy:
-      matrix:
-        xcuitest-driver-version: ['2.2.0-beta.f652cff']
-      fail-fast: false
 
     steps:
       - name: Checkout code
@@ -161,7 +149,7 @@ jobs:
         env:
           APPIUM_HOME: ${{ github.workspace }}/.appium
         run: |
-          DRIVER_VERSION="${{ github.event.inputs.appium2_driver_version || matrix.xcuitest-driver-version }}"
+          DRIVER_VERSION="2.2.0"
           echo "Installing @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION} to APPIUM_HOME=$APPIUM_HOME"
           appium driver install --source=npm @axe-devtools/axe-appium-xcuitest-driver@${DRIVER_VERSION}
           echo "Verifying driver installation..."
@@ -218,7 +206,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-appium2-driver-${{ matrix.xcuitest-driver-version }}
+          name: test-results-appium2
           path: |
             appium-tests/test-results/
             appium-tests/html-report/
@@ -230,10 +218,6 @@ jobs:
     name: Test with Appium 3
     runs-on: macos-14
     needs: build-app
-    strategy:
-      matrix:
-        xcuitest-driver-version: ['1.1.0-beta.f652cff']
-      fail-fast: false
 
     steps:
       - name: Checkout code
@@ -287,7 +271,7 @@ jobs:
         env:
           APPIUM_HOME: ${{ github.workspace }}/.appium
         run: |
-          DRIVER_VERSION="${{ github.event.inputs.appium3_driver_version || matrix.xcuitest-driver-version }}"
+          DRIVER_VERSION="1.1.0"
           echo "Installing @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION} to APPIUM_HOME=$APPIUM_HOME"
           appium driver install --source=npm @axe-devtools/axe-appium3-xcuitest-driver@${DRIVER_VERSION}
           echo "Verifying driver installation..."
@@ -344,7 +328,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-appium3-driver-${{ matrix.xcuitest-driver-version }}
+          name: test-results-appium3
           path: |
             appium-tests/test-results/
             appium-tests/html-report/
@@ -369,7 +353,7 @@ jobs:
           echo "🔧 Using @axe-devtools custom drivers" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Appium Versions Tested:" >> $GITHUB_STEP_SUMMARY
-          echo "- Appium 2.x with @axe-devtools driver version: 2.2.0-beta.f652cff" >> $GITHUB_STEP_SUMMARY
-          echo "- Appium 3.x with @axe-devtools driver version: 1.1.0-beta.f652cff" >> $GITHUB_STEP_SUMMARY
+          echo "- Appium 2.x with @axe-devtools driver version: 2.2.0" >> $GITHUB_STEP_SUMMARY
+          echo "- Appium 3.x with @axe-devtools driver version: 1.1.0" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Check the artifacts for detailed test results and screenshots." >> $GITHUB_STEP_SUMMARY
