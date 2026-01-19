@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Test outputs
+screenshots/
+*.log
+appium.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test results
+html-report/
+mochawesome-report/
+test-results/
+junit-*.xml
+*.json
