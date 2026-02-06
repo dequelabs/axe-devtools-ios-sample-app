@@ -13,6 +13,7 @@ class MostPopularItemsHeaderView: UICollectionReusableView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = "Most popular"
+        l.accessibilityTraits = .header
         let italiana = UIFont(name: "Italiana-Regular", size: 32)
         l.font = italiana
         l.textColor = .black

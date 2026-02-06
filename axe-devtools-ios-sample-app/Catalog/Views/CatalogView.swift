@@ -26,10 +26,10 @@ class CatalogView: UIView {
 
         iv.isUserInteractionEnabled = true
         iv.isAccessibilityElement = true
-//        iv.accessibilityLabel = "Search Catalog"
+        iv.accessibilityLabel = "Search Catalog"
         iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(searchTapped)))
 
-//        iv.accessibilityTraits = .button
+        iv.accessibilityTraits = .button
 
         return iv
     }()

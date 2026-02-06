@@ -13,6 +13,7 @@ class RecommendedItemsHeaderView: UICollectionReusableView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = "Recommended"
+        l.accessibilityTraits = .header
         let italiana = UIFont(name: "Italiana-Regular", size: 32)
         l.font = italiana
         l.textColor = .black

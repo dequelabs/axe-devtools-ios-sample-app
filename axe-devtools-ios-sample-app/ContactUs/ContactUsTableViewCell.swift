@@ -79,10 +79,10 @@ final class ContactUsTableViewCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(emailTextField)
         contentView.addSubview(questionTextField)
-        contentView.addSubview(toggleLabel)
-        contentView.addSubview(emailPermissionToggle)
+//        contentView.addSubview(toggleLabel)
+//        contentView.addSubview(emailPermissionToggle)
 
-//        contentView.addSubview(labeledToggle)
+        contentView.addSubview(labeledToggle)
 
 //        contentView.addSubview(submitButton)
 
@@ -131,39 +131,39 @@ final class ContactUsTableViewCell: UITableViewCell {
             ),
 
             // Email Permission Toggle
-            toggleLabel.leadingAnchor.constraint(
-                equalTo: leadingAnchor,
-                constant: padding
-            ),
-            toggleLabel.topAnchor.constraint(
-                equalTo: questionTextField.bottomAnchor,
-                constant: padding*2
-            ),
-            emailPermissionToggle.leadingAnchor.constraint(
-                equalTo: toggleLabel.trailingAnchor,
-                constant: 50
-            ),
-            emailPermissionToggle.trailingAnchor.constraint(
-                equalTo: trailingAnchor,
-                constant: -padding
-            ),
-            emailPermissionToggle.centerYAnchor.constraint(
-                equalTo: toggleLabel.centerYAnchor
-            ),
-
-            // Labeled Toggle
-//            labeledToggle.leadingAnchor.constraint(
+//            toggleLabel.leadingAnchor.constraint(
 //                equalTo: leadingAnchor,
 //                constant: padding
 //            ),
-//            labeledToggle.topAnchor.constraint(
+//            toggleLabel.topAnchor.constraint(
 //                equalTo: questionTextField.bottomAnchor,
 //                constant: padding*2
 //            ),
-//            labeledToggle.trailingAnchor.constraint(
+//            emailPermissionToggle.leadingAnchor.constraint(
+//                equalTo: toggleLabel.trailingAnchor,
+//                constant: 50
+//            ),
+//            emailPermissionToggle.trailingAnchor.constraint(
 //                equalTo: trailingAnchor,
 //                constant: -padding
 //            ),
+//            emailPermissionToggle.centerYAnchor.constraint(
+//                equalTo: toggleLabel.centerYAnchor
+//            ),
+
+            // Labeled Toggle
+            labeledToggle.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: padding
+            ),
+            labeledToggle.topAnchor.constraint(
+                equalTo: questionTextField.bottomAnchor,
+                constant: padding*2
+            ),
+            labeledToggle.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -padding
+            ),
 
             // Submit Button
 //            submitButton.leadingAnchor.constraint(

@@ -19,6 +19,7 @@ class AccessibleSwitch: UISwitch {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+        self.isOn = true
         addTarget(self, action: #selector(onToggle), for: .valueChanged)
     }
 
