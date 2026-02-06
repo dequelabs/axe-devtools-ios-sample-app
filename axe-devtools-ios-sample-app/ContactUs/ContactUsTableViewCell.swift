@@ -30,6 +30,31 @@ final class ContactUsTableViewCell: UITableViewCell {
         return textField
     }()
 
+    // example toggle that gives permission for email contact
+    private lazy var emailPermissionToggle: UISwitch = {
+        let toggle = UISwitch()
+        toggle.translatesAutoresizingMaskIntoConstraints = false
+        toggle.isOn = true
+        toggle.accessibilityLabel = ""
+        return toggle
+    }()
+
+    private lazy var toggleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = true
+        label.text = "May we contact you via email?"
+        label.font = UIFont.gilroy()
+        label.textAlignment = .left
+        return label
+    }()
+
+    private lazy var labeledToggle: EmailToggleView = {
+        let toggle = EmailToggleView()
+        toggle.translatesAutoresizingMaskIntoConstraints = false
+        return toggle
+    }()
+
     private lazy var submitButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +79,12 @@ final class ContactUsTableViewCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(emailTextField)
         contentView.addSubview(questionTextField)
-        contentView.addSubview(submitButton)
+        contentView.addSubview(toggleLabel)
+        contentView.addSubview(emailPermissionToggle)
+
+//        contentView.addSubview(labeledToggle)
+
+//        contentView.addSubview(submitButton)
 
         let padding: CGFloat = 20
         NSLayoutConstraint.activate([
@@ -100,17 +130,52 @@ final class ContactUsTableViewCell: UITableViewCell {
                 constant: -padding
             ),
 
-            // Submit Button
-            submitButton.leadingAnchor.constraint(
+            // Email Permission Toggle
+            toggleLabel.leadingAnchor.constraint(
                 equalTo: leadingAnchor,
                 constant: padding
             ),
-            submitButton.topAnchor.constraint(
+            toggleLabel.topAnchor.constraint(
                 equalTo: questionTextField.bottomAnchor,
-                constant: padding
+                constant: padding*2
             ),
-            submitButton.widthAnchor.constraint(equalToConstant: 100),
-            submitButton.heightAnchor.constraint(equalToConstant: 50)
+            emailPermissionToggle.leadingAnchor.constraint(
+                equalTo: toggleLabel.trailingAnchor,
+                constant: 50
+            ),
+            emailPermissionToggle.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -padding
+            ),
+            emailPermissionToggle.centerYAnchor.constraint(
+                equalTo: toggleLabel.centerYAnchor
+            ),
+
+            // Labeled Toggle
+//            labeledToggle.leadingAnchor.constraint(
+//                equalTo: leadingAnchor,
+//                constant: padding
+//            ),
+//            labeledToggle.topAnchor.constraint(
+//                equalTo: questionTextField.bottomAnchor,
+//                constant: padding*2
+//            ),
+//            labeledToggle.trailingAnchor.constraint(
+//                equalTo: trailingAnchor,
+//                constant: -padding
+//            ),
+
+            // Submit Button
+//            submitButton.leadingAnchor.constraint(
+//                equalTo: leadingAnchor,
+//                constant: padding
+//            ),
+//            submitButton.topAnchor.constraint(
+//                equalTo: emailPermissionToggle.bottomAnchor,
+//                constant: padding
+//            ),
+//            submitButton.widthAnchor.constraint(equalToConstant: 100),
+//            submitButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 

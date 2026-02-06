@@ -16,6 +16,8 @@ class AllCollectionsView: UIView {
         let l = UILabel()
         let italiana = UIFont(name: "Italiana-Regular", size: 32)
         l.font = italiana
+        // add header to traits
+//        l.accessibilityTraits = .header
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
         return l

@@ -22,8 +22,15 @@ class CatalogView: UIView {
     lazy var searchImageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "Search")
-        iv.image = image
+        iv.image = UIImage(named: "Search")
+
+        iv.isUserInteractionEnabled = true
+        iv.isAccessibilityElement = true
+//        iv.accessibilityLabel = "Search Catalog"
+        iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(searchTapped)))
+
+//        iv.accessibilityTraits = .button
+
         return iv
     }()
 
@@ -104,5 +111,10 @@ class CatalogView: UIView {
             allItemTypesView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             allItemTypesView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+    }
+
+    @objc
+    private func searchTapped() {
+        print("tapped")
     }
 }

@@ -79,16 +79,43 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     private func buildCell() {
         imageView.addSubview(favoriteButton)
+
         containingView.addSubview(itemLabel)
-        self.addSubview(imageView)
         containingView.addSubview(priceLabel)
-        self.addSubview(addToBagButton)
+
+        self.addSubview(imageView)
         self.addSubview(containingView)
+        self.addSubview(addToBagButton)
+
+        configureForAccessibiliity()
 
         configureElements()
         updateConstraints()
-        configureActions()
     }
+
+    func configureForAccessibiliity() {
+        self.isAccessibilityElement = true
+        self.accessibilityLabel = buildAccessibilityLabel()
+        self.accessibilityTraits = .button
+        self.accessibilityCustomActions = buildCustomActions()
+    }
+
+    private func buildAccessibilityLabel() -> String {
+        var labelComponents: [String] = []
+        labelComponents.append(viewModel?.itemName ?? "")
+        labelComponents.append(viewModel?.itemPrice ?? "")
+        return labelComponents.joined(separator: ". ")
+    }
+
+    private func buildCustomActions() -> [UIAccessibilityCustomAction] {
+        let favoriteActionName = UIAccessibilityCustomAction(
+            name: "Toggle Favorite",
+            target: self,
+            selector: #selector(toggleFavorite))
+
+        return [favoriteActionName]
+    }
+
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -161,10 +188,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
         ])
     }
 
-    private func configureActions() {
-        favoriteButton.addTarget(self, action: #selector(toggleFavorite), for: .touchUpInside)
-        addToBagButton.addTarget(self, action: #selector(toggleItemInBag), for: .touchUpInside)
-    }
+//    private func configureActions() {
+//        favoriteButton.addTarget(self, action: #selector(toggleFavorite), for: .touchUpInside)
+//        addToBagButton.addTarget(self, action: #selector(toggleItemInBag), for: .touchUpInside)
+//    }
 
     @objc func toggleFavorite(sender: UIButton) {
         guard let viewModel = self.viewModel else { return }
