@@ -15,6 +15,9 @@ class SearchBarView: UIView {
         iv.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: "chic boutique")
         iv.contentMode = .scaleAspectFit
+        iv.isAccessibilityElement = true
+        iv.accessibilityLabel = "Chic Boutique"
+        iv.accessibilityTraits = .staticText
         iv.image = image
         return iv
     }()
