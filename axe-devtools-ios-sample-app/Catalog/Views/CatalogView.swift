@@ -115,6 +115,7 @@ class CatalogView: UIView {
 
     @objc
     private func searchTapped() {
+        UIAccessibility.post(notification: .announcement, argument: "Search button tapped")
         print("tapped")
     }
 }

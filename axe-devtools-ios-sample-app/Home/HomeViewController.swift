@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(searchBarView)
-        contentView.addSubview(homeScreenImageView)
+//        contentView.addSubview(homeScreenImageView)
         contentView.addSubview(mostPopularItemsView)
         contentView.addSubview(collectionsView)
         contentView.addSubview(recommendedItemsView)
@@ -105,18 +105,18 @@ class HomeViewController: UIViewController {
             searchBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        NSLayoutConstraint.activate([
-            homeScreenImageView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 16),
-            homeScreenImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            homeScreenImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            homeScreenImageView.heightAnchor.constraint(equalToConstant: 327)
-        ])
+//        NSLayoutConstraint.activate([
+//            homeScreenImageView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 16),
+//            homeScreenImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            homeScreenImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            homeScreenImageView.heightAnchor.constraint(equalToConstant: 327)
+//        ])
 
         NSLayoutConstraint.activate([
-            mostPopularItemsView.topAnchor.constraint(equalTo: homeScreenImageView.bottomAnchor, constant: 32),
+            mostPopularItemsView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor, constant: 32),
             mostPopularItemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mostPopularItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mostPopularItemsView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor, multiplier: 0.2),
+            mostPopularItemsView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor, multiplier: 0.25),
         ])
 
         NSLayoutConstraint.activate([
@@ -129,7 +129,7 @@ class HomeViewController: UIViewController {
             recommendedItemsView.topAnchor.constraint(greaterThanOrEqualTo: collectionsView.bottomAnchor, constant: 24),
             recommendedItemsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             recommendedItemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            recommendedItemsView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor, multiplier: 0.20),
+            recommendedItemsView.heightAnchor.constraint(greaterThanOrEqualTo: contentView.heightAnchor, multiplier: 0.25),
             recommendedItemsView.widthAnchor.constraint(equalTo: view.widthAnchor),
             recommendedItemsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
