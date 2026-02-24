@@ -1,14 +1,8 @@
 //
-//  NamedTextField 2.swift
+//  LabeledToggle.swift
 //  axe-devtools-ios-sample-app
 //
 //  Created by Nitya Baddam on 2/5/26.
-//
-
-
-//
-//  NamedTextField.swift
-//  axe-devtools-ios-sample-app
 //
 
 import UIKit

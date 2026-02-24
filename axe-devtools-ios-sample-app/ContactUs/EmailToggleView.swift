@@ -1,16 +1,8 @@
 //
-//  LightsToggleView.swift
+//  EmailToggleView.swift
 //  axe-devtools-ios-sample-app
 //
 //  Created by Nitya Baddam on 2/5/26.
-//
-
-
-//
-//  AccessibleSwitchComponent.swift
-//  axe DevTools iOS Demo
-//
-//  Created by Kate Owens on 4/28/21.
 //
 
 import UIKit
