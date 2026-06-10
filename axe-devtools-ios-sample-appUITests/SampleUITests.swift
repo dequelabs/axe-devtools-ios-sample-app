@@ -10,7 +10,7 @@ import axeDevToolsXCUI
 import XCTest
 
 /*
- Full Getting Started guide is available here: https://docs.deque.com/devtools-mobile-analyzer/2023.8.16/en/ios-setup
+ Full Getting Started guide is available here: https://docs.deque.com/devtools-mobile/2025.7.2/en/ios-setup
 
  Quick Start Guide
 
