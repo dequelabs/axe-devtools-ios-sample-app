@@ -10,7 +10,7 @@ import axeDevToolsXCUI
 import XCTest
 
 /*
- Full Getting Started guide is available here: https://docs.deque.com/devtools-mobile/2025.7.2/en/ios-setup
+ Full Getting Started guide is available here: https://docs.deque.com/devtools-mobile/ios-setup
 
  Quick Start Guide
 
@@ -52,7 +52,7 @@ class SampleUITests: XCTestCase {
 
         // Run a scan on the first page of the sample app
         // For more information about running an accessibility scan visit:
-        // https://docs.deque.com/devtools-mobile/2023.8.16/en/xcui#capture-a-scan
+        // https://docs.deque.com/devtools-mobile/xcui-setup#automated-testing
         guard let result = try axe?.run(onElement: app) else {
             XCTFail("\n\n🦮 axe DevTools didn't run - Did you add your API key in Login.swift?\n\n")
             return
@@ -60,7 +60,7 @@ class SampleUITests: XCTestCase {
 
         // Post scan results to the mobile dashboard
         // For more information on this feature please visit:
-        // https://docs.deque.com/devtools-mobile/2023.8.16/en/xcui#send-results-to-the-dashboard
+        // https://docs.deque.com/devtools-mobile/ios-upload
         try axe?.postResult(result)
 
         let tabBar = XCUIApplication().tabBars["Tab Bar"]
@@ -74,7 +74,7 @@ class SampleUITests: XCTestCase {
 
         // Add a custom scan name when posting result. By default, the screen title is the scan name.
         // For more information on renaming a scan, check out:
-        // https://docs.deque.com/devtools-mobile/2023.8.16/en/ios-scan-name
+        // https://docs.deque.com/devtools-mobile/ios-scan-name
         let newScanName = "Catalog Tab"
 
         try axe?.postResult(result, withScanName: newScanName)
@@ -87,7 +87,7 @@ class SampleUITests: XCTestCase {
 
         // Add tags to your scan to easily share with your coworkers when it's pushed to the dashboard.
         // For more infromation on tagging a scan please see:
-        // https://docs.deque.com/devtools-mobile/2023.8.16/en/ios-tag-result
+        // https://docs.deque.com/devtools-mobile/ios-tag-result
         let tags = ["Cart Tab, iPhone 15 Pro"]
 
         try axe?.postResult(result, withTags: tags)
@@ -102,7 +102,7 @@ class SampleUITests: XCTestCase {
 
     // This test runs an accessibility scan on the first page of the sample application and saves the scan results locally. By default, the results will be saved to a folder called 'AxeDevToolsResults' within your local User folder
     // For more information on saving results locally, please visit:
-    // https://docs.deque.com/devtools-mobile/2023.8.16/en/ios-save-result
+    // https://docs.deque.com/devtools-mobile/ios-save-result
     func testAccessibilityAndSaveResultsLocally() throws {
         var lastResult: AxeResult?
         guard let result = try axe?.run(onElement: app) else {
