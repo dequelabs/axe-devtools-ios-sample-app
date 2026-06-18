@@ -10,6 +10,19 @@ A sample application built solely to showcase axe DevTools Mobile implementation
 
 ------
 
+## Two ways to test
+
+This sample demonstrates both ways to run accessibility scans with axe DevTools Mobile. Each lives in its own folder under `axe-devtools-ios-sample-appUITests/` so you can find the pattern you need at a glance.
+
+| Approach | What it does | Where to look | Credentials |
+| --- | --- | --- | --- |
+| **Targeted scanning** | You choose exactly which screens to scan with `axe.run(onElement:)`, then report via an HTML report and/or upload to the dashboard. | [`TargetedScan/TargetedScanUITests.swift`](axe-devtools-ios-sample-appUITests/TargetedScan/TargetedScanUITests.swift) | `Login.swift` |
+| **AutoScan** | Zero-code: your test just drives the app (no imports, no scan calls). The framework automatically captures, de-duplicates, and scans each unique screen, then writes one HTML report. | [`AutoScan/AutoScanUITests.swift`](axe-devtools-ios-sample-appUITests/AutoScan/AutoScanUITests.swift) | [`axe_config.json`](axe-devtools-ios-sample-appUITests/axe_config.json) |
+
+Both approaches produce a self-contained **HTML report** locally. With targeted scanning you call `generateHtmlReportAndSummary()` yourself; with AutoScan it happens automatically when the test bundle finishes — controlled entirely by `axe_config.json`. AutoScan ships **disabled** (`"axeAutoScanMode": false`); set it to `true` and add your credentials in that file to try it.
+
+------
+
 ## Get Started:
 
 > Prerequisites:
@@ -18,9 +31,9 @@ A sample application built solely to showcase axe DevTools Mobile implementation
 
 This project uses Swift Package Manager to pull in the frameworks from [axe-devtools-ios](https://github.com/dequelabs/axe-devtools-ios/).
 
-1. Add your Deque API Key and your axe Developer Hub Project Id to `Login.swift`.
+1. Add your Deque API Key and your axe Developer Hub Project Id to `Login.swift` (for the targeted-scanning tests) and to `axe-devtools-ios-sample-appUITests/axe_config.json` (for the AutoScan tests).
 
-2. Once you have a device or simulator ready to go, open `SampleUITests.swift`, and tap on the diamond to run this suite. The simulator will launch, and the tests will run.
+2. Once you have a device or simulator ready to go, open either `TargetedScan/TargetedScanUITests.swift` or `AutoScan/AutoScanUITests.swift`, and tap on the diamond to run the suite. The simulator will launch, and the tests will run.
 
 <img src="doc_img/UITests.png" alt="Shows the click area for running the UI test."/>
 
