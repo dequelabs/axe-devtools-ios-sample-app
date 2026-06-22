@@ -30,13 +30,24 @@ final class AutoScanUITests: XCTestCase {
         app.launch()
     }
 
-    /// A plain user journey across the app. There is no accessibility code here —
-    /// AutoScan captures and scans each screen automatically as these gestures run.
+    /// A plain user journey across the app, recorded with Xcode's UI test recorder
+    /// and then tidied up. There is no accessibility code here — AutoScan captures
+    /// and scans each screen automatically as these gestures run.
     func testUserJourney() throws {
-        for tab in XCUIApplication.sampleTabs {
-            app.goToTab(tab)
-            app.swipeUp()
-            app.swipeDown()
-        }
+        // Home — scroll through the featured content.
+        app.collectionViews.containing(.other, identifier: "Vertical scroll bar, 4 pages").firstMatch.swipeUp()
+        app.otherElements.matching(identifier: "Horizontal scroll bar, 1 page").element(boundBy: 0).swipeUp()
+
+        // Catalog — browse the categories.
+        app.images["Category"].firstMatch.tap()
+        app.scrollViews.firstMatch.swipeUp()
+
+        // Cart — add an item.
+        app.images["Bag"].firstMatch.tap()
+        app.buttons.matching(identifier: "+").element(boundBy: 1).tap()
+
+        // Profile — open and scroll to the help section.
+        app.images["Menu"].firstMatch.tap()
+        app.cells.containing(.image, identifier: "Info Square").firstMatch.swipeUp()
     }
 }

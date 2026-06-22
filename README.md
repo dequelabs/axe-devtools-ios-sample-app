@@ -43,8 +43,8 @@ _Note: This project requires a device on iOS 16.0 or later. Additionally, Virtua
 
 To run a test with this project, or to setup your own project, follow our online guide to get started with [XCUITesting on SauceLabs.](https://docs.deque.com/devtools-mobile/ios-example-sauce-labs-xcui)
 
-Assuming you have already downloaded the sample project to your computer:
-1. Add your Deque API Key and your axe Developer Hub Project Id to `Login.swift`.
+These steps run the **targeted-scanning** tests. Assuming you have already downloaded the sample project to your computer:
+1. Add your Deque API Key and your axe Developer Hub Project Id to `Login.swift`. (To exercise the AutoScan path instead, also enable it in `axe-devtools-ios-sample-appUITests/axe_config.json` as described above.)
 2. Open a Terminal window, enter `cd `, then drag and drop the `axe-devtools-ios-sample-app` from Finder into the Terminal window. Hit return/enter.
 
 To run on **Real Devices**, type `sh prepareForSauceRealDevice.sh` in the same window. Hit return/enter.

@@ -28,7 +28,9 @@ final class TargetedScanUITests: XCTestCase {
         // Add your API key and project ID to Login.swift first:
         //   • API key:    https://axe.deque.com/settings
         //   • Project ID: https://axe.deque.com/axe-watcher/projects
-        axe = try AxeDevTools.startScanSession(apiKey: Login.APIKey, projectId: Login.projectId)
+        // `try?` so a missing/invalid key leaves `axe` nil and each test fails with the
+        // friendly guidance below, rather than aborting setUp with an opaque error.
+        axe = try? AxeDevTools.startScanSession(apiKey: Login.APIKey, projectId: Login.projectId)
 
         // Experimental rules are still in development; ignore them so they don't run.
         axe?.configuration.ignoreExperimental()
@@ -55,9 +57,9 @@ final class TargetedScanUITests: XCTestCase {
         print("📄 HTML report: \(report.htmlReportPath)")
     }
 
-    /// Scans each tab and uploads the result to the dashboard, showing the common
-    /// reporting options: a custom scan name and tags.
-    func testScanAllTabsAndUploadToDashboard() throws {
+    /// Scans a couple of screens and uploads each result to the dashboard, showing the
+    /// common reporting options: a custom scan name and tags.
+    func testScanAndUploadToDashboard() throws {
         let axe = try XCTUnwrap(axe, "axe DevTools didn't start — did you add your API key to Login.swift?")
 
         app.goToTab("Home")
@@ -72,6 +74,7 @@ final class TargetedScanUITests: XCTestCase {
     func testHomeScreenHasNoCriticalIssues() throws {
         let axe = try XCTUnwrap(axe, "axe DevTools didn't start — did you add your API key to Login.swift?")
 
+        app.goToTab("Home")
         let result = try axe.run(onElement: app)
         let criticalCount = result.failures.filter { $0.impact == .CRITICAL }.count
         XCTAssertEqual(criticalCount, 0, "Found \(criticalCount) critical accessibility issue(s) on the Home screen.")

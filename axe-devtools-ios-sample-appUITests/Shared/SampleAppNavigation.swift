@@ -18,8 +18,10 @@ extension XCUIApplication {
     /// The titles of every tab in the sample app, in display order.
     static let sampleTabs = ["Home", "Catalog", "Cart", "Profile"]
 
-    /// Taps the tab with the given title and waits briefly for it to settle.
+    /// Waits for the tab with the given title to appear, then taps it.
     func goToTab(_ title: String) {
-        sampleTabBar.buttons[title].tap()
+        let button = sampleTabBar.buttons[title]
+        XCTAssertTrue(button.waitForExistence(timeout: 5), "Tab '\(title)' did not appear.")
+        button.tap()
     }
 }
