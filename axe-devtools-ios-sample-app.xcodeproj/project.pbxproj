@@ -19,9 +19,8 @@
 		9E38FE312E3121D0000DAC24 /* ContactUsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE302E3121C8000DAC24 /* ContactUsTableViewCell.swift */; };
 		9E38FE332E312271000DAC24 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE322E31226E000DAC24 /* Route.swift */; };
 		9E38FE372E316A08000DAC24 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E38FE362E3169FA000DAC24 /* UIFont+Extensions.swift */; };
+		9E4CF06A2FF42E2E0081BD7F /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9E4CF0692FF42E2E0081BD7F /* axeDevToolsXCUI */; };
 		9E76EC5A2E3004D20023917A /* ContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E76EC592E3004BC0023917A /* ContactUsTableViewController.swift */; };
-		BAAF88612D8A174200626E9A /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = BAAF88602D8A174200626E9A /* axeDevToolsXCUI */; };
-		BAAF88632D8A174600626E9A /* axeDevToolsXCUI in Frameworks */ = {isa = PBXBuildFile; productRef = BAAF88622D8A174600626E9A /* axeDevToolsXCUI */; };
 		F3799A7327E4D0C5009CFC2E /* ItemCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */; };
 		F3799A7527E4D0DC009CFC2E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */; };
 		F3799A7727E4D7ED009CFC2E /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */; };
@@ -139,7 +138,7 @@
 		9E76EC592E3004BC0023917A /* ContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewController.swift; sourceTree = "<group>"; };
 		B17D6D36DF84C738F14736B7 /* SampleAppNavigation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SampleAppNavigation.swift; sourceTree = "<group>"; };
 		C23D938F193549E1C9DE7418 /* AutoScanUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoScanUITests.swift; sourceTree = "<group>"; };
-		E91A725F8F38EF78E0303331 /* axe_config.json */ = {isa = PBXFileReference; includeInIndex = 1; path = axe_config.json; sourceTree = "<group>"; };
+		E91A725F8F38EF78E0303331 /* axe_config.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = axe_config.json; sourceTree = "<group>"; };
 		F3799A7227E4D0C5009CFC2E /* ItemCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionView.swift; sourceTree = "<group>"; };
 		F3799A7427E4D0DC009CFC2E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3799A7627E4D7ED009CFC2E /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
@@ -223,7 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAAF88612D8A174200626E9A /* axeDevToolsXCUI in Frameworks */,
+				9E4CF06A2FF42E2E0081BD7F /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +237,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAAF88632D8A174600626E9A /* axeDevToolsXCUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +248,6 @@
 			children = (
 				C23D938F193549E1C9DE7418 /* AutoScanUITests.swift */,
 			);
-			name = AutoScan;
 			path = AutoScan;
 			sourceTree = "<group>";
 		};
@@ -267,7 +264,6 @@
 			children = (
 				5930CB6C34FD68A1DF754BBE /* TargetedScanUITests.swift */,
 			);
-			name = TargetedScan;
 			path = TargetedScan;
 			sourceTree = "<group>";
 		};
@@ -311,7 +307,6 @@
 			children = (
 				B17D6D36DF84C738F14736B7 /* SampleAppNavigation.swift */,
 			);
-			name = Shared;
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -625,7 +620,7 @@
 			);
 			name = RegressionUITests;
 			packageProductDependencies = (
-				BAAF88602D8A174200626E9A /* axeDevToolsXCUI */,
+				9E4CF0692FF42E2E0081BD7F /* axeDevToolsXCUI */,
 			);
 			productName = RegressionUITests;
 			productReference = 6A3B4C962A5D8EC20078BB09 /* RegressionUITests.xctest */;
@@ -663,7 +658,6 @@
 			);
 			name = "axe-devtools-ios-sample-appUITests";
 			packageProductDependencies = (
-				BAAF88622D8A174600626E9A /* axeDevToolsXCUI */,
 			);
 			productName = "axe-devtools-ios-sample-appUITests";
 			productReference = F3F31DAB27DFD32500D87988 /* axe-devtools-ios-sample-appUITests.xctest */;
@@ -702,7 +696,7 @@
 			);
 			mainGroup = F3F31D8227DFD32500D87988;
 			packageReferences = (
-				F35BD8EF2D63C6B5003655F0 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */,
+				9E4CF0682FF42E2E0081BD7F /* XCRemoteSwiftPackageReference "axe-devtools-ios" */,
 			);
 			productRefGroup = F3F31D8C27DFD32500D87988 /* Products */;
 			projectDirPath = "";
@@ -1180,25 +1174,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F35BD8EF2D63C6B5003655F0 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */ = {
+		9E4CF0682FF42E2E0081BD7F /* XCRemoteSwiftPackageReference "axe-devtools-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dequelabs/axe-devtools-ios";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BAAF88602D8A174200626E9A /* axeDevToolsXCUI */ = {
+		9E4CF0692FF42E2E0081BD7F /* axeDevToolsXCUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F35BD8EF2D63C6B5003655F0 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
-			productName = axeDevToolsXCUI;
-		};
-		BAAF88622D8A174600626E9A /* axeDevToolsXCUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F35BD8EF2D63C6B5003655F0 /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
+			package = 9E4CF0682FF42E2E0081BD7F /* XCRemoteSwiftPackageReference "axe-devtools-ios" */;
 			productName = axeDevToolsXCUI;
 		};
 /* End XCSwiftPackageProductDependency section */
