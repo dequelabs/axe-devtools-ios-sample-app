@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dequelabs/axe-devtools-ios",
       "state" : {
-        "branch" : "main",
-        "revision" : "474fcacb158ccc6e4ae1f175649e8f30d535e9d2"
+        "revision" : "c5eb6a87fdb0991364fc7d64025128ba807cc608",
+        "version" : "4.0.1"
       }
     }
   ],
