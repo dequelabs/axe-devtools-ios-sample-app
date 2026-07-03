@@ -65,29 +65,16 @@ class ItemTypeView: UIView {
         super.updateConstraints()
 
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: 90),
-            self.widthAnchor.constraint(equalToConstant: 327)
-        ])
-
-        NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 19),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 32),
-            nameLabel.heightAnchor.constraint(equalToConstant: 24)
+            nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 24)
         ])
 
         NSLayoutConstraint.activate([
-            subtitleLabel.heightAnchor.constraint(equalToConstant: 16),
+            subtitleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 16),
             subtitleLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
             subtitleLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             subtitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -19)
-        ])
-
-        NSLayoutConstraint.activate([
-            itemImage.topAnchor.constraint(equalTo: self.topAnchor, constant: -8),
-            itemImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -34),
-            itemImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            itemImage.heightAnchor.constraint(equalToConstant: 100),
-            itemImage.widthAnchor.constraint(equalToConstant: 90)
         ])
 
         if viewModel.typeName == "Accessories" {
@@ -100,17 +87,23 @@ class ItemTypeView: UIView {
             let accessoriesImagesConstraints = [
                 itemImage.topAnchor.constraint(equalTo: self.topAnchor, constant: -8),
                 itemImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                itemImage.heightAnchor.constraint(equalToConstant: 100),
                 itemImage.widthAnchor.constraint(equalToConstant: 90),
                 imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: -8),
                 imageView.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant: 4),
                 imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -6),
                 imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                imageView.heightAnchor.constraint(equalToConstant: 78),
                 imageView.widthAnchor.constraint(equalToConstant: 16)
             ]
 
             NSLayoutConstraint.activate(accessoriesImagesConstraints)
+        } else {
+            NSLayoutConstraint.activate([
+                itemImage.topAnchor.constraint(equalTo: self.topAnchor, constant: -8),
+                itemImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -34),
+                itemImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                itemImage.heightAnchor.constraint(equalToConstant: 100),
+                itemImage.widthAnchor.constraint(equalToConstant: 90)
+            ])
         }
     }
 }
