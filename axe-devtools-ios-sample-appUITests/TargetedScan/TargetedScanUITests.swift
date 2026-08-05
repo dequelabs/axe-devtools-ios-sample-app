@@ -59,7 +59,7 @@ final class TargetedScanUITests: XCTestCase {
 
     /// Scans a couple of screens and uploads each result to DevHub, showing the
     /// common reporting options: a custom scan name and tags.
-    func testScanAndUploadToDashboard() throws {
+    func testScanAndUploadToDevHub() throws {
         let axe = try XCTUnwrap(axe, "axe DevTools didn't start — did you add your API key to Login.swift?")
 
         app.goToTab("Home")
