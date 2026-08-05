@@ -1179,7 +1179,7 @@
 			repositoryURL = "https://github.com/dequelabs/axe-devtools-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.1;
+				minimumVersion = 4.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
