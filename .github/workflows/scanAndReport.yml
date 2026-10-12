@@ -40,6 +40,7 @@ jobs:
           echo "import Foundation
           struct Login {
             static let APIKey = \"${dequeApiKey}\"
+            static let projectId = \"\"
           }" > "axe-devtools-ios-sample-app/Login.swift"
 
       - name: Test
