@@ -10,16 +10,16 @@ on:
       ios_version:
         description: 'iOS Version'
         required: false
-        default: '17.5'
+        default: '18.5'
       device_name:
         description: 'Device Name'
         required: false
-        default: 'iPhone 15 Pro'
+        default: 'iPhone 16 Pro'
 
 env:
-  XCODE_VERSION: '15.4'
-  IOS_VERSION: ${{ github.event.inputs.ios_version || '17.5' }}
-  DEVICE_NAME: ${{ github.event.inputs.device_name || 'iPhone 15 Pro' }}
+  XCODE_VERSION: '16.4'
+  IOS_VERSION: ${{ github.event.inputs.ios_version || '18.5' }}
+  DEVICE_NAME: ${{ github.event.inputs.device_name || 'iPhone 16 Pro' }}
   APPIUM_SKIP_CHROMEDRIVER_INSTALL: 1
   ADT_APIKEY: ${{ secrets.AXE_APIKEY }}
   AGORA_NPM_EMAIL: ${{ secrets.AGORA_NPM_EMAIL }}
@@ -29,7 +29,7 @@ env:
 jobs:
   build-app:
     name: Build iOS App
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -94,7 +94,7 @@ jobs:
 
   test-appium-2:
     name: Test with Appium 2
-    runs-on: macos-14
+    runs-on: macos-15
     needs: build-app
 
     steps:
@@ -216,7 +216,7 @@ jobs:
 
   test-appium-3:
     name: Test with Appium 3
-    runs-on: macos-14
+    runs-on: macos-15
     needs: build-app
 
     steps:
