@@ -58,7 +58,7 @@ final class TargetedScanUITests: XCTestCase {
     }
 
     /// Scans a couple of screens and uploads each result to DevHub, showing the
-    /// common reporting options: a custom scan name and tags.
+    /// common reporting option: a custom scan name.
     func testScanAndUploadToDevHub() throws {
         let axe = try XCTUnwrap(axe, "axe DevTools didn't start — did you add your API key to Login.swift?")
 
@@ -66,8 +66,7 @@ final class TargetedScanUITests: XCTestCase {
         try axe.postResult(try axe.run(onElement: app), withScanName: "Home Tab")
 
         app.goToTab("Catalog")
-        // Tags make a scan easy to find and share on DevHub.
-        try axe.postResult(try axe.run(onElement: app), withTags: ["smoke", "catalog"], withScanName: "Catalog Tab")
+        try axe.postResult(try axe.run(onElement: app), withScanName: "Catalog Tab")
     }
 
     /// Demonstrates gating a build on accessibility: fail if any CRITICAL issues are found.
