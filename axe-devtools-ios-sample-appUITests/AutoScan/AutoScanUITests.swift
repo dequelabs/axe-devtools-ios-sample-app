@@ -39,15 +39,15 @@ final class AutoScanUITests: XCTestCase {
         app.otherElements.matching(identifier: "Horizontal scroll bar, 1 page").element(boundBy: 0).swipeUp()
 
         // Catalog — browse the categories.
-        app.images["Category"].firstMatch.tap()
+        app.goToTab("Catalog")
         app.scrollViews.firstMatch.swipeUp()
 
         // Cart — add an item.
-        app.images["Bag"].firstMatch.tap()
+        app.goToTab("Cart")
         app.buttons.matching(identifier: "+").element(boundBy: 1).tap()
 
         // Profile — open and scroll to the help section.
-        app.images["Menu"].firstMatch.tap()
+        app.goToTab("Profile")
         app.cells.containing(.image, identifier: "Info Square").firstMatch.swipeUp()
     }
 }
