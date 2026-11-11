@@ -63,7 +63,7 @@ class RegressionUITests: XCTestCase {
         // KNOWN ISSUE: this app uses fixed font sizes throughout, so every screen
         // fails SupportsDynamicType. We allow it here so the check still catches
         // anything new -- in your own app you'd fix the fonts instead of allowing it.
-        let knownIssues = [AxeRuleId.SupportsDynamicType.toString()]
+        let knownIssues = [AxeRuleId.supportsDynamicType.toString()]
 
         let critical = result.failures.filter { $0.impact == .CRITICAL }
         let unexpected = critical.filter { !knownIssues.contains($0.ruleId) }
